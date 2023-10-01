@@ -1,39 +1,20 @@
-1.  Trade Balances:
-   - What is the trade balance (exports minus imports) for a specific country over a particular time period?
-   - How has the trade balance of a country changed over the years, and what factors may have contributed to these changes?
+1. Trade balance
+
+- What is the trade balance (exports minus imports) for a specific country over a particular 1me period?
+- Is there a significant correlation between Net Lending/Borrowing and Capital Accounts across countries for the years 2015-2020?
 
 2. Current Account Analysis:
-   - What is the current account balance, and what components contribute to it (e.g., trade balance, income, transfers)?
-   - Is a country running a current account surplus or deficit, and what are the implications of this?
 
-3.  Foreign Direct Investment (FDI):
-   - How much foreign direct investment has a specific country received or made in other countries?
-   - What are the major sources and destinations of FDI for a particular country?
+- What is the current account balance and what components contribute to it (e.g., trade balance, income, transfers)?
+- Is a country running a current account surplus or deficit? Also what are the implications of this?
 
-4.  Capital Flows:
-   - How much capital has flowed into or out of a country? Is it in the form of portfolio investment or other types of investments?
-   - What factors influence capital inflows and outflows?
+3. Economic Indicators :
 
-5.   Exchange Rates:
-   - How have exchange rates between a specific country's currency and major international currencies (e.g., USD, EUR) fluctuated over time?
-   - Are there any notable events or trends affecting exchange rates?
+- Are there relationships between balance of payments indicators (e.g., trade balance, FDI) and other economic indicators like GDP growth, inflation, or employment rates?
 
-6.  Balance of Payments Sustainability:
-   - Is a country's balance of payments sustainable in the long term? Are there concerns about deficits or excessive surpluses?
+4. Compara2ve Analysis:
 
-7.  Comparative Analysis:
-   - How does the balance of payments of one country compare to that of other countries in the same region or with similar economic characteristics?
-
-8.  Policy Implications :
-   - How might changes in government policies (e.g., trade policies, exchange rate policies) impact a country's balance of payments?
-
-9.  Economic Indicators :
-   - Are there relationships between balance of payments indicators (e.g., trade balance, FDI) and other economic indicators like GDP growth, inflation, or employment rates?
-
-10.  Historical Trends:
-    - Can you identify historical events or economic cycles that have had a significant impact on a country's balance of payments?
-
-11.  Forecasting:
-    - Can you develop models or methods to forecast future balance of payments outcomes for a country based on historical data and economic variables?
+- How does the balance of payments of one country compare to that of other countries in the same region or with similar economic characteristics?
+- Is there a measurable decrease in Current Account debit in Goods and Services globally from 2015 to 2020?
 
 
