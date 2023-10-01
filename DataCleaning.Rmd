@@ -1,0 +1,85 @@
+---
+title: "Project Team ASAB"
+output: html_document
+date: "2023-09-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+df <- read.csv('BOP_09-13-2023 17-28-15-94_timeSeries.csv',header = TRUE)
+summary(df)
+```
+## Selecting the Indicators which are require for solving our SMART question.
+
+```{r}
+unique_names <- unique(df$Indicator.Name)
+print(unique_names)
+```
+```{r}
+value_count <- table(df$Indicator.Name)
+filtered_values <- names(value_count[value_count > 192])
+print(filtered_values)
+```
+
+```{r}
+colnames(df)[1] <- 'Country'
+colnames(df)[2] <- 'Code'
+colnames(df)[3] <- 'Indicator'
+colnames(df)[4] <- 'Icode'
+colnames(df)[6] <- '2015'
+colnames(df)[7] <- '2016'
+colnames(df)[8] <- '2017'
+colnames(df)[9] <- '2018'
+colnames(df)[10] <- '2019'
+colnames(df)[11] <- '2020'
+str(df)
+```
+## Removing the unnecessary columns.
+
+```{r}
+df$Attribute <- NULL
+
+```
+
+## New data frame.
+```{r}
+str(df)
+```
+
+## Removing the unneccassary rows from the df using indicator column.
+```{r}
+df <- subset(df, Indicator %in% c('Capital Account, Capital Transfers, Credit, US Dollars','Capital Account, Capital Transfers, Net, US Dollars','Capital Account, Total, Credit, US Dollars','Capital Account, Total, Debit, US Dollars','Capital Account, Total, Net, US Dollars','Current Account, Goods and Services, Credit, US Dollars','Current Account, Goods and Services, Debit, US Dollars','Current Account, Goods and Services, Services, Transport, Credit, US Dollars','Current Account, Goods and Services, Services, Transport, Debit, US Dollars','Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars','Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars','Supplementary Items, Reserve Assets (with Fund Record), US Dollars','Supplementary Items, Reserve Position in the Fund (with Fund Record), US Dollars','Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, Equity Other Than Reinvestment of Earnings, US Dollars','Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars','Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, US Dollars','Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Incurrence of Liabilities, Debt Instruments, US Dollars','Financial Account, Other Investment, Loans, Net Acquisition of Financial Assets, US Dollars','Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, General Government, Other Long-term, US Dollars','Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, General Government, US Dollars','Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, Other Sectors, Long-term, US Dollars','Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, Other Sectors, US Dollars','Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars','Financial Account, Other Investment, Loans, US Dollars','Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, US Dollars','Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars','Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars','Financial Account, Portfolio Investment, Net Incurrence of Liabilities, Debt Securities, US Dollars','Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars','Supplementary Items, Total Current + Capital Account, US Dollars','Supplementary Items, Portfolio Investment, Net Incurrence of Liabilities (Excluding Exceptional Financing), US Dollars'))
+```
+
+
+```{r}
+df$X2021 <- NULL
+df$X2022 <- NULL
+df$X2023 <- NULL
+df$X <- NULL
+```
+
+
+## Now saving this updated csv file in local system.
+```{r}
+write.csv(df, "BOPS.csv")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
