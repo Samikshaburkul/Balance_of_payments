@@ -130,6 +130,9 @@ bops_data$CountryCode <- as.factor(bops_data$CountryCode)
 # Years to be changed as numeric
 years_columns <- c("2015", "2016", "2017", "2018", "2019", "2020")
 bops_data[years_columns] <- lapply(bops_data[years_columns], as.numeric)
+
+# Store the new data set as a CSV file
+write.csv(bops_data, "new_BOPS.csv")
 ```
 
 ```{r}
@@ -155,6 +158,30 @@ grouped_data <- bops_data %>%
 # Write the data to a text file
 write.table(grouped_data, "groupedData.txt", quote = FALSE, row.names = TRUE)
 #print(grouped_data)
+```
+
+```{r}
+
+# Common Indicators for all the countries
+library(dplyr)
+
+# Count the number of unique countries for each indicator
+indicator_counts <- bops_data %>%
+  group_by(Indicator) %>%
+  summarise(num_countries = n_distinct(Country)) %>%
+  ungroup()
+
+# Total number of unique countries in the dataset
+total_countries <- n_distinct(bops_data$Country)
+
+# Filter indicators that are common for every country
+common_indicators <- indicator_counts %>%
+  filter(num_countries == total_countries) %>%
+  pull(Indicator)
+
+# Print the common indicators
+print(common_indicators)
+
 ```
 
 
