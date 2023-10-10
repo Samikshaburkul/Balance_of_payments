@@ -1,0 +1,196 @@
+Country Count
+1 Afghanistan, Islamic Rep. of 31
+2 Albania 31
+3 Algeria 26
+4 Andorra, Principality of 60
+5 Angola 31
+6 Anguilla 30
+7 Antigua and Barbuda 31
+8 Argentina 31
+9 Armenia, Rep. of 31
+10 Aruba, Kingdom of the Netherlands 60
+11 Australia 31
+12 Austria 31
+13 Azerbaijan, Rep. of 31
+14 Bahamas, The 62
+15 Bahrain, Kingdom of 57
+16 Bangladesh 31
+17 Barbados 31
+18 Belarus, Rep. of 31
+19 Belgium 31
+20 Belize 31
+21 Benin 31
+22 Bermuda 25
+23 Bhutan 31
+24 Bolivia 31
+25 Bosnia and Herzegovina 31
+26 Botswana 31
+27 Brazil 31
+28 Brunei Darussalam 23
+29 Bulgaria 31
+30 Burkina Faso 31
+31 Burundi 25
+32 Cabo Verde 31
+33 Cambodia 30
+34 Cameroon 62
+35 Canada 26
+36 Cayman Islands 60
+37 Chile 29
+38 China, P.R.: Hong Kong 26
+39 China, P.R.: Macao 26
+40 China, P.R.: Mainland 22
+41 Colombia 26
+42 Comoros, Union of the 22
+43 Congo, Dem. Rep. of the 31
+44 Congo, Rep. of 31
+45 Costa Rica 31
+46 Croatia, Rep. of 31
+47 Curaçao and Sint Maarten 30
+48 Curaçao, Kingdom of the Netherlands 30
+49 Cyprus 34
+50 Czech Rep. 31
+51 Côte d'Ivoire 31
+52 Denmark 31
+53 Djibouti 24
+54 Dominica 31
+55 Dominican Rep. 31
+56 Eastern Caribbean Currency Union 31
+57 Ecuador 62
+58 Egypt, Arab Rep. of 26
+59 El Salvador 31
+60 Estonia, Rep. of 31
+61 Eswatini, Kingdom of 29
+62 Ethiopia, The Federal Dem. Rep. of 17
+63 Euro Area 31
+64 Fiji, Rep. of 29
+65 Finland 32
+66 France 31
+67 French Polynesia 27
+68 Gabon 30
+69 Gambia, The 54
+70 Georgia 31
+71 Germany 31
+72 Ghana 25
+73 Greece 31
+74 Grenada 31
+75 Guatemala 31
+76 Guinea 31
+77 Guinea-Bissau 31
+78 Guyana 62
+79 Haiti 19
+80 Honduras 31
+81 Hungary 31
+82 Iceland 31
+83 India 30
+84 Indonesia 29
+85 Iraq 31
+86 Ireland 32
+87 Israel 62
+88 Italy 31
+89 Jamaica 28
+90 Japan 29
+91 Jordan 29
+92 Kazakhstan, Rep. of 31
+93 Kenya 31
+94 Kiribati 31
+95 Korea, Rep. of 31
+96 Kosovo, Rep. of 31
+97 Kuwait 31
+98 Kyrgyz Rep. 31
+99 Lao People's Dem. Rep. 31
+100 Latvia 31
+101 Lebanon 31
+102 Lesotho, Kingdom of 26
+103 Liberia 22
+104 Libya 20
+105 Lithuania 35
+106 Luxembourg 31
+107 Madagascar, Rep. of 31
+108 Malawi 30
+109 Malaysia 31
+110 Maldives 31
+111 Mali 31
+112 Malta 31
+113 Marshall Islands, Rep. of the 31
+114 Mauritania, Islamic Rep. of 62
+115 Mauritius 31
+116 Mexico 29
+117 Moldova, Rep. of 31
+118 Mongolia 31
+119 Montenegro 31
+120 Montserrat 30
+121 Morocco 31
+122 Mozambique, Rep. of 31
+123 Myanmar 31
+124 Namibia 31
+125 Nauru, Rep. of 26
+126 Nepal 28
+127 Netherlands, The 31
+128 New Caledonia 27
+129 New Zealand 27
+130 Nicaragua 29
+131 Niger 31
+132 Nigeria 26
+133 North Macedonia, Republic of 31
+134 Norway 31
+135 Oman 62
+136 Pakistan 31
+137 Palau, Rep. of 27
+138 Panama 31
+139 Papua New Guinea 61
+140 Paraguay 31
+141 Peru 62
+142 Philippines 31
+143 Poland, Rep. of 31
+144 Portugal 31
+145 Qatar 24
+146 Romania 31
+147 Russian Federation 39
+148 Rwanda 31
+149 Samoa 29
+150 Saudi Arabia 21
+151 Senegal 31
+152 Serbia, Rep. of 31
+153 Seychelles 31
+154 Sierra Leone 62
+155 Singapore 22
+156 Sint Maarten, Kingdom of the Netherlands 30
+157 Slovak Rep. 31
+158 Slovenia, Rep. of 31
+159 Solomon Islands 31
+160 South Africa 31
+161 South Sudan, Rep. of 22
+162 Spain 29
+163 Sri Lanka 29
+164 St. Kitts and Nevis 31
+165 St. Lucia 31
+166 St. Vincent and the Grenadines 31
+167 Sudan 31
+168 Suriname 62
+169 Sweden 35
+170 Switzerland 27
+171 São Tomé and Príncipe, Dem. Rep. of 30
+172 Tajikistan, Rep. of 31
+173 Tanzania, United Rep. of 28
+174 Thailand 31
+175 Timor-Leste, Dem. Rep. of 62
+176 Togo 31
+177 Tonga 31
+178 Trinidad and Tobago 31
+179 Tunisia 27
+180 Turks and Caicos Islands 25
+181 Tuvalu 31
+182 Türkiye, Rep. of 31
+183 Uganda 31
+184 Ukraine 31
+185 United Kingdom 33
+186 United States 27
+187 Uruguay 31
+188 Uzbekistan, Rep. of 62
+189 Vanuatu 30
+190 Venezuela, Rep. Bolivariana de 29
+191 Vietnam 17
+192 West Bank and Gaza 30
+193 Yemen, Rep. of 31
+194 Zambia 31
+195 Zimbabwe 25

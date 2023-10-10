@@ -68,8 +68,94 @@ df$X <- NULL
 write.csv(df, "BOPS.csv")
 ```
 
+```{r}
+# Load the dataFrame
+bops_data <- read.csv("BOPS.csv")
 
+# Print the structure of the data base
+str(bops_data)
+```
+```{r}
 
+# Get the column names
+column_names <- colnames(bops_data)
+column_names
+```
+
+```{r}
+
+# Change the column names
+colnames(bops_data) <- c("Index", "Country", "CountryCode", "Indicator", "IndicatorCode", "2015", "2016", "2017", "2018", "2019", "2020")
+
+# Verify the change
+colnames(bops_data)
+
+# check the head
+head(bops_data, 20)
+
+# Check the tail
+tail(bops_data, 10)
+```
+
+```{r}
+# Change the Index column to  auto-increment type
+bops_data$Index <- seq_len(nrow(bops_data))
+
+# Check for the change
+head(bops_data, 50)
+tail(bops_data, 50)
+```
+
+```{r}
+# Number of rows and columns of this dataframe
+number_rows <- nrow(bops_data)
+number_columns <- length(bops_data)
+
+number_rows
+number_columns
+```
+
+```{r}
+# Structure of the data set
+str(bops_data)
+
+# Summary of the data set
+summary(bops_data)
+```
+
+```{r}
+# Change the data types
+bops_data$CountryCode <- as.factor(bops_data$CountryCode)
+
+# Years to be changed as numeric
+years_columns <- c("2015", "2016", "2017", "2018", "2019", "2020")
+bops_data[years_columns] <- lapply(bops_data[years_columns], as.numeric)
+```
+
+```{r}
+# Check the summary
+summary_result <- summary(bops_data$CountryCode)
+summary_result
+
+write.table(summary_result, "Output.txt", quote = FALSE, row.names = TRUE)
+
+# Check the structure
+str(bops_data)
+```
+
+```{r}
+# load the package into R library
+library(dplyr)
+
+# Group the rows by the same column value
+grouped_data <- bops_data %>%
+  group_by(Country) %>%
+  summarize(Count = n())
+
+# Write the data to a text file
+write.table(grouped_data, "groupedData.txt", quote = FALSE, row.names = TRUE)
+#print(grouped_data)
+```
 
 
 
