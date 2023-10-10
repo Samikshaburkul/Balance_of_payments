@@ -131,6 +131,9 @@ bops_data$CountryCode <- as.factor(bops_data$CountryCode)
 years_columns <- c("2015", "2016", "2017", "2018", "2019", "2020")
 bops_data[years_columns] <- lapply(bops_data[years_columns], as.numeric)
 
+# Remove the S.No column at the end
+bops_data['S.No'] <- NULL
+
 # Store the new data set as a CSV file
 write.csv(bops_data, "new_BOPS.csv")
 ```
