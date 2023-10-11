@@ -110,18 +110,15 @@ write.csv(df_50, "BOPS1.csv")
 ```
 
 ```{r}
-# Assuming 'bop_data' is your dataset
-# Replace '2015', '2016', ..., '2020' with the actual column names for those years
 
-# Create a logical vector indicating rows where ALL values from 2015 to 2020 are NULL or non-numeric
 row_indices_to_delete <- apply(df_50[, c('2015', '2016', '2017', '2018', '2019', '2020')], 1, function(row) {
   all(is.na(row) )
 })
 
-# Subset your dataset to keep only rows where all values from 2015 to 2020 are NOT NULL and numeric
+
 cleaned_bop_data <- df_50[!row_indices_to_delete, ]
 
-# Now 'cleaned_bop_data' contains the rows where not all values from 2015 to 2020 are NULL or non-numeric
+
 df_50_cleaned <- df_50[!row_indices_to_delete, ]
 
 
@@ -141,19 +138,14 @@ c2
 ```
 
 ```{r}
-# Assuming 'bop_data' is your dataset
-# Replace '2015', '2016', ..., '2020' with the actual column names for those years
-
-# Count the number of NA or 0 values in each row for the 2015 to 2020 columns
 count_na <- rowSums(is.na(df_50_cleaned[, c('2015', '2016', '2017', '2018', '2019', '2020')]))
 
-# Define a threshold (5 out of 6) for deletion
+
 threshold <- 1
 
-# Subset your dataset to keep only rows where the count is less than the threshold
+
 df_50_cleaned <- df_50_cleaned[count_na < threshold, ]
 
-# Now 'cleaned_bop_data' contains the rows where 5 out of 6 values from 2015 to 2020 are not NA and not equal to 0
 
 
 ```
@@ -164,24 +156,22 @@ unique_names_1 <- unique(df_50_cleaned$Indicator)
 unique_names_1
 ```
 ```{r}
-# Assuming 'bop_data' is your dataset and 'Country' is the column with country names
 
-# Use the 'table()' function to count the occurrences of each country
 country_counts <- table(df_50_cleaned$Country)
 
-# Convert the result to a data frame for better visualization (optional)
+
 country_counts_df <- as.data.frame(country_counts)
 
-# Rename the columns for clarity (optional)
+
 colnames(country_counts_df) <- c("Country", "Count")
 
-# Print or view the counts
+
 print(country_counts_df)
 
 ```
 ```{r}
 
-# Assuming 'bop_data' is your dataset and 'Country' is the column with country names
+
 
 # Calculate the count of occurrences for each country
 country_counts <- table(df_50_cleaned$Country)
@@ -197,9 +187,6 @@ filtered_bop_data <- df_50_cleaned[df_50_cleaned$Country %in% countries_to_keep,
 
 ```
 
-```{r}
-write.csv(filtered_bop_data, "BOPS_filtered.csv")
-```
 
 ```{r}
 country_counts <- table(filtered_bop_data$Country)
@@ -218,4 +205,7 @@ country_counts_df
 ```{r}
 c4 <- nrow(filtered_bop_data)
 c4
+```
+```{r}
+write.csv(filtered_bop_data, "BOPS_filtered.csv")
 ```
