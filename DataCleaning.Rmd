@@ -68,8 +68,190 @@ df$X <- NULL
 #write.csv(df, "BOPS.csv")
 ```
 
+```{r}
+# Load the dataFrame
+bops_data <- read.csv("BOPS.csv")
+
+# Print the structure of the data base
+str(bops_data)
+```
+```{r}
+
+# Get the column names
+column_names <- colnames(bops_data)
+column_names
+```
+
+```{r}
+
+# Change the column names
+colnames(bops_data) <- c("Index", "Country", "CountryCode", "Indicator", "IndicatorCode", "2015", "2016", "2017", "2018", "2019", "2020")
+
+# Verify the change
+colnames(bops_data)
+
+# check the head
+head(bops_data, 20)
+
+# Check the tail
+tail(bops_data, 10)
+```
+
+```{r}
+# Change the Index column to  auto-increment type
+bops_data$Index <- seq_len(nrow(bops_data))
+
+# Check for the change
+head(bops_data, 50)
+tail(bops_data, 50)
+```
+
+```{r}
+# Number of rows and columns of this dataframe
+number_rows <- nrow(bops_data)
+number_columns <- length(bops_data)
+
+number_rows
+number_columns
+```
+
+```{r}
+# Structure of the data set
+str(bops_data)
+
+# Summary of the data set
+summary(bops_data)
+```
+
+```{r}
+# Change the data types
+bops_data$CountryCode <- as.factor(bops_data$CountryCode)
+
+# Years to be changed as numeric
+years_columns <- c("2015", "2016", "2017", "2018", "2019", "2020")
+bops_data[years_columns] <- lapply(bops_data[years_columns], as.numeric)
+
+```
+
+```{r}
+# Check the summary
+summary_result <- summary(bops_data$CountryCode)
+summary_result
+
+#write.table(summary_result, "Output.txt", quote = FALSE, row.names = TRUE)
+
+# Check the structure
+str(bops_data)
+```
+
+```{r}
+library(dplyr)
+
+# Get the top 50 unique countries
+unique_50_countries <- unique(bops_data$Country)[1:51]
+
+# Extract all rows corresponding to these 50 countries
+first_50_countries <- bops_data %>%
+  filter(Country %in% unique_50_countries)
+
+# Write the result to a text file
+#write.table(first_50_countries, file = "first_50_countries_uncleaned.csv", row.names = FALSE, sep = "\t")
+
+#first_50_countries
+```
+
+```{r}
+# check the null values for each column
+null_in_2015 <- sum(is.na(first_50_countries["2015"]))
+null_in_2016 <- sum(is.na(first_50_countries["2016"]))
+null_in_2017 <- sum(is.na(first_50_countries["2017"]))
+null_in_2018 <- sum(is.na(first_50_countries["2018"]))
+null_in_2019 <- sum(is.na(first_50_countries["2019"]))
+null_in_2020 <- sum(is.na(first_50_countries["2020"]))
+
+# Count of rows with at least one missing value
+num_rows_with_na <- sum(apply(first_50_countries, 1, function(row) any(is.na(row))))
+#print(num_rows_with_na)
+
+# Remove the rows with null values
+# Filter rows without any missing values
+first_50_countries_cleaned <- first_50_countries[complete.cases(first_50_countries), ]
+num_rows_with_na_cleaned <- sum(apply(first_50_countries_cleaned, 1, function(row) any(is.na(row))))
+num_rows_with_na_cleaned
+
+# Check null values in the cleaned data set.
+null_in_2015_c <- sum(is.na(first_50_countries_cleaned["2015"]))
+null_in_2016_c <- sum(is.na(first_50_countries_cleaned["2016"]))
+null_in_2017_c <- sum(is.na(first_50_countries_cleaned["2017"]))
+null_in_2018_c <- sum(is.na(first_50_countries_cleaned["2018"]))
+null_in_2019_c <- sum(is.na(first_50_countries_cleaned["2019"]))
+null_in_2020_c <- sum(is.na(first_50_countries_cleaned["2020"]))
 
 
+null_in_2015_c
+null_in_2016_c
+null_in_2017_c
+null_in_2018_c
+null_in_2019_c
+null_in_2020_c
+```
+
+```{r}
+
+# filter the data
+# Drop rows of countries with fewer than 20 indicators
+filtered_data <- first_50_countries_cleaned %>%
+  group_by(Country) %>%
+  filter(n() >= 20) %>%
+  ungroup()
+
+# cleaned data
+write.table(filtered_data, file = "first_50_countries_cleaned.csv", row.names = FALSE, sep = "\t")
+```
+
+```{r}
+nrow(first_50_countries) # with null values and all the indicators
+nrow(first_50_countries_cleaned) # after removing the null values
+nrow(filtered_data) # after excluding the indicators less than 20
+```
+
+```{r}
+# load the package into R library
+library(dplyr)
+
+# Group the rows by the same column value
+grouped_data <- bops_data %>%
+  group_by(Country) %>%
+  summarize(Count = n())
+
+# Write the data to a text file
+write.table(grouped_data, "groupedData.txt", quote = FALSE, row.names = TRUE)
+#print(grouped_data)
+```
+
+```{r}
+
+# Common Indicators for all the countries
+library(dplyr)
+
+# Count the number of unique countries for each indicator
+indicator_counts <- bops_data %>%
+  group_by(Indicator) %>%
+  summarise(num_countries = n_distinct(Country)) %>%
+  ungroup()
+
+# Total number of unique countries in the dataset
+total_countries <- n_distinct(bops_data$Country)
+
+# Filter indicators that are common for every country
+common_indicators <- indicator_counts %>%
+  filter(num_countries == total_countries) %>%
+  pull(Indicator)
+
+# Print the common indicators
+print(common_indicators)
+
+```
 
 
 
