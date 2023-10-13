@@ -1,0 +1,98 @@
+---
+title: "DataCleaning_151-195 countries"
+author: "Samiksha Burkul"
+date: "2023-10-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+df <- read.csv('~/Documents/GitHub/Team_ASAB/BOPS.csv',header = TRUE)
+summary(df)
+```
+
+```{r}
+unique_names <- unique(df$Country)
+unique_names
+```
+
+#Forming a subset of the required data.
+```{r}
+countries <- unique(df$Country)
+start_index <- which(countries == 'Saudi Arabia')
+end_index <- which(countries == 'Zimbabwe')
+selected_countries <- countries[start_index : end_index]
+print(selected_countries)
+
+```
+
+
+
+
+
+```{r}
+selected_df <- subset(df, Country %in% selected_countries)
+summary(selected_df)
+```
+# converting 2015- 20120 into numeric
+```{r}
+selected_df$X2015 <- as.numeric(selected_df$X2015)
+selected_df$X2016 <- as.numeric(selected_df$X2016)
+selected_df$X2017 <- as.numeric(selected_df$X2017)
+selected_df$X2018 <- as.numeric(selected_df$X2018)
+selected_df$X2019 <- as.numeric(selected_df$X2019)
+selected_df$X2020 <- as.numeric(selected_df$X2020)
+```
+
+
+
+```{r}
+summary(selected_df)
+```
+
+# removing the null values
+
+```{r}
+selected_df <- na.omit(selected_df)
+```
+
+```{r}
+nrow(selected_df)
+```
+
+To check how many countries have less than 20 indicators, you can count the number of unique indicators for each country and then count how many of those counts are less than 20. Here's how you can do it:
+
+```{r}
+
+country_indicator_counts <- table(selected_df$Country)
+print(country_indicator_counts)
+
+
+```
+
+
+
+
+
+```{r}
+names = 'Vietnam'
+final_df <- subset(selected_df, Country != names)
+names = 'South Sudan, Rep. of'
+final_df <- subset(selected_df, Country != names)
+```
+
+```{r}
+country_indicator_count <- table(final_df$Country)
+print(country_indicator_count)
+```
+
+```{r}
+write.csv(final_df, 'Dataclean_151to195.csv')
+```
+
+
+Thus, the data is cleaned.
+
