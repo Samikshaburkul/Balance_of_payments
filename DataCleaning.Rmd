@@ -253,7 +253,32 @@ print(common_indicators)
 
 ```
 
+```{r}
+indicators <- unique(first_50_countries$Indicator)
+print(indicators)
+```
 
+```{r}
+library(dplyr)
+
+# Define the list of desired indicators
+desired_indicators <- c(
+  'Supplementary Items, Reserve Assets (with Fund Record), US Dollars',
+  'Supplementary Items, Total Current + Capital Account, US Dollars',
+  'Supplementary Items, Reserve Position in the Fund (with Fund Record), US Dollars',
+  'Supplementary Items, Portfolio Investment, Net Incurrence of Liabilities (Excluding Exceptional Financing), US Dollars',
+  'Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars',
+  'Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars',
+  'Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars',
+  'Financial Account, Other Investment, Loans, US Dollars',
+  'Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, US Dollars'
+)
+
+# Filter the dataset based on the desired indicators
+filtered_data <- first_50_countries_cleaned %>%
+  filter(Indicator %in% desired_indicators)
+
+```
 
 
 
