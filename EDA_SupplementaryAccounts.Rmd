@@ -1,0 +1,134 @@
+---
+title: "EDA_SupplementaryAccounts"
+author: "Avinash"
+date: "2023-10-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Read the cleaned final csv file
+bops_data <- read.csv("BalanceOfPayment.csv")
+
+# Summary of the data set
+summary(bops_data)
+```
+
+```{r}
+
+# Supplementary Analysis for all the countries
+
+library(dplyr)
+
+# Define the list of desired indicators
+
+# 1) supplementary indicators
+supplementary_indicators <- c(
+  'Supplementary Items, Reserve Assets (with Fund Record), US Dollars',
+  'Supplementary Items, Total Current + Capital Account, US Dollars',
+  'Supplementary Items, Reserve Position in the Fund (with Fund Record), US Dollars',
+  'Supplementary Items, Portfolio Investment, Net Incurrence of Liabilities (Excluding Exceptional Financing), US Dollars'
+)
+
+# 2) financial indicators
+financial_indicators <- c(
+  'Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars',
+  'Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars',
+  'Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars',
+  'Financial Account, Other Investment, Loans, US Dollars',
+  'Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, US Dollars'
+)
+
+# Filter the data set based on the supplementary indicators
+supplementary_filtered_data <- bops_data %>%
+  filter(Indicator %in% supplementary_indicators)
+
+# Filter the data set based on the financial indicators
+supplementary_filtered_data <- bops_data %>%
+  filter(Indicator %in% financial_indicators)
+```
+
+```{r}
+library(ggplot2)
+
+# Histogram for supplementary_filtered_data for the year 2015
+ggplot(supplementary_filtered_data, aes(x = `2015`)) + 
+  geom_histogram(binwidth = 50000000, fill = "blue", color = "black", alpha = 0.7) + 
+  labs(title = "Histogram for Supplementary Indicators (2015)", x = "Value", y = "Frequency")
+
+# Histogram for financial_filtered_data for the year 2015
+ggplot(financial_filtered_data, aes(x = `2015`)) + 
+  geom_histogram(binwidth = 50000000, fill = "red", color = "black", alpha = 0.7) + 
+  labs(title = "Histogram for Financial Indicators (2015)", x = "Value", y = "Frequency")
+
+```
+
+```{r}
+# Box plot for supplementary_filtered_data for the year 2015
+ggplot(supplementary_filtered_data, aes(y = `2015`, x = Indicator)) + 
+  geom_boxplot(fill = "blue", color = "black", alpha = 0.7) + 
+  labs(title = "Box Plot for Supplementary Indicators (2015)", x = "Indicator", y = "Value") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Box plot for financial_filtered_data for the year 2015
+ggplot(financial_filtered_data, aes(y = `2015`, x = Indicator)) + 
+  geom_boxplot(fill = "red", color = "black", alpha = 0.7) + 
+  labs(title = "Box Plot for Financial Indicators (2015)", x = "Indicator", y = "Value") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r}
+# Scatter plot for supplementary_filtered_data comparing 2015 and 2016
+ggplot(supplementary_filtered_data, aes(x = `2015`, y = `2016`)) + 
+  geom_point(color = "blue", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Supplementary Indicators (2015 vs 2016)", x = "2015", y = "2016")
+
+# Scatter plot for financial_filtered_data comparing 2015 and 2016
+ggplot(financial_filtered_data, aes(x = `2015`, y = `2016`)) + 
+  geom_point(color = "red", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Financial Indicators (2015 vs 2016)", x = "2015", y = "2016")
+```
+
+```{r}
+# Histogram for supplementary_filtered_data for the year 2016
+ggplot(supplementary_filtered_data, aes(x = `2016`)) + 
+  geom_histogram(binwidth = 50000000, fill = "blue", color = "black", alpha = 0.7) + 
+  labs(title = "Histogram for Supplementary Indicators (2016)", x = "Value", y = "Frequency")
+
+# Histogram for financial_filtered_data for the year 2016
+ggplot(financial_filtered_data, aes(x = `2016`)) + 
+  geom_histogram(binwidth = 50000000, fill = "red", color = "black", alpha = 0.7) + 
+  labs(title = "Histogram for Financial Indicators (2016)", x = "Value", y = "Frequency")
+
+```
+
+```{r}
+# Box plot for supplementary_filtered_data for the year 2016
+ggplot(supplementary_filtered_data, aes(y = `2016`, x = Indicator)) + 
+  geom_boxplot(fill = "blue", color = "black", alpha = 0.7) + 
+  labs(title = "Box Plot for Supplementary Indicators (2016)", x = "Indicator", y = "Value") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Box plot for financial_filtered_data for the year 2016
+ggplot(financial_filtered_data, aes(y = `2016`, x = Indicator)) + 
+  geom_boxplot(fill = "red", color = "black", alpha = 0.7) + 
+  labs(title = "Box Plot for Financial Indicators (2016)", x = "Indicator", y = "Value") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r}
+# Scatter plot for supplementary_filtered_data comparing 2016 and 2017
+ggplot(supplementary_filtered_data, aes(x = `2016`, y = `2017`)) + 
+  geom_point(color = "blue", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Supplementary Indicators (2016 vs 2017)", x = "2016", y = "2017")
+
+# Scatter plot for financial_filtered_data comparing 2016 and 2017
+ggplot(financial_filtered_data, aes(x = `2016`, y = `2017`)) + 
+  geom_point(color = "red", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Financial Indicators (2016 vs 2017)", x = "2016", y = "2017")
+```
