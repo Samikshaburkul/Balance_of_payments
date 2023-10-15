@@ -1,0 +1,64 @@
+---
+title: "Currentaccount"
+output: html_document
+date: "2023-10-14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r cars}
+df_filtered <-read.csv('BalanceOfPayment.csv',header = TRUE)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+```{r}
+head(df_filtered)
+```
+
+```{r}
+summary(df_filtered)
+```
+```{r}
+currentaccount_df <- df_filtered[grepl("^Current Account", df_filtered$Indicator), ]
+
+```
+```{r}
+write.csv(currentaccount_df, "current_account.csv")
+```
+
+```{r}
+count <- nrow(currentaccount_df)
+count
+```
+
+```{r}
+unique_indi <- unique(currentaccount_df$Country)
+unique_indi
+```
+
+```{r}
+ggplot(currentaccount_df, aes(y = `X2015`, x = Indicator)) + 
+  geom_boxplot(fill = "blue", color = "black", alpha = 1) + 
+  labs(title = "Box Plot for currentaccount (2015)", x = "Indicator", y = "Value") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+```{r}
+library(ggplot2)
+ggplot(currentaccount_df, aes(x = `X2015`, y = `X2020`)) + 
+  geom_point(color = "blue", alpha = 0.7) + 
+  labs(title = "Scatter Plot for current account (2015 vs 2020)", x = "2015", y = "2020")
+
+
+```
+
+```{r}
+
+
+
+```
