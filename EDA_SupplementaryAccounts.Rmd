@@ -163,6 +163,18 @@ ggplot(financial_filtered_data, aes(y = `2017`, x = Indicator)) +
 ```
 
 ```{r}
+# Scatter plot for supplementary_filtered_data comparing 2017 and 2018
+ggplot(supplementary_filtered_data, aes(x = `2017`, y = `2018`)) + 
+  geom_point(color = "blue", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Supplementary Indicators (2017 vs 2018)", x = "2017", y = "2018")
+
+# Scatter plot for financial_filtered_data comparing 2017 and 2018
+ggplot(financial_filtered_data, aes(x = `2017`, y = `2018`)) + 
+  geom_point(color = "red", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Financial Indicators (2017 vs 2018)", x = "2017", y = "2018")
+```
+
+```{r}
 
 # Histogram for supplementary_filtered_data for the year 2018
 ggplot(supplementary_filtered_data, aes(x = `2018`)) + 
@@ -192,6 +204,18 @@ ggplot(financial_filtered_data, aes(y = `2018`, x = Indicator)) +
 ```
 
 ```{r}
+# Scatter plot for supplementary_filtered_data comparing 2018 and 2019
+ggplot(supplementary_filtered_data, aes(x = `2018`, y = `2019`)) + 
+  geom_point(color = "blue", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Supplementary Indicators (2018 vs 2019)", x = "2018", y = "2019")
+
+# Scatter plot for financial_filtered_data comparing 2018 and 2019
+ggplot(financial_filtered_data, aes(x = `2018`, y = `2019`)) + 
+  geom_point(color = "red", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Financial Indicators (2018 vs 2019)", x = "2018", y = "2019")
+```
+
+```{r}
 
 # Histogram for supplementary_filtered_data for the year 2019
 ggplot(supplementary_filtered_data, aes(x = `2019`)) + 
@@ -218,6 +242,18 @@ ggplot(financial_filtered_data, aes(y = `2019`, x = Indicator)) +
   labs(title = "Box Plot for Financial Indicators (2019)", x = "Indicator", y = "Value") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+```
+
+```{r}
+# Scatter plot for supplementary_filtered_data comparing 2019 and 2020
+ggplot(supplementary_filtered_data, aes(x = `2019`, y = `2020`)) + 
+  geom_point(color = "blue", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Supplementary Indicators (2019 vs 2020)", x = "2019", y = "2020")
+
+# Scatter plot for financial_filtered_data comparing 2019 and 2020
+ggplot(financial_filtered_data, aes(x = `2019`, y = `2020`)) + 
+  geom_point(color = "red", alpha = 0.7) + 
+  labs(title = "Scatter Plot for Financial Indicators (2019 vs 2020)", x = "2019", y = "2020")
 ```
 
 ```{r}
