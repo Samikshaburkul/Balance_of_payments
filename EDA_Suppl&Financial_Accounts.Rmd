@@ -1,0 +1,230 @@
+---
+title: "EDA_Suppl&Financial_Accounts"
+author: "Avinash"
+date: "2023-10-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load the data into a variable and check the strucutre of the data.
+```{r}
+
+# Load the data set into a variable
+bops_data <- read.csv("BalanceOfPayment.csv")
+
+# Structure of the data
+str(bops_data)
+```
+
+## Converting the requisite columns into factor variables.
+```{r}
+
+# Convert the requisite columns into factor 
+cols_to_convert <- c("Country", "Code", "Indicator", "Icode")
+
+# Use lapply() function to apply the factor() function to each specified column in `bops_data` data frame.
+bops_data[cols_to_convert] <- lapply(bops_data[cols_to_convert], factor)
+
+# Check the structure of the data again to confirm the changes
+str(bops_data)
+```
+
+## Filter out the data set to have the following necessary indicators: Supplementary Accounts, and Financial Accounts.
+```{r}
+
+# load the `dplyr` package into R session
+library(dplyr)
+
+# List of indicators to filter
+indicators_to_filter <- c("Supplementary Items, Reserve Assets (with Fund Record), US Dollars", 
+"Supplementary Items, Total Current + Capital Account, US Dollars",
+"Supplementary Items, Reserve Position in the Fund (with Fund Record), US Dollars",
+"Supplementary Items, Portfolio Investment, Net Incurrence of Liabilities (Excluding Exceptional Financing), US Dollars", 
+"Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars",
+"Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars",
+"Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars",
+"Financial Account, Other Investment, Loans, US Dollars",
+"Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, US Dollars")
+
+# Filter the data
+relevant_financial_metrics <- bops_data %>% 
+  filter(Indicator %in% indicators_to_filter)
+
+# Structure of the data
+str(relevant_financial_metrics)
+
+# Print the first and last 10 rows of the data
+head(relevant_financial_metrics, 15)
+tail(relevant_financial_metrics, 10)
+```
+
+## SMART Question -1:
+
+How have the global trends evolved for the "Total Current + Capital Account" from 2015 to 2020. (Supplementary Account)
+
+```{r}
+
+# Load the necessary libraries
+library(ggplot2)
+library(tidyr)
+
+# Filter the dataset for the 'Total Current + Capital Account' indicator
+total_current_capital_account <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars", ]
+
+# Reshape the data to long format
+long_data <- total_current_capital_account %>% 
+  pivot_longer(cols = starts_with("X"), names_to = "Year", values_to = "Value")
+
+# Convert the "XYYYY" format to just "YYYY"
+long_data$Year <- as.numeric(sub("X", "", long_data$Year))
+
+# Time series plot
+ggplot(long_data, aes(x=Year, y=Value, group=Country)) + 
+  geom_line(aes(color=Country), alpha=0.5) + 
+  labs(title="Evolution of Total Current + Capital Account from 2015 to 2020", y="Total Current + Capital Account", x="Year") + 
+  theme(legend.position="none") # Hide legend for clarity
+
+```
+
+### By plotting time series data for many countries on a single graph, the visualization became cluttered, making it difficult to discern patterns. Hence, a more effective strategy would be to segregate the countries into two categories: "Top 10 countries by economy" and "Top 10 emerging countries."
+
+```{r}
+
+# top 10 countires by economy
+top_10_Economic_Countries <- c("United States", "China, P.R.: Mainland", "Japan", "Germany", "India", "United Kingdom", 
+                               "France", "Russian Federation", "Canada", "Italy")
+
+# top 10 emerging countries
+top_10_emerging_countries <- c("Brazil", "Russian Federation", "India", "China, P.R.: Mainland", "South Africa",
+                               "Mexico", "Indonesia", "Türkiye, Rep. of", "Nigeria", "Philippines")
+
+# Load the necessary libraries
+library(ggplot2)
+library(tidyr)
+library(RColorBrewer)
+
+# Filter data for the top 10 economies
+top_10_economies_data <- subset(long_data, Country %in% top_10_Economic_Countries)
+
+# Plot for top 10 economies
+plot_top_10_economies <- ggplot(top_10_economies_data, aes(x=Year, y=Value, group=Country, color=Country)) + 
+  geom_line(linewidth=1) + 
+  labs(title="Evolution of Total Current + Capital Account from 2015 to 2020\nfor Top 10 Economies", 
+       y="Total Current + Capital Account", 
+       x="Year") + 
+  theme(legend.position="right", 
+        plot.title=element_text(hjust=0.5))
+
+# Filter data for the top 10 emerging economies
+top_10_emerging_data <- subset(long_data, Country %in% top_10_emerging_countries)
+
+# Plot for top 10 emerging economies
+plot_top_10_emerging <- ggplot(top_10_emerging_data, aes(x=Year, y=Value, group=Country, color=Country)) + 
+  geom_line(linewidth=1) + 
+  labs(title="Evolution of Total Current + Capital Account from 2015 to 2020\nfor Top 10 Emerging Economies", 
+       y="Total Current + Capital Account", 
+       x="Year") + 
+  scale_color_brewer(palette="Set3", name="Emerging Economies") + 
+    theme(legend.position="right", 
+        plot.title=element_text(hjust=0.5))
+
+# Display the plots
+plot_top_10_economies
+plot_top_10_emerging
+```
+
+## SMART question - 2
+How does the distribution of 'Net Acquisition of Financial Assets' look like for countries in 2020? Are there outliers?
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Extract the data for the 'Net Acquisition of Financial Assets' in 2020
+data_2020 <- relevant_financial_metrics$X2020[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars"]
+
+# Apply a log transformation to the data; adding a small constant to handle zeros or negative values
+log_data_2020 <- log(data_2020 + max(abs(data_2020))*1.01) 
+
+# Calculate statistics for the transformed data
+mean_log_value <- mean(log_data_2020, na.rm = TRUE)
+median_log_value <- median(log_data_2020, na.rm = TRUE)
+
+# Plotting the histogram
+ggplot(data.frame(Value=log_data_2020), aes(x=Value)) +
+  geom_histogram(binwidth=0.05, fill="blue", alpha=0.7) +  
+  geom_vline(aes(xintercept=mean_log_value), color="red", linetype="dashed", size=1) +
+  geom_vline(aes(xintercept=median_log_value), color="green", linetype="dashed", size=1) +
+  annotate("text", x = mean_log_value + 1, y = 30, label = paste("Mean:", round(mean_log_value, 2))) +
+  annotate("text", x = median_log_value + 1, y = 20, label = paste("Median:", round(median_log_value, 2))) +
+  labs(title="Log-transformed Distribution of Net Acquisition of Financial Assets in 2020",
+       x="Log-transformed Net Acquisition of Financial Assets",
+       y="Number of Countries") + 
+  theme(legend.position="right", 
+        plot.title=element_text(hjust=0.5))
+
+# Plotting the boxplot
+ggplot(data.frame(Value=log_data_2020), aes(x="", y=Value)) +
+  geom_boxplot(fill="lightblue", color="blue", outlier.color="red", outlier.shape=16) +
+  labs(title="Boxplot of Log-transformed Net Acquisition of Financial Assets in 2020",
+       y="Log-transformed Net Acquisition of Financial Assets") + 
+  theme(legend.position="right", 
+        plot.title=element_text(hjust=0.5))
+
+
+# Determine the 1st and 3rd quartiles and IQR
+Q1 <- quantile(log_data_2020, 0.25)
+Q3 <- quantile(log_data_2020, 0.75)
+IQR_value <- IQR(log_data_2020)
+
+# Using ggplot2 to create a boxplot with customized y-axis limits
+ggplot(data.frame(Value=log_data_2020), aes(x="", y=Value)) +
+  geom_boxplot(fill="lightblue", color="blue", outlier.shape=NA) +
+  geom_hline(yintercept = median(log_data_2020), linetype="dashed", color = "red", size=0.5) +  # Median line
+  labs(title="Boxplot of Log-transformed Net Acquisition of Financial Assets in 2020",
+       y="Log-transformed Net Acquisition of Financial Assets") + 
+  theme_minimal() +
+  coord_cartesian(ylim=c(Q1 - 0.5*IQR_value, Q3 + 0.5*IQR_value))  
+```
+
+
+## SMART question - 3
+Do countries with higher average 'Equity and Investment Fund Shares' over the period 2015-2020 also possess higher average 'Debt Securities' during the same period?
+
+```{r}
+# filter the data for the two indicators
+equity_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars", ]
+debt_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, US Dollars", ]
+
+# Calculate the mean for the years 2015-2020 for each country
+equity_data$mean_equity <- rowMeans(equity_data[,c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+debt_data$mean_debt <- rowMeans(debt_data[,c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+
+# Merge the datasets by country
+merged_data <- merge(equity_data[,c("Country", "mean_equity")], debt_data[,c("Country", "mean_debt")], by="Country")
+
+# Calculate the correlation
+correlation <- cor(merged_data$mean_equity, merged_data$mean_debt, use="complete.obs")
+
+correlation
+
+# Load the necessary library
+library(ggplot2)
+
+# Scatter plot with a regression line
+ggplot(merged_data, aes(x=mean_equity, y=mean_debt)) + 
+  geom_point(aes(color=Country), alpha=0.6) +  # Plot points with countries as different colors
+  geom_smooth(method="lm", se=FALSE, color="red", linetype="dashed") +  # Add a linear regression line
+  labs(title="Average Equity vs. Average Debt Securities (2015-2020)",
+       x="Average Equity and Investment Fund Shares",
+       y="Average Debt Securities") +
+  theme(legend.position="right", 
+        plot.title=element_text(hjust=0.5))
+
+```
+
+
