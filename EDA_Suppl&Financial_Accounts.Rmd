@@ -211,19 +211,60 @@ merged_data <- merge(equity_data[,c("Country", "mean_equity")], debt_data[,c("Co
 correlation <- cor(merged_data$mean_equity, merged_data$mean_debt, use="complete.obs")
 
 correlation
+```
 
-# Load the necessary library
+
+```{r}
+# Load necessary libraries
 library(ggplot2)
 
-# Scatter plot with a regression line
-ggplot(merged_data, aes(x=mean_equity, y=mean_debt)) + 
-  geom_point(aes(color=Country), alpha=0.6) +  # Plot points with countries as different colors
+# filter the data for the two indicators
+equity_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars", ]
+debt_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, US Dollars", ]
+
+# Calculate the mean for the years 2015-2020 for each country
+equity_data$mean_equity <- rowMeans(equity_data[,c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+debt_data$mean_debt <- rowMeans(debt_data[,c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+
+# Merge the datasets by country
+merged_data <- merge(equity_data[,c("Country", "mean_equity")], debt_data[,c("Country", "mean_debt")], by="Country")
+
+# Create a new column to identify whether the country is a top economy or emerging
+merged_data$Type <- ifelse(merged_data$Country %in% top_10_Economic_Countries, "Top Economy", "Emerging Country")
+
+# Scatter plot differentiating between the top 10 economies and the top 10 emerging countries
+ggplot(merged_data, aes(x=mean_equity, y=mean_debt, color=Type)) + 
+  geom_point(aes(shape=Type), size=3) +  
   geom_smooth(method="lm", se=FALSE, color="red", linetype="dashed") +  # Add a linear regression line
   labs(title="Average Equity vs. Average Debt Securities (2015-2020)",
        x="Average Equity and Investment Fund Shares",
        y="Average Debt Securities") +
-  theme(legend.position="right", 
-        plot.title=element_text(hjust=0.5))
+  theme(legend.position="right", plot.title=element_text(hjust=0.5)) +
+  scale_color_manual(values=c("Top Economy"="blue", "Emerging Country"="red")) +
+  scale_shape_manual(values=c("Top Economy"=19, "Emerging Country"=17))  # 19 is solid circle, 17 is triangle
+
+```
+
+## SMART question - 4
+What is the variance in the average 'Reserve Position in the Fund' across all countries over the years 2015-2020?
+```{r}
+# Load necessary libraries
+library(ggplot2)
+
+# Filter data for 'Reserve Position in the Fund'
+reserve_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Supplementary Items, Reserve Position in the Fund (with Fund Record), US Dollars", c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")]
+
+# Calculate the average for each country over the years 2015-2020
+reserve_data$mean_reserve <- rowMeans(reserve_data, na.rm = TRUE)
+
+# Calculate variance
+variance <- var(reserve_data$mean_reserve, na.rm = TRUE)
+
+# Plot Histogram
+hist(reserve_data$mean_reserve, main="Distribution of Average Reserve Position in the Fund (2015-2020)", xlab="Average Reserve Position in the Fund", breaks=50)
+
+# Plot Boxplot
+boxplot(reserve_data$mean_reserve, main="Boxplot of Average Reserve Position in the Fund (2015-2020)", ylab="Average Reserve Position in the Fund")
 
 ```
 
