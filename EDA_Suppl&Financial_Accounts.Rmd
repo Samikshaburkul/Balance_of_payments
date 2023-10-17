@@ -241,12 +241,13 @@ ggplot(merged_data, aes(x=mean_equity, y=mean_debt, color=Type)) +
        y="Average Debt Securities") +
   theme(legend.position="right", plot.title=element_text(hjust=0.5)) +
   scale_color_manual(values=c("Top Economy"="blue", "Emerging Country"="red")) +
-  scale_shape_manual(values=c("Top Economy"=19, "Emerging Country"=17))  # 19 is solid circle, 17 is triangle
+  scale_shape_manual(values=c("Top Economy"=19, "Emerging Country"=17))  
 
 ```
 
 ## SMART question - 4
 What is the variance in the average 'Reserve Position in the Fund' across all countries over the years 2015-2020?
+
 ```{r}
 # Load necessary libraries
 library(ggplot2)
@@ -268,4 +269,29 @@ boxplot(reserve_data$mean_reserve, main="Boxplot of Average Reserve Position in 
 
 ```
 
+## SMART question - 5
+Hypothesis Testing
+Hypothesis: The average 'Total Current + Capital Account' is equal to the average 'Net Acquisition of Financial Assets' for countries in 2020.
+
+```{r}
+
+# Extracting data
+supplementary_accnts_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars", ]
+financial_accnts_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars", ]
+
+# Calculating averages for 2015-2020
+supplementary_accnts_data$average <- rowMeans(supplementary_accnts_data[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+financial_accnts_data$average <- rowMeans(financial_accnts_data[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+
+# T-test
+t_test_result <- t.test(supplementary_accnts_data$average, financial_accnts_data$average)
+
+# Print the t-test result
+print(t_test_result)
+
+# Boxplot
+boxplot(supplementary_accnts_data$average, financial_accnts_data$average, names=c("Supplementary Items", "Financial Account"), main="Comparison of Averages", ylab="Value", xlab="Dataset")
+
+```
+The p-value is slightly above 0.05, which means, at the 5% significance level, we fail to reject the null hypothesis. This suggests that there isn't enough statistical evidence to say that the average 'Total Current + Capital Account' is different from the average 'Net Acquisition of Financial Assets' over the period 2015-2020.
 
