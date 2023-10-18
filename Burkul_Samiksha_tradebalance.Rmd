@@ -1,0 +1,150 @@
+---
+title: "Project1 BOPS, Trade Balance"
+author: "Samiksha Burkul"
+date: "2023-10-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(readr)
+BOP <- read_csv("BalanceOfPayment.csv")
+str(BOP)
+```
+
+Following dquestion represents one of the SMART question, which is 'specfic'. here we are going to focus on specific data.
+
+TRADE BALANCE: 1) What is the trade balance for a specific country over a particular time period?
+SOLUTION:
+
+# Following code is to form a dataset of all the credits and debits of current accounts and goods and services of all the countries from the particular time period 2015- 2020, on the basis of credits and debits we could find the trade balance of all the countries.
+#Here, we are using the following Indicators : "Current Account, Goods and services, Credit, US Dollars" and "Current Account, Goods and Services, Debit, US Dollars"
+
+
+```{r}
+library(dplyr)
+
+
+trade_balance_data <- BOP %>%
+  filter(Indicator == "Current Account, Goods and Services, Credit, US Dollars" |
+         Indicator == "Current Account, Goods and Services, Debit, US Dollars") %>%
+  mutate(Trade_Balance_2015 = `2015` - `2020`,
+         Trade_Balance_2016 = `2016` - `2020`,
+         Trade_Balance_2017 = `2017` - `2020`,
+         Trade_Balance_2018 = `2018` - `2020`,
+         Trade_Balance_2019 = `2019` - `2020`) %>%
+
+
+print(trade_balance_data)
+
+```
+
+# After finding the credits and debits of all the countries, now the subsequent step is to find the difference between credits and debits, resulting in the determination of trade balances for all the countries.
+
+```{r}
+country_group <- trade_balance_data %>% 
+ group_by(Country) %>%
+  mutate(difference = Trade_Balance_2015 - lag(Trade_Balance_2015, default = Trade_Balance_2015[1]))
+print(country_group)
+```
+# Next step is to focus on any specific country. Here we are taking 'Algeria' for example, follwing code represents the credits and debits of only Algeria.
+
+```{r}
+Country_selecter <- trade_balance_data %>% 
+  filter(Country == 'Algeria')
+print(Country_selecter)
+```
+
+
+# here, the subsequent code represents the Trade balance (difference of credits and debits) of Algeria from the previous dataset 'country_group' which contains the trade balances of all the countries.
+
+```{r}
+Algeria_selected <- country_group%>% 
+  filter(Country == 'Algeria')
+print(Algeria_selected )
+```
+
+
+# Next step is to represent the trade balances of 'Algeria' graphically.
+
+```{r}
+Algeria_tradebalance <- trade_balance_data%>% 
+  filter(Country == 'Algeria') %>%
+  select(Country, Indicator,Trade_Balance_2015, Trade_Balance_2016, Trade_Balance_2017, Trade_Balance_2018, Trade_Balance_2019)
+print(Algeria_tradebalance)
+``` 
+
+# Following is the density plot of Trade balances of the country 'Algeria' from 2015-2019
+
+```{r}
+library(ggplot2)
+
+Algeria_tradebalance_filtered <- Algeria_tradebalance %>%
+  select(Trade_Balance_2015, Trade_Balance_2016, Trade_Balance_2017, Trade_Balance_2018, Trade_Balance_2019)
+
+
+Algeria_tradebalance_filtered_long <- tidyr::gather(Algeria_tradebalance_filtered, Year, Trade_Balance, 1:5)
+
+ 
+ggplot(Algeria_tradebalance_filtered_long, aes(x = Trade_Balance, fill = Year)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Trade Balance", y = "Density") +
+  ggtitle("Density Plot of Trade Balance for Algeria (2015-2019)")+
+  facet_wrap(~Year, scales = "free_x", ncol = 2)
+
+
+```
+
+
+# Now our next question is: 
+#2] How to find the changes occured in net capital account of the specific country over the time period of 2015-2020
+
+
+# Here, we are using the following Indicator: 'Capital Account, Total, Net, US Dollars' 
+
+# The following code represnts the Net Capital accounts of all the countries from year 2015-2020
+```{r}
+
+Net_countries <- BOP %>%
+  filter(Indicator == 'Capital Account, Total, Net, US Dollars') %>%
+  select(Country, '2015','2016','2017','2018','2019','2020')
+print(Net_countries)
+
+
+```
+
+# Following code represents the net capital accounts of a specific country- 'Australia'
+```{r}
+data_longer <- Net_countries %>%
+  filter(Country == 'Australia') %>%
+  gather(Country, Value)
+
+print(data_longer )
+```
+
+# Furthermore, the following code represents the changes in the Net Capital Account of Australia over the years 2015- 2020 graphically.
+
+
+```{r}
+library(ggplot2)
+
+line_graph <- ggplot(data_longer, aes(x = Country, y = Value, group = 1)) +
+  geom_line() + 
+  geom_point() + 
+  labs(x = "Years", y = "Net Capital Account in USD") +
+  ggtitle("Net Capital Account of Australia over the years 2015-2020")
+
+print(line_graph)
+
+```
+
+
+
+
+
+
+
