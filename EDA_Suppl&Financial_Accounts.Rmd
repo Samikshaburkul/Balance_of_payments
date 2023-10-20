@@ -85,7 +85,8 @@ long_data$Year <- as.numeric(sub("X", "", long_data$Year))
 ggplot(long_data, aes(x=Year, y=Value, group=Country)) + 
   geom_line(aes(color=Country), alpha=0.5) + 
   labs(title="Evolution of Total Current + Capital Account from 2015 to 2020", y="Total Current + Capital Account", x="Year") + 
-  theme(legend.position="none") # Hide legend for clarity
+      theme(legend.position="none", 
+        plot.title=element_text(hjust=0.5))
 
 ```
 
@@ -147,6 +148,36 @@ library(dplyr)
 # Extract the data for the 'Net Acquisition of Financial Assets' in 2020
 data_2020 <- relevant_financial_metrics$X2020[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars"]
 
+# Calculate statistics for the original data
+mean_value <- mean(data_2020, na.rm = TRUE)
+median_value <- median(data_2020, na.rm = TRUE)
+max_value <- max(data_2020, na.rm = TRUE)
+
+# Display the values
+print(paste("Mean Value: ", mean_value))
+print(paste("Median Value: ", median_value))
+print(paste("Highest Value: ", max_value))
+
+# Calculate statistics for the original data
+Q1 <- quantile(data_2020, 0.25, na.rm = TRUE)
+Q3 <- quantile(data_2020, 0.75, na.rm = TRUE)
+IQR_value <- IQR(data_2020, na.rm = TRUE)
+lower_whisker <- Q1 - 1.5 * IQR_value
+upper_whisker <- Q3 + 1.5 * IQR_value
+range_value <- range(data_2020, na.rm = TRUE)
+outliers <- data_2020[data_2020 < lower_whisker | data_2020 > upper_whisker]
+
+# Display the values
+print(paste("Lower Whisker: ", lower_whisker))
+print(paste("Q1 (First Quartile): ", Q1))
+print(paste("Median: ", median(data_2020, na.rm = TRUE)))
+print(paste("Q3 (Third Quartile): ", Q3))
+print(paste("Upper Whisker: ", upper_whisker))
+print(paste("IQR (Interquartile Range): ", IQR_value))
+print(paste("Range: ", range_value[1], "to", range_value[2]))
+print(paste("Number of Outliers: ", length(outliers)))
+
+
 # Apply a log transformation to the data; adding a small constant to handle zeros or negative values
 log_data_2020 <- log(data_2020 + max(abs(data_2020))*1.01) 
 
@@ -186,8 +217,10 @@ ggplot(data.frame(Value=log_data_2020), aes(x="", y=Value)) +
   geom_boxplot(fill="lightblue", color="blue", outlier.shape=NA) +
   geom_hline(yintercept = median(log_data_2020), linetype="dashed", color = "red", size=0.5) +  # Median line
   labs(title="Boxplot of Log-transformed Net Acquisition of Financial Assets in 2020",
+       x = "Net Acquisition of Financial Assets",
        y="Log-transformed Net Acquisition of Financial Assets") + 
   theme_minimal() +
+    theme(plot.title=element_text(hjust=0.6)) +
   coord_cartesian(ylim=c(Q1 - 0.5*IQR_value, Q3 + 0.5*IQR_value))  
 ```
 
@@ -235,7 +268,6 @@ merged_data$Type <- ifelse(merged_data$Country %in% top_10_Economic_Countries, "
 # Scatter plot differentiating between the top 10 economies and the top 10 emerging countries
 ggplot(merged_data, aes(x=mean_equity, y=mean_debt, color=Type)) + 
   geom_point(aes(shape=Type), size=3) +  
-  geom_smooth(method="lm", se=FALSE, color="red", linetype="dashed") +  # Add a linear regression line
   labs(title="Average Equity vs. Average Debt Securities (2015-2020)",
        x="Average Equity and Investment Fund Shares",
        y="Average Debt Securities") +
@@ -290,8 +322,50 @@ t_test_result <- t.test(supplementary_accnts_data$average, financial_accnts_data
 print(t_test_result)
 
 # Boxplot
-boxplot(supplementary_accnts_data$average, financial_accnts_data$average, names=c("Supplementary Items", "Financial Account"), main="Comparison of Averages", ylab="Value", xlab="Dataset")
+boxplot(supplementary_accnts_data$average, financial_accnts_data$average, names=c("Total Current + Capital Account", "Net Acquisition of Financial Assets"), main="Comparison of Averages", ylab="Value", xlab="Dataset")
 
 ```
 The p-value is slightly above 0.05, which means, at the 5% significance level, we fail to reject the null hypothesis. This suggests that there isn't enough statistical evidence to say that the average 'Total Current + Capital Account' is different from the average 'Net Acquisition of Financial Assets' over the period 2015-2020.
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Extracting data
+supplementary_accnts_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars", ]
+financial_accnts_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars", ]
+
+# Calculating averages for 2015-2020
+supplementary_accnts_data$average <- rowMeans(supplementary_accnts_data[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+financial_accnts_data$average <- rowMeans(financial_accnts_data[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+
+# Combine the data for boxplot
+boxplot_data <- data.frame(
+  Value = c(supplementary_accnts_data$average, financial_accnts_data$average),
+  Type = c(rep("Total Current + Capital Account", nrow(supplementary_accnts_data)), 
+           rep("Net Acquisition of Financial Assets", nrow(financial_accnts_data)))
+)
+
+# Determine the 1st and 3rd quartiles and IQR for the y-axis limits
+Q1_supplementary <- quantile(supplementary_accnts_data$average, 0.25, na.rm = TRUE)
+Q3_supplementary <- quantile(supplementary_accnts_data$average, 0.75, na.rm = TRUE)
+IQR_supplementary <- IQR(supplementary_accnts_data$average, na.rm = TRUE)
+
+Q1_financial <- quantile(financial_accnts_data$average, 0.25, na.rm = TRUE)
+Q3_financial <- quantile(financial_accnts_data$average, 0.75, na.rm = TRUE)
+IQR_financial <- IQR(financial_accnts_data$average, na.rm = TRUE)
+
+# Using ggplot2 to create a boxplot with customized y-axis limits
+ggplot(boxplot_data, aes(x=Type, y=Value)) +
+  geom_boxplot(fill="lightblue", color="blue", outlier.color="red", outlier.shape=16) +
+  labs(title="Comparison of Averages for 2015-2020",
+       y="Average Value", 
+       x="Attribute") + 
+  theme_minimal() +
+  theme(plot.title=element_text(hjust=0.6)) +
+  coord_cartesian(ylim=c(min(Q1_supplementary - 1.5*IQR_supplementary, Q1_financial - 1.5*IQR_financial), 
+                         max(Q3_supplementary + 1.5*IQR_supplementary, Q3_financial + 1.5*IQR_financial)))
+
+```
 
