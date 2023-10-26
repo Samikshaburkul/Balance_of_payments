@@ -1,22 +1,42 @@
+
 ---
-title: "Currentaccount"
-output: html_document
-date: "2023-10-14"
+# This is the YAML header/metadata for the document
+title: "BALANCE OF PAYMENT ANALYSIS"
+author's: "1) Aman 2) Samiksha 3) Avinash 4) Bhagavath sai "
+# date: "today"
+date: "`r Sys.Date()`" 
+# this style requires installing rmdformats package 
+output:  
+    rmdformats::readthedown:
+    
+      
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Introduction
+XXXXXXX
 
+# Problem Statement
+## CURRENT ACCOUNT ANALYSIS 
+What is the current account balance and what components contribute to it (e.g., trade balance, income, transfers)?
+
+# Data
+XXXXXXXXX
+
+# Dataset characteristics
+XXXXXX
 
 ```{r cars}
 df_filtered <-read.csv('BalanceOfPayment.csv',header = TRUE)
 ```
 
-## Including Plots
+# DATA PRE-PROCESSING
+## CURRENT ACCOUNT BALANCE 
 
-You can also embed plots, for example:
+
 ```{r}
 head(df_filtered)
 ```
@@ -24,49 +44,42 @@ head(df_filtered)
 ```{r}
 summary(df_filtered)
 ```
+
 ```{r}
 currentaccount_df <- df_filtered[grepl("^Current Account", df_filtered$Indicator), ]
 
 ```
-```{r}
-write.csv(currentaccount_df, "current_account.csv")
-```
 
-```{r}
-count <- nrow(currentaccount_df)
-count
-```
-
-```{r}
-unique_indi <- unique(currentaccount_df$Country)
-unique_indi
-```
-
-```{r}
-ggplot(currentaccount_df, aes(y = `X2015`, x = Indicator)) + 
-  geom_boxplot(fill = "blue", color = "black", alpha = 1) + 
-  labs(title = "Box Plot for currentaccount (2015)", x = "Indicator", y = "Value") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-```
-```{r}
-library(ggplot2)
-ggplot(currentaccount_df, aes(x = `X2015`, y = `X2020`)) + 
-  geom_point(color = "blue", alpha = 0.7) + 
-  labs(title = "Scatter Plot for current account (2015 vs 2020)", x = "2015", y = "2020")
+**THE SIX ECONOMICS INDICATORS AND ITS SIGNIFICANCES **
+1)Current Account, Goods and Services, Credit, US Dollars
+2)Current Account, Goods and Services, Debit, US Dollars
+3)Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars 
+4)Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars
+5)Current Account, Goods and Services, Services, Transport, Credit, US Dollars
+6)Current Account, Goods and Services, Services, Transport, Debit, US Dollars
 
 
-```
+**Trade Balance (Credit and Debit):**
+ The first and second indicators, "Current Account, Goods and Services, Credit, US Dollars" and "Current Account, Goods and Services, Debit, US Dollars," signify a country's trade balance. The "Credit" side represents the value of goods and services a nation exports, while the "Debit" side indicates what it imports. The difference between the two reveals whether a country has a trade surplus (more exports than imports) or a trade deficit (more imports than exports).
 
-```{r}
+**Primary Income Balance (Credit and Debit):**
+ The third and fourth indicators, "Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars" and "Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars," detail a country's primary income balance. "Credit" shows income earned from foreign direct investments, while "Debit" represents payments made to foreign investors. This balance reflects how much a country gains or loses through international investments.
 
-currentaccount_df
+**Transport Balance (Credit and Debit):** 
+The fifth and sixth indicators, "Current Account, Goods and Services, Services, Transport, Credit, US Dollars" and "Current Account, Goods and Services, Services, Transport, Debit, US Dollars," signify the transport balance. "Credit" tracks income from transport services offered to other countries, while "Debit" denotes payments made for inbound transport services. This balance showcases the economic flow related to transportation.
 
-```
+**Current Account Balance:**
+
+By summing the Trade Balance, Primary Income Balance, and Transport Balance, we arrive at the Current Account Balance. This comprehensive metric provides a holistic view of a nation's economic interactions with the world. A positive balance indicates that a country is earning more from international trade, investments, and transport services than it's spending, signifying economic strength. Conversely, a negative balance suggests deficits and potential financial challenges.
+
+These indicators collectively allow economists and policymakers to assess a country's international trade performance, financial stability, and its ability to attract investments and generate income from various economic activities. They are instrumental in understanding a nation's economic health and its position in the global marketplace.
+
+
+
 ```{r}
 currentaccount_df$Total <- rowSums(currentaccount_df[, grep("X20(15|16|17|18|19|20)", colnames(currentaccount_df))], na.rm = TRUE)
-currentaccount_df
-```
-```{r}
+
+# Filter rows where Indicator contains "credit"
 credit_data <- currentaccount_df[currentaccount_df$Indicator == "Current Account, Goods and Services, Credit, US Dollars", ]
 
 # Filter rows where Indicator contains "Debit"
@@ -78,9 +91,8 @@ debit_grouped <- aggregate(Total ~ Country, data = debit_data, sum)
 trade_balance_data_total <- merge(credit_grouped, debit_grouped, by = "Country", all = TRUE)
 trade_balance_data_total$Trade_Balance <- trade_balance_data_total$Total.x - trade_balance_data_total$Total.y
 trade_balance_data_total$Trade_Balance_mean <- trade_balance_data_total$Trade_Balance /6
-print(trade_balance_data_total)
-```
-```{r}
+
+# Filter rows where Indicator contains "credit"
 credit_data_income <- currentaccount_df[currentaccount_df$Indicator == "Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars", ]
 
 # Filter rows where Indicator contains "Debit"
@@ -92,9 +104,8 @@ debit_grouped_income <- aggregate(Total ~ Country, data = debit_data_income, sum
 income_balance_data_Total <- merge(credit_grouped_income, debit_grouped_income, by = "Country", all = TRUE)
 income_balance_data_Total$income_Balance <- income_balance_data_Total$Total.x - income_balance_data_Total$Total.y
 income_balance_data_Total$income_Balance_mean <- income_balance_data_Total$income_Balance /6
-print(income_balance_data_Total)
-```
-```{r}
+
+# Filter rows where Indicator contains "credit"
 credit_data_transport <- currentaccount_df[currentaccount_df$Indicator == "Current Account, Goods and Services, Services, Transport, Credit, US Dollars", ]
 
 # Filter rows where Indicator contains "Debit"
@@ -106,17 +117,56 @@ debit_grouped_transport <- aggregate(Total ~ Country, data = debit_data_transpor
 transport_balance_data_Total <- merge(credit_grouped_transport, debit_grouped_transport, by = "Country", all = TRUE)
 transport_balance_data_Total$transport_Balance <- transport_balance_data_Total$Total.x - transport_balance_data_Total$Total.y
 transport_balance_data_Total$transport_Balance_mean<-transport_balance_data_Total$transport_Balance/6
-print(transport_balance_data_Total)
-```
-```{r}
 merged_df <- merge(trade_balance_data_total, income_balance_data_Total, by = "Country")
 merged_df <- merge(merged_df, transport_balance_data_Total, by = "Country")
 result_df <- merged_df[, c("Country", "Trade_Balance", "Trade_Balance_mean", "income_Balance", "income_Balance_mean", "transport_Balance", "transport_Balance_mean")]
-result_df
+result_df$Current_Account_Balance <- result_df$Trade_Balance + result_df$income_Balance + result_df$transport_Balance
+result_df$Current_Account_Balance <- result_df$Trade_Balance + result_df$income_Balance + result_df$transport_Balance
+
+
 ```
+
+
+
+
+
+
+
+# Exploratory Data Analysis
+
+## CURRENT ACCOUNT BALANCE FOR VARIOUS COUNTRIES
 ```{r}
- write.csv(result_df, "account_balance.csv", row.names = FALSE)
+library(ggplot2)
+ggplot(result_df, aes(x = Current_Account_Balance)) +
+  geom_histogram(fill = "lightblue", color = "black") +
+  labs(title = "Distribution of Current Account Balances Across 171 Countries", x = "Current Account Balance (in Billions of US Dollars)" , y = "Number of Countries")
+
 ```
+From the graph it is evident that more than 120 countries have their current account balances in the central tendency region
+
+```{r}
+
+Q1_Currentaccount <- quantile(result_df$Current_Account_Balance, 0.25, na.rm = TRUE)
+Q3_Currentaccount <- quantile(result_df$Current_Account_Balance, 0.75, na.rm = TRUE)
+IQR_currentaccount <- IQR(result_df$Current_Account_Balance, na.rm = TRUE)
+
+
+ggplot(result_df, aes(y=Current_Account_Balance)) +
+  geom_boxplot(fill="lightblue", color="blue", outlier.color="red", outlier.shape=16) +
+  labs(title="Comparison of current accounts",
+       y="Current_Account_Balance") + 
+  theme_minimal() +
+  theme(plot.title=element_text(hjust=0.6)) +
+  coord_cartesian(ylim=c(min(Q1_Currentaccount - 1.5*IQR_currentaccount), 
+                         max(Q3_Currentaccount + 1.5*IQR_currentaccount)))
+
+
+```
+
+***Distribution of Current Account Balances Across Countries***
+
+Most of the country's current account balance lies below -5.20 billion(median= -5205238816). That indicates that most of the countries have current account deficits.
+
 
 ```{r}
 library(dplyr)
@@ -125,45 +175,29 @@ library(dplyr)
 # Sort the original data frame by the "Total" column in descending order (highest to lowest)
 df_sorted_descending <- result_df %>% arrange(desc(Trade_Balance_mean))
 
-# Select the top 10 "Total" values
+# Select the top 20 "Total" values
 top_20 <- head(df_sorted_descending, 20)
-top_20
 
-
-
-# Combine the top 10 and bottom 10 into a single data frame
-combined_df_total <- bind_rows(top_20)
-
-combined_df_total
 
 ```
-
 ```{r}
-ggplot(combined_df_total, aes(x = `Trade_Balance_mean`, y = `transport_Balance_mean`, color = Country)) + 
+library(ggplot2)
+ggplot(top_20, aes(x = `Trade_Balance_mean`, y = `transport_Balance_mean`, color = Country)) + 
   geom_point() + 
-  labs(title = "Scatter Plot for trade and transport balance of total mean ", x = "Trade_Balance_mean", y = "transport_Balance_mean")
+  labs(title = "Trade vs Transport Balance by Country ", x = "Mean Trade Balance", y = "Mean Transport Balance")
 
 ```
-```{r}
-t_test_result_current <- t.test(combined_df_total$Trade_Balance_mean, combined_df_total$transport_Balance_mean, paired = TRUE)
-t_test_result_current
-```
-```{r}
-t_test_result_current_171 <- t.test(result_df$Trade_Balance_mean, result_df$transport_Balance_mean, paired = TRUE)
-t_test_result_current_171
 
-```
-```{r}
-result_df$Current_Account_Balance <- result_df$Trade_Balance + result_df$income_Balance + result_df$transport_Balance
-result_df
-```
-```{r}
-ggplot(result_df, aes(x = Current_Account_Balance)) +
-  geom_density() +
-  labs(title = "Density Plot of Current Account Balance")
-```
-```{r}
-ggplot(result_df, aes(x = Current_Account_Balance)) +
-  geom_histogram(fill = "lightblue", color = "black") +
-  labs(title = "Histogram of Current Account Balance", x = "Current Account Balance")
-```
+
+
+
+
+
+
+
+
+
+# Hypothesis Testing
+
+# Conclusion
+
