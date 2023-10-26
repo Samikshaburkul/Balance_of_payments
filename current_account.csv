@@ -1,0 +1,1005 @@
+"","X","Country","Code","Indicator","Icode","X2015","X2016","X2017","X2018","X2019","X2020"
+"5",5,"Afghanistan, Islamic Rep. of",512,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1417300546,1136013206,1152896050,1609472021,1515758749,1476305961
+"6",6,"Afghanistan, Islamic Rep. of",512,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",8462264707,7327477074,7956456168,7987638963,7370819805,6982852963
+"13",13,"Afghanistan, Islamic Rep. of",512,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",67475.33322,1221826.329,1165905.534,48719907.55,4439420.959,7294475.039
+"18",18,"Afghanistan, Islamic Rep. of",512,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",94543731.88,100185732.8,102985397.1,181145490.6,106551002.7,86573383.28
+"19",19,"Afghanistan, Islamic Rep. of",512,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",893795809,899709720.2,990501554.3,962257215.2,921789447.1,926022951.4
+"25",25,"Afghanistan, Islamic Rep. of",512,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,957389.3848,3042028.081,5182.183955
+"43",43,"Albania",914,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3104045580,3439878230,4143794703,4784712029,4822385626,3460812843
+"44",44,"Albania",914,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",5070259616,5441410775,6122452300,6854286782,6925814672,5671285653
+"49",49,"Albania",914,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",174953675.1,202426984.1,268306968.2,305754698,272422604.9,203362732
+"50",50,"Albania",914,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",191118745.4,234311289.6,224458295.8,252377847.8,250193796.3,205847548.2
+"57",57,"Albania",914,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",17762635.04,39381652.82,36354288.5,9449845.21,17560576.45,19806361.31
+"58",58,"Albania",914,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",169380736.1,146802211.4,306681018.4,343948148.4,518409739.7,460973410
+"81",81,"Algeria",612,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",37905326615,32746852187,37680842572,44387318896,38551346600,24901914033
+"82",82,"Algeria",612,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",63290234977,60196342367,60083478506,60088713451,54258989925,42347048720
+"85",85,"Algeria",612,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",680634057,672782884.8,708954618.5,715623455.8,646654168.8,537711115.4
+"86",86,"Algeria",612,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",3690355801,3613016018,3474445355,3612430381,3430500756,2580321198
+"87",87,"Algeria",612,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",72680213.59,384745306.4,712244160.3,36769280.54,121306591.5,136580962.3
+"88",88,"Algeria",612,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",6478575656,3970671458,4819901399,5689406512,5214533911,3763432274
+"90",150,"Angola",614,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",34437293544,28299767213,35598035306,41388891319,35180142878,21004445129
+"91",151,"Angola",614,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",37968764913,25657029920,28256537256,25887355607,22299328651,15145687472
+"93",153,"Angola",614,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",4291998806,3027846238,4883342721,5097094753,4695190552,2188522434
+"103",163,"Angola",614,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",25297552.43,32634214.49,23111939.08,27902711.24,31837859.25,8531917.53
+"105",165,"Angola",614,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",4058035115,3109728471,3108468021,3320012689,3125074989,2043961830
+"119",179,"Angola",614,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,21003800,3540000,9589800,109939800
+"121",181,"Anguilla",312,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",22595987.78,21816808.39,20259715.02,31176941.33,30545527.47,15490076.87
+"122",182,"Anguilla",312,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",89544.5,44137.38889,170337.0444,170337.0444,287060.3593,184892.3074
+"123",183,"Anguilla",312,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",17493811.42,6233573.399,24601234.41,23719537.41,51151360.22,-2164510.587
+"128",188,"Anguilla",312,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",12441186.12,15274775.54,16446361.42,12225257.59,12824980.79,7208553.414
+"139",199,"Anguilla",312,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",171506419.4,171089641.7,224738106.7,149571723.2,209194179.4,73286293.14
+"148",208,"Anguilla",312,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",260983456.5,247092951.9,237837836,350375397.1,337427812.8,187449708.9
+"158",218,"Antigua and Barbuda",311,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1016366368,1043082266,988693922.5,1037965892,1194092316,591276100.6
+"159",219,"Antigua and Barbuda",311,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",132143366.6,135178548.5,124878347.7,126200355.8,138100974.1,35897190.88
+"160",220,"Antigua and Barbuda",311,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",88054699.37,90578901.76,92929399.6,109103861,109918616.2,61039864.04
+"167",227,"Antigua and Barbuda",311,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",853391541.4,923580934.6,970767344.5,1132905851,1180428569,739746512.6
+"169",229,"Antigua and Barbuda",311,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",71988102.03,85031413.53,55791718.43,70567411.08,63677673.2,930992.4659
+"174",234,"Antigua and Barbuda",311,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",666205.8148,1564507.889,146487.1481,148153.8148,212169.9259,213754.5444
+"183",243,"Argentina",213,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",647416947.4,699468830.9,1019494113,1523156077,1301558886,849865323.1
+"187",247,"Argentina",213,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",76622786929,75420138819,89310577214,86821661280,66573932489,52342831895
+"191",251,"Argentina",213,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",70022565843,71384640575,74168075514,77143165816,79964482529,64437247306
+"197",257,"Argentina",213,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",8792562084,7865724276,9701139407,8944545807,6911140213,3459514195
+"205",265,"Argentina",213,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",2329777788,2022379929,1926821958,1935962614,1920954297,1250221586
+"206",266,"Argentina",213,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",4484853102,4560994549,5178759701,4911622609,3890376977,2113563619
+"212",272,"Armenia, Rep. of",911,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",683994.5675,4715163.743,9518455.394,8252817.787,11328432.68,6345780.454
+"213",273,"Armenia, Rep. of",911,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",-18592452.44,112883627.6,97268804.93,177563977.3,237803337.8,231367234.9
+"218",278,"Armenia, Rep. of",911,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",360993766.9,367751616.3,433791351.9,555734207.1,648401952.8,413946101.4
+"223",283,"Armenia, Rep. of",911,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",163501698.9,188695700.1,231566845.1,256331464.6,275403180.8,232391841.7
+"232",292,"Armenia, Rep. of",911,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3137698940,3564513097,4410411870,4927027295,5794425537,3818190455
+"239",299,"Armenia, Rep. of",911,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4419193791,4470358659,5653962634,6679769678,7603409296,5082296668
+"244",307,"Aruba, Kingdom of the Netherlands",314,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2132591430,2010737226,2038205648,2269860628,2240027486,1644444118
+"247",313,"Aruba, Kingdom of the Netherlands",314,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",115153473.2,114974631.3,130498998.6,138836497,124086706.7,51764068.28
+"248",315,"Aruba, Kingdom of the Netherlands",314,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",114977756.4,106971136.4,111645331.7,137469704,138551384.3,96020537.81
+"255",333,"Aruba, Kingdom of the Netherlands",314,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2437130636,2344277793,2305572784,2557265559,2561691720,1443955668
+"256",335,"Aruba, Kingdom of the Netherlands",314,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",98856251.68,105083057.8,143406346.9,170949225,144048079.8,36135623.88
+"260",347,"Aruba, Kingdom of the Netherlands",314,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",13580556.98,15797774.82,17419454.67,16353995.91,24662493.77,23746931.28
+"266",363,"Australia",193,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",13351486437,12232520792,12633638821,13803823630,13034925239,9227799014
+"267",364,"Australia",193,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",5078180091,5386144003,5820284847,5643754054,5516841793,3206435655
+"270",367,"Australia",193,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.43106e+11,2.509e+11,2.96577e+11,3.27131e+11,3.42185e+11,3.00713e+11
+"271",368,"Australia",193,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.70881e+11,2.61288e+11,2.89337e+11,3.11529e+11,2.94718e+11,2.5026e+11
+"284",381,"Australia",193,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",24270570720,27875286417,37962550607,44895860089,43185507792,25957673582
+"285",382,"Australia",193,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",14285216921,13654903808,14564005521,16913285689,16993109360,14814361493
+"302",400,"Austria",122,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.02399e+11,2.07007e+11,2.25372e+11,2.52205e+11,2.47738e+11,2.24734e+11
+"303",401,"Austria",122,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1.88489e+11,1.92378e+11,2.12902e+11,2.38933e+11,2.31992e+11,2.11736e+11
+"308",407,"Austria",122,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",14206149189,14288688652,15847805843,17241923195,17971910671,15901996446
+"309",408,"Austria",122,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",14581221495,14776228557,16490083893,18233815933,18463235103,16220083391
+"318",417,"Austria",122,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2884699197,16667914162,13235930147,14610245360,17775881062,15764698791
+"319",418,"Austria",122,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1802815527,13266361845,13692607041,15804464168,17159955771,10961641241
+"345",445,"Azerbaijan, Rep. of",912,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1518285000,1095425000,971396000,1223822000,1107970260,1644680000
+"346",446,"Azerbaijan, Rep. of",912,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",18446480000,16526981000,17105068000,17705199000,17712459100,15537819000
+"347",447,"Azerbaijan, Rep. of",912,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",442682000,307255000,665195000,750227000,438762000,827607000
+"348",448,"Azerbaijan, Rep. of",912,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",2274553000,2492823000,2022795000,2934418000,2600976000,1271106000
+"351",452,"Azerbaijan, Rep. of",912,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",20030038000,17578801000,19840498000,25484473000,23629741260,15208753000
+"352",453,"Azerbaijan, Rep. of",912,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1009650000,919389000,1048362000,1520870000,1458446100,1301987000
+"358",580,"Bangladesh",513,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",34969256094,37662675682,39170435004,44128038982,44961040130,38475972660
+"359",581,"Bangladesh",513,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",45575754269,48167978224,56764922840,65585208867,64233645991,56776357566
+"365",587,"Bangladesh",513,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",2206809521,2286354184,1945051595,1293130468,1547495482,1882470002
+"372",594,"Bangladesh",513,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",5773877083,5405106106,5747729492,5653150385,5685843196,5066458723
+"373",595,"Bangladesh",513,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",14752823.64,27705301.59,23294469.09,254046080.1,27639136.93,72624371.03
+"378",600,"Bangladesh",513,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",401361515.2,417987433.8,488604340.2,655622568.2,621630551.9,685375451
+"386",641,"Belarus, Rep. of",913,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",32854100000,29983700000,36595400000,42267800000,41974900000,37183200000
+"387",642,"Belarus, Rep. of",913,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",32721700000,29992500000,36495300000,41338700000,42377900000,35235600000
+"395",650,"Belarus, Rep. of",913,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1269300000,1336900000,1599100000,1.832e+09,1945600000,1763600000
+"397",652,"Belarus, Rep. of",913,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",2984500000,2988400000,3520200000,3923400000,4018600000,3677900000
+"399",654,"Belarus, Rep. of",913,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",49100000,86200000,106200000,148800000,1.46e+08,126700000
+"400",655,"Belarus, Rep. of",913,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1788800000,1573500000,1650600000,2002300000,1776400000,2232700000
+"423",678,"Belgium",124,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",38279438772,41425736334,36198571265,45352963446,43719126652,30354207250
+"424",679,"Belgium",124,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",37763191105,41365132663,36013324501,46240495296,45075695512,34721522230
+"437",692,"Belgium",124,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",22695906060,22291016757,24418217025,26237923240,25457314342,24972953551
+"438",693,"Belgium",124,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",23277586131,24204875589,27001100641,28457563657,26324963424,24161459603
+"440",695,"Belgium",124,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3.59684e+11,3.77941e+11,4.18158e+11,4.51405e+11,4.41566e+11,4.17222e+11
+"441",696,"Belgium",124,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3.53183e+11,3.72254e+11,4.12898e+11,4.53057e+11,4.38221e+11,4.08343e+11
+"445",700,"Belize",339,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",70068176.16,67619165.84,67541021,66496851.17,62354488.54,64252614.82
+"446",701,"Belize",339,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",25021970.61,27977237.39,29366237.39,25181227.39,28679227.39,28461237.39
+"455",710,"Belize",339,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1033644192,968526944.2,1030908165,1071298552,1102475875,714623553.5
+"456",711,"Belize",339,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1182622393,1131810777,1087886311,1155093354,1203192599,901818661.9
+"458",713,"Belize",339,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",1210522.334,1332729.695,1482169.582,1574883.841,1656669.247,2061705.268
+"459",714,"Belize",339,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",51461402.59,64222441.57,126038445.3,101114581.6,115424687.6,13135815.26
+"484",745,"Benin",638,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2736492200,3189693705,3314328545,3847619384,3584933958,3506194080
+"485",746,"Benin",638,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3493292685,3715712760,4017845451,4668665793,4306601255,3941918100
+"492",753,"Benin",638,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",143363705.9,142446338.4,143669439.9,187377574.2,169290711.2,170295957.1
+"493",754,"Benin",638,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",352481016,547205995.5,540393907.8,527225433.8,468344737.4,411823166.6
+"494",755,"Benin",638,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",330845.957,4819225.346,4596364.379,3042039.38,12090946.6,13105678.97
+"495",756,"Benin",638,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",64419564.31,7243434.572,27153270.86,29841274.08,31137903.68,48910424.13
+"507",768,"Bermuda",319,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",34829674.7,35133136.67,35386468.5,42446954.56,57136990.12,39600631.02
+"508",769,"Bermuda",319,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",260283918.3,267306123.2,271632308,232161534.4,239930155.3,155832178.1
+"519",780,"Bermuda",319,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1259589527,1313493632,1395210435,1585558509,1605054628,1027345720
+"520",781,"Bermuda",319,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1828003107,1923976651,2044357675,2197111579,2223822428,1723367797
+"521",782,"Bermuda",319,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",107884765.9,116492993.7,155294116.9,110425213.9,86812680.04,78532381.96
+"522",783,"Bermuda",319,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",80344833.24,108218041.2,66878564.85,120343029,218700904.7,106600176.9
+"529",790,"Bhutan",514,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",706946117.9,642339520.1,716346961.3,785622133.8,777529115.3,786680733.2
+"531",792,"Bhutan",514,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",2156872.941,1847072.956,744580.5243,1481073.367,2753883.101,-1180494.315
+"535",796,"Bhutan",514,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",62521269.76,51284381.23,57532858.59,53143978.56,54868743.41,57885936.85
+"537",798,"Bhutan",514,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",26264156.28,46934768.01,48058661.84,72223317.34,38311050.2,38203031.11
+"542",803,"Bhutan",514,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1203680778,1237308412,1234918507,1248481207,1229725206,1188476133
+"551",812,"Bhutan",514,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"557",818,"Bolivia",218,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",7003286.759,21846685.09,26325878.61,712347.8304,-136247.8522,17545831.36
+"558",819,"Bolivia",218,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1078282072,565328313.4,1014456874,821626031.5,575449558.5,140352247.8
+"562",823,"Bolivia",218,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",303620418.8,298558056.1,419227510,445985058.4,452976251.8,141239622.3
+"567",828,"Bolivia",218,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",770454263.2,717484856.9,801429697.6,765013779.2,755173777,520825148.6
+"579",840,"Bolivia",218,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",9927413077,8274686876,9588789732,10399006027,10271105039,7442774100
+"581",842,"Bolivia",218,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",11907150275,10788701065,11762009850,12391416914,11957287652,8077653564
+"596",857,"Bosnia and Herzegovina",963,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",5759120183,6149663056,7432685496,8592405564,8198634415,6936343374
+"597",858,"Bosnia and Herzegovina",963,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",8720639357,8960591907,10372840125,11555954902,11155950547,9725808302
+"601",862,"Bosnia and Herzegovina",963,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",345361222.4,354933546.3,437019696.9,492744560.6,483436370.2,374090008.9
+"602",863,"Bosnia and Herzegovina",963,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",188930788.8,189659719.8,246603626.4,277329805.6,286963970.9,211909691.9
+"613",874,"Bosnia and Herzegovina",963,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2113894.358,646808.8894,6361414.521,5775702.214,11051397.29,18699903.42
+"614",875,"Bosnia and Herzegovina",963,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",310169005,399879291.9,606096667.5,630556221.7,617781818.7,527173226.4
+"618",879,"Botswana",616,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",45191279.89,33152576.8,51244915.8,60010137.05,64019344.38,56902325.05
+"619",880,"Botswana",616,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",288141280.7,259306116.5,215189636.5,251279737.8,264046760.5,271633479.6
+"620",881,"Botswana",616,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4360303.402,1467060.835,2344027.148,-38990848.17,-700257.7508,-20358714.24
+"621",882,"Botswana",616,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",407984308.3,1250211877,1228949177,1447759921,1011955542,6388896.414
+"629",891,"Botswana",616,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",7183707022,8223923925,6904828443,7532334396,6228711669,4703378590
+"630",892,"Botswana",616,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",8092740291,6915891943,6281640520,7362391277,7695776473,7553975272
+"655",918,"Brazil",223,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.51814e+11,2.09433e+11,2.35561e+11,2.69519e+11,2.70767e+11,2.30508e+11
+"660",923,"Brazil",223,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.23589e+11,2.17321e+11,2.51258e+11,2.73564e+11,2.58833e+11,2.38221e+11
+"664",927,"Brazil",223,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",12901037613,10608714965,13245362065,14233877959,13611631244,10959718826
+"665",928,"Brazil",223,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",13914636167,30358815376,41473999358,45739613016,54051475782,39364463447
+"666",929,"Brazil",223,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",3976839665,4029855509,4569137529,4475254262,4282707220,3997426929
+"672",935,"Brazil",223,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",-2398059213,7877813589,17331772142,4834886329,16070788788,13198972009
+"680",943,"Brunei Darussalam",516,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",6773193238,5342041396,6025744290,7040938538,7827700937,6886208832
+"681",944,"Brunei Darussalam",516,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",465952026.6,344885174.9,347339435.3,303302714.1,277883020.7,145094670.1
+"685",948,"Brunei Darussalam",516,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",233136514,213494673.8,260281791.2,225835409.7,234384797.2,228032553.1
+"692",955,"Brunei Darussalam",516,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4869795669,4302942619,4320510019,5681696875,6805793042,6382221490
+"704",969,"Bulgaria",918,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",2561050000,3006080000,3392090000,3807600000,3743290000,3711470000
+"705",970,"Bulgaria",918,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",36880000,98600000,183180000,88660000,215570000,82800000
+"711",976,"Bulgaria",918,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1713260000,1886070000,2055980000,2317500000,2323340000,1702160000
+"713",978,"Bulgaria",918,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",32475140000,34499550000,39873370000,43521580000,44041210000,39541290000
+"714",979,"Bulgaria",918,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",32092640000,31934560000,37264480000,41909290000,41842610000,38197380000
+"722",987,"Bulgaria",918,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1236250000,1658430000,2198690000,1548140000,1564030000,1216510000
+"733",998,"Burkina Faso",748,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2754925191,3272397275,3731165463,4511341340,4467669904,5355646933
+"734",999,"Burkina Faso",748,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3772269743,4068434282,4629393892,5166928039,5023151867,4778831228
+"735",1000,"Burkina Faso",748,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",57138585.24,65179942.64,75771098.9,79870884.64,77989658.79,78594598.63
+"736",1001,"Burkina Faso",748,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",537370963.9,581249976.8,639215853.9,704316310,687729008.2,518777465.3
+"756",1021,"Burkina Faso",748,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",10275507.1,15644468.71,18983625.02,46606652.38,20791553.2,21711980.19
+"757",1022,"Burkina Faso",748,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",378126821.2,416060856.9,436586882.3,490991176.3,492091791.3,529803082.9
+"767",1057,"Cabo Verde",624,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",15545056.98,28447401.25,28696575.13,25737452.05,23449512.03,16604164.92
+"770",1060,"Cabo Verde",624,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",659985468.2,715420297.1,795488589.6,963649656.1,1005347980,423258309
+"773",1063,"Cabo Verde",624,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",905626464.2,1000481156,1179579877,1330011310,1286655258,1007682517
+"774",1064,"Cabo Verde",624,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",85760369,95579575.34,91867583.35,118464696,156407552.9,61150602.51
+"775",1065,"Cabo Verde",624,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",68202013.41,84456138.66,110781226.7,153227794.2,111717715.4,64888753.75
+"790",1080,"Cabo Verde",624,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,329668.937,869452.8292,1005357.932,1283364.546
+"796",1086,"Cambodia",522,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",13291033923,14305832075,15831866523,18413935868,21072422248,20289665278
+"797",1087,"Cambodia",522,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",15527540570,16549913895,18246676110,21862726323,25515540745,23090657075
+"798",1088,"Cambodia",522,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",419424895.4,456077728.5,562177458.5,687923497.5,786381274.4,281713555
+"799",1089,"Cambodia",522,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1206903553,1298110488,1441014725,1485920732,1683651418,1285463495
+"803",1093,"Cambodia",522,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2144921.896,3564079.059,8737395.094,23596044.25,40110726.57,16579234.5
+"804",1094,"Cambodia",522,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1101914892,1165538493,1292488776,1620137422,2016602228,1464193667
+"829",1126,"Cameroon",622,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",464977267.8,484847696.5,591844460.2,665754307.1,673958973.9,591507623
+"830",1128,"Cameroon",622,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",906443498.7,828599938.6,842394081.3,989149832.2,1063598754,787697041.7
+"832",1132,"Cameroon",622,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",83083606.38,86608415.13,90685588.37,81658105.33,88522159.04,1794046.463
+"833",1134,"Cameroon",622,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",411527716.4,421581987.2,494376252.6,605376517.3,697387039.2,656345425.3
+"851",1170,"Cameroon",622,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",6735658333,6247837992,6548600007,7301078164,7730803120,6124444785
+"852",1172,"Cameroon",622,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",7789426386,7076506879,7271200972,8422507282,9085402179,7212457585
+"853",1174,"Canada",156,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",34732574236,31025461020,37348198145,41907087215,40778022541,24365026578
+"854",1175,"Canada",156,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",41892170560,40831866881,54311414125,63041782546,61618081125,53865809789
+"855",1176,"Canada",156,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",20637264309,20409928780,22350278854,24715889036,24583339520,17584929044
+"857",1178,"Canada",156,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",12167029079,12339427353,13435074814,13947622115,14006257218,10220879769
+"870",1191,"Canada",156,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",5.34721e+11,5.17858e+11,5.55102e+11,5.91389e+11,5.89666e+11,5.26936e+11
+"871",1192,"Canada",156,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4.96137e+11,4.81616e+11,5.18864e+11,5.57656e+11,5.64128e+11,4.90107e+11
+"883",1264,"Chile",228,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",70677628062,69369787238,78097748667,84063817032,77254740134,79578821293
+"887",1268,"Chile",228,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2540101415,3161910153,4326277702,5105890636,5759321146,293333230.6
+"888",1269,"Chile",228,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",8270334309,9922360880,14390378716,16924304024,16070174581,15858741163
+"891",1272,"Chile",228,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",72672748049,69897734609,76217898712,86996723027,82323665832,68134481174
+"893",1274,"Chile",228,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",4600582842,4264648712,4700251451,5056474813,4939294731,4408846582
+"900",1281,"Chile",228,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",3244984767,3065808213,3318440781,3412869272,3311875996,2536809476
+"909",1290,"China, P.R.: Hong Kong",532,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",5.98691e+11,5.92732e+11,6.41127e+11,6.82046e+11,6.39363e+11,6.01528e+11
+"910",1291,"China, P.R.: Hong Kong",532,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",1.21685e+11,1.17872e+11,1.24935e+11,1.35267e+11,1.37594e+11,1.35146e+11
+"911",1292,"China, P.R.: Hong Kong",532,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",29783735599,28174406478,30462028313,33020808814,31488136719,23960625635
+"912",1293,"China, P.R.: Hong Kong",532,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",17316167245,16927028355,17483831489,18531306906,18337997131,14861145201
+"914",1295,"China, P.R.: Hong Kong",532,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",6.06084e+11,6.0006e+11,6.44556e+11,6.81281e+11,6.4503e+11,6.08192e+11
+"930",1311,"China, P.R.: Hong Kong",532,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1.36514e+11,1.33872e+11,1.40008e+11,1.52113e+11,1.54912e+11,1.48436e+11
+"950",1331,"China, P.R.: Macao",546,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",579472083.4,588740410.6,583550818.4,685658175.1,672342839,130392957.7
+"951",1332,"China, P.R.: Macao",546,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",484434599.8,431142218.1,431176359.5,468241722.3,453457251.8,307478956.5
+"952",1333,"China, P.R.: Macao",546,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",119736336,55268630.52,211539600.4,267652963.5,247008857.3,-67918899.2
+"953",1334,"China, P.R.: Macao",546,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",6600138635,6170947507,7585838088,9192454914,9996772874,-2115286300
+"956",1337,"China, P.R.: Macao",546,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",35365899484,34542896602,40576244966,45626057701,45556643415,15665312858
+"957",1338,"China, P.R.: Macao",546,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",18015449473,16019489381,17308727932,18299511193,17593668411,15150903167
+"959",1341,"China, P.R.: Mainland",924,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.00228e+12,1.94219e+12,2.21227e+12,2.5631e+12,2.49915e+12,2.38033e+12
+"962",1344,"China, P.R.: Mainland",924,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.36015e+12,2.19792e+12,2.42928e+12,2.65101e+12,2.631e+12,2.7389e+12
+"963",1345,"China, P.R.: Mainland",924,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",85339751918,80580222814,93269429134,1.09206e+11,1.05154e+11,94680320319
+"964",1346,"China, P.R.: Mainland",924,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",38594332046,33827133238,37291263645,42303792765,46173138302,56689080502
+"981",1363,"Colombia",233,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",47006535262,42768836037,49321637422,53724018799,51324020019,38223632456
+"982",1364,"Colombia",233,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",66010916771,56219965346,58083146349,64280210784,65472182464,51328383611
+"984",1366,"Colombia",233,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",5052094000,4795331157,7346231803,10575587792,9227848188,3257174201
+"985",1367,"Colombia",233,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",3561580603,3731658157,3934896608,3985703662,4490200424,2537629252
+"990",1372,"Colombia",233,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1780684001,1796750707,1816514110,1966116364,2052504105,1223674181
+"991",1373,"Colombia",233,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",2927126679,2599421549,2720238108,2983878856,3087972517,2271770040
+"1008",1412,"Congo, Dem. Rep. of the",636,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",10458122395,12013350564,11656298361,16081644519,15173187660,13932327297
+"1009",1413,"Congo, Dem. Rep. of the",636,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",12766251556,14238170498,13062675383,17774432914,16891705449,14556667223
+"1010",1414,"Congo, Dem. Rep. of the",636,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",90333438.23,63938025.61,34568235.16,18460541.32,20354500.5,23546972.75
+"1011",1415,"Congo, Dem. Rep. of the",636,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1008702593,772415050.9,874240990.1,1264046403,1051448997,1076062176
+"1012",1416,"Congo, Dem. Rep. of the",636,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"1013",1417,"Congo, Dem. Rep. of the",636,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",411158622.7,346874282,489916686.3,697650859.8,452519931.1,298745464.3
+"1032",1473,"Costa Rica",238,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",496065625.1,503337326.9,454739478.7,851081149.7,928737638.2,501979893.2
+"1033",1474,"Costa Rica",238,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1008597548,1077973788,1118954694,1289662644,1409555670,809633476.7
+"1042",1483,"Costa Rica",238,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",17145996658,18637388403,19408369540,21481080534,22737736850,19995401148
+"1043",1484,"Costa Rica",238,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",17144438034,17953610898,19015041203,20562073642,20313999191,17518521994
+"1047",1488,"Costa Rica",238,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",113581342.5,100688992.8,74305124.93,107240728.4,135228410,92736173.07
+"1048",1489,"Costa Rica",238,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1947655905,1938115602,2589612216,2771497673,3246685185,2781827022
+"1063",1504,"Côte d'Ivoire",662,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",15742956.43,43377668.63,105445859.4,128056357.1,175181431.5,127921960.3
+"1064",1505,"Côte d'Ivoire",662,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",685906353.7,756163422.4,1241704450,1288232726,1338573656,1284850971
+"1066",1507,"Côte d'Ivoire",662,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",165059758.3,204564312.1,228259346.2,384604090.6,391828480.5,299614825
+"1067",1508,"Côte d'Ivoire",662,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1640319235,1381453144,1528734249,1811799806,1770205009,1710140618
+"1080",1522,"Côte d'Ivoire",662,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",12501412278,11796872426,12855832030,13084415387,13790700197,13231734045
+"1081",1523,"Côte d'Ivoire",662,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",11350941885,10719663210,11848917549,13183079167,12880625263,12660139882
+"1094",1536,"Croatia, Rep. of",960,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",22976913423,24667177513,27991285253,30678195848,31503781687,24007120376
+"1113",1555,"Croatia, Rep. of",960,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",22853980154,24002906924,27407592226,31325388169,31792729279,27954499586
+"1117",1559,"Croatia, Rep. of",960,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1129022272,1193931911,1313629390,1452929428,1414070491,964485924.9
+"1118",1560,"Croatia, Rep. of",960,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",642475845.2,627912859.6,737426111.5,793541510.5,791880064.5,649217893.7
+"1121",1563,"Croatia, Rep. of",960,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",-360640928.6,179017759.5,100104079.6,2063975890,2138466128,936005616.9
+"1123",1565,"Croatia, Rep. of",960,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",-419816413.4,-1619213557,-1362382885,170116832.8,215160156.1,330178505.7
+"1129",1571,"Curaçao and Sint Maarten",355,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",194458100.6,170586592.2,121346368.7,92402171.82,111455197.9,79039770.72
+"1130",1572,"Curaçao and Sint Maarten",355,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",172927374.3,154424581,160899441.3,139589917.6,161165748.7,93053539.67
+"1137",1579,"Curaçao and Sint Maarten",355,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3193162011,2972520670,2746124181,2736282944,2865695662,1541500997
+"1138",1580,"Curaçao and Sint Maarten",355,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3580486592,3447646369,3467035536,3966087825,3567927317,2469763769
+"1140",1582,"Curaçao and Sint Maarten",355,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",12860335.2,10541899.44,21047197.65,24680053.01,30857012.23,15739365.08
+"1141",1583,"Curaçao and Sint Maarten",355,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",57178770.95,61424581.01,67034962.18,49372044.79,92244625.94,39448384.27
+"1166",1608,"Curaçao, Kingdom of the Netherlands",354,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",12782122.91,9715083.799,19041611.06,23629305.93,28254412.96,13082456.11
+"1167",1609,"Curaçao, Kingdom of the Netherlands",354,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",56826815.64,61206703.91,66129934.25,47285963.5,83454563.11,31560355.58
+"1173",1615,"Curaçao, Kingdom of the Netherlands",354,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1964435754,1784156425,1766117904,1934706439,1774962070,1014456907
+"1174",1616,"Curaçao, Kingdom of the Netherlands",354,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2439798883,2310072626,2432779732,2745157151,2331153089,1708939522
+"1177",1619,"Curaçao, Kingdom of the Netherlands",354,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",164497206.7,135815642.5,78694427.38,52079128.61,53918777.77,49036507.21
+"1178",1620,"Curaçao, Kingdom of the Netherlands",354,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",123201117.3,116262569.8,128346343,110791603.6,125671866.1,72785085.93
+"1185",1627,"Cyprus",423,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",13904593792,14781779885,17000470675,19144948810,19835078554,20379031326
+"1186",1628,"Cyprus",423,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",13381858398,14412980718,17093324411,18779375940,19574957695,20711230043
+"1187",1629,"Cyprus",423,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",29116855993,12576592796,23441511171,28508277110,27300355997,20600987506
+"1188",1630,"Cyprus",423,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",28158536492,11986631271,22872885585,28220453920,27774170496,21949939712
+"1189",1631,"Cyprus",423,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",3009380157,3133811278,3428635423,3811376189,3872807578,3701154253
+"1190",1632,"Cyprus",423,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1730494984,1896093032,2002057290,2304331519,2530139267,2149239856
+"1214",1662,"Czech Rep.",935,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",4597939758,4485003623,5053759016,5903632761,5987702857,5531703023
+"1217",1665,"Czech Rep.",935,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",1978191379,2156897027,4822809639,4360162807,5808951033,2363736748
+"1218",1666,"Czech Rep.",935,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",14594039233,15537303074,19526945953,19426494453,20505255344,15844918051
+"1220",1668,"Czech Rep.",935,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",5527063499,5710343503,6452576907,7506202793,7003560949,6407685330
+"1232",1680,"Czech Rep.",935,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1.40294e+11,1.40319e+11,1.5698e+11,1.76775e+11,1.71429e+11,1.56129e+11
+"1234",1682,"Czech Rep.",935,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1.51446e+11,1.5529e+11,1.73235e+11,1.91694e+11,1.86545e+11,1.72837e+11
+"1244",1692,"Denmark",128,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",13217241828,12799101882,14058735762,16275655024,16005090975,14889946491
+"1247",1695,"Denmark",128,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1.47193e+11,1.46364e+11,1.59497e+11,1.79939e+11,1.79356e+11,1.72954e+11
+"1249",1697,"Denmark",128,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",36668765198,32628018398,37501358062,42282555438,44428330262,43002827938
+"1250",1698,"Denmark",128,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",28487740147,26742362584,28578137325,32609304600,34648679013,32941868466
+"1251",1699,"Denmark",128,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",5729452004,6416907635,6861789923,7459124792,7963688616,5747001599
+"1262",1710,"Denmark",128,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1.6776e+11,1.67287e+11,1.83375e+11,2.01745e+11,2.05019e+11,1.95876e+11
+"1273",1723,"Djibouti",611,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2980595334,2847426376,4306020582,4188952354,4763667490,3424742925
+"1277",1727,"Djibouti",611,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",433175502,414461223.2,620817370.3,498247252.7,531721068.4,435009080.9
+"1281",1731,"Djibouti",611,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3525582233,2703006398,4146589317,4563067955,5149672802,3694847411
+"1285",1735,"Djibouti",611,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",496834926.7,525970481.8,537584191,555511166.4,615475942.6,510856773.6
+"1286",1736,"Djibouti",611,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",60416045.37,91683031.27,121478047.1,131149262,133702319.9,118521727.9
+"1299",1750,"Dominica",321,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",9941449.781,12939114.5,-9992031.369,621990.9177,15686416.58,-4721249.267
+"1304",1755,"Dominica",321,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",268226050.7,269649442.9,217536249.5,156550657.8,211175033.1,95366374.64
+"1305",1756,"Dominica",321,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",326494116.7,329423042.7,319925536.2,420177115.4,426026531.2,303326005.6
+"1314",1765,"Dominica",321,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",131801.3074,6570.237037,5730.237037,2596.162963,10876.48148,69259.25926
+"1323",1774,"Dominica",321,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",723170.8493,780955.5852,836029.137,1523536.102,1679356.392,782743.8339
+"1324",1775,"Dominica",321,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",34067786.92,31439080.24,28741025.99,39261529.91,42932577.79,23826972.16
+"1326",1777,"Dominican Rep.",243,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"1329",1780,"Dominican Rep.",243,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",16983600000,18148800000,18991400000,20051700000,20509200000,14889400000
+"1330",1781,"Dominican Rep.",243,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",20080500000,20768200000,21041300000,24114400000,2.4526e+10,20301900000
+"1332",1783,"Dominican Rep.",243,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",2336300000,2439500000,2724500000,2.761e+09,2860700000,2.442e+09
+"1334",1785,"Dominican Rep.",243,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",547700000,5.81e+08,609600000,645500000,671700000,341200000
+"1335",1786,"Dominican Rep.",243,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1550400000,1.626e+09,1571100000,1646300000,1703900000,1408300000
+"1357",1808,"Eastern Caribbean Currency Union",309,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",163566984.5,175610172.3,167306903.7,168670925.1,175903788.5,62053109.67
+"1358",1809,"Eastern Caribbean Currency Union",309,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",346046614.4,355718399.5,360573023.9,414644559,420399153.7,265490921.4
+"1359",1810,"Eastern Caribbean Currency Union",309,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",5063336.1,5523896.107,15905506.1,27549715.19,24246139.37,25644055.98
+"1360",1811,"Eastern Caribbean Currency Union",309,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",389054344.6,313849430.6,311807118.1,332478984.8,376979200.1,119561167.3
+"1370",1821,"Eastern Caribbean Currency Union",309,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3593144038,3561189710,3630450562,3785676581,4166131927,2080298514
+"1375",1826,"Eastern Caribbean Currency Union",309,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3567470427,3788050724,3888282728,4401558413,4436332285,3173473457
+"1388",1839,"Ecuador",248,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",444263888,532341328.9,558422250.1,583565513.2,616302779.3,663363885.8
+"1389",1841,"Ecuador",248,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1510099397,1239283958,1471441255,1548386909,1621947375,1116655802
+"1394",1851,"Ecuador",248,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",598113472.6,436024784.1,363822519.6,458344105.2,392335079.8,364239740.6
+"1396",1855,"Ecuador",248,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"1406",1875,"Ecuador",248,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",23895100782,19513990730,23021810216,26296147654,25889482278,19876356275
+"1410",1883,"Ecuador",248,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",21440060545,20088895588,22530313905,25406322774,26025791422,22373343969
+"1430",1912,"Egypt, Arab Rep. of",469,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",37569400000,33624300000,42874700000,51619507000,53522607000,40101707000
+"1431",1913,"Egypt, Arab Rep. of",469,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",67938800000,68301400000,70224100000,76328100000,78950800000,72482400000
+"1438",1920,"Egypt, Arab Rep. of",469,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",153300000,96700000,138400000,123600000,135700000,100300000
+"1439",1921,"Egypt, Arab Rep. of",469,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",4374800000,3485100000,3968200000,6437400000,8111700000,6845400000
+"1440",1922,"Egypt, Arab Rep. of",469,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",9727300000,8191200000,8599800000,8843400000,8503700000,7131600000
+"1441",1923,"Egypt, Arab Rep. of",469,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",7178600000,7024800000,7429200000,8162990000,8552130000,8032690000
+"1446",1928,"El Salvador",253,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",489927015.2,450901779.1,482683786.7,476335141.7,525866748.1,273038009.9
+"1447",1929,"El Salvador",253,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",619397097.6,626095062,649269009.9,718389111.7,720932706.7,573455584.7
+"1448",1930,"El Salvador",253,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2059384.193,-2703521.848,340899.262,135608.7532,479544.0431,51653032.28
+"1449",1931,"El Salvador",253,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",726467698.3,817949666.9,914799921.7,952475526.6,854161988.1,839239248.2
+"1461",1943,"El Salvador",253,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",6914058468,6871196858,7224712453,7564979852,8056709676,6073499480
+"1462",1944,"El Salvador",253,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",10925078972,10717286435,11336179943,12323286065,12468596697,10397566735
+"1478",1960,"Estonia, Rep. of",939,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1417719401,1619968770,1780705608,1972342607,2035150393,1741772894
+"1479",1961,"Estonia, Rep. of",939,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",16821552494,17666042577,19343579707,21902535272,21712360403,21813233494
+"1482",1964,"Estonia, Rep. of",939,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",396860203.4,521550121.7,524787903.3,723485928.5,747025436.6,652837690.6
+"1488",1970,"Estonia, Rep. of",939,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",17721872011,18537802620,20442093049,22744792026,22961770090,21769319392
+"1500",1982,"Estonia, Rep. of",939,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1321944044,1374130228,1578605238,1805685793,1785699260,1477688295
+"1505",1987,"Estonia, Rep. of",939,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1861923617,1733140553,1987372480,2334213882,2290140770,1760507763
+"1524",2007,"Eswatini, Kingdom of",734,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",270970.8498,281192.5657,875943.5391,714621.4617,1324622.233,536886.8186
+"1525",2008,"Eswatini, Kingdom of",734,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",33217391.76,22356966.06,29023586.32,31557882.41,27739716.38,32302178.36
+"1527",2010,"Eswatini, Kingdom of",734,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",10974752.4,3061216.636,12614678.64,4783999.396,5524070.397,4457460.101
+"1528",2011,"Eswatini, Kingdom of",734,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",259502639.4,213067840.2,339968411.4,358482922.4,499891073.1,454819722.5
+"1530",2013,"Eswatini, Kingdom of",734,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1690359266,1650110277,1947794179,2066910589,1923609636,1686194352
+"1533",2016,"Eswatini, Kingdom of",734,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1743678940,1695049828,1914980626,1899341356,2047508514,1807821427
+"1536",2036,"Euro Area",163,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3.23511e+12,3.24485e+12,3.56986e+12,3.87269e+12,3.8149e+12,3.5013e+12
+"1537",2037,"Euro Area",163,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.79036e+12,2.79314e+12,3.07574e+12,3.39704e+12,3.4316e+12,3.12371e+12
+"1538",2038,"Euro Area",163,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",3.56316e+11,3.59409e+11,4.04675e+11,5.01581e+11,4.31565e+11,4.09643e+11
+"1547",2047,"Euro Area",163,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1.50875e+11,1.44911e+11,1.65737e+11,1.83578e+11,1.81485e+11,1.50275e+11
+"1549",2049,"Euro Area",163,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1.39703e+11,1.37876e+11,1.48991e+11,1.66708e+11,1.62298e+11,1.47433e+11
+"1557",2057,"Euro Area",163,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4.48946e+11,4.78489e+11,5.12568e+11,6.23713e+11,5.52895e+11,4.20666e+11
+"1571",2071,"Fiji, Rep. of",819,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",333364932.5,338534855.5,375977944,497988200.2,483197954.3,140298315.5
+"1572",2072,"Fiji, Rep. of",819,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",301543216.8,303581979.3,343445105.9,385862539,397245301.7,223724683.2
+"1575",2075,"Fiji, Rep. of",819,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"1576",2076,"Fiji, Rep. of",819,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",287829549.4,299520314.6,454046126.1,383642165.7,459023734.8,292049350.2
+"1583",2083,"Fiji, Rep. of",819,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2447036834,2496081238,2732197073,3093022834,3206096177,1977288239
+"1587",2087,"Fiji, Rep. of",819,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2281871121,2304372448,2467109097,2660357995,2636399008,1230186406
+"1597",2097,"Finland",172,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",83024113800,83780794264,96077881358,1.0601e+11,1.07084e+11,97419510795
+"1601",2101,"Finland",172,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",5386025940,5465188407,6178704034,7266237394,6839770578,5779973200
+"1603",2103,"Finland",172,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",84365529534,86837943188,95955454866,1.09443e+11,1.06664e+11,97037427862
+"1608",2108,"Finland",172,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",3496319053,3650431303,4328499849,5019434704,5077349567,3026969422
+"1610",2110,"Finland",172,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",7708733655,8079409540,9093981238,10493552020,13967966886,13256050325
+"1624",2126,"Finland",172,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",4965239893,6690002254,8690912084,8097139010,8640397016,6682542087
+"1625",2127,"France",132,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",41873314555,40281580519,46006854170,46783712551,46315511245,42337732456
+"1634",2136,"France",132,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",45022603180,45662401776,49307196526,54016343452,51646039896,43625439631
+"1638",2140,"France",132,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",30326873989,32948634557,40057468245,45230133727,36335102824,31539703632
+"1641",2143,"France",132,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",7.87378e+11,7.93619e+11,8.58197e+11,9.4788e+11,9.16214e+11,7.99147e+11
+"1645",2147,"France",132,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",73554496487,72932781950,81047724066,99137749560,1.10991e+11,63402376657
+"1653",2155,"France",132,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",7.77545e+11,7.80381e+11,8.34698e+11,9.15679e+11,8.92016e+11,7.5231e+11
+"1660",2223,"Gambia, The",648,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",214593944.5,187432506.4,278129675.4,362513207.2,360207997.8,175681761
+"1661",2225,"Gambia, The",648,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",399006702.3,372620492.2,560644613.9,691721075.9,640548309.9,690979474.1
+"1671",2245,"Gambia, The",648,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"1672",2247,"Gambia, The",648,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",20471639.12,9474283.189,12739440.26,31710121.43,40815314.19,38804803.33
+"1673",2249,"Gambia, The",648,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",51217791.23,47010746.41,70871083.98,86514399.81,81570590.32,88279731.6
+"1677",2258,"Gambia, The",648,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",10420000,12031846.25,7680000,11988000,11988322.7,14264000
+"1681",2272,"Georgia",915,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",8655960251,8488467492,9344910838,10768594069,11161916850,8967427131
+"1687",2278,"Georgia",915,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",6108160411,6177733456,7560033325,8896617467,9546068066,5926626715
+"1696",2287,"Georgia",915,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",212571147.4,204918706.7,316416036.9,318837025.5,252167035.4,273561715.7
+"1697",2288,"Georgia",915,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",592109719.3,1016244260,1335998574,1265627498,1377777801,1045582127
+"1698",2289,"Georgia",915,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",952134809,919892508.9,959679218.4,973893581.8,1006723306,698006096.3
+"1702",2293,"Georgia",915,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",956903976.4,957027389.2,1082022146,1257932269,1276444595,809799535.5
+"1714",2305,"Germany",134,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1.57525e+12,1.59825e+12,1.7415e+12,1.88164e+12,1.8331e+12,1.69182e+12
+"1715",2306,"Germany",134,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1.32021e+12,1.34185e+12,1.4809e+12,1.6369e+12,1.6023e+12,1.46406e+12
+"1727",2318,"Germany",134,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",56541794379,55228202914,61814987732,69942645515,78508491962,64685530338
+"1728",2319,"Germany",134,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",62319323823,61795634582,65985504228,72359296555,74487248391,70773566998
+"1731",2322,"Germany",134,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",95408478736,1.07602e+11,1.03639e+11,1.45665e+11,1.51486e+11,1.07953e+11
+"1733",2324,"Germany",134,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",39165051628,47145409123,54525640457,55402133079,46396564203,40818247401
+"1740",2331,"Ghana",652,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",792368302.1,458640297.1,1918950000,3116257000,2946191484,2461315477
+"1747",2338,"Ghana",652,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",20773843264,20536466613,22122770000,23220558305,26908258730,24545371206
+"1759",2350,"Ghana",652,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",457404727,809131049.3,472550000,453063532.7,501075048.9,516888556.7
+"1761",2352,"Ghana",652,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",16463379634,17469860326,20436840000,22514756474,25592338542,22077073356
+"1762",2353,"Ghana",652,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1860928005,1978933727,2096380000,2088789874,2353533034,2020311692
+"1773",2364,"Greece",174,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",63845040237,62018899853,71760870932,85802967856,83192116846,71758333128
+"1775",2366,"Greece",174,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",15156644233,13912747252,16369766778,19595769101,19361982590,15728597859
+"1776",2367,"Greece",174,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",1802256929,627534512.1,1107430298,691147187.8,931460762.1,964805889.1
+"1785",2376,"Greece",174,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",10401646554,8838346922,10772859926,13024962533,12729624431,11246088247
+"1787",2378,"Greece",174,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",62624983040,60305408061,70104581289,81867719581,81184115053,59021509142
+"1792",2383,"Greece",174,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1142056353,1149200043,1469699859,1535695718,1862388677,1704304079
+"1796",2387,"Grenada",328,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",55284929.63,54250050.24,58421131.05,65791259.79,77049711.81,46751390.07
+"1803",2394,"Grenada",328,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",510778316.8,524776471.4,578131572.2,621273651,661722831,421842996.1
+"1809",2400,"Grenada",328,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",507078433.7,529464840.4,615721126.2,684819355.7,727243859.6,587441263.7
+"1811",2402,"Grenada",328,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",15904320.01,14731309.32,14563916.37,16397731.2,15927907.14,5983962.847
+"1813",2404,"Grenada",328,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",67231137.16,50074118.28,75147726.02,71531785.56,77684204.99,36432011.49
+"1816",2407,"Grenada",328,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",162914.2556,70700.73704,542267.7778,560496.537,1085678.889,1085678.889
+"1834",2425,"Guatemala",258,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",18685913640,18241488990,19750650140,21170122310,21526557150,19266948870
+"1839",2430,"Guatemala",258,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",12327469530,12386653940,13250682480,13351063340,13597600430,12712975170
+"1840",2431,"Guatemala",258,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",457641180,462603590,443937280,457390400,477548070,390766930
+"1841",2432,"Guatemala",258,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1311519340,1361658410,1394697630,1478357900,1571959270,1351437010
+"1844",2435,"Guatemala",258,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1302753010,1372072750,1425660860,1460742230,1441568330,1565485880
+"1847",2438,"Guatemala",258,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",122218940,208006540,207800210,186308770,210063800,303004770
+"1858",2449,"Guinea",656,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",108582650,108151000,41340000,104470000,73840000,24610000
+"1871",2465,"Guinea",656,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",7984887.32,9013145.68,9220000,1250000,1040000,90000
+"1872",2466,"Guinea",656,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",249875921.2,492106341,416930000,402510000,416630000,1070890000
+"1874",2468,"Guinea",656,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1859596268,2467233944,4647370000,4079080000,4040730000,8996040000
+"1875",2469,"Guinea",656,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2695235060,5138201461,4239940000,4183670000,4320100000,6313510000
+"1892",2496,"Guinea-Bissau",654,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",288516902.7,185193750,375025865.4,380427720.4,291804892.1,232536091.8
+"1893",2497,"Guinea-Bissau",654,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",337784963,218670580,446571455.8,459132372.1,502204470.3,439386031
+"1898",2502,"Guinea-Bissau",654,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",60360.18214,241600,270383.4927,243227.7638,54103.77905,146806.9052
+"1899",2503,"Guinea-Bissau",654,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",41600169.9,29281780,58396290.1,48346784.09,48768958.69,50807732.94
+"1902",2507,"Guinea-Bissau",654,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",434525.681,285900,445529.9972,1019000.106,212660.2798,329924.6307
+"1903",2508,"Guinea-Bissau",654,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1225277.882,2679370,7891925.829,80464461.2,12905714.06,13522618.58
+"1909",2517,"Guyana",336,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",5837000,41405013.85,71230555.91,71230555.91,36500000,72860878.79
+"1910",2519,"Guyana",336,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",138786021.1,124538932,217315104.5,322846694.6,430194959,295691619.5
+"1911",2523,"Guyana",336,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1296096535,1674548819,1643614998,1575263927,1804674883,2798631588
+"1916",2533,"Guyana",336,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1776124246,1931857354,2216919029,3220704877,5024573188,3755721475
+"1917",2535,"Guyana",336,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",20127681.73,16391910,13200187.63,3363620,2523506.667,1862550
+"1940",2596,"Honduras",268,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1182608279,1277831809,912797580.5,1378223344,1345832717,1022730972
+"1950",2606,"Honduras",268,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",126467723,121705714.1,128380770.8,143747003,145814978.5,96393622.3
+"1951",2607,"Honduras",268,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",930749396.7,932038748,1002542093,1217103805,1184921447,939100383
+"1957",2613,"Honduras",268,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",6931268547,6729454043,7325056706,7186375109,7242995210,6268819095
+"1958",2614,"Honduras",268,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",10325346268,9907188434,10853329867,12066385190,11824920160,9939885123
+"1965",2621,"Honduras",268,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,11480000,21360951.01,8718184.251,2331498.883,3215784.594
+"1967",2623,"Hungary",944,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4771466458,8449603379,9223067855,7937412495,11626267547,7751135819
+"1972",2628,"Hungary",944,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",5410747419,5801709870,6441020360,7348452410,7583833251,5266498704
+"1973",2629,"Hungary",944,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",3961757309,3972869730,4455906229,5128093656,5465869782,4327341853
+"1980",2636,"Hungary",944,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1.09529e+11,1.11164e+11,1.23244e+11,1.3456e+11,1.33736e+11,1.24111e+11
+"1981",2637,"Hungary",944,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",99575865882,99983058463,1.13479e+11,1.27659e+11,1.29901e+11,1.21016e+11
+"1982",2638,"Hungary",944,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",12509387714,14214661499,17488911095,16497686910,18626663510,14388717246
+"2001",2657,"Iceland",176,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",7738828203,8509802783,10230817737,11192010934,9658490187,7517863713
+"2006",2662,"Iceland",176,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1555038111,1818229017,2145977459,2209739835,1601683114,682906631.1
+"2008",2664,"Iceland",176,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",662747816,706603390.4,815853348.3,881718469.6,680379212.3,450673918.7
+"2010",2666,"Iceland",176,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",9047258989,9921258313,11349579742,12114260029,10765419729,7188853841
+"2016",2672,"Iceland",176,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",230152592.3,247095511.1,184127583.6,-22874559.59,-257895130.2,-349771669.5
+"2023",2679,"Iceland",176,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",487161177.5,719354346.2,446641743.2,375820719.3,333612978.9,256990290.7
+"2029",2685,"India",534,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",14319029979,15175520472,16979148126,18999014756,21125421137,20790997373
+"2030",2686,"India",534,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",13684345931,19126101136,19710738977,22962177775,22314031612,29840017625
+"2033",2689,"India",534,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4.9188e+11,4.72013e+11,5.61613e+11,6.4296e+11,6.19485e+11,4.93033e+11
+"2053",2709,"India",534,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4.28631e+11,4.30433e+11,4.89401e+11,5.37042e+11,5.46033e+11,4.84691e+11
+"2054",2710,"India",534,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",15425550609,14104111926,16359786181,20035111642,23959358404,19883390027
+"2055",2711,"India",534,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",5018543682,5261687122,5749571154,6582447887,6151202280,6372944206
+"2059",2715,"Indonesia",536,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",88288559.78,1174052226,2012433067,4951312848,3410586819,2137819049
+"2060",2716,"Indonesia",536,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",18592591804,18766969949,21785801070,22492052016,21715573960,16874776036
+"2063",2719,"Indonesia",536,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",3456206401,3571951749,3472092996,3592319424,3953922345,2441960712
+"2064",2720,"Indonesia",536,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",9601828078,9116164005,10335862610,12429939468,11640364590,7317221560
+"2066",2722,"Indonesia",536,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1.65993e+11,1.59559e+11,1.82775e+11,2.18645e+11,2.0423e+11,1.59872e+11
+"2075",2731,"Indonesia",536,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1.71345e+11,1.67793e+11,1.9421e+11,2.11932e+11,2.00097e+11,1.78418e+11
+"2087",2744,"Iraq",433,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",56370597778,46829600000,63604256000,91930700000,88902900000,50631700000
+"2090",2747,"Iraq",433,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",58159612000,44115960000,48454400000,5.6876e+10,72282500000,54721900000
+"2099",2756,"Iraq",433,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",327600000,507100000,586600000,967200000,6.45e+08,417300000
+"2100",2757,"Iraq",433,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1.269e+09,1351200000,1268500000,1998200000,1896800000,1787600000
+"2101",2758,"Iraq",433,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",5511100000,4006400000,4445900000,5412600000,6734600000,5566600000
+"2105",2762,"Iraq",433,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",23600000,23500000,20100000,22100000,22300000,28900000
+"2122",2779,"Ireland",178,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",17299321295,20272378715,23680603124,25339252140,23182993715,25761834548
+"2123",2780,"Ireland",178,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",77167481734,67463567438,82097200399,93934897693,1.02763e+11,1.17419e+11
+"2124",2781,"Ireland",178,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",7266787562,8021036393,9218382762,9115472264,8987002307,2964122823
+"2125",2782,"Ireland",178,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",3013781480,2975047953,2930948679,3607388983,3668912031,4671912176
+"2129",2788,"Ireland",178,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.71439e+11,3.16195e+11,3.31381e+11,3.61117e+11,4.52979e+11,4.86946e+11
+"2142",2801,"Ireland",178,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3.55529e+11,3.63104e+11,4.07193e+11,4.71596e+11,5.02313e+11,5.69061e+11
+"2148",2807,"Israel",436,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",6286400000,6708600000,7194800000,7838600000,7926600000,6043900000
+"2153",2817,"Israel",436,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",3958400000,3499300000,4.018e+09,4334800000,4310900000,4413600000
+"2156",2823,"Israel",436,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",6574600000,6452300000,7.202e+09,7739900000,6797100000,4788200000
+"2158",2827,"Israel",436,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",5807800000,5845300000,5585200000,6310800000,7893500000,6493500000
+"2169",2849,"Israel",436,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",94427400000,96367200000,1.04699e+11,1.12246e+11,1.17544e+11,1.1406e+11
+"2170",2851,"Israel",436,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",84955400000,9.0363e+10,97844300000,1.09042e+11,1.08875e+11,95977400000
+"2181",2871,"Italy",136,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4.9039e+11,4.8859e+11,5.46277e+11,6.05438e+11,5.68796e+11,4.90684e+11
+"2182",2872,"Italy",136,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",5.45627e+11,5.5056e+11,6.03887e+11,6.56057e+11,6.36153e+11,5.59952e+11
+"2187",2877,"Italy",136,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",14822833996,17030673704,22780501236,23714780858,20569310003,5171558653
+"2193",2883,"Italy",136,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",23459237594,23236773983,24993193452,26963991575,26091668415,18816356082
+"2199",2889,"Italy",136,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",15190560847,20766665072,27945137638,33244254117,31371306723,19546964443
+"2200",2890,"Italy",136,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",14177169576,13928623288,14559129487,15735912604,15124727084,9748740365
+"2212",2902,"Jamaica",343,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",758664777,713139792,824124010.3,912527385,936221733.7,723567135.5
+"2220",2910,"Jamaica",343,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",185480283.4,173791507.7,205458466.6,225921631.3,232118590.1,173277711.6
+"2226",2916,"Jamaica",343,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4313628182,4404773801,4867024217,5790629495,6030893625,3249426080
+"2227",2917,"Jamaica",343,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",6610127621,6242638463,7224761047,7881538624,8308513141,5913249201
+"2233",2923,"Jamaica",343,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",22793218.82,9470018.797,9470018.797,9470018.797,9470018.797,9470018.797
+"2234",2924,"Jamaica",343,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",243570649,274195258.2,119405108.7,316430241.6,165566599.5,158760442.2
+"2238",2928,"Japan",158,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",35398030779,31711103113,34151759886,28971140707,26202738720,20882899239
+"2240",2930,"Japan",158,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",41038620255,38133948029,40057853668,38714806610,34227328292,27546950904
+"2246",2936,"Japan",158,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",7.84711e+11,8.11524e+11,8.75514e+11,9.29828e+11,9.04632e+11,7.94291e+11
+"2247",2937,"Japan",158,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",8.07987e+11,7.7108e+11,8.37877e+11,9.28423e+11,9.13248e+11,8.01889e+11
+"2258",2948,"Japan",158,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",96232565201,1.10985e+11,1.20316e+11,1.30398e+11,1.36637e+11,1.19961e+11
+"2259",2949,"Japan",158,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",23828000568,34415023049,33315104036,34938244375,33575659715,28651277568
+"2269",2959,"Jordan",439,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",22776197183,21830140845,23035633803,22915774648,21963521127,18424084507
+"2271",2961,"Jordan",439,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",14120563380,13538028169,14300140845,15092676056,16170140845,10444366197
+"2273",2963,"Jordan",439,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",793802816.9,679309570.4,572873239.4,588873239.4,523802816.9,425492957.7
+"2286",2976,"Jordan",439,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1235492958,1247464789,1255492958,1334507042,1341267606,487746478.9
+"2287",2977,"Jordan",439,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",2537887324,2544647887,2574507042,2625492958,2588028169,1909859155
+"2295",2986,"Kazakhstan, Rep. of",916,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",3516876610,3275594845,3458401978,4011709670,3973787961,3358814941
+"2296",2987,"Kazakhstan, Rep. of",916,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1840852620,1569693921,1735374261,2103205596,2501994254,2176564534
+"2316",3007,"Kazakhstan, Rep. of",916,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",47824824677,43106088497,55974348710,66345230457,67295793718,49273351003
+"2317",3008,"Kazakhstan, Rep. of",916,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",44885943479,36448242117,41159211358,47068506645,52661689764,46501743447
+"2322",3013,"Kazakhstan, Rep. of",916,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",585170100,597820980,795501189.9,652980020,659430210,382882350
+"2323",3014,"Kazakhstan, Rep. of",916,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",9400034790,11914419508,16521941389,20337664729,21232174033,14071109280
+"2329",3020,"Kenya",664,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",26967742.21,21920415.9,38729641.39,43884668.09,28768010.37,-64871000.43
+"2334",3025,"Kenya",664,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",17669402825,16171497969,19080378459,20167353326,20408411990,17717187854
+"2335",3026,"Kenya",664,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1430974413,972160456.2,1031545972,1395873783,1448688633,1118219580
+"2336",3027,"Kenya",664,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",10608334366,9912816058,10448709926,11564054354,11471244797,9709330229
+"2338",3029,"Kenya",664,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",313534557.5,563371114.1,933968579,690908648,620484688.5,615522053.3
+"2347",3038,"Kenya",664,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1951651486,1550603985,1622928859,1958819172,2180672795,1078457427
+"2357",3048,"Kiribati",826,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",46777.46345,46230.31787,47663.75023,46505.1734,43229.0596,42883.08107
+"2358",3049,"Kiribati",826,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1259444.519,4700858.065,3638858.148,2415401.414,2184454.209,2417153.463
+"2367",3058,"Kiribati",826,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",26739968.75,34332567.84,29442474.7,19150922.83,32515795.46,21227822.97
+"2369",3060,"Kiribati",826,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",41875611.68,37025953.89,32574311.25,28583837.86,29638852.38,21380288.43
+"2371",3062,"Kiribati",826,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",182933150.5,195814957.5,195204528.7,170520543.1,177149134,148770161.7
+"2376",3067,"Kiribati",826,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",2057333.053,2451894.115,2386030.136,2334974.103,2278123.663,98335.72401
+"2383",3080,"Korea, Rep. of",542,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",10786100000,11475900000,12565900000,13065900000,16720600000,13826800000
+"2384",3081,"Korea, Rep. of",542,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",10584100000,11599400000,12514500000,13950800000,12482800000,12420400000
+"2389",3086,"Korea, Rep. of",542,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",5.34932e+11,5.07612e+11,5.93153e+11,6.49227e+11,6.0754e+11,5.4157e+11
+"2394",3091,"Korea, Rep. of",542,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",6.40581e+11,6.06735e+11,6.70012e+11,7.29944e+11,6.60507e+11,6.07505e+11
+"2397",3094,"Korea, Rep. of",542,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",2.9493e+10,28755500000,30202900000,30486300000,28799600000,22834600000
+"2409",3106,"Korea, Rep. of",542,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",34143900000,2.7427e+10,24784500000,27978500000,27065300000,23931400000
+"2423",3120,"Kosovo, Rep. of",967,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1414596175,1596754877,1988889208,2278377703,2311537786,1687283575
+"2424",3121,"Kosovo, Rep. of",967,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3243450953,3421678155,3830919341,4498235992,4453675793,4187091234
+"2427",3124,"Kosovo, Rep. of",967,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",3498423.657,2488951.067,410589.8491,2525690.9,2368536.078,2566944.685
+"2428",3125,"Kosovo, Rep. of",967,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",115894698.1,127155264.1,78879498.5,137304884.4,96015559.52,114220936.7
+"2431",3128,"Kosovo, Rep. of",967,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",36749562.51,39157717.3,42209812.83,70296097.38,75107077.65,54085479.15
+"2432",3129,"Kosovo, Rep. of",967,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",162702177.1,137989137.6,134658577.2,150222492.3,164394258.6,150460585.8
+"2444",3141,"Kuwait",443,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",3939706144,3482853151,4732093020,4209280117,13092273054,14441966816
+"2445",3142,"Kuwait",443,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1724504832,519998036.5,2096388378,2087710990,2282819272,2155413553
+"2459",3156,"Kuwait",443,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",61391008321,52145742589,60454022414,85198897799,72833469299,47416410506
+"2460",3157,"Kuwait",443,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",51139184432,52910390987,57726835511,68204783055,59653710708,44015219582
+"2463",3160,"Kuwait",443,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1649020481,1226945472,1309759784,1243754632,1175475913,787384464.9
+"2464",3161,"Kuwait",443,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",5148422767,5144547716,5427312954,4503874183,4091315787,3311424639
+"2474",3174,"Kyrgyz Rep.",917,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",188949106,166296712,206935365,213521435,269762972,153117560
+"2480",3180,"Kyrgyz Rep.",917,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",446552460,406623268,434181795,494313155,454121899,352713601
+"2481",3181,"Kyrgyz Rep.",917,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",191019900,276575500,295851200,191796200,706678700,146741900
+"2496",3196,"Kyrgyz Rep.",917,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2425023595,2413588893,2573040010,2734422358,3107699962,2435417783
+"2497",3197,"Kyrgyz Rep.",917,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4847105110,4753415646,5075222827,5861234605,5670186968,4050849740
+"2501",3201,"Kyrgyz Rep.",917,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"2505",3205,"Lao People's Dem. Rep.",544,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",6753813713,6394790293,6783669899,7564020651,7518168210,5815879962
+"2506",3206,"Lao People's Dem. Rep.",544,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4497378079,5079637263,5653716801,6393172198,6985183367,6461129001
+"2508",3208,"Lao People's Dem. Rep.",544,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",67485042.2,81035623.62,83168195.43,105901714.8,167038727.5,79841202.48
+"2509",3209,"Lao People's Dem. Rep.",544,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",34850628.29,68910804.88,86195659.97,139732986.2,145327627.8,116772388
+"2518",3218,"Lao People's Dem. Rep.",544,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",142925937.2,140200581.4,143764992.5,129097791.8,73305566.44,213582485.5
+"2521",3221,"Lao People's Dem. Rep.",544,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"2531",3234,"Latvia",941,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1172980998,1203613078,1402793360,1879762824,1633118863,1134283997
+"2535",3238,"Latvia",941,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",2146015008,2118042045,2345528565,2508177012,2399895337,1617110711
+"2538",3241,"Latvia",941,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",883049457.4,832205717.5,941606481.6,1083517751,1064313105,834903300.5
+"2539",3242,"Latvia",941,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",171883532.4,129535926.9,228488817.6,180211596.1,134863063.6,138824221.3
+"2541",3244,"Latvia",941,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",16427824074,16731999984,18816900299,21136795326,20538635027,20767851621
+"2542",3245,"Latvia",941,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",16893681756,16632983344,19010123547,21357698033,20764627433,20426964188
+"2562",3265,"Lebanon",446,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",440609106.8,469099806.1,406331725.9,325799863.4,200789588.3,-119006130.8
+"2568",3271,"Lebanon",446,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",19461248160,18882187911,18939938603,19160811513,18208410174,8773230596
+"2569",3272,"Lebanon",446,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",30887607485,30989274709,32070099758,32781598929,31146685716,15205642923
+"2573",3276,"Lebanon",446,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",519957310.7,700654644.5,1019453434,342796655.2,476547573.4,498767920.1
+"2577",3280,"Lebanon",446,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1448208398,1164463309,1306930022,1154750171,734754191.5,123021377.1
+"2578",3281,"Lebanon",446,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",2442892442,2114663898,2055415240,1958860262,1871565812,928892415
+"2599",3302,"Lesotho, Kingdom of",666,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",125707005.2,108749225.6,119751613.1,122005303.8,110451739.3,97304545.57
+"2602",3305,"Lesotho, Kingdom of",666,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1072281.702,807630.369,635142.2724,608856.4921,593240.679,499989.9358
+"2603",3306,"Lesotho, Kingdom of",666,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",56693670.09,51173403.56,57924862.8,61514733.62,55538243.38,47455068.65
+"2607",3310,"Lesotho, Kingdom of",666,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",974292121,940488264.2,1061714987,1253535693,1092702862,902123159.1
+"2608",3311,"Lesotho, Kingdom of",666,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2048854081,2000635848,2280881897,2424632441,2229626665,1980091671
+"2622",3372,"Lithuania",946,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",148995164.1,164938305.5,185342930.4,322650949.5,247884596.2,337212129.3
+"2627",3377,"Lithuania",946,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",3909647428,4282902188,5523557572,6845651080,7839510807,7806532685
+"2630",3380,"Lithuania",946,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",2553554441,2580322268,3131276383,3558387261,3816935138,3605852074
+"2638",3391,"Lithuania",946,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",28485127915,29079835812,35225956372,40361411833,42323027307,41720683938
+"2639",3392,"Lithuania",946,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",28902632122,28776243571,34095706759,39402590725,39419498683,36414080259
+"2640",3393,"Lithuania",946,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1655085973,1697739166,1965862574,2218949088,2335086948,2272408822
+"2647",3400,"Luxembourg",137,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",90058844489,90613682548,1.01739e+11,1.13256e+11,1.16803e+11,1.21353e+11
+"2651",3404,"Luxembourg",137,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1.17167e+11,1.17985e+11,1.27864e+11,1.37656e+11,1.39559e+11,1.45612e+11
+"2663",3416,"Luxembourg",137,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",1.78732e+11,2.04037e+11,2.02348e+11,2.39393e+11,2.06536e+11,1.87433e+11
+"2664",3417,"Luxembourg",137,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1.57393e+11,1.85209e+11,1.77792e+11,2.09366e+11,1.77962e+11,1.68767e+11
+"2666",3419,"Luxembourg",137,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",5035097123,4640176711,5329327295,5922425698,5411689866,14663357511
+"2667",3420,"Luxembourg",137,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",4203864975,4453953825,5603194974,6620992840,6436985302,13630360921
+"2693",3446,"Madagascar, Rep. of",674,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",240464597.8,244551285.1,392361241.3,370694986.1,424138967.3,172761859.1
+"2694",3447,"Madagascar, Rep. of",674,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",616053300.8,569085306.7,584798868.4,560987891.5,509943265.2,337394534
+"2695",3448,"Madagascar, Rep. of",674,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"2696",3449,"Madagascar, Rep. of",674,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",399596672.9,452683140.4,405518757.7,449718063.1,445090208.5,333395830.4
+"2700",3453,"Madagascar, Rep. of",674,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3153621894,3390413597,4147070751,4407496132,4081577090,2589228842
+"2701",3454,"Madagascar, Rep. of",674,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3510394492,3565835906,4491089103,4821022962,4684590076,3718208982
+"2708",3461,"Malawi",676,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",23033549.05,19555546.2,30557355.95,34943803.17,78622504.38,67199415.17
+"2710",3463,"Malawi",676,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1270097065,1180132969,1110954237,1174262786,1446681183,1268238157
+"2712",3465,"Malawi",676,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",73905265.03,65808699.63,90360984.76,97169908.3,97364691.67,84857833.75
+"2717",3470,"Malawi",676,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2512660590,2405256629,2847947272,2992882690,3265650982,3208346070
+"2728",3483,"Malawi",676,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",190937846.1,73151589.57,137844151.3,202220496.9,120608811.4,102251510.7
+"2732",3488,"Malawi",676,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",-89798.67232,-74140.21843,-117127.511,0,0,0
+"2735",3491,"Malaysia",548,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",13177778672,12290045712,13654822256,14898496096,14600420719,10453919192
+"2736",3492,"Malaysia",548,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4792013873,4989851429,5966192685,6650152285,7164728974,4252908643
+"2739",3495,"Malaysia",548,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",4198973505,4159745410,4484522037,5086765905,5239961152,3284718410
+"2740",3496,"Malaysia",548,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",10499416076,9811965640,11377698297,11948199841,11496480322,9818343488
+"2743",3499,"Malaysia",548,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.09568e+11,2.01121e+11,2.23702e+11,2.45886e+11,2.38361e+11,2.08217e+11
+"2744",3500,"Malaysia",548,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1.86856e+11,1.8113e+11,2.01714e+11,2.21832e+11,2.1086e+11,1.86613e+11
+"2767",3523,"Maldives",556,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",241776086.2,273225374.4,176703005.7,144641353.7,150114271.5,84171787.72
+"2768",3524,"Maldives",556,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",214126396.1,237844867.9,338249078.8,404145877.3,382636764,211250660.9
+"2779",3535,"Maldives",556,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3145104894,3147553741,3319072397,3584303217,3742126036,1786506567
+"2780",3536,"Maldives",556,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2769184611,3198227889,3501378385,4101843841,4090466322,2448634605
+"2781",3537,"Maldives",556,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",284108642.4,303629029.8,323747920.2,372678850.1,402318583.2,170859355.9
+"2796",3552,"Maldives",556,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"2809",3565,"Mali",678,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",274723150,344807836.5,446794444.7,505016848.6,649272315.2,713507671.8
+"2813",3569,"Mali",678,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",14088185.38,18904528.94,21865671.95,29352478.09,8427457.223,4427539.899
+"2814",3570,"Mali",678,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",664766700.9,730682850.4,736666645.7,820307291.7,877977932.5,829950339.8
+"2822",3578,"Mali",678,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3150870860,3287931637,3413353813,4186231409,4441960880,5195546533
+"2824",3580,"Mali",678,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",5188952012,5655569750,5613468994,6081048909,6558539255,6339123348
+"2825",3581,"Mali",678,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2508796.773,11355359.84,3662663.013,3514830.224,11916775.49,3927892.586
+"2838",3594,"Malta",181,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",72104298.05,100993337.4,60800012.83,55692936.86,164314527.6,161080985.6
+"2839",3595,"Malta",181,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",10252754658,10469493131,10533908704,10768093365,10919201425,11324275277
+"2841",3597,"Malta",181,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",613886520.4,885123335.9,1029496301,1167681286,1123758666,767863286.8
+"2842",3598,"Malta",181,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",551474483,652038468.8,707336718.4,748308260.7,715254193.3,558420029.9
+"2847",3603,"Malta",181,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",15437778702,15443082627,16815604705,17962751357,19775753766,20163750753
+"2852",3608,"Malta",181,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",16475893048,16739054211,19184068406,20235975718,23165467289,22734506640
+"2860",3616,"Marshall Islands, Rep. of the",867,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",158438214.6,169897821.5,179719462.4,174722133.6,129682412,132845068
+"2865",3621,"Marshall Islands, Rep. of the",867,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",4153575.426,4144250,14572345.35,12456038.99,490500,501000
+"2873",3631,"Marshall Islands, Rep. of the",867,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",47175688.84,46081871.48,96826734.12,128903650.7,91394266.02,88042288.66
+"2874",3632,"Marshall Islands, Rep. of the",867,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,1e+06,111093.6684,111093.6684,4e+06,5e+06
+"2878",3638,"Marshall Islands, Rep. of the",867,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",16256658.03,16457774.04,16767611.6,18968840.32,15877229.2,15306987.37
+"2879",3639,"Marshall Islands, Rep. of the",867,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",25169522,25981522,29938357.13,28669417.87,20327390.03,20353399.35
+"2893",3719,"Mauritius",684,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",5570103192,6234928983,8994258602,5723763030,6721199323,6188024958
+"2894",3720,"Mauritius",684,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",5566095751,6384961087,8347970165,4910924006,6573225972,4947020579
+"2897",3723,"Mauritius",684,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",5394631908,5201359542,5391592172,5585546049,5258181403,3088435444
+"2898",3724,"Mauritius",684,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",6565175361,6459504576,7169469969,7526598153,7364570687,5222057914
+"2899",3725,"Mauritius",684,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",597340548.2,574823593.1,545112069.5,622318476.8,610096619.2,371170767.6
+"2902",3728,"Mauritius",684,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",341646162.1,360184504.3,380629657.3,416232944.4,395268720.3,132511575.3
+"2910",3741,"Mexico",273,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",12816507769,13183035274,14985263057,15964172401,15361770504,12652453839
+"2924",3755,"Mexico",273,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4.39616e+11,4.32088e+11,4.7052e+11,5.17349e+11,5.07592e+11,4.24896e+11
+"2925",3756,"Mexico",273,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4.13793e+11,4.084e+11,4.47832e+11,4.90695e+11,5.02464e+11,4.43575e+11
+"2926",3757,"Mexico",273,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",3978653000,3770124000,4991088000,5474998000,6576793000,5519830000
+"2927",3758,"Mexico",273,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",18631250675,17567569815,19081553009,23765621927,25398376888,21978916361
+"2934",3765,"Mexico",273,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",5413882793,5172346527,5528416852,6049027539,5882840510,4804356648
+"2937",3768,"Moldova, Rep. of",921,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4479880000,4481400000,5373970000,6390500944,6608154073,5918418906
+"2938",3769,"Moldova, Rep. of",921,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2488420000,2623300000,3119410000,3452490000,3661990000,3222090000
+"2949",3780,"Moldova, Rep. of",921,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",305810000,298820000,345810000,400870000,416270000,301070000
+"2954",3785,"Moldova, Rep. of",921,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",321900000,351450000,410200000,434170000,403990000,246690000
+"2959",3790,"Moldova, Rep. of",921,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",8250000,8940000,12330000,12530000,10750000,9150000
+"2960",3791,"Moldova, Rep. of",921,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",220640000,160200000,183350000,248180000,248540000,304220000
+"2972",3803,"Mongolia",948,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",5135249417,5604859841,6800649749,7713996347,8415577135,7645582756
+"2973",3804,"Mongolia",948,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",5288113438,5605356977,6523045722,8477747003,9249181583,7340259603
+"2983",3814,"Mongolia",948,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",238602903.6,255424978.7,320152467.8,381555811.5,389086115.1,383983077.9
+"2984",3815,"Mongolia",948,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",344581910.6,431281665.3,603716553.1,809695601.8,983445307.9,596121567.7
+"2997",3828,"Mongolia",948,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",821062.69,1752724.64,3210791.422,1614419.463,2036888.356,140939.4563
+"2998",3829,"Mongolia",948,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",459579273.5,208451656,768247633.3,609537332.4,948173253.4,729979503.8
+"3015",3846,"Montenegro",943,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1713465829,1784310769,2025338319,2346469793,2424643403,1247417065
+"3021",3852,"Montenegro",943,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2459971471,2763159257,3146141677,3665749411,3600189785,2916503043
+"3025",3856,"Montenegro",943,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",44878946.2,113585871.7,69950043.43,84250884.75,69272902.01,57825986.68
+"3026",3857,"Montenegro",943,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",237876222.5,259158645.6,296432665.5,372752124.4,394708177.4,303846818.6
+"3027",3858,"Montenegro",943,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",1501175.148,4542701.803,1241393.463,20300470.3,15126629.91,13600331.97
+"3029",3860,"Montenegro",943,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",167036229,204811745.3,243486023.9,297382977.9,330674855.7,256190749.8
+"3045",3876,"Montserrat",351,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",18989127.79,18373227.45,20340768.75,22978247.55,22626843.98,15378799.3
+"3047",3878,"Montserrat",351,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1181931.055,2517018.29,1582513.578,1711159.355,1843181.871,1312574.008
+"3048",3879,"Montserrat",351,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",4593776.953,4339255.516,3962849.691,4184356.77,4042781.884,3453465.26
+"3049",3880,"Montserrat",351,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",53593837.95,51908271.48,53361874.89,51791692.08,48595681.93,43132552.69
+"3050",3881,"Montserrat",351,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,43970.42222
+"3051",3882,"Montserrat",351,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",245435.1852,347090.5615,501936.8479,264852.9519,257400.2926,-76987.87485
+"3078",3914,"Morocco",686,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",33292321659,34394352740,38836212340,43253418109,44047981176,37545355747
+"3079",3915,"Morocco",686,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",41220163682,45133602348,49387646104,55384900492,54097359885,46358266019
+"3080",3916,"Morocco",686,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",2723251786,2569033382,3127888230,3525423020,3586759772,2384991193
+"3081",3917,"Morocco",686,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",3022113206,3176736447,4051841396,4440272974,3826136076,2871327928
+"3082",3919,"Morocco",686,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",277076912.5,313703991,380216131.3,406979968.7,324667357.8,414049578.7
+"3083",3920,"Morocco",686,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1419430719,1390948194,1815157321,1811793328,1737804640,1009031412
+"3084",3922,"Mozambique, Rep. of",688,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",436370438.9,264249911.8,447557838.7,477475687.2,601174268.5,621149908.7
+"3085",3923,"Mozambique, Rep. of",688,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",851195774.6,486773221.3,526374520.7,581245117,625763715.5,541069131.9
+"3103",3941,"Mozambique, Rep. of",688,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,7522.57,8191291.385,12268834.52,17338992.06,10891788.66
+"3104",3942,"Mozambique, Rep. of",688,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",59961276.32,46544673.97,67494013.36,115516958.8,114496704,125990080.9
+"3106",3944,"Mozambique, Rep. of",688,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4135891582,3768685988,5382812419,5791466703,5599959670,4369833654
+"3111",3949,"Mozambique, Rep. of",688,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",10585574247,7848159022,8053801049,10622465338,9514279858,8660975968
+"3116",3985,"Namibia",728,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",7031650315,6298310194,6169669300,6349041227,5808184691,4885658460
+"3122",3991,"Namibia",728,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4088530445,3732879985,4483391698,4951877763,4581203429,3837686930
+"3134",4003,"Namibia",728,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",83298494.65,80010963.24,115736640,116242443.2,108820387.5,149583308.5
+"3135",4004,"Namibia",728,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",159670294.4,143866917.1,135352245.4,150527425.4,135531917.4,101977458.2
+"3141",4010,"Namibia",728,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2016699.982,5428559.804,8709587.947,-1928291.178,-1480951.824,2318873.061
+"3142",4011,"Namibia",728,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",139837633.8,269958512.1,301175701.7,525442082.4,308304398.9,54437484.74
+"3147",4042,"Nepal",558,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",31439157.93,53960051.86,88133993.54,99629964.93,99663010.08,46412915.14
+"3150",4046,"Nepal",558,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",409071457.3,412159445.1,538564932.5,607912250.1,627796220.8,546998110.8
+"3154",4052,"Nepal",558,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",49151066.98,118818320.9,210758243.3,389154623.5,82416256.97,234712964.9
+"3155",4053,"Nepal",558,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",7711562676,10015080400,11823752195,14638261931,13836308893,10694431764
+"3164",4063,"Nepal",558,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2243659157,2116582378,2430457012,2677604305,2726226422,1771333672
+"3170",4071,"Netherlands, The",138,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",31107630792,29644207560,33657327118,42436845131,40939807098,37731588654
+"3171",4072,"Netherlands, The",138,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",2.14236e+11,2.20766e+11,2.1707e+11,2.64965e+11,2.29193e+11,1.90969e+11
+"3181",4082,"Netherlands, The",138,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",6.3283e+11,6.23273e+11,6.95803e+11,7.73739e+11,7.51225e+11,7.12412e+11
+"3185",4086,"Netherlands, The",138,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",5.75116e+11,5.43316e+11,6.06225e+11,6.77379e+11,6.61973e+11,6.2063e+11
+"3188",4089,"Netherlands, The",138,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2.38509e+11,2.3886e+11,2.46777e+11,3.00107e+11,2.48692e+11,1.87179e+11
+"3193",4094,"Netherlands, The",138,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",19419748413,19945477921,22796259070,31136019215,29692506127,28972247470
+"3206",4134,"New Zealand",196,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",723957220.7,922780048.6,683991892,495537245.9,686670801.3,609713481.3
+"3207",4135,"New Zealand",196,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",6083408001,5729946280,7374819168,7116995342,5900257544,4999437867
+"3210",4138,"New Zealand",196,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1923068130,1973797639,2186564315,2303600809,2307482054,1285500691
+"3214",4142,"New Zealand",196,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",2809870114,2729130190,3061432428,3298568330,3315589090,2088698212
+"3222",4150,"New Zealand",196,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",49615061683,49787256774,55808303270,58209006810,57875040493,50172608102
+"3224",4152,"New Zealand",196,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",47810013991,48098255005,53607772127,58370386866,57681770515,48118263650
+"3233",4161,"Nicaragua",278,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",3.08e+08,442800000,486200000,453400000,227600000,568500000
+"3235",4163,"Nicaragua",278,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",52500000,56800000,60700000,60400000,60200000,57300000
+"3243",4171,"Nicaragua",278,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",5126800000,5188700000,5737100000,5.561e+09,5714100000,5342100000
+"3244",4172,"Nicaragua",278,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",7411800000,7293700000,7579600000,6754200000,6251500000,5951500000
+"3245",4173,"Nicaragua",278,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",484800000,461800000,465500000,420600000,394100000,326200000
+"3258",4187,"Niger",692,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",17185383.91,13453736.85,16218876.31,21149599.25,16192202.89,17602026.32
+"3269",4198,"Niger",692,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",1741169.878,4277161.633,2403829.803,2838977.504,1624820.115,5491082.089
+"3270",4199,"Niger",692,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",122409655,136332221.5,139284749.7,138982252.6,132768113.7,145851044.6
+"3280",4209,"Niger",692,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1319344818,1230659416,1432532767,1449983104,1386654751,1338006699
+"3281",4210,"Niger",692,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2949496578,2527419370,2937755053,3368529751,3395017853,3542297196
+"3282",4211,"Niger",692,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",590168582.9,491872541.5,558045386.1,652284616.3,659905004.9,685573045.4
+"3293",4222,"Nigeria",694,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",49047768016,38447540356,50847986749,66038798663,69926720656,39937175154
+"3306",4235,"Nigeria",694,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",71947444729,46998259619,50934118759,71637362154,1.0082e+11,72178439248
+"3307",4236,"Nigeria",694,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",300563866.9,347291683.8,378094243.7,447150511.1,436792178.7,518961617.7
+"3308",4237,"Nigeria",694,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",12462677674,6361145325,8445219360,11220414616,9331199362,4859250810
+"3309",4238,"Nigeria",694,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1808038778,1664497032,1300533147,1330970228,1968264801,2053011608
+"3310",4239,"Nigeria",694,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",7735053403,5906803589,4635433992,6299002707,6851055930,5337811670
+"3313",4242,"North Macedonia, Republic of",962,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4905458053,5439736123,6241402766,7613866177,7800355898,7190189050
+"3314",4243,"North Macedonia, Republic of",962,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",6536685820,7070695132,7829775579,9226121449,9605436787,8772720395
+"3325",4254,"North Macedonia, Republic of",962,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",355609731.1,355927784.8,397076031.5,461271901.4,455515715.5,402043293.4
+"3326",4255,"North Macedonia, Republic of",962,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",307529558.7,302219671.3,350052525.1,388688190.4,403364624,345807957.8
+"3333",4262,"North Macedonia, Republic of",962,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",39457022.4,35733078.17,25896889.35,17332693.28,17657327.38,20783772.19
+"3334",4263,"North Macedonia, Republic of",962,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",370856693.5,451558129.5,473515705.1,539577056.6,595525090.8,455841805.7
+"3342",4271,"Norway",142,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",11116515361,8458722883,9998407241,13467981923,6107887683,1498113615
+"3343",4272,"Norway",142,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1.45479e+11,1.3037e+11,1.44323e+11,1.65367e+11,1.4628e+11,1.18314e+11
+"3345",4274,"Norway",142,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",10222191147,9873472759,10949653365,12302072779,12128842022,9411544722
+"3347",4276,"Norway",142,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1.23615e+11,1.24334e+11,1.30413e+11,1.40302e+11,1.40211e+11,1.21662e+11
+"3352",4281,"Norway",142,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",18102892667,17294480496,17992627898,18442084544,18407750303,13130134816
+"3353",4282,"Norway",142,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",9096706547,7942660048,11456538948,14015351047,13437624358,5510297595
+"3375",4310,"Oman",449,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",2472568113,2141276983,2635548200,3664304983,4281032032,3069306039
+"3380",4320,"Oman",449,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",3944821144,3549315773,4105737472,4524575240,4371623777,3537725655
+"3385",4334,"Oman",449,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",39077744121,31083676445,36849545178,46321366929,43583501668,35719888390
+"3388",4340,"Oman",449,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",36778576072,31209685883,34960398693,35375008490,32568552938,34022401806
+"3393",4350,"Oman",449,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1257049605,1349447819,1627824853,2169596270,2372160208,1097099537
+"3405",4373,"Pakistan",564,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1.174e+09,1053211000,914440000,894890000,891150000,605070000
+"3406",4374,"Pakistan",564,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",3.711e+09,3417109000,3995061000,3752877000,3638078000,2752944000
+"3407",4375,"Pakistan",564,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2.9e+07,2.4e+07,3.4e+07,-2.1e+07,9e+06,-3.4e+07
+"3413",4381,"Pakistan",564,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",3.641e+09,3.415e+09,3.362e+09,2.848e+09,3.164e+09,2.559e+09
+"3414",4382,"Pakistan",564,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.8604e+10,26869211000,29491440000,30774890000,30670150000,27333070000
+"3421",4389,"Pakistan",564,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4.8622e+10,51906109000,64498061000,68422877000,57976078000,52097944000
+"3429",4424,"Panama",283,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",5440300000,5604251700,6459004300,6680093424,6935406207,5285592372
+"3430",4425,"Panama",283,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",26074100000,25207937834,27151252873,28298679527,28379834891,19792202040
+"3431",4426,"Panama",283,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",27365600000,25474398974,26959517082,29168101570,27290382321,17614225128
+"3439",4434,"Panama",283,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1.958e+09,1866804200,1995944700,2080712236,1979995563,1242010517
+"3446",4441,"Panama",283,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",323900000,425262138,535640146.7,542580369.1,235668984.7,139073871.5
+"3447",4442,"Panama",283,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",3014600000,3702247553,3322600530,3461241219,3238488320,333802909.8
+"3459",4455,"Papua New Guinea",853,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4622997.194,326612.5375,10440654.67,13204897.93,3213738.802,12548007.16
+"3461",4459,"Papua New Guinea",853,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",751344421.4,227388932.7,323248228.5,516566013.4,896340473.9,236456394.1
+"3463",4463,"Papua New Guinea",853,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",17212903.6,21794692.27,42753153.11,14503980.59,19495542.09,4168580.367
+"3468",4473,"Papua New Guinea",853,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",405666930.9,285576095.3,371489823.9,314172281.6,467521429.9,291359937.9
+"3481",4500,"Papua New Guinea",853,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4819979344,3811049357,5292119521,5991083179,6329267592,5281786017
+"3484",4506,"Papua New Guinea",853,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",8055940562,7363332711,9800795850,10108425082,11236448089,9174518310
+"3489",4515,"Paraguay",288,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",11842713515,11299630447,13192143548,14641238656,13954109613,10981628449
+"3490",4516,"Paraguay",288,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"3493",4519,"Paraguay",288,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",12770996153,13674037765,15263250262,15307417788,14318911681,12338831914
+"3494",4520,"Paraguay",288,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",751423261,682410932.6,800833750.9,953053762.6,704326384.1,618284532.8
+"3497",4523,"Paraguay",288,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",498739614.9,418517711.5,426691225.6,430427101.1,438644541.1,428173037.1
+"3498",4524,"Paraguay",288,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",619498397.1,592544880,689369510.7,699276741.8,678156117.3,542379124.1
+"3532",4571,"Peru",293,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",2841471142,2625133807,2813844975,2970102704,3230504886,2581402196
+"3534",4575,"Peru",293,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1415701568,1376947198,1529363366,1664836471,1706953692,798991696.1
+"3537",4581,"Peru",293,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",474557987.3,485211231.4,563699519.6,553688171.9,606708779.2,413589097.3
+"3538",4583,"Peru",293,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",6157059304,7115773292,9612073932,9746076211,8210934842,4366918397
+"3539",4585,"Peru",293,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",40176506154,42954625816,51568396652,55449563901,54676068485,45543904345
+"3540",4587,"Peru",293,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",45658502484,43562988041,47573368823,51630439319,51780898580,42302752948
+"3550",4607,"Philippines",566,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",90116539579,1.02444e+11,1.18168e+11,1.29738e+11,1.31013e+11,99942619162
+"3551",4608,"Philippines",566,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",3855754685,4338136807,5017583188,5355767798,5163698456,4193964134
+"3552",4609,"Philippines",566,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",72262154549,73938028405,86645909126,90373832107,94740948717,80033714168
+"3556",4613,"Philippines",566,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1933538577,1896758093,2484814930,2702776679,2883328119,1668915284
+"3558",4615,"Philippines",566,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",699970997.6,782167053,960334554.9,1470844508,2032566004,1217552653
+"3571",4628,"Philippines",566,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",4123247275,3710806160,4027279510,5090075813,4772854805,4293328105
+"3587",4644,"Poland, Rep. of",964,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1.9162e+10,2.1182e+10,2.2515e+10,2.4647e+10,2.439e+10,2.2951e+10
+"3600",4657,"Poland, Rep. of",964,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.2632e+11,2.36177e+11,2.73976e+11,3.10564e+11,3.17082e+11,3.18967e+11
+"3602",4659,"Poland, Rep. of",964,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.16409e+11,2.222e+11,2.59111e+11,2.98464e+11,2.95017e+11,2.84648e+11
+"3605",4662,"Poland, Rep. of",964,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",1.483e+09,1.549e+09,2.773e+09,2.815e+09,2.881e+09,1.853e+09
+"3607",4664,"Poland, Rep. of",964,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1.1359e+10,1.2631e+10,1.4976e+10,1.8166e+10,1.904e+10,1.8742e+10
+"3609",4666,"Poland, Rep. of",964,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",5.834e+09,6.422e+09,7.43e+09,8.811e+09,9.1e+09,8.824e+09
+"3612",4669,"Portugal",182,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",5727647151,6145246635,6937610784,8915111286,7651140602,5516512924
+"3618",4675,"Portugal",182,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",79107217694,80218775903,91910928045,1.03593e+11,1.03009e+11,89514704332
+"3620",4677,"Portugal",182,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2516689264,3093028069,4358451504,5145297481,3370867030,3165534111
+"3625",4682,"Portugal",182,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",81913894196,83782079092,95260470351,1.05761e+11,1.04846e+11,85127944138
+"3628",4685,"Portugal",182,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",3631464524,3520158060,4194654701,4762830865,4771520688,3313361090
+"3629",4686,"Portugal",182,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",6317561743,6342238277,7542936308,8572817195,8448324076,5424619748
+"3642",4700,"Qatar",453,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",59271428571,63475274725,62192582418,65810989011,66769780220,59064560440
+"3644",4702,"Qatar",453,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",92291208791,72484340659,85204395604,1.02561e+11,92046153846,70933241758
+"3649",4707,"Qatar",453,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",11459615385,10954120879,10924725275,11449450549,13959340659,15562087912
+"3662",4722,"Qatar",453,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",7413186813,7607142857,10234615385,10060164835,10662362637,11276098901
+"3664",4724,"Romania",968,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",73553176023,78600503407,89179888822,1.01105e+11,1.00901e+11,93024309667
+"3665",4725,"Romania",968,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",74997559739,80546636575,94483532727,1.09263e+11,1.11184e+11,1.03899e+11
+"3672",4732,"Romania",968,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",2102077236,2216722472,2757430666,3457996982,4061041412,3048512136
+"3674",4734,"Romania",968,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",-75901286.63,131106462.5,69966819.55,105321147.8,223844937.4,106009219.9
+"3675",4735,"Romania",968,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",4191787110,5764682916,6582999011,8112772507,7935220158,7902939811
+"3678",4738,"Romania",968,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",5977137616,6375665232,7266827094,8153284691,8918291929,7719188088
+"3695",4755,"Russian Federation",922,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3.93035e+11,3.32353e+11,4.10483e+11,5.08561e+11,4.81686e+11,3.8149e+11
+"3696",4756,"Russian Federation",922,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.81789e+11,2.66097e+11,3.27248e+11,3.43585e+11,3.52358e+11,3.04837e+11
+"3705",4766,"Russian Federation",922,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",17282830000,21661400000,27331780000,35184380000,35155140000,28614960000
+"3706",4767,"Russian Federation",922,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",40974370000,48123890000,57096970000,59645100000,70960560000,53702520000
+"3709",4771,"Russian Federation",922,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",16640020000,17143540000,19813930000,22104230000,20660320000,15944400000
+"3710",4772,"Russian Federation",922,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",12073670000,11837650000,14492010000,15298260000,15269680000,12073360000
+"3726",4794,"Rwanda",714,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2938738012,3056245184,3070592531,3341377477,3737157738,3577564318
+"3729",4797,"Rwanda",714,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",3635098.102,3764984.53,4091590.188,4246449.015,0,0
+"3730",4798,"Rwanda",714,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",-38777767.27,139622589.9,136167743.3,148188158.7,123977229.2,41377670.29
+"3734",4802,"Rwanda",714,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1449025170,1516645919,1903903239,2043256454,2254674809,1928961923
+"3747",4815,"Rwanda",714,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",103508476.6,98420414.34,141392276.2,184253937.8,212844248,106930769.5
+"3748",4816,"Rwanda",714,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",440132318.1,443687094.7,465017976.9,491234174.6,451292595.7,286611380.6
+"3769",4837,"Samoa",862,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",14012272.18,18500828.91,16155738.63,30508597.18,25352353.8,13420190.76
+"3770",4838,"Samoa",862,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",31762970.94,32174735.2,30561057.54,41033273.99,38528707.3,30171799.68
+"3771",4839,"Samoa",862,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",463559.6186,2348951.521,1240435.097,412777.8984,130718.8294,0
+"3772",4840,"Samoa",862,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",7928697.783,7334838.976,17488400.42,14520464.79,19743575.89,5925412.283
+"3777",4845,"Samoa",862,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",231414415.5,248249692.3,278392003.2,301045362.3,336781581.6,116519130.1
+"3778",4846,"Samoa",862,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",371598400,400058363.5,410182052.4,420509985.1,456706914.1,376790518.9
+"3788",4856,"São Tomé and Príncipe, Dem. Rep. of",716,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",976049.8179,72906.70239,60158.13715,4800,28800,0
+"3791",4859,"São Tomé and Príncipe, Dem. Rep. of",716,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",366994.6057,285258.8549,754087.6572,36492.36,36492.87026,915014.3441
+"3792",4860,"São Tomé and Príncipe, Dem. Rep. of",716,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",24522076.53,25160486.34,24350008.4,20645346.53,19253952.04,18634030.92
+"3795",4863,"São Tomé and Príncipe, Dem. Rep. of",716,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",89983828.05,96563792.77,92153927.43,98232686.43,72593875.02,49337067.47
+"3796",4864,"São Tomé and Príncipe, Dem. Rep. of",716,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",186038784.7,184836862.3,193186907.8,197132094.4,189629874.9,160096771.3
+"3814",4882,"São Tomé and Príncipe, Dem. Rep. of",716,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,1418.615185,0,0
+"3824",4892,"Saudi Arabia",456,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.1801e+11,2.0086e+11,2.39993e+11,3.14917e+11,2.8586e+11,1.82848e+11
+"3825",4893,"Saudi Arabia",456,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.47307e+11,1.9811e+11,2.01976e+11,2.09589e+11,2.18941e+11,1.82184e+11
+"3826",4894,"Saudi Arabia",456,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",20096675973,16353324926,15799360306,15713753813,17674830237,14878746866
+"3827",4895,"Saudi Arabia",456,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",2852648000,4382943738,4302010667,4507626667,4741034667,2022342206
+"3829",4897,"Saudi Arabia",456,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",5847318557,7202942207,4033147977,2778899567,4849159038,1704181860
+"3830",4898,"Saudi Arabia",456,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",6858400000,6106666667,3697179648,3661480715,3718589806,1177166237
+"3837",4905,"Senegal",722,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",701525530.4,681531848.1,809015481.8,935496828.1,954711504.4,802164396.6
+"3846",4914,"Senegal",722,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",125366260.9,129400225.1,138284279.1,161717837.3,181408557.6,118259303.5
+"3859",4927,"Senegal",722,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",6288404327,6179704692,7499420153,8960095118,9169814210,9626651024
+"3860",4928,"Senegal",722,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4016951809,4093170632,4593278924,5287037761,5835648428,5062755656
+"3861",4929,"Senegal",722,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",317053435.6,380518500.4,427864827.5,443338140.5,418615469.3,536242538.2
+"3862",4930,"Senegal",722,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",123852420.8,134352253.8,126062600.8,189394312.3,184354711.4,194782359.4
+"3878",4946,"Serbia, Rep. of",942,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",17442839306,19235496824,21858742467,24966953883,26127205134,25499689164
+"3879",4947,"Serbia, Rep. of",942,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",20677312927,21682770584,25293915561,29780212200,31286372739,30176920186
+"3880",4948,"Serbia, Rep. of",942,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",383309226.1,277369282.7,172962963.9,167644412.1,212831417.8,203350994.8
+"3882",4950,"Serbia, Rep. of",942,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1528928724,1847235085,2526072547,2395050567,2660717238,1551784722
+"3884",4952,"Serbia, Rep. of",942,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1118315920,1148187947,1345192054,1437710054,1484828246,1145750037
+"3885",4953,"Serbia, Rep. of",942,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1063448625,1066148132,1270965859,1505385888,1643382614,1385357864
+"3907",4975,"Seychelles",718,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",207562823.5,203300528,234328670.9,181220766,161546368.8,109868394.6
+"3908",4976,"Seychelles",718,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",170250763.3,181099283.6,217859944.4,214184116.8,217378756.1,140246032.3
+"3913",4981,"Seychelles",718,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",1813763.924,3605826.944,532836.7265,966072.5003,985393.9503,3286498.926
+"3921",4989,"Seychelles",718,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1297074705,1598353363,1864536078,2145360942,2084655874,1239725607
+"3922",4990,"Seychelles",718,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1420872754,1619402966,2045307361,2061851052,2024900257,1332167183
+"3925",4993,"Seychelles",718,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",69929293.88,-23349360.69,-180416118.7,86567078.64,72569390.2,41474962.34
+"3934",5006,"Sierra Leone",724,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",781558030.5,788175639.7,843859581.2,737943090.9,632404792.4,661505031.9
+"3935",5008,"Sierra Leone",724,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2229509573,1422952583,1594303874,1593793579,1817978320,1385993406
+"3936",5010,"Sierra Leone",724,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",43574384.91,17403547.63,15142722.95,17763310.19,11112484.86,6651544.929
+"3937",5012,"Sierra Leone",724,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",168179408.6,133810753.7,152181763,151089118.5,170415455.4,110336765.1
+"3938",5014,"Sierra Leone",724,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",101314821.3,93868443.97,95294048.56,68180753.85,69327935.7,23367730.53
+"3957",5063,"Singapore",576,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",5.49422e+11,5.25353e+11,5.88935e+11,6.6838e+11,6.61706e+11,6.34034e+11
+"3958",5064,"Singapore",576,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",4.65345e+11,4.41743e+11,4.97447e+11,5.5719e+11,5.50594e+11,5.25324e+11
+"3959",5065,"Singapore",576,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",47723601186,43508782320,50968372649,63014067626,64688385390,73672269567
+"3965",5071,"Singapore",576,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",46622006437,41511889510,48612270761,61759435565,64232646504,65046234500
+"3976",5082,"Sint Maarten, Kingdom of the Netherlands",352,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",78212.2905,826815.6425,2005586.592,1050747.078,2602599.274,2656908.966
+"3977",5083,"Sint Maarten, Kingdom of the Netherlands",352,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",351955.3073,217877.095,905027.933,2086081.285,8790062.827,7888028.693
+"3987",5093,"Sint Maarten, Kingdom of the Netherlands",352,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1215687151,1164083799,962082537.8,801576504.8,1090733592,527044089.9
+"3988",5094,"Sint Maarten, Kingdom of the Netherlands",352,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1133251397,1130837989,1027044457,1220930674,1236774228,760824247
+"4002",5108,"Sint Maarten, Kingdom of the Netherlands",352,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",29960893.85,34770949.72,42648044.69,40323043.21,57536420.17,30003263.51
+"4003",5109,"Sint Maarten, Kingdom of the Netherlands",352,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",49726256.98,38162011.17,32581005.59,28798313.97,35493882.54,20268453.74
+"4010",5116,"Slovak Rep.",936,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",4506017083,4534237547,4479231329,4714056839,5230697020,3693959901
+"4011",5117,"Slovak Rep.",936,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",78718984786,81191729087,88617444302,99915255212,96755336724,88214030669
+"4014",5120,"Slovak Rep.",936,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",434478005.4,325354590.3,530789213.4,580855008.8,557318664.5,547018544.4
+"4026",5132,"Slovak Rep.",936,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",79753327158,83028321397,90274774490,1.00763e+11,96858697753,90545983831
+"4031",5137,"Slovak Rep.",936,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",2330403447,2707977165,2981002450,3398274220,3487436875,3368079404
+"4032",5138,"Slovak Rep.",936,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",2023640235,2238635494,2516092086,3064050981,3001706926,2715062019
+"4057",5163,"Slovenia, Rep. of",961,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",71883057.17,198784967.5,235052534.5,368970904.2,388393764.7,294963294.7
+"4058",5164,"Slovenia, Rep. of",961,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1093262519,1276835641,1269883348,1572346656,1626909420,1157509046
+"4059",5165,"Slovenia, Rep. of",961,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1834440530,2034480729,2450854948,2868721512,2812056738,2647586741
+"4061",5167,"Slovenia, Rep. of",961,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",938077318.6,1013738780,1241856758,1305471467,1326875638,1291534858
+"4065",5171,"Slovenia, Rep. of",961,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",33167990292,34748992483,40469913560,45944531038,45515913363,41855220228
+"4066",5172,"Slovenia, Rep. of",961,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",29704636665,30907363920,36085346064,41345146847,40808550723,37000473667
+"4071",5177,"Solomon Islands",813,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",525935948.7,554859849.1,593886704.2,680656697.4,591292572.9,428833631.1
+"4072",5178,"Solomon Islands",813,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",620304980,626624442.4,679094810.9,748211700.9,752908760.3,556260233.7
+"4080",5187,"Solomon Islands",813,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",26511680.63,33442444.73,33298224.04,38331648.45,31362322.51,15919182.51
+"4084",5191,"Solomon Islands",813,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",57289950.32,54816052.44,54657335.13,62433502.41,51351968.72,31284186.96
+"4091",5198,"Solomon Islands",813,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4172995.108,4563945.198,4886065.288,5437577.657,5640321.253,5871909.319
+"4092",5199,"Solomon Islands",813,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",60715341.85,70649391.73,63065288.55,52280056.17,54130345.37,9545183.19
+"4094",5205,"South Africa",199,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",6257597317,5489237500,6093907765,6489157316,6200769353,3887040608
+"4104",5215,"South Africa",199,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",2493631651,2199887097,2345689834,2249653423,2217165210,1369535243
+"4106",5217,"South Africa",199,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",7065039811,6074587236,5860261929,6871230353,6296866414,3733200826
+"4107",5218,"South Africa",199,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",3321111795,2123718404,2326382897,2736205523,3572091169,3847991378
+"4110",5221,"South Africa",199,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",96346520856,91482650746,1.04172e+11,1.11373e+11,1.05833e+11,94058828195
+"4111",5222,"South Africa",199,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1.00803e+11,89948758687,99822924053,1.09386e+11,1.03895e+11,79039249116
+"4128",5261,"Spain",184,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",13938094233,14372346051,16462387580,17877860666,18763346311,16636451473
+"4129",5262,"Spain",184,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",10143937658,9818197067,11289378539,12950195076,12546795036,10833498428
+"4133",5266,"Spain",184,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3.65623e+11,3.68366e+11,4.14215e+11,4.60884e+11,4.45719e+11,3.75087e+11
+"4135",5268,"Spain",184,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",25633306978,27093584039,32513240064,36483528409,36449618650,28297693563
+"4141",5274,"Spain",184,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",35305086612,37151185000,39891840691,46688741105,46035813040,31221900284
+"4149",5282,"Spain",184,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4.01954e+11,4.17759e+11,4.61907e+11,4.99367e+11,4.86633e+11,3.93774e+11
+"4157",5292,"Sri Lanka",524,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",2104700006,2250146027,2340169949,2486290000,2339250000,1173900007
+"4158",5293,"Sri Lanka",524,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1578650004,1618145687,1687896072,1736540000,1709580000,1059460008
+"4168",5303,"Sri Lanka",524,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",16943161924,17447855576,19084181007,20263792551,19414322724,13082799673
+"4171",5306,"Sri Lanka",524,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",23006476594,23441724091,25401229000,26840586809,24561990206,18271335897
+"4172",5307,"Sri Lanka",524,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",16500000,14532452.35,27089441.45,22896711.39,26308417.67,16858417.67
+"4173",5308,"Sri Lanka",524,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",787221959.3,949472251.8,914611070.8,783240635.2,854511573.5,618872759.8
+"4185",5320,"St. Kitts and Nevis",361,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",294118.5,52093.18889,43706.54444,1460858.241,1461046.574,994646.6852
+"4186",5321,"St. Kitts and Nevis",361,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",77743758.73,70971033.89,63000940.94,65394630.47,37976831.19,42112532.93
+"4190",5325,"St. Kitts and Nevis",361,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",16481398.04,17691367.41,17200643.03,18241624.86,20725926.91,7211564.806
+"4191",5326,"St. Kitts and Nevis",361,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",50405966.93,52211583.68,50898788.65,55711328.54,55573621.74,37160534.7
+"4209",5344,"St. Kitts and Nevis",361,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",530678758.1,503202697.4,505234862.9,583322898.7,553522802,353960799.7
+"4210",5345,"St. Kitts and Nevis",361,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",526520400.9,555516470.4,542284982.9,582351622.4,600979874.6,430262882.6
+"4212",5347,"St. Lucia",362,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",842651487.6,925514054.8,957855009.5,986276306.5,970418733,666968354.4
+"4230",5365,"St. Lucia",362,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",14842041.89,15614555.15,13097623.4,13469748.39,13364323.75,7467840.189
+"4232",5367,"St. Lucia",362,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",980899993.9,919396208.3,1036211423,1114054071,1209324190,452443928.8
+"4236",5371,"St. Lucia",362,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",3676414.074,4109000,14925777.78,24983000,21001968.89,31098307.41
+"4237",5372,"St. Lucia",362,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",138028254.2,96959501.63,112016205.3,118948426.8,135181586.7,53122851.15
+"4242",5377,"St. Lucia",362,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",87099908.86,91366228.99,96971864.86,98459967.36,96622309.6,59382403.44
+"4246",5381,"St. Vincent and the Grenadines",364,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",51226573.77,52292727.2,54568625.49,51172277.46,48889410.55,34494144.34
+"4258",5393,"St. Vincent and the Grenadines",364,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",190245.7963,74528.14815,174355.8704,226696.7111,195861.9519,200390.3407
+"4259",5394,"St. Vincent and the Grenadines",364,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",11162199.31,-1515757.827,-4937086.446,-6257662.738,-6676492.224,-3879154.607
+"4262",5397,"St. Vincent and the Grenadines",364,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",8284039.352,10537091.09,11919209.37,13622516.68,12735879.17,7490583.145
+"4271",5406,"St. Vincent and the Grenadines",364,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",283889157.2,302562864.1,293165598.9,321788373.8,328651205.8,184626819.2
+"4272",5407,"St. Vincent and the Grenadines",364,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",416602934.1,438593985.8,429331895.2,452446456,426248555.3,375035946.5
+"4278",5413,"Sudan",732,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4896332966,4638209738,5880500848,4995707338,5101252297,5065438285
+"4279",5414,"Sudan",732,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",10146887080,8917693682,9815700871,8237313614,9786877800,10519596583
+"4280",5415,"Sudan",732,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",531804163.6,260247699.4,401412139.9,409396883.7,385110946.6,410645833.3
+"4281",5416,"Sudan",732,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",963909041.1,836322851.2,913412867.1,785310989.6,929123567.4,984262994.4
+"4284",5419,"Sudan",732,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",393647660.6,172323759.8,196077870.7,265898167.6,284440548.4,27057344.52
+"4285",5420,"Sudan",732,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4668757.595,52799.61913,60637.37057,652206.6631,110591.1582,6638.502023
+"4294",5440,"Suriname",366,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,4197.8646,0,0
+"4295",5442,"Suriname",366,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",-53341507.67,83238928.91,279416698.6,261518578.3,268274905.1,297696381.9
+"4300",5452,"Suriname",366,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",39449253.64,32854555.82,40518601.96,42387442.14,39532386.45,28798515.81
+"4301",5454,"Suriname",366,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",80139503.39,43545795.87,85749117.46,104737421.3,107974117.9,91245782.45
+"4315",5482,"Suriname",366,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1843140760,1606330376,2143368511,2235837596,2286750029,2446394182
+"4316",5484,"Suriname",366,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2681640376,1702266180,1779863297,2069796647,2412714911,1845058156
+"4323",5502,"Sweden",144,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.01164e+11,2.04301e+11,2.22786e+11,2.41526e+11,2.33648e+11,2.17165e+11
+"4331",5510,"Sweden",144,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.22422e+11,2.20407e+11,2.37411e+11,2.54253e+11,2.57233e+11,2.4194e+11
+"4339",5521,"Sweden",144,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",22636573953,22326616924,22551083600,25420177547,24159707419,23208968913
+"4341",5525,"Sweden",144,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",27408863722,26122012253,31144352654,35407869492,35449986662,33977434160
+"4345",5529,"Sweden",144,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",11060359556,9791026547,10410647067,9883867593,9828758771,7775701022
+"4348",5532,"Sweden",144,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",11572987717,10626391141,11371209517,11875240563,11725547761,8710554054
+"4355",5541,"Switzerland",146,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",92138020609,93898781421,1.11155e+11,1.16628e+11,1.14774e+11,86592390829
+"4356",5542,"Switzerland",146,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",67407844446,79486671300,1.04815e+11,1.26034e+11,1.18483e+11,87649987048
+"4359",5545,"Switzerland",146,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",10888645464,10479664834,11663208218,13680000503,13292150042,11957975297
+"4361",5547,"Switzerland",146,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",13047713243,12149738642,13650846975,15399386824,14987573168,12955978180
+"4376",5562,"Switzerland",146,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4.36639e+11,4.5361e+11,4.57275e+11,4.85183e+11,4.78505e+11,4.73976e+11
+"4377",5563,"Switzerland",146,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3.70557e+11,3.91131e+11,3.99471e+11,4.14197e+11,4.13404e+11,4.30031e+11
+"4378",5564,"Tajikistan, Rep. of",923,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",164721699,161112560,184907190,181359130,192357820,104868250
+"4382",5568,"Tajikistan, Rep. of",923,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",824698053,899523470,1124964688,1116258706,1243494480,1409162182
+"4383",5569,"Tajikistan, Rep. of",923,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",3324910990,2926961805,2763908495,3221409696,3408834755,3125470482
+"4388",5574,"Tajikistan, Rep. of",923,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",353311050.3,290803817.4,286582075,341910950.6,382900413.9,343841144.6
+"4395",5581,"Tajikistan, Rep. of",923,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",42569490,80766327.21,287308100.7,244912962.3,211174310.7,53750172.81
+"4408",5594,"Tajikistan, Rep. of",923,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"4409",5595,"Tanzania, United Rep. of",738,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",12472182539,10640068212,9591582825,10398997407,10575568579,9181000965
+"4411",5597,"Tanzania, United Rep. of",738,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",550009984.3,625230000,7e+08,439025572.7,766293027.3,545070255.4
+"4415",5601,"Tanzania, United Rep. of",738,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",8239113388,8473152551,8342628564,8307383925,9658576689,8555483605
+"4417",5603,"Tanzania, United Rep. of",738,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1024851517,1053611723,1141047335,1227532799,1355894953,1284644420
+"4418",5604,"Tanzania, United Rep. of",738,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1047038497,893707220.7,800343754.6,605109399.3,681460861.1,583671389.6
+"4438",5625,"Thailand",578,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.29766e+11,2.21223e+11,2.47775e+11,2.8366e+11,2.72831e+11,2.32048e+11
+"4439",5626,"Thailand",578,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",14804344062,14143883039,15796940106,20132346798,14778350901,9781528662
+"4441",5628,"Thailand",578,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.71446e+11,2.77274e+11,3.04652e+11,3.28582e+11,3.23878e+11,2.57981e+11
+"4442",5629,"Thailand",578,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",5743459547,5724086537,6873915815,7694319809,7196124137,3334947961
+"4443",5630,"Thailand",578,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",15662245820,15063082306,16829394659,18934752997,18891444734,17997432263
+"4455",5642,"Thailand",578,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",-5715012.842,774011134.7,2383090086,2424924753,2483786701,4813216927
+"4470",5664,"Timor-Leste, Dem. Rep. of",537,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",13366500,21475600,29477426.13,39891635.77,59598082.9,64120533.7
+"4471",5666,"Timor-Leste, Dem. Rep. of",537,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"4483",5690,"Timor-Leste, Dem. Rep. of",537,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",91006899.61,96780600,109896003,121872114.4,117471950.8,57104512.97
+"4484",5692,"Timor-Leste, Dem. Rep. of",537,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",1319666300,1165576900,1122771561,1059724336,1039469717,842419105.8
+"4491",5706,"Timor-Leste, Dem. Rep. of",537,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1541300,1640100,2340074.23,2176095.895,3361087.44,690439.09
+"4492",5708,"Timor-Leste, Dem. Rep. of",537,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",71717300,63167900,73577862.24,67294502.52,67747517.93,51032968.08
+"4494",5716,"Togo",742,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",197540746.2,144514324.2,138674010.2,121789902.5,129992436.2,143380084.6
+"4495",5717,"Togo",742,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",265829078.6,266044949.5,273177245.6,301433775.8,291551099.3,294995985.2
+"4496",5718,"Togo",742,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",203806527.3,217914391.3,210016698.3,220965634.5,214583780.1,181437963.8
+"4497",5719,"Togo",742,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",121242306.7,141342045.8,151543920,151500975,154410820,148029867.5
+"4517",5739,"Togo",742,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",1498688996,1578379786,1588595518,1702908076,1665136818,1721559850
+"4518",5740,"Togo",742,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2417102321,2400134075,2090588862,2328922256,2260740915,2389189484
+"4525",5747,"Tonga",866,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",11236897.98,12182014.1,15077595.63,17326312.91,17897762.68,16234043.44
+"4527",5749,"Tonga",866,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",27153499.68,26802204.15,28064115.19,31837477.32,31219628.54,33103050.64
+"4528",5750,"Tonga",866,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",70256881.11,103168335.2,102004945.7,104850808.1,112481817.8,99779579.33
+"4545",5767,"Tonga",866,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",58368.9384,526907.4262,218648.0987,65990.36871,130879.0924,98717.12607
+"4546",5768,"Tonga",866,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1536837.241,1882880.373,11497441.18,16094607.97,9977110.242,9331781.228
+"4550",5772,"Tonga",866,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",256898985.4,266358310.4,303028247.1,322271137.6,327394944.2,309685411.9
+"4558",5780,"Trinidad and Tobago",369,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",125376376.4,50523918.62,9904070.604,68402825.79,71858131.72,59807933.77
+"4559",5781,"Trinidad and Tobago",369,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",378024533.9,310780864.4,-206755836.6,617934707.4,690890225.1,1076266005
+"4577",5799,"Trinidad and Tobago",369,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",385098857.9,337404354.2,354694202.3,212059669.3,161049804.4,104484208.6
+"4578",5800,"Trinidad and Tobago",369,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",729000889.3,633245883.8,629774232.1,643407801,610667097.7,467921307
+"4585",5807,"Trinidad and Tobago",369,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",12851818413,9460490904,10624640291,11569943462,9565811942,6439718324
+"4586",5808,"Trinidad and Tobago",369,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",10444376046,9821729343,9543813734,9143635940,7960426698,6784537926
+"4589",5811,"Tunisia",744,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",17452928057,16899132540,17584260723,19418507418,19174809446,16017482362
+"4590",5812,"Tunisia",744,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",22253743707,21474201207,22729160854,24824597637,23546488249,19603262979
+"4594",5816,"Tunisia",744,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",886968712.2,954361353.8,982134184.8,1147167720,1133438597,568917545.5
+"4595",5817,"Tunisia",744,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1374829542,1292763924,1359000589,1474082563,1421432872,1107966920
+"4601",5823,"Tunisia",744,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",39864907.92,32541394.45,28312512.27,27466438.3,35543489.37,21832210.81
+"4602",5824,"Tunisia",744,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",960275282,769075588.5,760717939.2,789235070.4,699078754.6,882284441
+"4614",5836,"Türkiye, Rep. of",186,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.29374e+11,2.18373e+11,2.54937e+11,2.48088e+11,2.27638e+11,2.30136e+11
+"4618",5840,"Türkiye, Rep. of",186,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",3.59e+09,3.139e+09,3.295e+09,3.234e+09,3.486e+09,1.907e+09
+"4619",5841,"Türkiye, Rep. of",186,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.11052e+11,1.99343e+11,2.23185e+11,2.3825e+11,2.49417e+11,2.06621e+11
+"4624",5846,"Türkiye, Rep. of",186,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2.25e+08,2.02e+08,3e+08,9.66e+08,8.23e+08,1.109e+09
+"4630",5852,"Türkiye, Rep. of",186,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1.9689e+10,1.9734e+10,2.2123e+10,2.4342e+10,2.3396e+10,1.6087e+10
+"4632",5854,"Türkiye, Rep. of",186,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",5.274e+09,7.053e+09,7.851e+09,9.452e+09,9.575e+09,7.99e+09
+"4652",5899,"Tuvalu",869,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",7798748.018,11836418.98,8502368.874,8051776.255,9070871.093,7826858.618
+"4655",5902,"Tuvalu",869,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",7021673.332,7539032.329,8866457.421,8754000.984,10265794.99,3087048.526
+"4670",5917,"Tuvalu",869,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",999406.3044,1327967.172,1135668.003,1160805.365,1075012.836,853528.1136
+"4671",5918,"Tuvalu",869,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",66864451.33,78320363.03,50573117.17,46922562.63,65239757.46,50792483.65
+"4672",5919,"Tuvalu",869,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",0,0,0,0,0,0
+"4673",5920,"Tuvalu",869,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",0,0,0,0,0,0
+"4677",5924,"Uganda",746,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4728648692,4836478690,5095505082,5929627178,6171772905,5562352995
+"4678",5925,"Uganda",746,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",7329210625,6536972722,7231400549,8724862646,9795257001,10197244491
+"4697",5944,"Uganda",746,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",137527626.9,142644800.9,162307814.2,189777041.2,176009726.7,159103664.4
+"4698",5945,"Uganda",746,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1129236312,1007666539,1202914012,1431735856,1555307394,1507836602
+"4701",5948,"Uganda",746,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",282619.0984,145397.705,304132.2531,318206.7812,322686.2843,328049.0536
+"4702",5949,"Uganda",746,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",229442019,334488709,563014576.9,601711411,354167476.7,336719569.8
+"4707",5954,"Ukraine",926,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",5.0224e+10,5.2461e+10,6.2688e+10,7.0555e+10,7.6067e+10,6.3085e+10
+"4711",5958,"Ukraine",926,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",-2.624e+09,2.102e+09,3.818e+09,6.097e+09,7.016e+09,3.969e+09
+"4713",5960,"Ukraine",926,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4.2e+07,2.9e+07,3.2e+07,9e+07,9.4e+07,5.9e+07
+"4725",5972,"Ukraine",926,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",5.322e+09,5.348e+09,5.922e+09,5.949e+09,6.253e+09,5.089e+09
+"4726",5973,"Ukraine",926,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1.947e+09,1.934e+09,2.109e+09,2.237e+09,2.516e+09,1.92e+09
+"4735",5982,"Ukraine",926,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",4.7862e+10,4.6008e+10,5.3944e+10,5.9177e+10,6.3556e+10,6.0707e+10
+"4739",5986,"United Kingdom",112,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",8.10891e+11,7.73865e+11,8.2436e+11,8.99006e+11,8.93142e+11,7.91733e+11
+"4743",5991,"United Kingdom",112,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",33217923520,30056114361,29811695719,33521819749,33630455720,18526779892
+"4744",5992,"United Kingdom",112,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",8.5951e+11,8.26569e+11,8.63304e+11,9.42889e+11,9.39349e+11,7.83438e+11
+"4745",5995,"United Kingdom",112,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",36446470965,33266200340,33551447834,35371162713,37271646874,25036627486
+"4765",6019,"United States",111,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",8.4436e+10,8.1778e+10,8.6344e+10,9.3106e+10,9.1059e+10,5.7472e+10
+"4766",6020,"United States",111,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",9.9559e+10,9.2391e+10,1.03108e+11,1.10441e+11,1.12814e+11,7.2953e+10
+"4769",6023,"United States",111,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",2.77156e+12,2.72029e+12,2.91141e+12,3.12106e+12,3.10567e+12,2.81303e+12
+"4774",6028,"United States",111,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4.54916e+11,4.67321e+11,5.61268e+11,5.84557e+11,5.86914e+11,4.97553e+11
+"4775",6029,"United States",111,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",1.77604e+11,1.77599e+11,2.09482e+11,2.35706e+11,2.30474e+11,1.83964e+11
+"4778",6032,"United States",111,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2.28079e+12,2.24082e+12,2.39448e+12,2.54246e+12,2.54628e+12,2.16015e+12
+"4791",6045,"Uruguay",298,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",2260049166,2543534555,4031840982,4043277579,3391427353,2505350965
+"4796",6050,"Uruguay",298,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",599602697.6,543590149,516789780.2,573130719.3,579584349.2,388895339.5
+"4797",6051,"Uruguay",298,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1239633759,1007351301,1066120292,1225991867,1139383827,842353817.2
+"4815",6069,"Uruguay",298,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",565570744.4,605080191.2,1103213742,1046459984,786527374.5,128225212.6
+"4817",6071,"Uruguay",298,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",16624222650,15513265403,16844976838,17253265632,17227921626,13781794035
+"4818",6072,"Uruguay",298,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",14391372097,12448276167,13367032217,13973241899,13503864509,11354007596
+"4822",6076,"Uzbekistan, Rep. of",927,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",14667874620,14481010181,16470145510,23443547241,26587726389,22638064107
+"4823",6078,"Uzbekistan, Rep. of",927,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",1366430000,1066492598,1190001061,1254172901,1251865758,999501806.7
+"4831",6094,"Uzbekistan, Rep. of",927,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",11845394383,10549916893,12412218530,14135137288,17025733993,14536446559
+"4833",6098,"Uzbekistan, Rep. of",927,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",292694606.4,901829276.8,957550513.8,1135327869,1429269948,848742692.8
+"4841",6114,"Uzbekistan, Rep. of",927,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",2470260.82,2470260.82,2560260.82,22809786.75,5958683.165,2935655.336
+"4848",6128,"Uzbekistan, Rep. of",927,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",1293571961,1790819527,1993275189,2414352507,2525951199,1831302180
+"4856",6141,"Vanuatu",846,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",25113928.66,33426417.43,40085458.3,29985909.77,22000797.53,7247486.897
+"4860",6145,"Vanuatu",846,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4284096.944,3644823.527,1565312.932,1847177.876,1997010.96,1553400.831
+"4861",6146,"Vanuatu",846,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",316640196.1,358967501.8,345572532.1,380384177.6,372710604.4,141534193.2
+"4862",6147,"Vanuatu",846,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",484552669.2,484801113.1,512694647.2,519140198.8,488795361.3,429601456.1
+"4864",6149,"Vanuatu",846,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",34269474.21,45960863.15,39043164.77,54324741.62,34922828.37,18076243.63
+"4865",6150,"Vanuatu",846,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",106870158,96819167.41,95370644.4,88262563.35,77401262.26,70027527.24
+"4887",6218,"West Bank and Gaza",487,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",2244334838,2207025455,2535998696,2.598e+09,2659300000,2385203570
+"4890",6221,"West Bank and Gaza",487,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",335943698.1,339290637.5,345866033.5,411883980.5,251936340.4,227032998.8
+"4897",6228,"West Bank and Gaza",487,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",13201320.51,16440102.87,13888161.63,12226548.02,8435129.486,6873032.954
+"4899",6230,"West Bank and Gaza",487,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",7645459558,7871587692,8503409586,9023749413,9161265711,8065268208
+"4901",6232,"West Bank and Gaza",487,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",4294691.14,5717271.412,33187963.94,30763459.35,44093912.66,44820290.52
+"4907",6238,"West Bank and Gaza",487,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",73626117.24,95819766.94,161286546,139737090.5,139543107.7,106959613.8
+"4913",6275,"Zambia",754,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",43654609.21,38211162.67,48801400.93,53775556.99,42566283.81,46165061.83
+"4914",6276,"Zambia",754,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",825256525.9,769136001.7,841328830.7,957359154.9,817383193.5,514729451.5
+"4915",6277,"Zambia",754,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",34138577.74,279890281.8,809917249.1,-194078851.5,-199767564.2,385823033.1
+"4925",6288,"Zambia",754,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",8223465324,7419922061,9080489945,9982606351,8257880171,8558478219
+"4926",6289,"Zambia",754,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",8868614491,7931819713,8729620526,10193025255,8035710383,7048728584
+"4953",6321,"Zimbabwe",698,"Current Account, Primary Income, Investment Income, Direct Investment, Debit, US Dollars","BMIPID_BP6_USD",148120595.1,154990878.3,158715548.8,76498594.51,120824656.1,231155391.2
+"4954",6322,"Zimbabwe",698,"Current Account, Goods and Services, Services, Transport, Credit, US Dollars","BXSTR_BP6_USD",89430190.84,91311954.5,223617997,213910000,185252781.4,174399166.5
+"4955",6323,"Zimbabwe",698,"Current Account, Goods and Services, Services, Transport, Debit, US Dollars","BMSTR_BP6_USD",454096703.7,372440513.1,337673909.4,398371112,340394085.7,275362017
+"4956",6324,"Zimbabwe",698,"Current Account, Primary Income, Investment Income, Direct Investment, Credit, US Dollars","BXIPID_BP6_USD",474433.54,376099.43,530250.8,4280525.93,11721861.38,3758765.1
+"4958",6326,"Zimbabwe",698,"Current Account, Goods and Services, Credit, US Dollars","BXGS_BP6_USD",3964161628,4059678531,4640216633,5178166048,5266936852,5263295268
+"4959",6327,"Zimbabwe",698,"Current Account, Goods and Services, Debit, US Dollars","BMGS_BP6_USD",7214774255,6189299530,6221302665,7642201964,5398498893,5489301811
