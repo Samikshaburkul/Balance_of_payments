@@ -307,6 +307,7 @@ ggplot(data.frame(Value=log_data_2020), aes(x="", y=Value)) +
 ```
   
 **Insights from the Net Acquisition of Financial Assets in 2020:**
+
 1) **Central Acquisition Trend:** Half of the countries had a net acquisition of financial assets less than `75.5 million` USD in `2020`, indicating a modest median value midst a large spread.
 
 2) **Variability in Acquisitions:** The middle `50%` of countries' net acquisitions ranged from virtually nothing (or even slight losses) up to `4.67 billion` USD, highlighting a vast disparity in financial asset acquisitions.
@@ -348,15 +349,16 @@ correlation <- cor(merged_data$mean_equity, merged_data$mean_debt, use="complete
 ```
   
 **Correlation Analysis of Average 'Equity and Investment Fund Shares' and 'Debt Securities' (2015-2020):**
+
 The Pearson's correlation coefficient is  ``r correlation`` which is quite substantial, suggesting a strong positive linear relationship between the two variables.
 
 This positive correlation suggests several potential real-world scenarios:
 
 1) **Investment Attraction:** Countries that attract more equity investments might be perceived as economically stable or promising, leading to more investments in their debt securities as well.
 
-2) **Economic Policies:** Some countries might have policies that promote both equity and debt investments, leading to growth in both areas.
+2) **Economic Policies:** Some countries might have policies that promote both `equity` and `debt` investments, leading to growth in both areas.
 
-However, it's essential to remember that correlation does not imply causation. While the two variables move together, it doesn't necessarily mean that an increase in one causes an increase in the other.
+However, it's essential to remember that **correlation does not imply causation**. While the two variables move together, it doesn't necessarily mean that an increase in one causes an increase in the other.
   
 ```{r, fig.width=9, fig.height=6}
 # Load necessary libraries
@@ -388,37 +390,27 @@ ggplot(merged_data, aes(x=mean_equity, y=mean_debt, color=Type)) +
 
 ```
 
+**Differentiation between Top Economies and Emerging Countries:**
 
+1) **Top Economies (Blue Circles):** These countries are generally positioned towards the top-right of the graph, indicating they have higher averages for both `equity & investment` fund shares and `debt securities`. This might suggest that their financial markets are more mature and active, leading to greater financial asset acquisitions.
+  
+2) **Emerging Countries (Red Triangles):** These countries are more spread out but generally occupy the mid to lower sections of the plot. While some emerging countries exhibit high levels of either `equity` or `debt`, they don't consistently rank high in both categories. This may suggest that their financial systems are still in the development phase or have certain constraints preventing them from acquiring as many assets as top economies.
+  
+From a real-world perspective, this scatter plot provides insights into the financial health and strategies of countries. `Top economies`, with their mature financial markets, are actively involved in both `equity investments` and acquiring `debt securities`. Emerging countries, while showing potential and growth, exhibit more variability, which could be due to multiple factors like economic policies, geopolitical issues, or developmental stages.
+  
+  
+  
+### Hypothesis: The average 'Total Current + Capital Account' is equal to the average 'Net Acquisition of Financial Assets' for countries in 2020.
+  
+This hypothesis aims to determine if the combined total of the current and capital accounts for countries (which includes trade balances and primary incomes) is equivalent to the net increase in a country's holdings of foreign financial assets. In simple terms, it's comparing the overall balance of payments with how much new foreign financial assets a country is acquiring.
 
-## SMART question - 4
-What is the variance in the average 'Reserve Position in the Fund' across all countries over the years 2015-2020?
+If the hypothesis is true, it might suggest that, on average, countries are maintaining a balance between their trade and income flows and their acquisition of foreign financial assets. If it's not true, then countries might be leaning more towards either maintaining their trade balances or acquiring foreign assets, which could have implications for their overall financial health and strategy.
 
-```{r}
-# Load necessary libraries
-library(ggplot2)
+**Null Hypothesis (Ho):** The average `Total Current + Capital Account` is equal to the average `Net Acquisition of Financial Assets` for countries in 2020.
 
-# Filter data for 'Reserve Position in the Fund'
-reserve_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Supplementary Items, Reserve Position in the Fund (with Fund Record), US Dollars", c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")]
+**Alternative Hypothesis (Ha):** The average `Total Current + Capital Account` is not equal to the average `Net Acquisition of Financial Assets` for countries in 2020.  
 
-# Calculate the average for each country over the years 2015-2020
-reserve_data$mean_reserve <- rowMeans(reserve_data, na.rm = TRUE)
-
-# Calculate variance
-variance <- var(reserve_data$mean_reserve, na.rm = TRUE)
-
-# Plot Histogram
-hist(reserve_data$mean_reserve, main="Distribution of Average Reserve Position in the Fund (2015-2020)", xlab="Average Reserve Position in the Fund", breaks=50)
-
-# Plot Boxplot
-boxplot(reserve_data$mean_reserve, main="Boxplot of Average Reserve Position in the Fund (2015-2020)", ylab="Average Reserve Position in the Fund")
-
-```
-
-## SMART question - 5
-Hypothesis Testing
-Hypothesis: The average 'Total Current + Capital Account' is equal to the average 'Net Acquisition of Financial Assets' for countries in 2020.
-
-```{r}
+```{r, include = FALSE}
 
 # Extracting data
 supplementary_accnts_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars", ]
@@ -438,9 +430,18 @@ print(t_test_result)
 boxplot(supplementary_accnts_data$average, financial_accnts_data$average, names=c("Total Current + Capital Account", "Net Acquisition of Financial Assets"), main="Comparison of Averages", ylab="Value", xlab="Dataset")
 
 ```
-The p-value is slightly above 0.05, which means, at the 5% significance level, we fail to reject the null hypothesis. This suggests that there isn't enough statistical evidence to say that the average 'Total Current + Capital Account' is different from the average 'Net Acquisition of Financial Assets' over the period 2015-2020.
+  
+p-value: `0.05186`.
+  
+**Interpretations from the two sample t-test:**
 
-```{r}
+1) **Statistical Significance:** The p-value is slightly above 0.05, which means, at the `5%` significance level, we fail to reject the null hypothesis. This suggests that there isn't enough statistical evidence to say that the average `Total Current + Capital Account` is different from the average `Net Acquisition of Financial Assets` over the period `2015-2020`.
+
+2) **Real-World Implication:** Even though the sample means of the two indicators seem considerably different, when accounting for the variability within each group, this difference isn't statistically significant at the 5% level. In practical terms, this means that, on average, countries' total balance of payments (current + capital account) is not significantly different from their net acquisition of foreign financial assets over this period. This could suggest a certain level of financial equilibrium in global economies during this period, where the funds flowing in and out (including trade and primary incomes) balance out with the acquisition of foreign assets.
+
+3) **Confidence Interval Interpretation:** The `95% confidence interval` suggests that the true difference in means between the two indicators lies somewhere between -23.68 billion and 95.65 million. Given that this interval is very close to 0 and includes 0, it further supports the notion that there might not be a significant difference between the two means.
+  
+```{r, fig.width=9, fig.height=6}
 # Load necessary libraries
 library(ggplot2)
 library(dplyr)
@@ -479,6 +480,17 @@ ggplot(boxplot_data, aes(x=Type, y=Value)) +
   theme(plot.title=element_text(hjust=0.6)) +
   coord_cartesian(ylim=c(min(Q1_supplementary - 1.5*IQR_supplementary, Q1_financial - 1.5*IQR_financial), 
                          max(Q3_supplementary + 1.5*IQR_supplementary, Q3_financial + 1.5*IQR_financial)))
-
 ```
+  
+  
+**Combined Statistical Insights from T-Test Analysis and the Boxplot:**
 
+1) **Spread of Data:** While the interquartile range (IQR) for the `Net Acquisition of Financial Assets` is broader, indicating more variability in its values, it doesn't conclusively show that the averages of the two data sets are significantly different.
+
+2) **Presence of Outliers:** The `Net Acquisition of Financial Assets` has numerous outliers, but this doesn't necessarily imply a difference in averages. It does suggest diverse financial strategies or situations among countries.
+
+3) **Overall Distribution:** Both data sets display a concentration of values around their respective medians, further supporting the lack of evidence for a difference in their averages.
+
+4) **Conclusion Alignment:** The box plot visually aligns with the t-test result, suggesting that there's insufficient evidence to conclude a significant difference in the averages of the `Total Current + Capital Account` and the `Net Acquisition of Financial Assets` for the years 2015-2020.
+
+**Financial Balance Observed:** Over 2015-2020, countries generally balanced their trade and incomes with their foreign asset acquisitions. This shows consistent financial strategies and stability globally.
