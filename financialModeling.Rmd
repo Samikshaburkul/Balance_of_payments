@@ -1,0 +1,144 @@
+---
+title: "Financial Modeling"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    code_folding: hide
+    number_sections: false
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+
+```{r init, include=F}
+# The package "ezids" (EZ Intro to Data Science) includes some helper functions we developed for the course. 
+# Some of the frequently used functions are loadPkg(), xkabledply(), xkablesummary(), uzscale(), etc.
+# You will need to install it (once) from GitHub.
+# library(devtools)
+# devtools::install_github("physicsland/ezids")
+# Then load the package in your R session.
+library(ezids)
+```
+
+
+```{r setup, include=FALSE}
+# Some of common RMD options (and the defaults) are: 
+# include=T, eval=T, echo=T, results='hide'/'asis'/'markup',..., collapse=F, warning=T, message=T, error=T, cache=T, fig.width=6, fig.height=4, fig.dim=c(6,4) #inches, fig.align='left'/'center','right', 
+knitr::opts_chunk$set(warning = F, message = F)
+# Can globally set option for number display format.
+options(scientific=T, digits = 3) 
+# options(scipen=9, digits = 3) 
+```
+
+```{r}
+# 1. Do not provide answers/comments inside code blocks (like here) -- those are notes between coders/self and will be ignored for grading. 
+# 2. Make sure your knitr options are set to include all results/code to be graded in the final document.
+# 3. All charts/graphs/tables should have appropriate titles/labels/captions. 
+# 4. Compose your answers using inline R code instead of using the code-block output as much as you can. 
+# 5. Your grade is also determined by the style. Even if you answer everything correctly, but the .html does not look appealing, you will not get full credit. Pay attention to the details that we mentioned in class/homework and in previous sample .Rmd files. For example, how to use #, ##, ###, ..., bold face, italics, inline codes, tables, ..., {results = "asis"}, use of colors in plots/ggplots, and so forth.
+```
+
+```{r}
+df <- read.csv('BalanceOfPayment.csv', header = TRUE)
+```
+
+```{r}
+
+# Apply the filter
+filtered_data <- subset(df, grepl("Financial Account", Indicator, ignore.case = TRUE))
+
+# Print unique values in the Indicator column after filtering
+
+portfolio_investement <- subset(df, grepl("Portfolio Investment", Indicator, ignore.case = TRUE))
+other_investment <- subset(df, grepl("Other Investment", Indicator, ignore.case = TRUE))
+Net_investment <- subset(df, grepl("Balance from Financial Account", Indicator, ignore.case = TRUE))
+portfolio_investement <- subset(portfolio_investement, !grepl("Supplementary Items", Indicator, ignore.case = TRUE))
+
+print(unique(portfolio_investement$Indicator))
+print(unique(other_investment$Indicator))
+print(unique(Net_investment$Indicator))
+
+```
+```{r}
+portfolio_investement[, c('X2015', 'X2016', 'X2017','X2018','X2019','X2020')] <- lapply(portfolio_investement[, c('X2015', 'X2016', 'X2017','X2018','X2019','X2020')], function(x) (x - min(x, na.rm = TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE)))
+```
+
+
+```{r}
+portfolio_investement$Cumulative_Indicator1 <- rowSums(portfolio_investement[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")])
+portfolio_investement$Average_Indicator1 <- rowMeans(portfolio_investement[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+
+```
+
+```{r}
+# Specify the relevant columns
+flow_columns <- c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")
+
+# Create new columns for Total_Inflow and Total_Outflow
+portfolio_investement$Total_Inflow <- apply(portfolio_investement[, flow_columns], 1, function(row) sum(pmax(0, row), na.rm = TRUE))
+portfolio_investement$Total_Outflow <- apply(portfolio_investement[, flow_columns], 1, function(row) sum(pmin(0, row), na.rm = TRUE))
+
+# View the updated data frame
+head(portfolio_investement)
+
+
+```
+
+```{r}
+portfolio_investement$Lag_X2016 <- lag(portfolio_investement$X2016)
+
+```
+
+```{r}
+portfolio_investement$Indicator<- as.factor(portfolio_investement$Indicator)
+```
+
+```{r}
+# Create a new column 'cash_flow' based on the conditions
+portfolio_investement$cash_flow <- ifelse(portfolio_investement$Total_Inflow > portfolio_investement$Total_Outflow, 1, 0)
+
+# Check the structure of the updated dataframe
+str(portfolio_investement)
+
+```
+```{r}
+install.packages('caret')
+install.packages('randomForest')
+install.packages('Metrics')
+```
+```{r}
+unique(portfolio_investement$cash_flow)
+```
+
+```{r}
+
+library(caret)
+# Split the data
+set.seed(123)
+splitIndex <- createDataPartition(portfolio_investement$cash_flow, p = 0.8, list = FALSE)
+train_data <- portfolio_investement[splitIndex, ]
+test_data <- portfolio_investement[-splitIndex, ]
+
+# Choose a predictive model (e.g., random forest)
+library(randomForest)
+model <- randomForest(cash_flow ~ ., data = train_data)
+
+# Train the model
+model <- randomForest(cash_flow ~ ., data = train_data)
+
+# Make predictions
+predictions <- predict(model, newdata = test_data)
+
+# Evaluate the model
+library(Metrics)
+accuracy <- accuracy(test_data$cash_flow, predictions)
+print(paste("Accuracy:", accuracy))
+
+
+```
+
+
