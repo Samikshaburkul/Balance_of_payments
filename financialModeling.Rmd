@@ -47,6 +47,10 @@ df <- read.csv('BalanceOfPayment.csv', header = TRUE)
 ```
 
 ```{r}
+head(df, 15)
+```
+
+```{r}
 
 # Apply the filter
 filtered_data <- subset(df, grepl("Financial Account", Indicator, ignore.case = TRUE))
@@ -135,10 +139,7 @@ predictions <- predict(model, newdata = test_data)
 
 # Evaluate the model
 library(Metrics)
-accuracy <- accuracy(test_data$cash_flow, predictions)
-print(paste("Accuracy:", accuracy))
-
-
+accuracy <- accuracy(test_data$cash_flow, predictions)print(paste("Accuracy:", accuracy))
 ```
 
 
