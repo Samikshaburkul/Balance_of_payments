@@ -118,3 +118,118 @@ row.names(filtered_data) <- NULL
 
 write.csv(filtered_data, "filtered_data_updated_index.csv", row.names = FALSE)
 ```
+
+
+```{r}
+data <- read.csv('filtered_data.csv', header = TRUE)
+```
+
+```{r}
+# Fill the 'X' column with a sequence starting from 1
+data$X <- seq(from = 1, to = nrow(data))
+
+head(data)
+```
+
+```{r}
+data <- read.csv('filtered_data_1.csv', header = TRUE)
+```
+
+```{r}
+# Load necessary library
+library(dplyr)
+
+# Rename the columns
+data_renamed <- data %>%
+  rename(
+    Net_Lending_Borrowing_Balance = `Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars`,
+    Current_Account_Credit = `Current Account, Goods and Services, Credit, US Dollars`,
+    Current_Account_Debit = `Current Account, Goods and Services, Debit, US Dollars`,
+    Financial_Loans_Net_Liabilities = `Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars`,
+    Financial_Loans_Total = `Financial Account, Other Investment, Loans, US Dollars`,
+    Transport_Services_Credit = `Current Account, Goods and Services, Services, Transport, Credit, US Dollars`,
+    Transport_Services_Debit = `Current Account, Goods and Services, Services, Transport, Debit, US Dollars`,
+    Supplementary_Reserve_Assets = `Supplementary Items, Reserve Assets (with Fund Record), US Dollars`,
+    Supplementary_Current_Capital = `Supplementary Items, Total Current + Capital Account, US Dollars`
+  )
+
+# View the first few rows of the renamed dataset
+head(data_renamed)
+```
+
+
+
+
+
+```{r}
+# Load the dplyr package
+library(dplyr)
+
+
+# Perform the aggregation
+aggregated_data <- data %>%
+  group_by(Country, Year) %>%
+  mutate(
+    # Calculate Current Account Balance
+    Current_Account_Balance = `Current Account, Goods and Services, Credit, US Dollars` - 
+                              `Current Account, Goods and Services, Debit, US Dollars`,
+    
+    # Calculate Financial Account Loans Balance
+    Financial_Account_Loans_Balance = `Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars` + 
+                                      `Financial Account, Other Investment, Loans, US Dollars`,
+    
+    # Calculate Transport Services Balance
+    Transport_Services_Balance = `Current Account, Goods and Services, Services, Transport, Credit, US Dollars` - 
+                                 `Current Account, Goods and Services, Services, Transport, Debit, US Dollars`,
+    
+    # Calculate Supplementary Items Balance
+    Supplementary_Items_Balance = `Supplementary Items, Reserve Assets (with Fund Record), US Dollars` + 
+                                  `Supplementary Items, Total Current + Capital Account, US Dollars`
+  ) %>%
+  ungroup()
+
+# View the first few rows of the aggregated dataset
+head(aggregated_data)
+
+```
+
+```{r}
+# Load necessary library
+library(dplyr)
+
+# Assuming your dataframe is named 'data'
+# Replace 'data' with the actual name of your dataframe
+
+# Initialize an empty dataframe to store the results
+results <- data.frame()
+
+# List of years to loop through
+years <- c("2015", "2016", "2017", "2018", "2019", "2020")
+
+# Loop through each year
+for (year in years) {
+  # Calculate each balance for the current year
+  year_data <- data %>%
+    mutate(
+      Current_Account_Balance = get(paste0("`Current Account, Goods and Services, Credit, US Dollars_", year)) - 
+                                get(paste0("`Current Account, Goods and Services, Debit, US Dollars_", year)),
+      Financial_Account_Loans_Balance = get(paste0("`Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars_", year)) + 
+                                        get(paste0("`Financial Account, Other Investment, Loans, US Dollars_", year)),
+      Transport_Services_Balance = get(paste0("`Current Account, Goods and Services, Services, Transport, Credit, US Dollars_", year)) - 
+                                   get(paste0("`Current Account, Goods and Services, Services, Transport, Debit, US Dollars_", year)),
+      Supplementary_Items_Balance = get(paste0("`Supplementary Items, Reserve Assets (with Fund Record), US Dollars_", year)) + 
+                                    get(paste0("`Supplementary Items, Total Current + Capital Account, US Dollars_", year))
+    ) %>%
+    select(Country, everything())
+
+  # Add the year to the data
+  year_data$Year <- year
+  
+  # Combine with the results
+  results <- rbind(results, year_data)
+}
+
+# View the first few rows of the results
+head(results)
+
+```
