@@ -47,6 +47,10 @@ df <- read.csv('BalanceOfPayment.csv', header = TRUE)
 ```
 
 ```{r}
+head(df, 15)
+```
+
+```{r}
 
 # Apply the filter
 filtered_data <- subset(df, grepl("Financial Account", Indicator, ignore.case = TRUE))
@@ -74,100 +78,68 @@ portfolio_investement$Average_Indicator1 <- rowMeans(portfolio_investement[, c("
 
 ```
 
+```{r}
+# Specify the relevant columns
+flow_columns <- c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")
+
+# Create new columns for Total_Inflow and Total_Outflow
+portfolio_investement$Total_Inflow <- apply(portfolio_investement[, flow_columns], 1, function(row) sum(pmax(0, row), na.rm = TRUE))
+portfolio_investement$Total_Outflow <- apply(portfolio_investement[, flow_columns], 1, function(row) sum(pmin(0, row), na.rm = TRUE))
+
+# View the updated data frame
+head(portfolio_investement)
+
+
+```
+
+```{r}
+portfolio_investement$Lag_X2016 <- lag(portfolio_investement$X2016)
+
+```
 
 ```{r}
 portfolio_investement$Indicator<- as.factor(portfolio_investement$Indicator)
 ```
 
-
 ```{r}
-# Load necessary libraries
-library(tidyverse)
+# Create a new column 'cash_flow' based on the conditions
+portfolio_investement$cash_flow <- ifelse(portfolio_investement$Total_Inflow > portfolio_investement$Total_Outflow, 1, 0)
 
-# Example: Predicting 'Capital Account, Total, Net, US Dollars' for 'Afghanistan' in 2021
-# Preprocess the data (assuming the data is clean and relevant features are selected)
-data_filtered <- portfolio_investement %>%
-  filter(Country == "Afghanistan, Islamic Rep. of", 
-         Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars")
-
-# Convert data to a suitable format for regression
-reg_data <- data_filtered %>%
-  select(X2015, X2016, X2017, X2018, X2019, X2020) %>%
-  gather(key = "Year", value = "Value") %>%
-  mutate(Year = as.numeric(substring(Year, 2)))
-
-# Splitting the data (assuming a simple chronological split here)
-train_data <- filter(reg_data, Year < 2019)
-test_data <- filter(reg_data, Year >= 2019)
+# Check the structure of the updated dataframe
+str(portfolio_investement)
 
 ```
-
+```{r}
+install.packages('caret')
+install.packages('randomForest')
+install.packages('Metrics')
+```
+```{r}
+unique(portfolio_investement$cash_flow)
+```
 
 ```{r}
-# Linear regression model
-model <- lm(Value ~ Year, data = train_data)
+
+library(caret)
+# Split the data
+set.seed(123)
+splitIndex <- createDataPartition(portfolio_investement$cash_flow, p = 0.8, list = FALSE)
+train_data <- portfolio_investement[splitIndex, ]
+test_data <- portfolio_investement[-splitIndex, ]
+
+# Choose a predictive model (e.g., random forest)
+library(randomForest)
+model <- randomForest(cash_flow ~ ., data = train_data)
+
+# Train the model
+model <- randomForest(cash_flow ~ ., data = train_data)
+
+# Make predictions
+predictions <- predict(model, newdata = test_data)
 
 # Evaluate the model
-summary(model)
-
-# Predictions
-predictions <- predict(model, newdata = test_data)
+library(Metrics)
+accuracy <- accuracy(test_data$cash_flow, predictions)print(paste("Accuracy:", accuracy))
 ```
-
-
-```{r}
-# Example for quadratic regression
-polModel <- lm(Value ~ poly(Year, 2), data = train_data)
-summary(polModel)
-```
-
-```{r}
-library(forecast)
-arima_model <- auto.arima(train_data$Value)
-summary(arima_model)
-
-```
-```{r}
-# Example for random forest
-install.packages('randomForest')
-library(randomForest)
-rf_model <- randomForest(Value ~ Year, data = train_data)
-summary(rf_model)
-```
-
-```{r}
-# Make predictions on the test set
-predictions <- predict(rf_model, newdata = test_data)
-
-# Create a confusion matrix
-conf_matrix <- table(predictions, test_data$response_variable)
-
-# Display the confusion matrix
-print(conf_matrix)
-
-# Calculate accuracy
-accuracy <- sum(diag(conf_matrix)) / sum(conf_matrix)
-cat("Accuracy:", accuracy, "\n")
-
-# Calculate precision
-precision <- conf_matrix[2, 2] / sum(conf_matrix[, 2])
-cat("Precision:", precision, "\n")
-
-# Calculate recall (sensitivity)
-recall <- conf_matrix[2, 2] / sum(conf_matrix[2, ])
-cat("Recall:", recall, "\n")
-
-# Calculate F1 score
-f1_score <- 2 * (precision * recall) / (precision + recall)
-cat("F1 Score:", f1_score, "\n")
-
-```
-
-
-
-
-
-
-
 
 

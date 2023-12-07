@@ -1,0 +1,235 @@
+---
+title: "Modeling"
+author: "Sai Avinash"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    code_folding: hide
+    number_sections: false
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+
+```{r init, include=F}
+# The package "ezids" (EZ Intro to Data Science) includes some helper functions we developed for the course. 
+# Some of the frequently used functions are loadPkg(), xkabledply(), xkablesummary(), uzscale(), etc.
+# You will need to install it (once) from GitHub.
+# library(devtools)
+# devtools::install_github("physicsland/ezids")
+# Then load the package in your R session.
+library(ezids)
+```
+
+```{r setup, include=FALSE}
+# Some of common RMD options (and the defaults) are: 
+# include=T, eval=T, echo=T, results='hide'/'asis'/'markup',..., collapse=F, warning=T, message=T, error=T, cache=T, fig.width=6, fig.height=4, fig.dim=c(6,4) #inches, fig.align='left'/'center','right', 
+knitr::opts_chunk$set(warning = F, message = F)
+# Can globally set option for number display format.
+options(scientific=T, digits = 3) 
+# options(scipen=9, digits = 3) 
+```
+
+```{r}
+# 1. Do not provide answers/comments inside code blocks (like here) -- those are notes between coders/self and will be ignored for grading. 
+# 2. Make sure your knitr options are set to include all results/code to be graded in the final document.
+# 3. All charts/graphs/tables should have appropriate titles/labels/captions. 
+# 4. Compose your answers using inline R code instead of using the code-block output as much as you can. 
+# 5. Your grade is also determined by the style. Even if you answer everything correctly, but the .html does not look appealing, you will not get full credit. Pay attention to the details that we mentioned in class/homework and in previous sample .Rmd files. For example, how to use #, ##, ###, ..., bold face, italics, inline codes, tables, ..., {results = "asis"}, use of colors in plots/ggplots, and so forth.
+```
+
+```{r}
+df <- read.csv('BalanceOfPayment.csv', header = TRUE)
+```
+
+```{r}
+head(df, 15)
+```
+
+```{r}
+# Rename the Indicators for better Interpretability, and conciseness
+# Load the dplyr package
+library(dplyr)
+
+# Assuming your dataframe is named 'data'
+# Replace the specific value in the 'Indicator' column
+#df <- df %>%
+ # mutate(Indicator = ifelse(Indicator == 'Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars',
+ #                           'Net Financial Position',
+ #                           Indicator))
+```
+
+```{r}
+# Group by 'Indicator' and count unique 'Country' for each 'Indicator'
+indicator_country_count <- df_filtered %>%
+  group_by(Indicator) %>%
+  summarise(UniqueCountries = n_distinct(Country))
+
+# Find the total number of unique countries in the dataset
+total_countries <- n_distinct(df_filtered$Country)
+
+# Identify indicators that are common across all countries
+common_indicators <- filter(indicator_country_count, UniqueCountries == total_countries)
+
+# Display the common indicators
+print(common_indicators)
+nrow(common_indicators)
+```
+
+
+```{r}
+# Load necessary library
+library(dplyr)
+
+# Assuming your dataframe is named 'data'
+# Replace 'data' with the actual name of your dataframe
+
+# Group by Indicator and count the number of unique countries for each
+indicator_counts <- df %>%
+  group_by(Indicator) %>%
+  summarize(Count = n_distinct(Country))
+
+# Get the number of unique countries in the dataset
+total_countries <- n_distinct(df$Country)
+
+# Filter indicators that are present in all countries
+common_indicators <- filter(indicator_counts, Count == total_countries)
+
+# View the list of common indicators
+print(common_indicators$Indicator)
+```
+
+```{r}
+# Load necessary library
+library(dplyr)
+
+# Filter the original dataset to include only common indicators
+filtered_data <- dplyr::filter(df, Indicator %in% common_indicators$Indicator)
+
+write.csv(filtered_data, "filtered_data.csv", row.names = FALSE)
+```
+
+```{r}
+# Reset the row names to start from 1 and continue sequentially
+row.names(filtered_data) <- NULL
+
+write.csv(filtered_data, "filtered_data_updated_index.csv", row.names = FALSE)
+```
+
+
+```{r}
+data <- read.csv('filtered_data.csv', header = TRUE)
+```
+
+```{r}
+# Fill the 'X' column with a sequence starting from 1
+data$X <- seq(from = 1, to = nrow(data))
+
+head(data)
+```
+
+```{r}
+data <- read.csv('filtered_data_1.csv', header = TRUE)
+```
+
+```{r}
+# Load necessary library
+library(dplyr)
+
+# Rename the columns
+data_renamed <- data %>%
+  rename(
+    Net_Lending_Borrowing_Balance = `Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars`,
+    Current_Account_Credit = `Current Account, Goods and Services, Credit, US Dollars`,
+    Current_Account_Debit = `Current Account, Goods and Services, Debit, US Dollars`,
+    Financial_Loans_Net_Liabilities = `Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars`,
+    Financial_Loans_Total = `Financial Account, Other Investment, Loans, US Dollars`,
+    Transport_Services_Credit = `Current Account, Goods and Services, Services, Transport, Credit, US Dollars`,
+    Transport_Services_Debit = `Current Account, Goods and Services, Services, Transport, Debit, US Dollars`,
+    Supplementary_Reserve_Assets = `Supplementary Items, Reserve Assets (with Fund Record), US Dollars`,
+    Supplementary_Current_Capital = `Supplementary Items, Total Current + Capital Account, US Dollars`
+  )
+
+# View the first few rows of the renamed dataset
+head(data_renamed)
+```
+
+
+
+
+
+```{r}
+# Load the dplyr package
+library(dplyr)
+
+
+# Perform the aggregation
+aggregated_data <- data %>%
+  group_by(Country, Year) %>%
+  mutate(
+    # Calculate Current Account Balance
+    Current_Account_Balance = `Current Account, Goods and Services, Credit, US Dollars` - 
+                              `Current Account, Goods and Services, Debit, US Dollars`,
+    
+    # Calculate Financial Account Loans Balance
+    Financial_Account_Loans_Balance = `Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars` + 
+                                      `Financial Account, Other Investment, Loans, US Dollars`,
+    
+    # Calculate Transport Services Balance
+    Transport_Services_Balance = `Current Account, Goods and Services, Services, Transport, Credit, US Dollars` - 
+                                 `Current Account, Goods and Services, Services, Transport, Debit, US Dollars`,
+    
+    # Calculate Supplementary Items Balance
+    Supplementary_Items_Balance = `Supplementary Items, Reserve Assets (with Fund Record), US Dollars` + 
+                                  `Supplementary Items, Total Current + Capital Account, US Dollars`
+  ) %>%
+  ungroup()
+
+# View the first few rows of the aggregated dataset
+head(aggregated_data)
+
+```
+
+```{r}
+# Load necessary library
+library(dplyr)
+
+# Assuming your dataframe is named 'data'
+# Replace 'data' with the actual name of your dataframe
+
+# Initialize an empty dataframe to store the results
+results <- data.frame()
+
+# List of years to loop through
+years <- c("2015", "2016", "2017", "2018", "2019", "2020")
+
+# Loop through each year
+for (year in years) {
+  # Calculate each balance for the current year
+  year_data <- data %>%
+    mutate(
+      Current_Account_Balance = get(paste0("`Current Account, Goods and Services, Credit, US Dollars_", year)) - 
+                                get(paste0("`Current Account, Goods and Services, Debit, US Dollars_", year)),
+      Financial_Account_Loans_Balance = get(paste0("`Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars_", year)) + 
+                                        get(paste0("`Financial Account, Other Investment, Loans, US Dollars_", year)),
+      Transport_Services_Balance = get(paste0("`Current Account, Goods and Services, Services, Transport, Credit, US Dollars_", year)) - 
+                                   get(paste0("`Current Account, Goods and Services, Services, Transport, Debit, US Dollars_", year)),
+      Supplementary_Items_Balance = get(paste0("`Supplementary Items, Reserve Assets (with Fund Record), US Dollars_", year)) + 
+                                    get(paste0("`Supplementary Items, Total Current + Capital Account, US Dollars_", year))
+    ) %>%
+    select(Country, everything())
+
+  # Add the year to the data
+  year_data$Year <- year
+  
+  # Combine with the results
+  results <- rbind(results, year_data)
+}
+
+# View the first few rows of the results
+head(results)
+
+```
