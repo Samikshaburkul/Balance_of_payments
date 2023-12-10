@@ -182,4 +182,20 @@ head(df1_BOP, 50)
 ```
 
 
+```{r}
+
+library(reshape2)
+
+# Assuming df1_BOP is your data frame
+df1_new_BOP <- dcast(df1_BOP, Country ~ Indicator, value.var = "average")
+
+# Reset column names
+names(df1_new_BOP) <- gsub("^.*\\.", "", names(df1_new_BOP))
+
+# Display the modified data frame
+head(df1_new_BOP)
+
+```
+
+
 
