@@ -196,6 +196,19 @@ names(df1_new_BOP) <- gsub("^.*\\.", "", names(df1_new_BOP))
 head(df1_new_BOP)
 
 ```
+```{r}
+library(reshape2)
+
+# Assuming df2 is your data frame
+df2_new_BOP <- dcast(df2_BOP, Country ~ Indicator, value.var = "X2020")
+
+# Reset column names
+names(df2_new_BOP) <- gsub("^.*\\.", "", names(df2_new_BOP))
+
+# Display the modified data frame
+head(df2_new_BOP)
+
+```
 
 
 
