@@ -750,6 +750,90 @@ summary(tree_model)
 
 ```
 ```
+```{r}
+library(dplyr)
+library(rpart)
+library(rpart.plot)
+
+# Load the training and testing data
+train_data <- read.csv('Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Exclude 'X' and 'Country' columns
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
+
+# Fit the regression tree model with a maximum depth of 3
+tree_model <- rpart(model_formula, data = train_data, method = "anova", control = rpart.control(maxdepth = 3))
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+# Calculate RMSE
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Save the plot as an image
+png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/tree_plot.png", width = 1024, height = 768)
+rpart.plot(tree_model, type = 4, extra = 104)  # type=4 and extra=104 for detailed plots
+dev.off()
+
+# Print the summary of the tree model
+summary(tree_model)
+
+```
+
+```{r}
+```{r}
+library(dplyr)
+library(rpart)
+library(rpart.plot)
+
+# Load the training and testing data
+train_data <- read.csv('Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Exclude 'X' and 'Country' columns
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
+
+# Fit the regression tree model with a maximum depth of 3
+tree_model <- rpart(model_formula, data = train_data, method = "anova", control = rpart.control(maxdepth = 3))
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+# Calculate RMSE
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Save the plot as an image
+png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/tree_plot.png", width = 1024, height = 768)
+rpart.plot(tree_model, type = 4, extra = 104)  # type=4 and extra=104 for detailed plots
+dev.off()
+
+# Print the summary of the tree model
+summary(tree_model)
+
+```
 
 ```{r}
 print(getwd()) 
