@@ -1,0 +1,173 @@
+---
+title: "feature_engineering"
+output: html_document
+date: "2023-12-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r}
+df_BOP <-read.csv('filtered_data_2.csv',header = TRUE)
+head(df_BOP)
+```
+
+```{r}
+
+columns_to_subtract <- c('X2015', 'X2016', 'X2017', 'X2018', 'X2019', 'X2020')
+column_to_replace <- 'Indicator'
+
+b <- which(df_BOP$Indicator == 'Current_Account_Credit')
+a <- which(df_BOP$Indicator == 'Current_Account_Debit')
+
+print(length(a))
+print(length(b))
+
+```
+
+```{r}
+
+for (i in seq_along(a)) {
+  df_BOP[a[i], columns_to_subtract] <- df_BOP[a[i], columns_to_subtract] - df_BOP[b[i], columns_to_subtract]
+}
+
+df_BOP[a, column_to_replace] <- 'CURRENT_ACCOUNT_NET'
+df_BOP <- df_BOP[-b, ]
+
+head(df_BOP, 10)
+
+```
+
+```{r}
+# Additional code for 'Financial_Loans_Net_Liabilities' and 'Financial_Loans_Total'
+d <- which(df_BOP$Indicator == 'Financial_Loans_Net_Liabilities')
+c <- which(df_BOP$Indicator == 'Financial_Loans_Total')
+
+print(length(d))
+print(length(c))
+
+```
+```{r}
+for (i in seq_along(c)) {
+  df_BOP[c[i], columns_to_subtract] <- df_BOP[c[i], columns_to_subtract] + df_BOP[d[i], columns_to_subtract]
+}
+
+df_BOP[c, column_to_replace] <- 'FINANCIAL_LOANS'
+df_BOP <- df_BOP[-d, ]
+
+head(df_BOP, 10)
+
+
+
+```
+
+```{r}
+# Additional code for 'Transport_Services_Credit' and 'Transport_Services_Debit'
+f <- which(df_BOP$Indicator == 'Transport_Services_Credit')
+e <- which(df_BOP$Indicator == 'Transport_Services_Debit')
+
+print(length(e))
+print(length(f))
+
+```
+
+```{r}
+head(df_BOP, 10)
+for (i in seq_along(e)) {
+  df_BOP[e[i], columns_to_subtract] <- df_BOP[e[i], columns_to_subtract] - df_BOP[f[i], columns_to_subtract]
+}
+head(df_BOP, 10)
+column_to_replace
+df_BOP[e, column_to_replace] <- 'TRANSPORT_SERVICES_NET'
+
+rows_to_remove <- which(df_BOP$Indicator == 'Transport_Services_Credit')
+rows_to_remove
+df_BOP <- df_BOP[-rows_to_remove, ]
+
+head(df_BOP, 10)
+
+```
+```{r}
+# Additional code for 'Supplementary_Reserve_Assets' and 'Supplementary_Current_Capital'
+h <- which(df_BOP$Indicator == 'Supplementary_Reserve_Assets')
+g <- which(df_BOP$Indicator == 'Supplementary_Current_Capital')
+
+print(length(g))
+print(length(h))
+
+```
+
+```{r}
+for (i in seq_along(g)) {
+  df_BOP[g[i], columns_to_subtract] <- df_BOP[g[i], columns_to_subtract] + df_BOP[h[i], columns_to_subtract]
+}
+
+df_BOP[g, column_to_replace] <- 'SUPPLEMENTARY_NET'
+rows_to_remove <- which(df_BOP$Indicator == 'Supplementary_Reserve_Assets')
+rows_to_remove
+df_BOP <- df_BOP[-rows_to_remove, ]
+
+head(df_BOP, 10)
+
+```
+```{r}
+df1_BOP <- df_BOP
+df2_BOP <- df_BOP
+
+```
+
+```{r}
+# Specify columns to remove
+columns_to_remove <- c('X.1', 'X', 'Code', 'Icode', 'X2015', 'X2016', 'X2017', 'X2018', 'X2019')
+
+# Remove specified columns
+df2_BOP <- df2_BOP[, !(names(df2_BOP) %in% columns_to_remove)]
+
+# Display the modified data frame
+head(df2_BOP)
+
+```
+```{r}
+# Specify columns to remove
+columns_to_remove <- c('X.1', 'X', 'Code', 'Icode', 'X2020')
+
+# Remove specified columns
+df1_BOP <- df1_BOP[, !(names(df1_BOP) %in% columns_to_remove)]
+
+# Display the modified data frame
+head(df1_BOP)
+
+```
+```{r}
+# Calculate row-wise mean for the last 5 columns
+df1_BOP$average <- rowMeans(df1_BOP[, (ncol(df1_BOP)-4):ncol(df1_BOP)], na.rm = TRUE)
+
+# Display the modified data frame
+head(df1_BOP)
+
+```
+
+
+
