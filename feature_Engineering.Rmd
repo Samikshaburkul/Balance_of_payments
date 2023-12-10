@@ -169,5 +169,17 @@ head(df1_BOP)
 
 ```
 
+```{r}
+# Specify columns to remove
+columns_to_remove <- c('X2015', 'X2016', 'X2017', 'X2018', 'X2019')
+
+# Remove specified columns
+df1_BOP <- df1_BOP[, !(names(df1_BOP) %in% columns_to_remove)]
+
+# Display the modified data frame (first 50 rows)
+head(df1_BOP, 50)
+
+```
+
 
 
