@@ -840,3 +840,44 @@ summary(tree_model)
 ```{r}
 print(getwd()) 
 ```
+
+```{r}
+# Load necessary libraries
+library(readr)
+library(dplyr)
+library(stats)
+
+# Read the dataset
+crime_data <- read_csv("/Users/sai_avinash/Documents/GitHub/DATS_6103_Project/Balanced_data.csv")
+
+# Convert SHOOTING to a binary factor (assuming it contains 'Y' and 'N')
+crime_data$SHOOTING <- as.factor(ifelse(crime_data$SHOOTING == "Y", 1, 0))
+
+# Select columns for the model
+predictor_vars <- c('OFFENSE_CODE', 'OFFENSE_CODE_GROUP', 'DISTRICT', 'YEAR', 
+                    'MONTH', 'DAY_OF_WEEK', 'HOUR', 'UCR_PART', 'STREET')
+
+# Create a subset with only the columns of interest
+crime_subset <- crime_data %>% select(all_of(predictor_vars), SHOOTING)
+
+# Handling categorical variables using one-hot encoding
+X <- model.matrix(~ . - 1, data = crime_subset)
+X <- as.data.frame(X)  # Convert the matrix back to a data frame
+
+# Add the SHOOTING column back to the dataset
+X$SHOOTING <- crime_subset$SHOOTING
+
+# Split the data into training and test sets
+set.seed(42)  # for reproducibility
+train_indices <- sample(1:nrow(X), 0.7 * nrow(X))
+train_data <- X[train_indices, ]
+test_data <- X[-train_indices, ]
+
+# Fit the logistic regression model
+model <- glm(SHOOTING ~ ., data = train_data, family = binomial())
+
+# Print the summary of the model
+summary(model)
+
+
+```
