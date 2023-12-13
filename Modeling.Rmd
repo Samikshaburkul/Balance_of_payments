@@ -64,12 +64,12 @@ library(dplyr)
 
 ```{r}
 # Group by 'Indicator' and count unique 'Country' for each 'Indicator'
-indicator_country_count <- df_filtered %>%
+indicator_country_count <- df %>%
   group_by(Indicator) %>%
   summarise(UniqueCountries = n_distinct(Country))
 
 # Find the total number of unique countries in the dataset
-total_countries <- n_distinct(df_filtered$Country)
+total_countries <- n_distinct(df$Country)
 
 # Identify indicators that are common across all countries
 common_indicators <- filter(indicator_country_count, UniqueCountries == total_countries)
@@ -291,6 +291,7 @@ head(results)
 ```
 
 
+<<<<<<< Updated upstream
 
 ```{r}
 
@@ -924,3 +925,5 @@ summary(model)
 
 
 ```
+=======
+>>>>>>> Stashed changes
