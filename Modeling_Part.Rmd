@@ -170,6 +170,12 @@ The feature engineering phase was characterized by a series of methodical steps 
 
 #### Linear Regression:
 
+In our project, we employed a linear regression model to understand and predict the `Net Lending Borrowing Balance` of various countries. The model was specifically designed to forecast the 'Net Lending/Borrowing Balance' based on a set of key financial indicators: `Current Account Net`, `Financial Loans`, `Supplementary Net`, and `Transport Services Net`. These variables were carefully selected based on their relevance and potential impact on the target variable.
+
+**Suitability and Assumptions:**
+
+The linear regression model operates under several critical assumptions that were rigorously tested in our analysis. The assumption of linearity was validated by assessing the relationship patterns between independent variables and the target variable. We also examined the residuals to confirm their normal distribution and constant variance, ensuring the model’s accuracy and reliability. The absence of multicollinearity, verified through variance inflation factors (VIFs), reinforced the integrity of our predictors, ensuring that each provides unique and valuable information to the model.
+
 ```{r}
 library(dplyr)
 library(fastDummies)
@@ -181,138 +187,149 @@ train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Su
 # Load the testing data
 test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
 
-# Function to clean country names
-clean_country_names <- function(country_name) {
-  gsub(" ", "_", gsub("[^[:alnum:] ]", "", country_name))
-}
-
-# Clean up country names in both datasets
-train_data$Country <- sapply(train_data$Country, clean_country_names)
-test_data$Country <- sapply(test_data$Country, clean_country_names)
-
-# Generate dummy variables for the 'Country' column
-train_data <- dummy_cols(train_data, "Country", remove_first_dummy = TRUE, remove_selected_columns = TRUE)
-test_data <- dummy_cols(test_data, "Country", remove_first_dummy = TRUE, remove_selected_columns = TRUE)
-
-# Ensure both datasets have the same dummy variables
-all_vars <- union(names(train_data), names(test_data))
-train_data[setdiff(all_vars, names(train_data))] <- 0
-test_data[setdiff(all_vars, names(test_data))] <- 0
-
 # Standardize the continuous variables
-continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "Net_Lending_Borrowing_Balance", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
 train_data[continuous_vars] <- scale(train_data[continuous_vars])
 test_data[continuous_vars] <- scale(test_data[continuous_vars])
 
-# Fit the model on the train dataset
+# Specify the target variable
 target_var <- 'Net_Lending_Borrowing_Balance'
-model <- lm(reformulate(setdiff(names(train_data), target_var), target_var), data = train_data)
 
-# Make predictions on the test dataset
+# Specify the predictors to exclude from the model (including 'X' and 'Country')
+exclude_vars <- c('X', 'Country')
+
+# Create the formula for the linear model excluding 'X' and 'Country'
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_vars)), target_var)
+
+# Fit the model on the train dataset using the specified formula
+model <- lm(model_formula, data = train_data)
+
+# Obtain and print the summary of the model
+summary_model <- summary(model)
+print(summary_model)
+
+# Make predictions on the test dataset using the fitted model
 test_data$Predictions <- predict(model, newdata = test_data)
 
-# Calculate residuals
-test_data$Residuals <- with(test_data, get(target_var) - Predictions)
+# Calculate and print residuals
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
 
-# Evaluate the model's performance
-# Calculate RMSE (Root Mean Squared Error)
+# Calculate and print RMSE (Root Mean Squared Error)
 rmse <- sqrt(mean(test_data$Residuals^2))
 print(paste("RMSE:", rmse))
 
-# Calculate R-squared
+# Calculate and print R-squared
 r_squared <- cor(test_data[[target_var]], test_data$Predictions)^2
 print(paste("R-squared:", r_squared))
 
-summary(model)
-
-library(dplyr)
-library(caret)
-
-# Assuming 'train_data' and 'test_data' are already loaded and preprocessed
-
-# Define the target variable
-target_var <- 'Net_Lending_Borrowing_Balance'
-
-# Fit the linear regression model without the 'Country' variable
-model <- lm(reformulate(setdiff(names(train_data), c(target_var, 'Country')), target_var), data = train_data)
-
-# Obtain the summary of the model
-summary_model <- summary(model)
-
-# Print the model summary
-print(summary_model)
-
-# Predict on the test dataset
-predictions <- predict(model, newdata = test_data)
-
-# Evaluate the model's performance
-# Calculate residuals
-residuals <- test_data[[target_var]] - predictions
-
-# Calculate RMSE (Root Mean Squared Error)
-rmse <- sqrt(mean(residuals^2))
-print(paste("RMSE:", rmse))
-
-# Calculate R-squared
-r_squared <- summary_model$r.squared
-print(paste("R-squared:", r_squared))
-
-summary(model)
 ```
+
+**Model Results:**
+
+The linear regression model demonstrated a strong fit with a high R-squared value of 0.935, suggesting that about 93.5% of the variability in the `Net Lending/Borrowing Balance` is explained by our model. The Adjusted R-squared of 0.935 supports the model's predictive power while adjusting for the number of predictors.
+
+**Key Findings:**
+
+1) **Current Account Net:** With a significant negative coefficient, this variable implies that increases in a country's current account net could potentially lead to a decrease in net lending/borrowing balance. This insight could guide countries in balancing trade and services to optimize their financial positions.
+
+2) **Supplementary Net and Transport Services Net:** These factors positively correlate with the target variable, indicating their potential as levers for improving a country's net lending/borrowing balance. These findings can inform fiscal strategies and highlight the importance of these sectors in economic health.
+
+3) **Financial Loans:** The non-significant relationship of this variable may indicate complexities in how financial loans impact the net lending/borrowing balance, warranting further investigation.
+
+**Significance and Actionable Insights:**
+
+The results of our model offer vital insights for business leaders and policymakers. Understanding the factors that significantly affect a country's net lending/borrowing balance can aid in better financial planning and policy-making. For instance, the negative influence of the current account net suggests a need for strategies to balance international trade and services.
+
+**Limitations and Recommendations:**
+
+While the model exhibits a high degree of fit, it's crucial to acknowledge potential limitations. The absence of certain economic indicators or latent variables might limit the model's scope. The model's reliance on historical data also means it might not fully capture future economic shifts or crises.
+
+**Pathways for Further Research:**
+
+Future research should aim to include a broader spectrum of economic indicators, such as political stability, foreign investment inflows, and global market trends. Incorporating data from recent global events, like the COVID-19 pandemic, could also offer fresh perspectives on the model’s variables and their interrelations. Continuous refinement and validation of the model with up-to-date data are imperative to maintain its relevance and accuracy.
+
+The linear regression model provides a robust framework for understanding the dynamics of a country's financial position. By leveraging these insights, policymakers and business leaders can make more informed decisions, ultimately contributing to better economic stability and growth. Further research and data enrichment will continue to refine these predictions, offering even more nuanced insights into the complexities of global finance.
+
+#### Decision Tree Model Analysis:
+
+In this project, a decision tree model was developed to predict the `Net Lending/Borrowing Balance` for various countries using key financial indicators: `Current Account Net`, `Financial Loans`, `Supplementary Net`, and `Transport Services Net`. This approach was chosen to explore non-linear relationships and interactions between predictors and the target variable.
+
+**Model Summary and Interpretation:**
+
+1. **Tree Structure:** The tree starts with a root node encompassing all 171 observations, branching into nodes based on the splitting criteria of the predictors.
+
+2. **Variable Importance:** 'Current Account Net' and 'Supplementary Net' emerged as the most significant predictors, indicating their strong influence on the target variable.
+
+**Node Analysis:**
+
+1. **Node 1:** The root node, with an average value of 3.44e+09 and a high MSE, indicating initial variance in the data.
+
+2. **Subsequent Nodes:** Show specific splits based on predictor thresholds. For example, Node 2 has an average value of -2.93e+09, and Node 3 shows a high mean of 1.53e+11.
+
+3. **Complexity Parameters (CP):** The model uses CP values to control tree growth, ensuring a balance between model complexity and accuracy.
+
+**Model Insights and Interpretation:**
+
+Our decision tree model, with a controlled depth to prevent overfitting, revealed the following insights:
+
+1. **Key Splits and Variables:** The model identified `Current Account Net` and `Supplementary Net` as significant splits, indicating their primary influence on the target variable. This highlights the critical role these indicators play in determining a country's net lending/borrowing balance.
+
+2. **Tree Depth and Complexity:** By limiting the tree depth, the model achieved a balance between capturing essential patterns in the data and avoiding overfitting. This ensures that the model remains generalizable and relevant for unseen data.
+
+3. **Variable Importance:** The model quantified the importance of each variable, with `Current Account Net` and `Supplementary Net` emerging as the most influential predictors. This aligns with economic theory, affirming the model's practical relevance.
+
+**Model Performance and Evaluation:**
+
+The model's performance was evaluated using the Root Mean Square Error (RMSE), which stood at 45,202,971,812.65. This value, compared to the linear model's RMSE, indicates that the decision tree was less precise in predicting the net lending/borrowing balance.
+
+**Limitations and Future Directions:**
+
+The decision tree's simplified representation might not capture all complexities in financial data. Its performance might also be affected by outliers and noise in data. Future enhancements could include exploring more sophisticated tree-based models like Random Forests or Gradient Boosting Machines for improved accuracy.
+
+The decision tree model offers valuable insights into the financial indicators' impact on a country's net lending/borrowing balance, though it's less accurate than the linear regression model. Its straightforward structure and interpretability make it a useful tool for preliminary analysis and understanding complex relationships. For policymakers and business leaders, these insights can inform initial assessments and guide deeper analyses using more complex models. 
 
 ```{r}
 library(dplyr)
-library(fastDummies)
+library(rpart)
+library(rpart.plot)
 
-# Function to clean country names and preprocess data
-preprocess_data <- function(data_path) {
-  data <- read.csv(data_path, stringsAsFactors = FALSE)
-  data$Country <- gsub(" ", "_", gsub("[^[:alnum:] ]", "", data$Country))
-  data <- dummy_cols(data, "Country", remove_first_dummy = TRUE, remove_selected_columns = TRUE)
-  continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "Net_Lending_Borrowing_Balance", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
-  data[continuous_vars] <- scale(data[continuous_vars])
-  return(data)
-}
-
-# Load and preprocess the training and testing data
-train_data_path <- '/path/to/TrainDataBops.csv' # Replace with the actual path
-test_data_path <- '/path/to/TestDataBops.csv' # Replace with the actual path
-train_data <- preprocess_data(train_data_path)
-test_data <- preprocess_data(test_data_path)
-
-# Ensure both datasets have the same dummy variables
-all_vars <- union(names(train_data), names(test_data))
-train_data <- train_data[all_vars]
-test_data <- test_data[all_vars]
+# Load the training and testing data
+train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
 
 # Define the target variable
 target_var <- 'Net_Lending_Borrowing_Balance'
 
-# Fit the linear regression model
-model <- lm(reformulate(setdiff(names(train_data), target_var), target_var), data = train_data)
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
 
-# Obtain the summary of the model
-summary_model <- summary(model)
+# Exclude 'X' and 'Country' columns
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
 
-# Predict on the test dataset
-test_data$Predictions <- predict(model, newdata = test_data)
+# Fit the regression tree model
+tree_model <- rpart(model_formula, 
+                    data = train_data, 
+                    method = "anova", 
+                    control = rpart.control(cp = 0.01, minsplit = 20, maxcompete = 4, maxsurrogate = 5))
 
-# Calculate residuals and RMSE
+# Make predictions on the test dataset
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+# Calculate RMSE
 test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
 rmse <- sqrt(mean(test_data$Residuals^2))
-
-# Print the results
 print(paste("RMSE:", rmse))
-print(paste("R-squared:", summary_model$r.squared))
-print(summary_model)
+
+# Save the plot as an image
+png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/tree_plot.png", width = 1024, height = 768)
+rpart.plot(tree_model, type = 4, extra = 1)  
+dev.off()
+
+# Print the summary of the tree model
+summary(tree_model)
 
 ```
-
-
-
-
-
-
-
-
 
