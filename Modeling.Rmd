@@ -139,25 +139,81 @@ data <- read.csv('filtered_data_1.csv', header = TRUE)
 # Load necessary library
 library(dplyr)
 
-# Rename the columns
-data_renamed <- data %>%
-  rename(
-    Net_Lending_Borrowing_Balance = `Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars`,
-    Current_Account_Credit = `Current Account, Goods and Services, Credit, US Dollars`,
-    Current_Account_Debit = `Current Account, Goods and Services, Debit, US Dollars`,
-    Financial_Loans_Net_Liabilities = `Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars`,
-    Financial_Loans_Total = `Financial Account, Other Investment, Loans, US Dollars`,
-    Transport_Services_Credit = `Current Account, Goods and Services, Services, Transport, Credit, US Dollars`,
-    Transport_Services_Debit = `Current Account, Goods and Services, Services, Transport, Debit, US Dollars`,
-    Supplementary_Reserve_Assets = `Supplementary Items, Reserve Assets (with Fund Record), US Dollars`,
-    Supplementary_Current_Capital = `Supplementary Items, Total Current + Capital Account, US Dollars`
-  )
+# Read the dataset, assuming it's named 'data.csv' and located at '/mnt/data'
+data <- read.csv('filtered_data_1.csv', stringsAsFactors = FALSE)
 
-# View the first few rows of the renamed dataset
-head(data_renamed)
+# Replace the long indicator names with shorter names
+data <- data %>%
+  mutate(Indicator = case_when(
+    Indicator == "Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars" ~ "Net_Lending_Borrowing_Balance",
+    Indicator == "Current Account, Goods and Services, Credit, US Dollars" ~ "Current_Account_Credit",
+    Indicator == "Current Account, Goods and Services, Debit, US Dollars" ~ "Current_Account_Debit",
+    Indicator == "Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars" ~ "Financial_Loans_Net_Liabilities",
+    Indicator == "Financial Account, Other Investment, Loans, US Dollars" ~ "Financial_Loans_Total",
+    Indicator == "Current Account, Goods and Services, Services, Transport, Credit, US Dollars" ~ "Transport_Services_Credit",
+    Indicator == "Current Account, Goods and Services, Services, Transport, Debit, US Dollars" ~ "Transport_Services_Debit",
+    Indicator == "Supplementary Items, Reserve Assets (with Fund Record), US Dollars" ~ "Supplementary_Reserve_Assets",
+    Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars" ~ "Supplementary_Current_Capital",
+    TRUE ~ Indicator # This will keep all other indicators unchanged
+  ))
+
+# Write the updated dataset to a new CSV file
+write.csv(data, 'filtered_data_2.csv', row.names = FALSE)
 ```
 
+```{r}
+library(dplyr)
+library(tidyr)
 
+# Assuming your dataframe is named 'data'
+# Replace 'data' with the actual name of your dataframe
+
+# Define the mapping of old and new indicator names
+indicator_mapping <- setNames(
+  c("Net_Lending_Borrowing_Balance", "Current_Account_Credit", 
+    "Current_Account_Debit", "Financial_Loans_Net_Liabilities", 
+    "Financial_Loans_Total", "Transport_Services_Credit", 
+    "Transport_Services_Debit", "Supplementary_Reserve_Assets", 
+    "Supplementary_Current_Capital"),
+  c("Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars",
+    "Current Account, Goods and Services, Credit, US Dollars",
+    "Current Account, Goods and Services, Debit, US Dollars",
+    "Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars",
+    "Financial Account, Other Investment, Loans, US Dollars",
+    "Current Account, Goods and Services, Services, Transport, Credit, US Dollars",
+    "Current Account, Goods and Services, Services, Transport, Debit, US Dollars",
+    "Supplementary Items, Reserve Assets (with Fund Record), US Dollars",
+    "Supplementary Items, Total Current + Capital Account, US Dollars")
+)
+
+# Update the Indicator names
+data$Indicator <- indicator_mapping[data$Indicator]
+
+# Calculate the balances for each indicator and year
+results <- data %>%
+  pivot_longer(
+    cols = starts_with("X"),
+    names_prefix = "X",
+    names_to = "Year",
+    values_to = "Value"
+  ) %>%
+  group_by(Country, Year) %>%
+  summarise(
+    Current_Account_Balance = sum(Value[Indicator == "Current_Account_Credit"]) - 
+                              sum(Value[Indicator == "Current_Account_Debit"]),
+    Financial_Account_Loans_Balance = sum(Value[Indicator == "Financial_Loans_Net_Liabilities"]) + 
+                                      sum(Value[Indicator == "Financial_Loans_Total"]),
+    Transport_Services_Balance = sum(Value[Indicator == "Transport_Services_Credit"]) - 
+                                 sum(Value[Indicator == "Transport_Services_Debit"]),
+    Supplementary_Items_Balance = sum(Value[Indicator == "Supplementary_Reserve_Assets"]) + 
+                                  sum(Value[Indicator == "Supplementary_Current_Capital"])
+  ) %>%
+  ungroup()
+
+# Check the results
+head(results)
+
+```
 
 
 
@@ -231,5 +287,640 @@ for (year in years) {
 
 # View the first few rows of the results
 head(results)
+
+```
+
+
+
+```{r}
+
+library(dplyr)
+library(fastDummies)
+library(tidyr)
+
+# Load your data - replace with the actual path to your CSV file
+train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+
+# Generate dummy variables for the 'Country' column
+train_data <- train_data %>%
+  dummy_cols("Country", remove_selected_columns = TRUE)
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "Net_Lending_Borrowing_Balance", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+
+# View the first few rows of the processed data
+head(train_data)
+```
+
+```{r}
+###### Test data
+
+# Load your data - replace with the actual path to your CSV file
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Generate dummy variables for the 'Country' column
+test_data <- test_data %>%
+  dummy_cols("Country", remove_selected_columns = TRUE)
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "Net_Lending_Borrowing_Balance", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# View the first few rows of the processed data
+head(test_data)
+```
+
+
+```{r}
+library(dplyr)
+library(fastDummies)
+library(caret)
+
+# Assuming 'Net_Lending_Borrowing_Balance' is the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Preprocess the train dataset
+train_data <- train_data %>%
+  dummy_cols("Country", remove_selected_columns = TRUE) %>%
+  mutate(across(where(is.numeric), scale))
+
+# Preprocess the test dataset
+test_data <- test_data %>%
+  dummy_cols("Country", remove_selected_columns = TRUE) %>%
+  mutate(across(where(is.numeric), scale))
+
+# Ensure both datasets have the same dummy variables
+all_vars <- union(names(train_data), names(test_data))
+train_data[setdiff(all_vars, names(train_data))] <- 0
+test_data[setdiff(all_vars, names(test_data))] <- 0
+
+# Fit the model on the train dataset
+model <- lm(reformulate(setdiff(names(train_data), target_var), target_var), data = train_data)
+
+# Make predictions on the test dataset
+predictions <- predict(model, newdata = test_data)
+
+# Add predictions to the test dataset to calculate residuals
+test_data$Predictions <- predictions
+
+# Calculate residuals
+test_data$Residuals <- with(test_data, get(target_var) - Predictions)
+
+# Evaluate the model's performance
+# Calculate RMSE (Root Mean Squared Error)
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Calculate R-squared
+r_squared <- cor(test_data[[target_var]], test_data$Predictions)^2
+print(paste("R-squared:", r_squared))
+
+```
+
+```{r}
+library(dplyr)
+library(fastDummies)
+library(caret)
+
+# Load the training data
+train_data_path <- '/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TrainDataBops.csv' 
+train_data <- read.csv(train_data_path, stringsAsFactors = FALSE)
+
+# Load the testing data
+test_data_path <- '/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataBops.csv' 
+test_data <- read.csv(test_data_path, stringsAsFactors = FALSE)
+
+# Combine train and test data to ensure consistent factor levels
+combined_data <- bind_rows(train_data, test_data, .id = "dataset_id")
+
+# Generate dummy variables for the 'Country' column
+combined_data <- combined_data %>%
+  dummy_cols("Country", remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+
+# Split combined data back into train and test sets
+train_data_processed <- combined_data %>%
+  filter(dataset_id == "1") %>%
+  select(-dataset_id)
+
+test_data_processed <- combined_data %>%
+  filter(dataset_id == "2") %>%
+  select(-dataset_id)
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "Net_Lending_Borrowing_Balance", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+
+# Note: It's important to use the same scaling parameters from train_data to scale test_data
+train_data_processed[continuous_vars] <- scale(train_data_processed[continuous_vars])
+scaling_parameters <- attr(scale(train_data[continuous_vars]), "scaled:center")
+
+test_data_processed[continuous_vars] <- scale(test_data_processed[continuous_vars], center = scaling_parameters, scale = FALSE)
+
+# 'Net_Lending_Borrowing_Balance' is the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Fit the model on the train dataset
+model <- lm(reformulate(setdiff(names(train_data_processed), target_var), target_var), data = train_data_processed)
+
+# Make predictions on the test dataset
+test_data_processed$Predictions <- predict(model, newdata = test_data_processed)
+
+# Calculate residuals
+test_data_processed$Residuals <- with(test_data_processed, Net_Lending_Borrowing_Balance - Predictions)
+
+# Evaluate the model's performance
+# Calculate RMSE (Root Mean Squared Error)
+rmse <- sqrt(mean(test_data_processed$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Calculate R-squared
+r_squared <- cor(test_data_processed[[target_var]], test_data_processed$Predictions)^2
+print(paste("R-squared:", r_squared))
+
+# Output the test predictions and residuals
+write.csv(test_data_processed, '/path/to/TestDataPredictions.csv', row.names = FALSE)
+
+```
+
+```{r}
+library(dplyr)
+library(fastDummies)
+library(caret)
+
+# Load the training data
+train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+
+# Load the testing data
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Function to clean country names
+clean_country_names <- function(country_name) {
+  gsub(" ", "_", gsub("[^[:alnum:] ]", "", country_name))
+}
+
+# Clean up country names in both datasets
+train_data$Country <- sapply(train_data$Country, clean_country_names)
+test_data$Country <- sapply(test_data$Country, clean_country_names)
+
+# Generate dummy variables for the 'Country' column
+train_data <- dummy_cols(train_data, "Country", remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+test_data <- dummy_cols(test_data, "Country", remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+
+# Ensure both datasets have the same dummy variables
+all_vars <- union(names(train_data), names(test_data))
+train_data[setdiff(all_vars, names(train_data))] <- 0
+test_data[setdiff(all_vars, names(test_data))] <- 0
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "Net_Lending_Borrowing_Balance", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Fit the model on the train dataset
+target_var <- 'Net_Lending_Borrowing_Balance'
+model <- lm(reformulate(setdiff(names(train_data), target_var), target_var), data = train_data)
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(model, newdata = test_data)
+
+# Calculate residuals
+test_data$Residuals <- with(test_data, get(target_var) - Predictions)
+
+# Evaluate the model's performance
+# Calculate RMSE (Root Mean Squared Error)
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse/100))
+
+# Calculate R-squared
+r_squared <- cor(test_data[[target_var]], test_data$Predictions)^2
+print(paste("R-squared:", r_squared))
+
+# Output the test predictions and residuals
+#write.csv(test_data, '/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataPredictions_1.csv', row.names = FALSE)
+
+#summary(model)
+
+```
+
+```{r}
+# Load necessary libraries
+library(dplyr)
+library(caret)
+
+# Assuming 'train_data' and 'test_data' are already loaded, preprocessed, and contain no NA values
+
+one_of_the_redundant_predictors <- Country
+# Fit the linear regression model (with a reduced number of predictors if necessary)
+model <- lm(Net_Lending_Borrowing_Balance ~ . - one_of_the_redundant_predictors, data = train_data)
+
+# Obtain the summary of the model
+summary_model <- summary(model)
+
+# Print the model summary
+print(summary_model)
+
+# Predict on the test dataset
+predictions <- predict(model, newdata = test_data)
+
+# Evaluate the model's performance
+# Calculate residuals
+residuals <- test_data$Net_Lending_Borrowing_Balance - predictions
+
+# Calculate RMSE
+rmse <- sqrt(mean(residuals^2))
+print(paste("RMSE:", rmse))
+
+# Calculate R-squared
+r_squared <- summary_model$r.squared
+print(paste("R-squared:", r_squared))
+
+```
+
+```{r}
+library(dplyr)
+library(caret)
+
+# Assuming 'train_data' and 'test_data' are already loaded and preprocessed
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Fit the linear regression model without the 'Country' variable
+model <- lm(reformulate(setdiff(names(train_data), c(target_var, 'Country')), target_var), data = train_data)
+
+# Obtain the summary of the model
+summary_model <- summary(model)
+
+# Print the model summary
+print(summary_model)
+
+# Predict on the test dataset
+predictions <- predict(model, newdata = test_data)
+
+# Evaluate the model's performance
+# Calculate residuals
+residuals <- test_data[[target_var]] - predictions
+
+# Calculate RMSE (Root Mean Squared Error)
+rmse <- sqrt(mean(residuals^2))
+print(paste("RMSE:", rmse))
+
+# Calculate R-squared
+r_squared <- summary_model$r.squared
+print(paste("R-squared:", r_squared))
+
+summary(model)
+```
+
+
+```{r}
+library(dplyr)
+library(rpart)
+
+# Load the training data
+train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+
+# Load the testing data
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Fit a regression tree model excluding 'X' and 'Country'
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
+tree_model <- rpart(model_formula, data = train_data, method = "anova")
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+# Evaluate the model's performance
+# Calculate residuals
+test_data$Residuals <- with(test_data, get(target_var) - Predictions)
+
+# Calculate RMSE (Root Mean Squared Error)
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Plot the tree
+plot(tree_model)
+text(tree_model, use.n = TRUE)
+
+# Print the summary of the tree model
+summary(tree_model)
+
+
+```
+
+
+```{r}
+library(dplyr)
+library(rpart)
+library(rpart.plot)
+
+# Load the training data
+train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+
+# Load the testing data
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Fit a regression tree model excluding 'X' and 'Country' with a maximum depth of 3
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
+tree_model <- rpart(model_formula, data = train_data, method = "anova", control = rpart.control(maxdepth = 3))
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+# Evaluate the model's performance
+# Calculate residuals
+test_data$Residuals <- with(test_data, get(target_var) - Predictions)
+
+# Calculate RMSE (Root Mean Squared Error)
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Save the plot as an image
+png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/tree_plot.png", width = 1024, height = 768)
+rpart.plot(tree_model)
+dev.off()
+
+# Print the summary of the tree model
+summary(tree_model)
+
+```
+
+```{r}
+library(dplyr)
+library(rpart)
+library(rpart.plot)
+
+# Load the training and testing data
+train_data <- read.csv('Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Exclude 'X' and 'Country' columns
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
+
+# Fit the regression tree model with a maximum depth of 3
+tree_model <- rpart(model_formula, data = train_data, method = "anova", control = rpart.control(maxdepth = 3))
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+# Calculate RMSE
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Save the plot as an image
+png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/tree_plot.png", width = 1024, height = 768)
+rpart.plot(tree_model, type = 4, extra = 104)  # type=4 and extra=104 for detailed plots
+dev.off()
+
+# Print the summary of the tree model
+summary(tree_model)
+
+```
+
+```{r}
+```{r}
+library(dplyr)
+library(rpart)
+library(rpart.plot)
+
+# Load the training and testing data
+train_data <- read.csv('Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Exclude 'X' and 'Country' columns
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
+
+# Fit the regression tree model with a maximum depth of 3
+tree_model <- rpart(model_formula, data = train_data, method = "anova", control = rpart.control(maxdepth = 3))
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+# Calculate RMSE
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Save the plot as an image
+png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/tree_plot.png", width = 1024, height = 768)
+rpart.plot(tree_model, type = 4, extra = 104)  # type=4 and extra=104 for detailed plots
+dev.off()
+
+# Print the summary of the tree model
+summary(tree_model)
+
+```
+```
+```{r}
+library(dplyr)
+library(rpart)
+library(rpart.plot)
+
+# Load the training and testing data
+train_data <- read.csv('Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Exclude 'X' and 'Country' columns
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
+
+# Fit the regression tree model with a maximum depth of 3
+tree_model <- rpart(model_formula, data = train_data, method = "anova", control = rpart.control(maxdepth = 3))
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+# Calculate RMSE
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Save the plot as an image
+png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/tree_plot.png", width = 1024, height = 768)
+rpart.plot(tree_model, type = 4, extra = 104)  # type=4 and extra=104 for detailed plots
+dev.off()
+
+# Print the summary of the tree model
+summary(tree_model)
+
+```
+
+```{r}
+```{r}
+library(dplyr)
+library(rpart)
+library(rpart.plot)
+
+# Load the training and testing data
+train_data <- read.csv('Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Exclude 'X' and 'Country' columns
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
+
+# Fit the regression tree model with a maximum depth of 3
+tree_model <- rpart(model_formula, data = train_data, method = "anova", control = rpart.control(maxdepth = 3))
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+# Calculate RMSE
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Save the plot as an image
+png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/tree_plot.png", width = 1024, height = 768)
+rpart.plot(tree_model, type = 4, extra = 104)  # type=4 and extra=104 for detailed plots
+dev.off()
+
+# Print the summary of the tree model
+summary(tree_model)
+
+```
+
+
+
+```{r}
+print(getwd()) 
+```
+
+```{r}
+```{r}
+# Load necessary libraries
+library(readr)
+library(dplyr)
+library(stats)
+
+# Read the dataset
+crime_data <- read_csv("/Users/sai_avinash/Documents/GitHub/DATS_6103_Project/Balanced_data.csv")
+
+# Convert SHOOTING to a binary factor (assuming it contains 'Y' and 'N')
+crime_data$SHOOTING <- as.factor(ifelse(crime_data$SHOOTING == "Y", 1, 0))
+
+# Select columns for the model
+predictor_vars <- c('OFFENSE_CODE', 'OFFENSE_CODE_GROUP', 'DISTRICT', 'YEAR', 
+                    'MONTH', 'DAY_OF_WEEK', 'HOUR', 'UCR_PART', 'STREET')
+
+# Create a subset with only the columns of interest
+crime_subset <- crime_data %>% select(all_of(predictor_vars), SHOOTING)
+
+# Handling categorical variables using one-hot encoding
+X <- model.matrix(~ . - 1, data = crime_subset)
+X <- as.data.frame(X)  # Convert the matrix back to a data frame
+
+# Add the SHOOTING column back to the dataset
+X$SHOOTING <- crime_subset$SHOOTING
+
+# Split the data into training and test sets
+set.seed(42)  # for reproducibility
+train_indices <- sample(1:nrow(X), 0.7 * nrow(X))
+train_data <- X[train_indices, ]
+test_data <- X[-train_indices, ]
+
+# Fit the logistic regression model
+model <- glm(SHOOTING ~ ., data = train_data, family = binomial())
+
+# Print the summary of the model
+summary(model)
+
+
+```
+```
+
+```{r}
+# Load necessary libraries
+library(readr)
+library(dplyr)
+library(stats)
+
+# Read the dataset
+crime_data <- read_csv("/Users/sai_avinash/Documents/GitHub/DATS_6103_Project/Balanced_data.csv")
+
+# Convert SHOOTING to a binary factor (assuming it contains 'Y' and 'N')
+crime_data$SHOOTING <- as.factor(ifelse(crime_data$SHOOTING == "Y", 1, 0))
+
+# Select columns for the model
+predictor_vars <- c('OFFENSE_CODE', 'OFFENSE_CODE_GROUP', 'DISTRICT', 'YEAR', 
+                    'MONTH', 'DAY_OF_WEEK', 'HOUR', 'UCR_PART', 'STREET')
+
+# Create a subset with only the columns of interest
+crime_subset <- crime_data %>% select(all_of(predictor_vars), SHOOTING)
+
+# Handling categorical variables using one-hot encoding
+X <- model.matrix(~ . - 1, data = crime_subset)
+X <- as.data.frame(X)  # Convert the matrix back to a data frame
+
+# Add the SHOOTING column back to the dataset
+X$SHOOTING <- crime_subset$SHOOTING
+
+# Split the data into training and test sets
+set.seed(42)  # for reproducibility
+train_indices <- sample(1:nrow(X), 0.7 * nrow(X))
+train_data <- X[train_indices, ]
+test_data <- X[-train_indices, ]
+
+# Fit the logistic regression model
+model <- glm(SHOOTING ~ ., data = train_data, family = binomial())
+
+# Print the summary of the model
+summary(model)
+
 
 ```
