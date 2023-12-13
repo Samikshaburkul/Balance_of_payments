@@ -1,0 +1,256 @@
+---
+title: "aman"
+output: html_document
+date: "2023-12-07"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+data <- read.csv('filtered_data_2.csv')
+```
+
+```{r}
+head(data, 10)
+```
+
+```{r}
+# Load necessary libraries
+library(dplyr)
+library(tidyr)
+
+# Filter for 'Net_Lending_Borrowing_Balance' indicator and reshape the data
+data_nlbb <- data %>%
+  filter(Indicator == "Net_Lending_Borrowing_Balance") %>%
+  select(-c(X.1, X, Code, Icode, Indicator)) %>%
+  gather(key = "Year", value = "Net_Lending_Borrowing", X2015:X2020)
+
+# Convert 'Year' to a numeric value
+data_nlbb$Year <- as.numeric(sub("X", "", data_nlbb$Year))
+
+```
+
+
+```{r}
+# Sorting the data
+data_nlbb <- data_nlbb %>% arrange(Country, Year)
+
+# Generating lagged features
+data_nlbb <- data_nlbb %>%
+  group_by(Country) %>%
+  mutate(Net_Lending_Borrowing_Lag1 = lag(Net_Lending_Borrowing, 1))
+```
+
+```{r}
+install.packages('forecast')
+```
+
+```{r}
+# Example for one country - using ARIMA
+library(forecast)
+
+# Filter data for one country (e.g., 'Afghanistan')
+afg_data <- data_nlbb %>% filter(Country == "Albania", !is.na(Net_Lending_Borrowing_Lag1))
+
+# Fit ARIMA model
+model <- auto.arima(afg_data$Net_Lending_Borrowing, xreg = afg_data$Net_Lending_Borrowing_Lag1)
+
+# Summary of the model
+summary(model)
+
+```
+
+```{r}
+# Splitting the data (example: 80% train, 20% test)
+split_index <- round(nrow(afg_data) * 0.8)
+train_data <- afg_data[1:split_index, ]
+test_data <- afg_data[(split_index + 1):nrow(afg_data), ]
+
+# Train and evaluate the model here
+# ...
+
+```
+
+```{r}
+# Making predictions
+future_data <- data.frame(Net_Lending_Borrowing_Lag1 = tail(train_data$Net_Lending_Borrowing, 1))
+forecasted_values <- forecast(model, xreg = as.matrix(future_data))
+
+# View the forecasted values
+print(forecasted_values)
+
+
+```
+```{r}
+forecasted_values_test <- forecasted_values$mean
+actual_values_test <- test_data$Net_Lending_Borrowing
+
+# Combine forecasted and actual values into a data frame
+forecast_comparison <- data.frame(Actual = actual_values_test, Forecasted = forecasted_values_test)
+
+
+# Calculate percentage difference
+forecast_comparison$Percentage_Difference <- ((forecast_comparison$Forecasted - forecast_comparison$Actual) / forecast_comparison$Actual) * 100
+
+# View the updated data frame with percentage difference
+print(forecast_comparison)
+
+```
+```{r}
+data_long <- read_csv('train_bop_2.csv')
+head(data_long)
+```
+```{r}
+# Load necessary libraries
+library(dplyr)
+
+# Assuming your data frame is named 'data'
+
+# Select specific indicators
+selected_indicators <- c(
+  "Net_Lending_Borrowing_Balance",
+  "CURRENT_ACCOUNT_NET",
+  "FINANCIAL_LOANS",
+  "TRANSPORT_SERVICES_NET",
+  "SUPPLEMENTARY_NET"
+)
+
+# Filter the data to include only selected indicators
+selected_data <- data_long %>%
+  select(selected_indicators)
+
+# Calculate the correlation matrix for selected indicators
+cor_matrix <- cor(selected_data, use = "pairwise.complete.obs")
+
+# Print the correlation matrix
+print(cor_matrix)
+
+```
+
+```{r}
+# Load necessary libraries
+library(dplyr)
+library(reshape2)
+library(ggplot2)
+
+# Assuming your correlation matrix is named 'cor_matrix'
+
+# Reshape the correlation matrix for plotting
+cor_matrix_melted <- melt(cor_matrix)
+
+# Plot heatmap using ggplot2
+ggplot(data = cor_matrix_melted, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile() +
+  scale_fill_gradient2(low = "blue", mid = "white", high = "red", midpoint = 0) +
+  theme_minimal() +
+  labs(title = "Correlation Heatmap", x = "Indicators", y = "Indicators") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+
+
+```{r}
+# Load necessary libraries
+library(dplyr)
+library(tidyr)
+
+# Reshape data to a long format
+data_long <- data %>%
+  gather(key = "Year", value = "Value", X2015:X2020) %>%
+  mutate(Year = as.numeric(sub("X", "", Year)))
+
+# Reshape data to a wide format
+data_wide <- data_long %>%
+  pivot_wider(names_from = Indicator, values_from = Value) %>%
+  unite("CountryYear", Country, Year, remove = FALSE)
+
+# Calculate the correlation matrix for the indicators
+cor_matrix <- cor(select(data_wide, -CountryYear, -Country, -Year), use = "pairwise.complete.obs")
+
+# Print the correlation matrix
+print(cor_matrix)
+
+```
+
+```{r}
+# Load necessary libraries
+library(dplyr)
+library(tidyr)
+library(caret)
+
+# Assuming your data frame is named 'data_wide'
+
+# Select specific indicators
+selected_indicators <- c(
+  "Net_Lending_Borrowing_Balance",
+  "Current_Account_Credit",
+  "Current_Account_Debit",
+  "Financial_Loans_Net_Liabilities",
+  "Financial_Loans_Total",
+  "Transport_Services_Credit",
+  "Transport_Services_Debit",
+  "Supplementary_Reserve_Assets",
+  "Supplementary_Current_Capital"
+)
+
+# Filter the data to include only selected indicators
+selected_data <- data_wide %>%
+  select(CountryYear, selected_indicators)
+
+# Impute missing values with mean
+imputed_data <- selected_data %>%
+  mutate(across(.cols = everything(), .fns = function(x) ifelse(is.na(x), mean(x, na.rm = TRUE), x)))
+
+# Calculate the correlation matrix for selected indicators
+cor_matrix <- cor(select(imputed_data, -CountryYear), use = "pairwise.complete.obs")
+
+# Print the correlation matrix
+print(cor_matrix)
+```
+
+
+```{r}
+# View the transformed data
+str(data_wide)
+
+```
+
+```{r}
+# Convert all indicator columns to numeric (excluding 'Country' and 'Year')
+indicators <- data_wide %>% 
+  select(-Country, -Year, -Icode,-Code,-X,-X.1 ) %>% 
+  mutate(across(everything(), as.numeric))
+
+# Handle NA values if necessary
+# You can use na.omit(indicators) to remove rows with NAs, or another method to handle them
+
+# Calculate the correlation matrix
+cor_matrix <- cor(indicators, use = "pairwise.complete.obs")
+
+# Print the correlation matrix
+print(cor_matrix)
+```
+
+
