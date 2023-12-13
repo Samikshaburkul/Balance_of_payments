@@ -254,40 +254,6 @@ The linear regression model provides a robust framework for understanding the dy
 
 In this project, a decision tree model was developed to predict the `Net Lending/Borrowing Balance` for various countries using key financial indicators: `Current Account Net`, `Financial Loans`, `Supplementary Net`, and `Transport Services Net`. This approach was chosen to explore non-linear relationships and interactions between predictors and the target variable.
 
-**Model Summary and Interpretation:**
-
-1. **Tree Structure:** The tree starts with a root node encompassing all 171 observations, branching into nodes based on the splitting criteria of the predictors.
-
-2. **Variable Importance:** 'Current Account Net' and 'Supplementary Net' emerged as the most significant predictors, indicating their strong influence on the target variable.
-
-**Node Analysis:**
-
-1. **Node 1:** The root node, with an average value of 3.44e+09 and a high MSE, indicating initial variance in the data.
-
-2. **Subsequent Nodes:** Show specific splits based on predictor thresholds. For example, Node 2 has an average value of -2.93e+09, and Node 3 shows a high mean of 1.53e+11.
-
-3. **Complexity Parameters (CP):** The model uses CP values to control tree growth, ensuring a balance between model complexity and accuracy.
-
-**Model Insights and Interpretation:**
-
-Our decision tree model, with a controlled depth to prevent overfitting, revealed the following insights:
-
-1. **Key Splits and Variables:** The model identified `Current Account Net` and `Supplementary Net` as significant splits, indicating their primary influence on the target variable. This highlights the critical role these indicators play in determining a country's net lending/borrowing balance.
-
-2. **Tree Depth and Complexity:** By limiting the tree depth, the model achieved a balance between capturing essential patterns in the data and avoiding overfitting. This ensures that the model remains generalizable and relevant for unseen data.
-
-3. **Variable Importance:** The model quantified the importance of each variable, with `Current Account Net` and `Supplementary Net` emerging as the most influential predictors. This aligns with economic theory, affirming the model's practical relevance.
-
-**Model Performance and Evaluation:**
-
-The model's performance was evaluated using the Root Mean Square Error (RMSE), which stood at 45,202,971,812.65. This value, compared to the linear model's RMSE, indicates that the decision tree was less precise in predicting the net lending/borrowing balance.
-
-**Limitations and Future Directions:**
-
-The decision tree's simplified representation might not capture all complexities in financial data. Its performance might also be affected by outliers and noise in data. Future enhancements could include exploring more sophisticated tree-based models like Random Forests or Gradient Boosting Machines for improved accuracy.
-
-The decision tree model offers valuable insights into the financial indicators' impact on a country's net lending/borrowing balance, though it's less accurate than the linear regression model. Its straightforward structure and interpretability make it a useful tool for preliminary analysis and understanding complex relationships. For policymakers and business leaders, these insights can inform initial assessments and guide deeper analyses using more complex models. 
-
 ```{r}
 library(dplyr)
 library(rpart)
@@ -324,12 +290,76 @@ rmse <- sqrt(mean(test_data$Residuals^2))
 print(paste("RMSE:", rmse))
 
 # Save the plot as an image
-png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/tree_plot.png", width = 1024, height = 768)
-rpart.plot(tree_model, type = 4, extra = 1)  
-dev.off()
+#png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/tree_plot.png", width = 1024, height = 768)
+#rpart.plot(tree_model, type = 4, extra = 1)  
+#dev.off()
 
 # Print the summary of the tree model
 summary(tree_model)
 
 ```
+
+**Model Summary and Interpretation:**
+
+1. **Tree Structure:** The tree starts with a root node encompassing all 171 observations, branching into nodes based on the splitting criteria of the predictors.
+
+2. **Variable Importance:** 'Current Account Net' and 'Supplementary Net' emerged as the most significant predictors, indicating their strong influence on the target variable.
+
+**Node Analysis:**
+
+1. **Node 1:** The root node, with an average value of 3.44e+09 and a high MSE, indicating initial variance in the data.
+
+2. **Subsequent Nodes:** Show specific splits based on predictor thresholds. For example, Node 2 has an average value of -2.93e+09, and Node 3 shows a high mean of 1.53e+11.
+
+3. **Complexity Parameters (CP):** The model uses CP values to control tree growth, ensuring a balance between model complexity and accuracy.
+
+**Model Insights and Interpretation:**
+
+Our decision tree model, with a controlled depth to prevent overfitting, revealed the following insights:
+
+1. **Key Splits and Variables:** The model identified `Current Account Net` and `Supplementary Net` as significant splits, indicating their primary influence on the target variable. This highlights the critical role these indicators play in determining a country's net lending/borrowing balance.
+
+2. **Tree Depth and Complexity:** By limiting the tree depth, the model achieved a balance between capturing essential patterns in the data and avoiding overfitting. This ensures that the model remains generalizable and relevant for unseen data.
+
+3. **Variable Importance:** The model quantified the importance of each variable, with `Current Account Net` and `Supplementary Net` emerging as the most influential predictors. This aligns with economic theory, affirming the model's practical relevance.
+
+**Model Performance and Evaluation:**
+
+The model's performance was evaluated using the Root Mean Square Error (RMSE), which stood at 45,202,971,812.65. This value, compared to the linear model's RMSE, indicates that the decision tree was less precise in predicting the net lending/borrowing balance.
+
+**Limitations and Future Directions:**
+
+The decision tree's simplified representation might not capture all complexities in financial data. Its performance might also be affected by outliers and noise in data. Future enhancements could include exploring more sophisticated tree-based models like Random Forests or Gradient Boosting Machines for improved accuracy.
+
+The decision tree model offers valuable insights into the financial indicators' impact on a country's net lending/borrowing balance, though it's less accurate than the linear regression model. Its straightforward structure and interpretability make it a useful tool for preliminary analysis and understanding complex relationships. For policymakers and business leaders, these insights can inform initial assessments and guide deeper analyses using more complex models.
+
+**Comparison with Linear Regression Model:**
+
+1. **Linear Regression Performance:** Exhibited a lower RMSE (15,409,000,372.17) and a high R-squared value of 0.935, suggesting a strong fit to the data.
+
+2. **Decision Tree Performance:** While offering a detailed, rule-based structure, the decision tree had a higher RMSE, indicating less accuracy compared to the linear regression model.
+
+3. **Insights:** The linear regression model's lower error metrics and higher R-squared value demonstrate its superior performance over the decision tree in this context.
+
+**Conclusion and Recommendations:**
+
+1. **Model Selection:** The linear regression model is recommended for predicting 'Net Lending/Borrowing Balance' due to its better accuracy and fitting.
+
+2. **Policy Implications:** Stakeholders should consider the linear regression model for strategic decision-making and policy formulation related to financial indicators.
+
+3. **Further Research:** Exploring ensemble methods, like random forests or boosting, could improve predictive accuracy. Additionally, incorporating more diverse data spanning different economic cycles could offer more robust insights.
+
+
+#### REFERENCES
+
+
+**Shlaymoon, N. S., Jassim, A. M., & Albairmani, A. M. A. (2022). Relationship between Exchange Rate and the Current Account of the Balance of Payments: A Study in Oil Countries Selected. Webology, 19(1), 5170-5180.**
+
+**Dluhosch, B., Freytag, A., & Krüger, M. (1996). International competitiveness and the balance of payments: Do current account deficits and surpluses matter? E. Elgar Pub.**
+
+**Shlaymoon, N. S., Jassim, A. M., & Albairmani, A. M. A. (2022). Relationship between exchange rate and the current account of the balance of payments: A study in oil countries selected. Webology, 19(1), 5170-5180.**
+
+**Sharma, J., Rai, A., Rathee, N., & Mehendale, M. S. (2018). Study on factors that affect the Indian balance of payments: A methodological overview and thematic review. Asian Journal of Management, 9(1), 847.**
+
+**Alencar, D. A., & Strachman, E. (2014). Balance-of-payments-constrained growth in Brazil: 1951-2008. Journal of Post Keynesian Economics, 36(4), 673-698.**
 
