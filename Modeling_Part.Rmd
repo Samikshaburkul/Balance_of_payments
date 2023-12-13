@@ -170,8 +170,143 @@ The feature engineering phase was characterized by a series of methodical steps 
 
 #### Linear Regression:
 
+```{r}
+library(dplyr)
+library(fastDummies)
+library(caret)
 
+# Load the training data
+train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
 
+# Load the testing data
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+
+# Function to clean country names
+clean_country_names <- function(country_name) {
+  gsub(" ", "_", gsub("[^[:alnum:] ]", "", country_name))
+}
+
+# Clean up country names in both datasets
+train_data$Country <- sapply(train_data$Country, clean_country_names)
+test_data$Country <- sapply(test_data$Country, clean_country_names)
+
+# Generate dummy variables for the 'Country' column
+train_data <- dummy_cols(train_data, "Country", remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+test_data <- dummy_cols(test_data, "Country", remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+
+# Ensure both datasets have the same dummy variables
+all_vars <- union(names(train_data), names(test_data))
+train_data[setdiff(all_vars, names(train_data))] <- 0
+test_data[setdiff(all_vars, names(test_data))] <- 0
+
+# Standardize the continuous variables
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "Net_Lending_Borrowing_Balance", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+# Fit the model on the train dataset
+target_var <- 'Net_Lending_Borrowing_Balance'
+model <- lm(reformulate(setdiff(names(train_data), target_var), target_var), data = train_data)
+
+# Make predictions on the test dataset
+test_data$Predictions <- predict(model, newdata = test_data)
+
+# Calculate residuals
+test_data$Residuals <- with(test_data, get(target_var) - Predictions)
+
+# Evaluate the model's performance
+# Calculate RMSE (Root Mean Squared Error)
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+# Calculate R-squared
+r_squared <- cor(test_data[[target_var]], test_data$Predictions)^2
+print(paste("R-squared:", r_squared))
+
+summary(model)
+
+library(dplyr)
+library(caret)
+
+# Assuming 'train_data' and 'test_data' are already loaded and preprocessed
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Fit the linear regression model without the 'Country' variable
+model <- lm(reformulate(setdiff(names(train_data), c(target_var, 'Country')), target_var), data = train_data)
+
+# Obtain the summary of the model
+summary_model <- summary(model)
+
+# Print the model summary
+print(summary_model)
+
+# Predict on the test dataset
+predictions <- predict(model, newdata = test_data)
+
+# Evaluate the model's performance
+# Calculate residuals
+residuals <- test_data[[target_var]] - predictions
+
+# Calculate RMSE (Root Mean Squared Error)
+rmse <- sqrt(mean(residuals^2))
+print(paste("RMSE:", rmse))
+
+# Calculate R-squared
+r_squared <- summary_model$r.squared
+print(paste("R-squared:", r_squared))
+
+summary(model)
+```
+
+```{r}
+library(dplyr)
+library(fastDummies)
+
+# Function to clean country names and preprocess data
+preprocess_data <- function(data_path) {
+  data <- read.csv(data_path, stringsAsFactors = FALSE)
+  data$Country <- gsub(" ", "_", gsub("[^[:alnum:] ]", "", data$Country))
+  data <- dummy_cols(data, "Country", remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+  continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "Net_Lending_Borrowing_Balance", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+  data[continuous_vars] <- scale(data[continuous_vars])
+  return(data)
+}
+
+# Load and preprocess the training and testing data
+train_data_path <- '/path/to/TrainDataBops.csv' # Replace with the actual path
+test_data_path <- '/path/to/TestDataBops.csv' # Replace with the actual path
+train_data <- preprocess_data(train_data_path)
+test_data <- preprocess_data(test_data_path)
+
+# Ensure both datasets have the same dummy variables
+all_vars <- union(names(train_data), names(test_data))
+train_data <- train_data[all_vars]
+test_data <- test_data[all_vars]
+
+# Define the target variable
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+# Fit the linear regression model
+model <- lm(reformulate(setdiff(names(train_data), target_var), target_var), data = train_data)
+
+# Obtain the summary of the model
+summary_model <- summary(model)
+
+# Predict on the test dataset
+test_data$Predictions <- predict(model, newdata = test_data)
+
+# Calculate residuals and RMSE
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
+rmse <- sqrt(mean(test_data$Residuals^2))
+
+# Print the results
+print(paste("RMSE:", rmse))
+print(paste("R-squared:", summary_model$r.squared))
+print(summary_model)
+
+```
 
 
 
