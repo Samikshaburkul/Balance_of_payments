@@ -1,0 +1,183 @@
+---
+title: "Modeling Phase"
+author: "Team 7"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    code_folding: hide
+    number_sections: false
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+
+```{r init, include=F}
+# The package "ezids" (EZ Intro to Data Science) includes some helper functions we developed for the course. 
+# Some of the frequently used functions are loadPkg(), xkabledply(), xkablesummary(), uzscale(), etc.
+# You will need to install it (once) from GitHub.
+# library(devtools)
+# devtools::install_github("physicsland/ezids")
+# Then load the package in your R session.
+library(ezids)
+```
+
+```{r setup, include=FALSE}
+# Some of common RMD options (and the defaults) are: 
+# include=T, eval=T, echo=T, results='hide'/'asis'/'markup',..., collapse=F, warning=T, message=T, error=T, cache=T, fig.width=6, fig.height=4, fig.dim=c(6,4) #inches, fig.align='left'/'center','right', 
+knitr::opts_chunk$set(warning = F, message = F)
+# Can globally set option for number display format.
+options(scientific=T, digits = 3) 
+# options(scipen=9, digits = 3) 
+```
+
+
+
+```{r}
+# Read the dataset
+df_BOP <-read.csv('filtered_data_2.csv',header = TRUE)
+
+
+columns_to_subtract <- c('X2015', 'X2016', 'X2017', 'X2018', 'X2019', 'X2020')
+column_to_replace <- 'Indicator'
+
+b <- which(df_BOP$Indicator == 'Current_Account_Credit')
+a <- which(df_BOP$Indicator == 'Current_Account_Debit')
+
+
+for (i in seq_along(a)) {
+  df_BOP[a[i], columns_to_subtract] <- df_BOP[a[i], columns_to_subtract] - df_BOP[b[i], columns_to_subtract]
+}
+
+df_BOP[a, column_to_replace] <- 'CURRENT_ACCOUNT_NET'
+df_BOP <- df_BOP[-b, ]
+
+# Additional code for 'Financial_Loans_Net_Liabilities' and 'Financial_Loans_Total'
+d <- which(df_BOP$Indicator == 'Financial_Loans_Net_Liabilities')
+c <- which(df_BOP$Indicator == 'Financial_Loans_Total')
+
+for (i in seq_along(c)) {
+  df_BOP[c[i], columns_to_subtract] <- df_BOP[c[i], columns_to_subtract] + df_BOP[d[i], columns_to_subtract]
+}
+
+df_BOP[c, column_to_replace] <- 'FINANCIAL_LOANS'
+df_BOP <- df_BOP[-d, ]
+
+# Additional code for 'Transport_Services_Credit' and 'Transport_Services_Debit'
+f <- which(df_BOP$Indicator == 'Transport_Services_Credit')
+e <- which(df_BOP$Indicator == 'Transport_Services_Debit')
+
+for (i in seq_along(e)) {
+  df_BOP[e[i], columns_to_subtract] <- df_BOP[e[i], columns_to_subtract] - df_BOP[f[i], columns_to_subtract]
+}
+
+df_BOP[e, column_to_replace] <- 'TRANSPORT_SERVICES_NET'
+
+rows_to_remove <- which(df_BOP$Indicator == 'Transport_Services_Credit')
+
+df_BOP <- df_BOP[-rows_to_remove, ]
+
+# Additional code for 'Supplementary_Reserve_Assets' and 'Supplementary_Current_Capital'
+h <- which(df_BOP$Indicator == 'Supplementary_Reserve_Assets')
+g <- which(df_BOP$Indicator == 'Supplementary_Current_Capital')
+
+for (i in seq_along(g)) {
+  df_BOP[g[i], columns_to_subtract] <- df_BOP[g[i], columns_to_subtract] + df_BOP[h[i], columns_to_subtract]
+}
+
+df_BOP[g, column_to_replace] <- 'SUPPLEMENTARY_NET'
+rows_to_remove <- which(df_BOP$Indicator == 'Supplementary_Reserve_Assets')
+
+df_BOP <- df_BOP[-rows_to_remove, ]
+
+df1_BOP <- df_BOP
+df2_BOP <- df_BOP
+
+# Specify columns to remove
+columns_to_remove <- c('X.1', 'X', 'Code', 'Icode', 'X2015', 'X2016', 'X2017', 'X2018', 'X2019')
+
+# Remove specified columns
+df2_BOP <- df2_BOP[, !(names(df2_BOP) %in% columns_to_remove)]
+
+# Specify columns to remove
+columns_to_remove <- c('X.1', 'X', 'Code', 'Icode', 'X2020')
+
+# Remove specified columns
+df1_BOP <- df1_BOP[, !(names(df1_BOP) %in% columns_to_remove)]
+
+# Calculate row-wise mean for the last 5 columns
+df1_BOP$average <- rowMeans(df1_BOP[, (ncol(df1_BOP)-4):ncol(df1_BOP)], na.rm = TRUE)
+
+# Specify columns to remove
+columns_to_remove <- c('X2015', 'X2016', 'X2017', 'X2018', 'X2019')
+
+# Remove specified columns
+df1_BOP <- df1_BOP[, !(names(df1_BOP) %in% columns_to_remove)]
+
+library(reshape2)
+
+df1_new_BOP <- dcast(df1_BOP, Country ~ Indicator, value.var = "average")
+
+# Reset column names
+names(df1_new_BOP) <- gsub("^.*\\.", "", names(df1_new_BOP))
+
+library(reshape2)
+
+df2_new_BOP <- dcast(df2_BOP, Country ~ Indicator, value.var = "X2020")
+
+# Reset column names
+names(df2_new_BOP) <- gsub("^.*\\.", "", names(df2_new_BOP))
+```
+
+### Feature Engineering
+
+In the development of a robust predictive model for financial indicators across various countries, our initial dataset encompassed a broad range of 20 to 31 indicators per country. Recognizing the need for a streamlined and uniform approach to analysis, we commenced by identifying a common set of indicators present across all nations, which culminated in a refined set of nine indicators per country.
+
+#### Data Preprocessing and Transformation:
+
+The preprocessing phase was meticulous and structured. Given the variation in the number of indicators across countries, we focused on homogenizing the dataset by retaining only those indicators that were common across all entities. This standardization step was pivotal to ensure that subsequent analyses were consistent and comparable.
+
+The transformation phase involved an astute categorization of the indicators into five distinct subcategories, reflecting key financial constructs:
+
+1) Capital Accounts Net
+2) Financial Loans
+3) Supplementary Net
+4) Transport Services Net
+5) Net Lending Borrowing Balance
+
+The aggregation process involved a methodical consolidation of related financial metrics. For instance, `Financial_Loans_Net_Liabilities` and `Financial_Loans_Total` were synthesized into a singular `Financial Accounts` category. Similarly, `Current_Account_Credit` and `Current_Account_Debit` coalesced into `Current Accounts Net`, with analogous processes for `Transport Services Net` and `Supplementary Net`.
+
+#### Temporal Data Consideration and Averaging:
+
+Our dataset spanned the years 2015 to 2020, providing a temporal depth to our financial indicators. To harness this data effectively, we calculated the average for all corresponding indicators from 2015 to 2019. This averaged data formed the backbone of our training set, while the data from 2020 was judiciously reserved for testing the model's predictive prowess.
+
+#### Correlation Analysis and Model Foundation:
+
+A comprehensive exploratory data analysis (EDA) and a detailed correlation plot revealed intrinsic relationships between the indicators. Notably, `Net Lending Borrowing Balance` emerged as a pivotal variable, exhibiting significant correlations with all other indicators. Armed with these insights, it was strategically determined to position `Net Lending Borrowing Balance` as the target variable, with the remaining four categories serving as predictors.
+
+This decision was not taken lightly but was the result of an iterative process of model building, leveraging various subsets of attributes and rigorous trial and error. This empirical approach ensured that our model was grounded in statistical significance rather than conjecture.
+
+#### Standardization of Variables:
+
+To neutralize the disparities in the scales of various financial metrics, we implemented a standardization procedure. This normalization of the variables ensured that the mean of each was zero and the standard deviation was one. Standardization is a crucial step as it not only facilitates a fair comparison between the magnitudes of different indicators but also enhances the numerical stability of the modeling algorithms. The impact of this process was evident in the improved performance and interpretability of the predictive models.
+
+The feature engineering phase was characterized by a series of methodical steps that set a strong foundation for the development of a predictive model that is both reliable and interpretable. Through careful selection and transformation of features, we have crafted a dataset that accurately reflects the financial landscape across countries, poised for the application of advanced predictive analytics. This preparation has not only facilitated a streamlined modeling process but also ensures that our findings can confidently inform strategic decisions and policy making.
+
+
+### Modeling:
+
+#### Linear Regression:
+
+
+
+
+
+
+
+
+
+
+
+
