@@ -34,8 +34,50 @@ options(scientific=T, digits = 3)
 ```
 
 
+```{r, eval= FALSE}
+df <- read.csv('BalanceOfPayment.csv', header = TRUE)
 
-```{r}
+# Rename the Indicators for better Interpretability, and conciseness
+# Load the dplyr package
+library(dplyr)
+
+# Group by 'Indicator' and count unique 'Country' for each 'Indicator'
+indicator_country_count <- df %>%
+  group_by(Indicator) %>%
+  summarise(UniqueCountries = n_distinct(Country))
+
+# Find the total number of unique countries in the dataset
+total_countries <- n_distinct(df$Country)
+
+# Identify indicators that are common across all countries
+common_indicators <- filter(indicator_country_count, UniqueCountries == total_countries)
+
+# Filter the original dataset to include only common indicators
+filtered_data <- dplyr::filter(df, Indicator %in% common_indicators$Indicator)
+
+#write.csv(filtered_data, "filtered_data_1.csv", row.names = FALSE)
+
+# Read the dataset
+data <- read.csv('filtered_data_1.csv', stringsAsFactors = FALSE)
+
+# Replace the long indicator names with shorter names
+data <- data %>%
+  mutate(Indicator = case_when(
+    Indicator == "Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars" ~ "Net_Lending_Borrowing_Balance",
+    Indicator == "Current Account, Goods and Services, Credit, US Dollars" ~ "Current_Account_Credit",
+    Indicator == "Current Account, Goods and Services, Debit, US Dollars" ~ "Current_Account_Debit",
+    Indicator == "Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars" ~ "Financial_Loans_Net_Liabilities",
+    Indicator == "Financial Account, Other Investment, Loans, US Dollars" ~ "Financial_Loans_Total",
+    Indicator == "Current Account, Goods and Services, Services, Transport, Credit, US Dollars" ~ "Transport_Services_Credit",
+    Indicator == "Current Account, Goods and Services, Services, Transport, Debit, US Dollars" ~ "Transport_Services_Debit",
+    Indicator == "Supplementary Items, Reserve Assets (with Fund Record), US Dollars" ~ "Supplementary_Reserve_Assets",
+    Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars" ~ "Supplementary_Current_Capital",
+    TRUE ~ Indicator
+  ))
+
+# Write the updated dataset to a new CSV file
+#write.csv(data, 'filtered_data_2.csv', row.names = FALSE)
+
 # Read the dataset
 df_BOP <-read.csv('filtered_data_2.csv',header = TRUE)
 

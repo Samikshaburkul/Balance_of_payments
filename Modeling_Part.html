@@ -1574,7 +1574,50 @@ border-radius: 0px;
 </div>
 
 
-<pre class="r"><code># Read the dataset
+<pre class="r"><code>df &lt;- read.csv(&#39;BalanceOfPayment.csv&#39;, header = TRUE)
+
+# Rename the Indicators for better Interpretability, and conciseness
+# Load the dplyr package
+library(dplyr)
+
+# Group by &#39;Indicator&#39; and count unique &#39;Country&#39; for each &#39;Indicator&#39;
+indicator_country_count &lt;- df %&gt;%
+  group_by(Indicator) %&gt;%
+  summarise(UniqueCountries = n_distinct(Country))
+
+# Find the total number of unique countries in the dataset
+total_countries &lt;- n_distinct(df$Country)
+
+# Identify indicators that are common across all countries
+common_indicators &lt;- filter(indicator_country_count, UniqueCountries == total_countries)
+
+# Filter the original dataset to include only common indicators
+filtered_data &lt;- dplyr::filter(df, Indicator %in% common_indicators$Indicator)
+
+#write.csv(filtered_data, &quot;filtered_data_1.csv&quot;, row.names = FALSE)
+
+# Read the dataset
+data &lt;- read.csv(&#39;filtered_data_1.csv&#39;, stringsAsFactors = FALSE)
+
+# Replace the long indicator names with shorter names
+data &lt;- data %&gt;%
+  mutate(Indicator = case_when(
+    Indicator == &quot;Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars&quot; ~ &quot;Net_Lending_Borrowing_Balance&quot;,
+    Indicator == &quot;Current Account, Goods and Services, Credit, US Dollars&quot; ~ &quot;Current_Account_Credit&quot;,
+    Indicator == &quot;Current Account, Goods and Services, Debit, US Dollars&quot; ~ &quot;Current_Account_Debit&quot;,
+    Indicator == &quot;Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars&quot; ~ &quot;Financial_Loans_Net_Liabilities&quot;,
+    Indicator == &quot;Financial Account, Other Investment, Loans, US Dollars&quot; ~ &quot;Financial_Loans_Total&quot;,
+    Indicator == &quot;Current Account, Goods and Services, Services, Transport, Credit, US Dollars&quot; ~ &quot;Transport_Services_Credit&quot;,
+    Indicator == &quot;Current Account, Goods and Services, Services, Transport, Debit, US Dollars&quot; ~ &quot;Transport_Services_Debit&quot;,
+    Indicator == &quot;Supplementary Items, Reserve Assets (with Fund Record), US Dollars&quot; ~ &quot;Supplementary_Reserve_Assets&quot;,
+    Indicator == &quot;Supplementary Items, Total Current + Capital Account, US Dollars&quot; ~ &quot;Supplementary_Current_Capital&quot;,
+    TRUE ~ Indicator
+  ))
+
+# Write the updated dataset to a new CSV file
+#write.csv(data, &#39;filtered_data_2.csv&#39;, row.names = FALSE)
+
+# Read the dataset
 df_BOP &lt;-read.csv(&#39;filtered_data_2.csv&#39;,header = TRUE)
 
 
@@ -1947,10 +1990,10 @@ summary(tree_model)</code></pre>
 ##   n= 171 
 ## 
 ##       CP nsplit rel error xerror  xstd
-## 1 0.3346      0     1.000  1.020 0.475
-## 2 0.1316      1     0.665  0.971 0.463
-## 3 0.0418      2     0.534  0.805 0.394
-## 4 0.0100      3     0.492  0.752 0.346
+## 1 0.3346      0     1.000  1.010 0.472
+## 2 0.1316      1     0.665  1.025 0.464
+## 3 0.0418      2     0.534  0.826 0.385
+## 4 0.0100      3     0.492  0.764 0.338
 ## 
 ## Variable importance
 ##    CURRENT_ACCOUNT_NET      SUPPLEMENTARY_NET        FINANCIAL_LOANS 
