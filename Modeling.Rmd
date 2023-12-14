@@ -279,43 +279,6 @@ head(results)
 
 ```
 
-```{r}
-# Load necessary library
-library(dplyr)
-
-# Assuming your dataframe is named 'data'
-# Replace 'data' with the actual name of your dataframe
-
-# Initialize an empty dataframe to store the results
-results <- data.frame()
-
-# List of years to loop through
-years <- c("2015", "2016", "2017", "2018", "2019", "2020")
-
-# Loop through each year
-for (year in years) {
-  # Calculate each balance for the current year
-  year_data <- data %>%
-    mutate(
-      Current_Account_Balance = get(paste0("`Current Account, Goods and Services, Credit, US Dollars_", year)) - 
-                                get(paste0("`Current Account, Goods and Services, Debit, US Dollars_", year)),
-      Financial_Account_Loans_Balance = get(paste0("`Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars_", year)) + 
-                                        get(paste0("`Financial Account, Other Investment, Loans, US Dollars_", year)),
-      Transport_Services_Balance = get(paste0("`Current Account, Goods and Services, Services, Transport, Credit, US Dollars_", year)) - 
-                                   get(paste0("`Current Account, Goods and Services, Services, Transport, Debit, US Dollars_", year)),
-      Supplementary_Items_Balance = get(paste0("`Supplementary Items, Reserve Assets (with Fund Record), US Dollars_", year)) + 
-                                    get(paste0("`Supplementary Items, Total Current + Capital Account, US Dollars_", year))
-    ) %>%
-    select(Country, everything())
-
-```
-
-
-
-
-
-
-
 
 ```{r}
 
