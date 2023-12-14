@@ -207,6 +207,53 @@ To neutralize the disparities in the scales of various financial metrics, we imp
 
 The feature engineering phase was characterized by a series of methodical steps that set a strong foundation for the development of a predictive model that is both reliable and interpretable. Through careful selection and transformation of features, we have crafted a dataset that accurately reflects the financial landscape across countries, poised for the application of advanced predictive analytics. This preparation has not only facilitated a streamlined modeling process but also ensures that our findings can confidently inform strategic decisions and policy making.
 
+### Correlation Matrix
+
+```{r}
+library(ggplot2)
+# Select specific indicators
+selected_indicators <- c(
+  "Net_Lending_Borrowing_Balance",
+  "CURRENT_ACCOUNT_NET",
+  "FINANCIAL_LOANS",
+  "TRANSPORT_SERVICES_NET",
+  "SUPPLEMENTARY_NET"
+)
+
+# Filter the data to include only selected indicators
+selected_data <- df2_new_BOP %>%
+  select(selected_indicators)
+
+# Calculate the correlation matrix for selected indicators
+cor_matrix <- cor(selected_data, use = "pairwise.complete.obs")
+
+# Print the correlation matrix
+cor_matrix_melted <- melt(cor_matrix)
+
+# Plot heatmap using ggplot2
+ggplot(data = cor_matrix_melted, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile() +
+  scale_fill_gradient2(low = "blue", mid = "white", high = "red", midpoint = 0) +
+  theme_minimal() +
+  labs(title = "Correlation Heatmap", x = "Indicators", y = "Indicators") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+**Variables**
+
+These are likely economic or financial indicators, such as net lending/borrowing balance, current account net, financial loans, transport services net, and supplementary net.
+
+**Positive Correlation (Red Squares)**
+
+If two variables, say 'Financial Loans' and 'Current Account Net', show a red square between them, it suggests that as one increases, the other tends to increase as well.
+
+**Negative Correlation (Blue Squares)**
+
+Conversely, if the square is blue, it suggests that as one variable increases, the other tends to decrease.
+
+**No or Weak Correlation (White/Light Squares)**
+
+If the color is white or a very light shade of red or blue, it indicates that there is little or no linear relationship between the variables.
 
 ### Modeling:
 
@@ -224,10 +271,10 @@ library(fastDummies)
 library(caret)
 
 # Load the training data
-train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+train_data <- read.csv('TrainDataBops.csv', stringsAsFactors = FALSE)
 
 # Load the testing data
-test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('TestDataBops.csv', stringsAsFactors = FALSE)
 
 # Standardize the continuous variables
 continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
@@ -296,14 +343,15 @@ The linear regression model provides a robust framework for understanding the dy
 
 In this project, a decision tree model was developed to predict the `Net Lending/Borrowing Balance` for various countries using key financial indicators: `Current Account Net`, `Financial Loans`, `Supplementary Net`, and `Transport Services Net`. This approach was chosen to explore non-linear relationships and interactions between predictors and the target variable.
 
+
 ```{r}
 library(dplyr)
 library(rpart)
 library(rpart.plot)
 
 # Load the training and testing data
-train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
-test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+train_data <- read.csv('TrainDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('TestDataBops.csv', stringsAsFactors = FALSE)
 
 # Define the target variable
 target_var <- 'Net_Lending_Borrowing_Balance'
