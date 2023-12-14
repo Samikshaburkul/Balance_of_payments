@@ -308,16 +308,6 @@ for (year in years) {
     ) %>%
     select(Country, everything())
 
-  # Add the year to the data
-  year_data$Year <- year
-  
-  # Combine with the results
-  results <- rbind(results, year_data)
-}
-
-# View the first few rows of the results
-head(results)
-
 ```
 
 
