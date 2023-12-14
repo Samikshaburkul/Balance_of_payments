@@ -41,28 +41,13 @@ options(scientific=T, digits = 3)
 # 5. Your grade is also determined by the style. Even if you answer everything correctly, but the .html does not look appealing, you will not get full credit. Pay attention to the details that we mentioned in class/homework and in previous sample .Rmd files. For example, how to use #, ##, ###, ..., bold face, italics, inline codes, tables, ..., {results = "asis"}, use of colors in plots/ggplots, and so forth.
 ```
 
-```{r}
+```{r, eval= FALSE}
 df <- read.csv('BalanceOfPayment.csv', header = TRUE)
-```
 
-```{r}
-head(df, 15)
-```
-
-```{r}
 # Rename the Indicators for better Interpretability, and conciseness
 # Load the dplyr package
 library(dplyr)
 
-# Assuming your dataframe is named 'data'
-# Replace the specific value in the 'Indicator' column
-#df <- df %>%
- # mutate(Indicator = ifelse(Indicator == 'Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars',
- #                           'Net Financial Position',
- #                           Indicator))
-```
-
-```{r}
 # Group by 'Indicator' and count unique 'Country' for each 'Indicator'
 indicator_country_count <- df %>%
   group_by(Indicator) %>%
@@ -74,6 +59,36 @@ total_countries <- n_distinct(df$Country)
 # Identify indicators that are common across all countries
 common_indicators <- filter(indicator_country_count, UniqueCountries == total_countries)
 
+# Filter the original dataset to include only common indicators
+filtered_data <- dplyr::filter(df, Indicator %in% common_indicators$Indicator)
+
+#write.csv(filtered_data, "filtered_data_1.csv", row.names = FALSE)
+
+# Read the dataset
+data <- read.csv('filtered_data_1.csv', stringsAsFactors = FALSE)
+
+# Replace the long indicator names with shorter names
+data <- data %>%
+  mutate(Indicator = case_when(
+    Indicator == "Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars" ~ "Net_Lending_Borrowing_Balance",
+    Indicator == "Current Account, Goods and Services, Credit, US Dollars" ~ "Current_Account_Credit",
+    Indicator == "Current Account, Goods and Services, Debit, US Dollars" ~ "Current_Account_Debit",
+    Indicator == "Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars" ~ "Financial_Loans_Net_Liabilities",
+    Indicator == "Financial Account, Other Investment, Loans, US Dollars" ~ "Financial_Loans_Total",
+    Indicator == "Current Account, Goods and Services, Services, Transport, Credit, US Dollars" ~ "Transport_Services_Credit",
+    Indicator == "Current Account, Goods and Services, Services, Transport, Debit, US Dollars" ~ "Transport_Services_Debit",
+    Indicator == "Supplementary Items, Reserve Assets (with Fund Record), US Dollars" ~ "Supplementary_Reserve_Assets",
+    Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars" ~ "Supplementary_Current_Capital",
+    TRUE ~ Indicator
+  ))
+
+# Write the updated dataset to a new CSV file
+#write.csv(data, 'filtered_data_2.csv', row.names = FALSE)
+
+```
+
+
+```{r}
 # Display the common indicators
 print(common_indicators)
 nrow(common_indicators)
@@ -84,8 +99,6 @@ nrow(common_indicators)
 # Load necessary library
 library(dplyr)
 
-# Assuming your dataframe is named 'data'
-# Replace 'data' with the actual name of your dataframe
 
 # Group by Indicator and count the number of unique countries for each
 indicator_counts <- df %>%
@@ -112,28 +125,6 @@ filtered_data <- dplyr::filter(df, Indicator %in% common_indicators$Indicator)
 write.csv(filtered_data, "filtered_data.csv", row.names = FALSE)
 ```
 
-```{r}
-# Reset the row names to start from 1 and continue sequentially
-row.names(filtered_data) <- NULL
-
-write.csv(filtered_data, "filtered_data_updated_index.csv", row.names = FALSE)
-```
-
-
-```{r}
-data <- read.csv('filtered_data.csv', header = TRUE)
-```
-
-```{r}
-# Fill the 'X' column with a sequence starting from 1
-data$X <- seq(from = 1, to = nrow(data))
-
-head(data)
-```
-
-```{r}
-data <- read.csv('filtered_data_1.csv', header = TRUE)
-```
 
 ```{r}
 # Load necessary library
@@ -154,7 +145,7 @@ data <- data %>%
     Indicator == "Current Account, Goods and Services, Services, Transport, Debit, US Dollars" ~ "Transport_Services_Debit",
     Indicator == "Supplementary Items, Reserve Assets (with Fund Record), US Dollars" ~ "Supplementary_Reserve_Assets",
     Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars" ~ "Supplementary_Current_Capital",
-    TRUE ~ Indicator # This will keep all other indicators unchanged
+    TRUE ~ Indicator
   ))
 
 # Write the updated dataset to a new CSV file
@@ -165,8 +156,6 @@ write.csv(data, 'filtered_data_2.csv', row.names = FALSE)
 library(dplyr)
 library(tidyr)
 
-# Assuming your dataframe is named 'data'
-# Replace 'data' with the actual name of your dataframe
 
 # Define the mapping of old and new indicator names
 indicator_mapping <- setNames(
@@ -290,8 +279,53 @@ head(results)
 
 ```
 
+```{r}
+# Load necessary library
+library(dplyr)
 
-<<<<<<< Updated upstream
+# Assuming your dataframe is named 'data'
+# Replace 'data' with the actual name of your dataframe
+
+# Initialize an empty dataframe to store the results
+results <- data.frame()
+
+# List of years to loop through
+years <- c("2015", "2016", "2017", "2018", "2019", "2020")
+
+# Loop through each year
+for (year in years) {
+  # Calculate each balance for the current year
+  year_data <- data %>%
+    mutate(
+      Current_Account_Balance = get(paste0("`Current Account, Goods and Services, Credit, US Dollars_", year)) - 
+                                get(paste0("`Current Account, Goods and Services, Debit, US Dollars_", year)),
+      Financial_Account_Loans_Balance = get(paste0("`Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars_", year)) + 
+                                        get(paste0("`Financial Account, Other Investment, Loans, US Dollars_", year)),
+      Transport_Services_Balance = get(paste0("`Current Account, Goods and Services, Services, Transport, Credit, US Dollars_", year)) - 
+                                   get(paste0("`Current Account, Goods and Services, Services, Transport, Debit, US Dollars_", year)),
+      Supplementary_Items_Balance = get(paste0("`Supplementary Items, Reserve Assets (with Fund Record), US Dollars_", year)) + 
+                                    get(paste0("`Supplementary Items, Total Current + Capital Account, US Dollars_", year))
+    ) %>%
+    select(Country, everything())
+
+  # Add the year to the data
+  year_data$Year <- year
+  
+  # Combine with the results
+  results <- rbind(results, year_data)
+}
+
+# View the first few rows of the results
+head(results)
+
+```
+
+
+
+
+
+
+
 
 ```{r}
 
@@ -300,7 +334,7 @@ library(fastDummies)
 library(tidyr)
 
 # Load your data - replace with the actual path to your CSV file
-train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
 
 # Generate dummy variables for the 'Country' column
 train_data <- train_data %>%
@@ -319,7 +353,7 @@ head(train_data)
 ###### Test data
 
 # Load your data - replace with the actual path to your CSV file
-test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
 
 # Generate dummy variables for the 'Country' column
 test_data <- test_data %>%
@@ -387,11 +421,11 @@ library(fastDummies)
 library(caret)
 
 # Load the training data
-train_data_path <- '/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TrainDataBops.csv' 
+train_data_path <- '/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv' 
 train_data <- read.csv(train_data_path, stringsAsFactors = FALSE)
 
 # Load the testing data
-test_data_path <- '/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataBops.csv' 
+test_data_path <- '/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv' 
 test_data <- read.csv(test_data_path, stringsAsFactors = FALSE)
 
 # Combine train and test data to ensure consistent factor levels
@@ -413,7 +447,7 @@ test_data_processed <- combined_data %>%
 # Standardize the continuous variables
 continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "Net_Lending_Borrowing_Balance", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
 
-# Note: It's important to use the same scaling parameters from train_data to scale test_data
+# It's important to use the same scaling parameters from train_data to scale test_data
 train_data_processed[continuous_vars] <- scale(train_data_processed[continuous_vars])
 scaling_parameters <- attr(scale(train_data[continuous_vars]), "scaled:center")
 
@@ -441,8 +475,7 @@ r_squared <- cor(test_data_processed[[target_var]], test_data_processed$Predicti
 print(paste("R-squared:", r_squared))
 
 # Output the test predictions and residuals
-write.csv(test_data_processed, '/path/to/TestDataPredictions.csv', row.names = FALSE)
-
+#write.csv(test_data_processed, '/path/to/TestDataPredictions.csv', row.names = FALSE)
 ```
 
 ```{r}
@@ -451,10 +484,10 @@ library(fastDummies)
 library(caret)
 
 # Load the training data
-train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
 
 # Load the testing data
-test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
 
 # Function to clean country names
 clean_country_names <- function(country_name) {
@@ -492,16 +525,13 @@ test_data$Residuals <- with(test_data, get(target_var) - Predictions)
 # Evaluate the model's performance
 # Calculate RMSE (Root Mean Squared Error)
 rmse <- sqrt(mean(test_data$Residuals^2))
-print(paste("RMSE:", rmse/100))
+print(paste("RMSE:", rmse))
 
 # Calculate R-squared
 r_squared <- cor(test_data[[target_var]], test_data$Predictions)^2
 print(paste("R-squared:", r_squared))
 
-# Output the test predictions and residuals
-#write.csv(test_data, '/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataPredictions_1.csv', row.names = FALSE)
-
-#summary(model)
+summary(model)
 
 ```
 
@@ -576,15 +606,29 @@ summary(model)
 ```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```{r}
 library(dplyr)
 library(rpart)
 
 # Load the training data
-train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
+train_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TrainDataBops.csv', stringsAsFactors = FALSE)
 
 # Load the testing data
-test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group 7 Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/TestDataBops.csv', stringsAsFactors = FALSE)
 
 # Define the target variable
 target_var <- 'Net_Lending_Borrowing_Balance'
@@ -708,7 +752,7 @@ summary(tree_model)
 
 ```
 
-```{r}
+
 ```{r}
 library(dplyr)
 library(rpart)
@@ -793,7 +837,7 @@ summary(tree_model)
 
 ```
 
-```{r}
+
 ```{r}
 library(dplyr)
 library(rpart)
@@ -836,94 +880,3 @@ summary(tree_model)
 
 ```
 
-
-
-```{r}
-print(getwd()) 
-```
-
-```{r}
-```{r}
-# Load necessary libraries
-library(readr)
-library(dplyr)
-library(stats)
-
-# Read the dataset
-crime_data <- read_csv("/Users/sai_avinash/Documents/GitHub/DATS_6103_Project/Balanced_data.csv")
-
-# Convert SHOOTING to a binary factor (assuming it contains 'Y' and 'N')
-crime_data$SHOOTING <- as.factor(ifelse(crime_data$SHOOTING == "Y", 1, 0))
-
-# Select columns for the model
-predictor_vars <- c('OFFENSE_CODE', 'OFFENSE_CODE_GROUP', 'DISTRICT', 'YEAR', 
-                    'MONTH', 'DAY_OF_WEEK', 'HOUR', 'UCR_PART', 'STREET')
-
-# Create a subset with only the columns of interest
-crime_subset <- crime_data %>% select(all_of(predictor_vars), SHOOTING)
-
-# Handling categorical variables using one-hot encoding
-X <- model.matrix(~ . - 1, data = crime_subset)
-X <- as.data.frame(X)  # Convert the matrix back to a data frame
-
-# Add the SHOOTING column back to the dataset
-X$SHOOTING <- crime_subset$SHOOTING
-
-# Split the data into training and test sets
-set.seed(42)  # for reproducibility
-train_indices <- sample(1:nrow(X), 0.7 * nrow(X))
-train_data <- X[train_indices, ]
-test_data <- X[-train_indices, ]
-
-# Fit the logistic regression model
-model <- glm(SHOOTING ~ ., data = train_data, family = binomial())
-
-# Print the summary of the model
-summary(model)
-
-
-```
-```
-
-```{r}
-# Load necessary libraries
-library(readr)
-library(dplyr)
-library(stats)
-
-# Read the dataset
-crime_data <- read_csv("/Users/sai_avinash/Documents/GitHub/DATS_6103_Project/Balanced_data.csv")
-
-# Convert SHOOTING to a binary factor (assuming it contains 'Y' and 'N')
-crime_data$SHOOTING <- as.factor(ifelse(crime_data$SHOOTING == "Y", 1, 0))
-
-# Select columns for the model
-predictor_vars <- c('OFFENSE_CODE', 'OFFENSE_CODE_GROUP', 'DISTRICT', 'YEAR', 
-                    'MONTH', 'DAY_OF_WEEK', 'HOUR', 'UCR_PART', 'STREET')
-
-# Create a subset with only the columns of interest
-crime_subset <- crime_data %>% select(all_of(predictor_vars), SHOOTING)
-
-# Handling categorical variables using one-hot encoding
-X <- model.matrix(~ . - 1, data = crime_subset)
-X <- as.data.frame(X)  # Convert the matrix back to a data frame
-
-# Add the SHOOTING column back to the dataset
-X$SHOOTING <- crime_subset$SHOOTING
-
-# Split the data into training and test sets
-set.seed(42)  # for reproducibility
-train_indices <- sample(1:nrow(X), 0.7 * nrow(X))
-train_data <- X[train_indices, ]
-test_data <- X[-train_indices, ]
-
-# Fit the logistic regression model
-model <- glm(SHOOTING ~ ., data = train_data, family = binomial())
-
-# Print the summary of the model
-summary(model)
-
-
-```
-=======
->>>>>>> Stashed changes
