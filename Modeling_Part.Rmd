@@ -76,7 +76,7 @@ data <- data %>%
   ))
 
 # Write the updated dataset to a new CSV file
-write.csv(data, 'filtered_data_2.csv', row.names = FALSE)
+#write.csv(data, 'filtered_data_2.csv', row.names = FALSE)
 
 # Read the dataset
 df_BOP <-read.csv('filtered_data_2.csv',header = TRUE)
