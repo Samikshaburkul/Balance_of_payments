@@ -43,31 +43,40 @@ library(reshape2)
 library(fastDummies)
 library(caret)
 ```
-1 INTRODUCTION
+### INTRODUCTION
+
 The Balance of Payments Statistics (BOPS) database remains a pivotal reservoir of information, offering profound insights into the intricate web of global economic transactions. This repository enlightens us on cross-border trade, delineating a country's earnings from exports, expenditures on imports, and the reciprocal investments between nations. Such information stands as a compass guiding governmental policies and commercial strategies, shaping decisions pertaining to trade dynamics and international investments. The BOPS database, a repository sourced from multifarious countries, sheds light on the methodologies and frameworks employed in curating and organizing this invaluable economic data.
 
-1.1 PROBLEM STATEMENTS
-Project 2 endeavors to conduct a comprehensive analysis of critical economic indicators, notably focusing on Capital Accounts, Net Lending/Borrowing, and Balance on Goods, Services, and Income. Leveraging a dataset spanning the timeline from 2015 to 2020, this study aims to discern trends, correlations, and the ramifications of these indicators on economic evolution. The focus remains on delineating temporal shifts, interrelations among diverse accounts, and the overall stability within the global economic landscape. The outcomes of this research are poised to furnish insights vital for policymakers, economists, and researchers navigating the labyrinth of global economic trends and their far-reaching implications.
 
-1.2 DATA
+##### Problem Statement and Objectives
+Project 2 embarks on a journey of in-depth analysis, with a specific focus on critical economic indicators encompassing 'Capital Accounts,' 'Net Lending/Borrowing,' and the 'Balance on Goods, Services, and Income.' By harnessing a rich dataset spanning the years from 2015 to 2020, this study seeks to unravel the underlying trends, correlations, and the profound implications of these indicators on the trajectory of global economics. Our mission revolves around uncovering temporal shifts, exploring intricate interrelations among diverse accounts, and discerning the overall stability of the global economic landscape.
+
+As we embark on this journey of exploration and analysis, we aim to bridge the gap between raw economic data and actionable insights. Our study illuminates the intricate relationships within the BOPS database, offering a roadmap for stakeholders to navigate the complex world of international economics. Through meticulous analysis and interpretation, we aspire to empower decision-makers with the knowledge needed to make informed choices, fostering economic growth and stability on a global scale.
+
+
+##### DATA
 The Balance of Payments (BOP) dataset, a cornerstone of this investigation, encompasses a voluminous archive comprising approximately 5000 rows, encapsulating myriad economic transactions among nations across the globe. This dataset stands as an indispensable repository, chronicling the nuances and intricacies of international financial relationships over the specified years. The dataset is meticulously categorized into salient components, encompassing the Current Account, Capital Account, and Financial Account. These components meticulously track the trade in goods and services, income derived from foreign investments, and the interplay of financial assets among nations, thereby elucidating each country's economic interconnections with the global community. With its rich repository of records on lending, borrowing, trade, and investments, this dataset serves as a treasury of insights into global financial dynamics, enabling profound analyses that illuminate trends, anomalies, and case studies shaping international economics.
 
-1.3 Data Overview:
+##### Data Overview
 
 The dataset for Project 2 comprises essential fields, presenting a comprehensive view of international financial transactions:
 
-X: A unique index or row number assigned to each dataset entry.
-Country: A factor variable encompassing 171 levels, representing different nations involved in financial transactions.
-Code: Another factor variable with 171 levels signifying country or transaction codes associated with financial transactions.
-Indicator: A factor variable comprising 31 levels characterizing the nature or category of financial indicators.
-Icode: A factor variable, similar to "Indicator," with 31 levels providing additional code information associated with financial indicators.
-X2015 to X2020: Numerical columns representing financial data from 2015 to 2020, likely in US Dollars, delineating various financial indicators and transactions for each country.
+1. X: A unique index or row number assigned to each dataset entry.
+
+2. Country: A factor variable encompassing 171 levels, representing different nations involved in financial transactions.
+
+3. Code: Another factor variable with 171 levels signifying country or transaction codes associated with financial transactions.
+
+4. Indicator: A factor variable comprising 31 levels characterizing the nature or category of financial indicators.
+
+5. Icode: A factor variable, similar to "Indicator," with 31 levels providing additional code information associated with financial indicators.
+
+6. X2015 to X2020: Numerical columns representing financial data from 2015 to 2020, likely in US Dollars, delineating various financial indicators and transactions for each country.
+
 This dataset serves as a comprehensive repository, encapsulating intricate details of international financial interactions, facilitating nuanced analyses of trends, anomalies, and case studies that significantly impact global economics.
 
 
-
-
-```{r, eval= FALSE}
+```{r, echo=FALSE}
 df <- read.csv('BalanceOfPayment.csv', header = TRUE)
 
 indicator_country_count <- df %>%
@@ -154,7 +163,7 @@ df_BOP <- df_BOP[-rows_to_remove, ]
 
 df1_BOP <- df_BOP
 df2_BOP <- df_BOP
-e
+
 columns_to_remove <- c('X.1', 'X', 'Code', 'Icode', 'X2015', 'X2016', 'X2017', 'X2018', 'X2019')
 
 df2_BOP <- df2_BOP[, !(names(df2_BOP) %in% columns_to_remove)]
@@ -183,12 +192,15 @@ names(df2_new_BOP) <- gsub("^.*\\.", "", names(df2_new_BOP))
 
 ```
 
+### EDA RECAP
 
-### Feature Engineering
+
+
+### FEATURE ENGINEERING
 
 In the development of a robust predictive model for financial indicators across various countries, our initial dataset encompassed a broad range of 20 to 31 indicators per country. Recognizing the need for a streamlined and uniform approach to analysis, we commenced by identifying a common set of indicators present across all nations, which culminated in a refined set of nine indicators per country.
 
-#### Data Preprocessing and Transformation:
+##### Data Preprocessing and Transformation
 
 The preprocessing phase was meticulous and structured. Given the variation in the number of indicators across countries, we focused on homogenizing the dataset by retaining only those indicators that were common across all entities. This standardization step was pivotal to ensure that subsequent analyses were consistent and comparable.
 
@@ -202,25 +214,25 @@ The transformation phase involved an astute categorization of the indicators int
 
 The aggregation process involved a methodical consolidation of related financial metrics. For instance, `Financial_Loans_Net_Liabilities` and `Financial_Loans_Total` were synthesized into a singular `Financial Accounts` category. Similarly, `Current_Account_Credit` and `Current_Account_Debit` coalesced into `Current Accounts Net`, with analogous processes for `Transport Services Net` and `Supplementary Net`.
 
-#### Temporal Data Consideration and Averaging:
+##### Temporal Data Consideration and Averaging
 
 Our dataset spanned the years 2015 to 2020, providing a temporal depth to our financial indicators. To harness this data effectively, we calculated the average for all corresponding indicators from 2015 to 2019. This averaged data formed the backbone of our training set, while the data from 2020 was judiciously reserved for testing the model's predictive prowess.
 
-#### Correlation Analysis and Model Foundation:
+##### Correlation Analysis and Model Foundation
 
 A comprehensive exploratory data analysis (EDA) and a detailed correlation plot revealed intrinsic relationships between the indicators. Notably, `Net Lending Borrowing Balance` emerged as a pivotal variable, exhibiting significant correlations with all other indicators. Armed with these insights, it was strategically determined to position `Net Lending Borrowing Balance` as the target variable, with the remaining four categories serving as predictors.
 
 This decision was not taken lightly but was the result of an iterative process of model building, leveraging various subsets of attributes and rigorous trial and error. This empirical approach ensured that our model was grounded in statistical significance rather than conjecture.
 
-#### Standardization of Variables:
+##### Standardization of Variables
 
 To neutralize the disparities in the scales of various financial metrics, we implemented a standardization procedure. This normalization of the variables ensured that the mean of each was zero and the standard deviation was one. Standardization is a crucial step as it not only facilitates a fair comparison between the magnitudes of different indicators but also enhances the numerical stability of the modeling algorithms. The impact of this process was evident in the improved performance and interpretability of the predictive models.
 
 The feature engineering phase was characterized by a series of methodical steps that set a strong foundation for the development of a predictive model that is both reliable and interpretable. Through careful selection and transformation of features, we have crafted a dataset that accurately reflects the financial landscape across countries, poised for the application of advanced predictive analytics. This preparation has not only facilitated a streamlined modeling process but also ensures that our findings can confidently inform strategic decisions and policy making.
 
-### Correlation Matrix
+##### Correlation Matrix
 
-```{r, eval= FALSE}
+```{r}
 
 selected_indicators <- c(
   "Net_Lending_Borrowing_Balance",
@@ -245,29 +257,26 @@ ggplot(data = cor_matrix_melted, aes(x = Var1, y = Var2, fill = value)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 ```
-**Variables**
-
-These are likely economic or financial indicators, such as net lending/borrowing balance, current account net, financial loans, transport services net, and supplementary net.
 
 **Positive Correlation (Red Squares)**
 
-If two variables, say 'Financial Loans' and 'Current Account Net', show a red square between them, it suggests that as one increases, the other tends to increase as well.
+The presence of red squares between variables such as `Financial Loans` and `Current Account Net` indicates a positive correlation. This relationship suggests that increases in one variable are associated with increases in the other. In the context of economic modeling, this implies that these variables may share common economic drivers or are influenced similarly by external economic conditions. For instance, a surge in `financial_loans` could correspond with an uptick in `current_account_net`, potentially reflecting broader economic growth or policy impacts.
 
 **Negative Correlation (Blue Squares)**
 
-Conversely, if the square is blue, it suggests that as one variable increases, the other tends to decrease.
+Conversely, blue squares signify negative correlations. An example could be between 'Supplementary Net' and 'Transport Services Net', where an increase in one predicts a decrease in the other. This inverse relationship can be indicative of compensatory economic mechanisms or divergent sectoral impacts under varying economic scenarios. Such insights are crucial for models aimed at understanding sector-specific dynamics or the balancing effects within the economy.
 
-**No or Weak Correlation (White/Light Squares)**
+**Implications for Economic Modeling**
 
-If the color is white or a very light shade of red or blue, it indicates that there is little or no linear relationship between the variables.
+The analysis of this correlation plot underscores the importance of the chosen predictors. The strong correlations (both positive and negative) justify the inclusion of `financial_loans`, `current_account_net`, `supplementary_net`, and `transport_services_net` in the economic model. These indicators collectively provide a multifaceted view of the economic environment, enhancing the model's comprehensiveness and predictive accuracy.
 
-### Modeling:
+### MODELING
 
-#### Linear Regression:
+##### Linear Regression
 
 In our project, we employed a linear regression model to understand and predict the `Net Lending Borrowing Balance` of various countries. The model was specifically designed to forecast the 'Net Lending/Borrowing Balance' based on a set of key financial indicators: `Current Account Net`, `Financial Loans`, `Supplementary Net`, and `Transport Services Net`. These variables were carefully selected based on their relevance and potential impact on the target variable.
 
-**Suitability and Assumptions:**
+**Suitability and Assumptions**
 
 The linear regression model operates under several critical assumptions that were rigorously tested in our analysis. The assumption of linearity was validated by assessing the relationship patterns between independent variables and the target variable. We also examined the residuals to confirm their normal distribution and constant variance, ensuring the model’s accuracy and reliability. The absence of multicollinearity, verified through variance inflation factors (VIFs), reinforced the integrity of our predictors, ensuring that each provides unique and valuable information to the model.
 
@@ -329,7 +338,7 @@ Future research should aim to include a broader spectrum of economic indicators,
 
 The linear regression model provides a robust framework for understanding the dynamics of a country's financial position. By leveraging these insights, policymakers and business leaders can make more informed decisions, ultimately contributing to better economic stability and growth. Further research and data enrichment will continue to refine these predictions, offering even more nuanced insights into the complexities of global finance.
 
-#### Decision Tree Model Analysis:
+##### Decision Tree Model Analysis
 
 In this project, a decision tree model was developed to predict the `Net Lending/Borrowing Balance` for various countries using key financial indicators: `Current Account Net`, `Financial Loans`, `Supplementary Net`, and `Transport Services Net`. This approach was chosen to explore non-linear relationships and interactions between predictors and the target variable.
 
@@ -416,6 +425,8 @@ The decision tree model offers valuable insights into the financial indicators' 
 2. **Policy Implications:** Stakeholders should consider the linear regression model for strategic decision-making and policy formulation related to financial indicators.
 
 3. **Further Research:** Exploring ensemble methods, like random forests or boosting, could improve predictive accuracy. Additionally, incorporating more diverse data spanning different economic cycles could offer more robust insights.
+
+### CONCLUSION
 
 
 #### REFERENCES
