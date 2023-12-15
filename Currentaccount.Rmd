@@ -16,24 +16,634 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Introduction
-XXXXXXX
+# 1 Introduction
+The Balance of Payments Statistics (BOPS) database is like a big collection of information that helps us understand how different countries do business with each other. It tells us things like how much money a country earns from selling things to other countries and how much it spends on buying things from other countries. It also shows us how countries invest in each other. This information is important because it helps governments and businesses make decisions about trade and investments. The BOPS database has data from many countries, and it explains how they collect and organize this information.
 
-# Problem Statement
-## CURRENT ACCOUNT ANALYSIS 
+## 1.1 Problem Statements
+This research project aims to conduct a comprehensive global analysis of key economic indicators, such as Capital Accounts, Net Lending/Borrowing, and Balance on Goods, Services, and Income. Utilizing a dataset that encompasses all the countries and spans from 2015 to 2020, the study will explore trends, correlations, and impacts of these indicators on economic development. focusing on changes over time, correlations between different accounts, and global economic stability. The findings of this research could offer valuable insights for policymakers, economists, and researchers interested in global economic trends and their implications.
+
+### financial account analysis
+In financial account analysis. I want to discover trends for financial account and thier transition form 2015 to 2020 as a lender or borrower.
+
+### CURRENT ACCOUNT ANALYSIS 
 What is the current account balance and what components contribute to it (e.g., trade balance, income, transfers)?
 
-# Data
-XXXXXXXXX
+## 1.2 Data
+The Balance of Payments (BOP) dataset at hand is a comprehensive record encompassing over around 5000 rows of economic transactions between various countries and the global community. This dataset is an invaluable source of information, showcasing the intricacies of international financial relations over the years. The dataset is segmented into key components, including the Current Account, Capital Account, and Financial Account. These components track trade in goods and services, income generated from foreign investments, and exchanges of financial assets, elucidating each nation's economic interactions with the rest of the world. With detailed records on lending, borrowing, trade, and investments, this dataset provides a treasure trove of insights into global financial dynamics. It allows for in-depth analyses, illustrating the trends, anomalies, and case studies that shape international economics, and serves as a foundation for understanding the financial health and transactions of different countries.
 
-# Dataset characteristics
-XXXXXX
+## 1.3 Dataset characteristics
+Our data set consists following fields:
+
+1. **X**:  A unique index or row number, assigned to each row in the dataset.
+
+2. **Country**: A factor variable with 171 levels, representing different countries involved in the financial transactions. Each row corresponds to a specific country's data.
+
+3. **Code**: Another factor variable with 171 levels, which represent a country or transaction code. This field is associated with the countries or entities participating in the transactions.
+
+4. **Indicator**: This is a factor variable with 31 levels, describing the nature or category of the financial indicator. It specifies the type of financial transaction, such as Capital Account, Capital Transfers, Credit, etc.
+
+5. **Icode**: Similar to the "Indicator," this factor variable with 31 levels It provides additional code information associated with the financial indicators. It could be another categorization or identification system.
+
+6. **X2015**, **X2016**, **X2017**, **X2018**, **X2019**, **X2020**: These are numerical columns, containing financial data for each country's transactions for the years 2015 to 2020. The numbers likely represent monetary values, possibly in US Dollars, for different financial indicators and transactions.
+
+## 1.4 library
+```{r}
+library(dplyr)
+library(ggplot2)
+library(ezids)
+library(tidyr)
+library(RColorBrewer)
+```
 
 ```{r cars}
 df_filtered <-read.csv('BalanceOfPayment.csv',header = TRUE)
 ```
 
 # DATA PRE-PROCESSING
+
+1)Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, Equity Other Than Reinvestment of Earnings, US Dollars  
+
+2)Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars
+
+3)Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, US Dollars  
+
+4)Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Incurrence of Liabilities, Debt Instruments, US Dollars
+
+# Exploratory Data Analysis
+## FINANCIAL ACCOUNT ANALYSIS
+**The indicators for financial account analysis.**
+
+```{r}
+mydata <- read.csv("BalanceOfPayment.csv")
+str(mydata)
+
+```
+
+```{r}
+
+indicators <- c("Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, US Dollars")
+indicators2 <- c("Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, Equity Other Than Reinvestment of Earnings, US Dollars",  
+
+ "Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars",
+
+"Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Acquisition of Financial Assets, US Dollars",
+
+"Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, Net Incurrence of Liabilities, Debt Instruments, US Dollars")
+
+financialAccount <- mydata[mydata$Indicator %in% indicators,]
+financialAllIndicators <- mydata[mydata$Indicator %in% indicators2,]
+nrow(financialAccount)
+
+```
+
+```{r}
+net_lender <- subset(financialAccount, X2015 > 0)
+net_borrower <- subset(financialAccount, X2015 < 0)
+nrow(net_borrower) #23
+nrow(net_lender) #109
+net_lender2 <- subset(financialAccount, X2020 > 0)
+net_borrower2 <- subset(financialAccount, X2020 < 0)
+nrow(net_borrower2) #38
+nrow(net_lender2) #94
+```
+
+```{r}
+sorted_net_lender <- net_lender[order(net_lender$X2015, decreasing = TRUE), ]
+
+plotL2015 <- ggplot(sorted_net_lender, aes(x = Country, y = X2015)) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(x = "Country", y = "Net Lending (in US Dollars)", title = "Net Lending in 2015") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+sorted_net_lender2 <- net_lender2[order(net_lender2$X2020, decreasing = TRUE), ]
+plotL2020 <- ggplot(sorted_net_lender2, aes(x = Country, y = X2020)) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(x = "Country", y = "Net Lending (in US Dollars)", title = "Net Lending in 2020") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r}
+combined_plot <- plotL2015 + plotL2020
+print(combined_plot)
+```
+1. Net Lending in 2015:
+The first graph, titled "Net Lending in 2015," represents the net lending amounts of countries for the year 2015. The code sorts the data by net lending values in descending order, so countries with the highest net lending amounts are shown at the top of the graph. The x-axis represents the countries, and the y-axis represents the net lending amount in US dollars. Each country is represented by a blue bar, with the length of the bar corresponding to the net lending amount. This graph provides a visual representation of which countries had the highest net lending in 2015, allowing for easy comparison and identification of top lenders.
+
+2. Net Lending in 2020:
+The second graph, titled "Net Lending in 2020," follows the same structure as the first graph but focuses on the year 2020. It also sorts the data by net lending values in descending order, highlighting the countries with the highest net lending amounts. Just like the previous graph, it uses blue bars to represent each country's net lending amount, with the x-axis indicating the countries and the y-axis indicating the net lending amount in US dollars. This graph serves as a comparison to the 2015 graph and allows viewers to see if there have been any significant changes in net lending amounts over the five-year period.
+
+
+
+```{r}
+
+sorted_net_borrower <- net_borrower[order(net_borrower$X2015, decreasing = TRUE), ]
+
+plotL2015 <- ggplot(sorted_net_borrower, aes(x = Country, y = X2015)) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(x = "Country", y = "Net Borrowing (in US Dollars)", title = "Net Borrowers in 2015") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+sorted_net_borrower2 <- net_borrower2[order(net_borrower2$X2020, decreasing = TRUE), ]
+plotL2020 <- ggplot(sorted_net_borrower2, aes(x = Country, y = X2020)) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(x = "Country", y = "Net Borrowing (in US Dollars)", title = "Net Borrowers in 2020") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r}
+combined_plot <- plotL2015 + plotL2020
+print(combined_plot)
+```
+1. Net Borrowers in 2015:
+The first graph, titled "Net Borrowers in 2015," represents the net borrowing amounts of countries for the year 2015. Similar to the previous explanation, the code sorts the data by net borrowing values in descending order, with countries having the highest net borrowing amounts shown at the top of the graph. The x-axis represents the countries, and the y-axis represents the net borrowing amount in US dollars. Each country is depicted by a blue bar, and the length of the bar corresponds to the net borrowing amount. This graph provides a visual representation of which countries had the highest net borrowing in 2015, making it easy to identify the top borrowers.
+
+2. Net Borrowers in 2020:
+The second graph, titled "Net Borrowers in 2020," follows the same structure as the first graph but focuses on the year 2020. Just like the previous graph, it sorts the data by net borrowing values in descending order, highlighting the countries with the highest net borrowing amounts. The visualization uses blue bars to represent each country's net borrowing amount, with the x-axis indicating the countries and the y-axis indicating the net borrowing amount in US dollars. This graph serves as a comparison to the 2015 graph, allowing viewers to see if there have been significant changes in net borrowing amounts over the five-year period.
+
+
+```{r}
+countries_in_sdf <- unique(sorted_net_borrower2$Country)
+transition_to_borrowers <- sorted_net_lender[sorted_net_lender$Country %in% countries_in_sdf, ]
+countries_in_sdf <- unique(sorted_net_borrower$Country)
+transition_to_lenders <- sorted_net_lender2[sorted_net_lender2$Country %in% countries_in_sdf, ]
+print(transition_to_lenders$Country)
+
+```
+
+```{r}
+
+plot2015 <- ggplot(data = transition_to_borrowers , aes(x = Country, y = X2015, group = 1)) +
+  geom_line(aes(color = "2015"), size = 0.5) +
+  labs(
+    x = "Country",
+    y = "Net Lending/Borrowing",
+    title = "Transition of Countries from 2015 to 2020"
+  ) +
+  theme_minimal() +
+  scale_color_manual(values = c("2015" = "blue")) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+plot2020 <- ggplot(data = transition_to_borrowers , aes(x = Country, y = X2020, group = 1)) +
+  geom_line(aes(color = "2020"), size = 0.5) +
+  labs(
+    x = "Country",
+    y = "Net Lending/Borrowing",
+    title = "Transition of Countries from 2015 to 2020"
+  ) +
+  theme_minimal() +
+  scale_color_manual(values = c("2020" = "red")) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+
+
+```{r}
+combined_plot <- plot2015 + plot2020
+print(combined_plot)
+```
+**1.Transition of Countries from Lenders to Borrowers in 2015:**
+
+The first graph, titled "Transition of Countries from 2015 to 2020," focuses on the year 2015. It shows the net lending or borrowing amounts of countries, with a particular emphasis on those countries that were lenders in 2015 but transitioned into becoming borrowers in 2020. Each country's transition is represented by a line that changes color at the point of transition. The x-axis displays the countries, and the y-axis represents the net lending or borrowing amount.
+
+In this graph, countries that were lenders in 2015 are depicted in blue lines. The lines turn red when they transition to being borrowers in 2020. This visualization allows you to easily identify countries that underwent a significant shift in their financial role from lenders to borrowers between these two years.
+
+**2.Transition of Countries from Lenders to Borrowers in 2020:**
+
+The second graph, also titled "Transition of Countries from 2015 to 2020," focuses on the year 2020. It follows the same structure as the first graph but now focuses on the net lending or borrowing amounts in 2020. Again, it uses lines to represent countries' transitions, with the color changing at the point of transition.
+
+In this graph, countries that were lenders in 2015 are initially depicted in blue lines. Those that transitioned to borrowers in 2020 are represented by red lines. This graph is complementary to the first one and helps you see if there have been any new transitions from lender to borrower status in 2020.
+
+**Prediction:-** 
+
+
+
+## Analysis of Reserve Assets, Portfolio Investments, and Financial Stability
+  
+In the dynamic world of global finance, understanding the reserve assets, portfolio investments, and financial stability of countries is paramount. These metrics are essential barometers of a nation's economic health, investment strategies, and preparedness against financial adversities. In this section, we will dissect these components using key indicators to shed light on the underlying patterns, strategies, and financial robustness of countries from 2015 to 2020. This analysis is crucial to understand the financial health, resilience, and strategies adopted by nations over the years 2015-2020.
+  
+**Indicators Explained:**
+  
+1) **Total Current + Capital Account (in USD):**
+  
+    Implication: Reflects a country's total transactions with the rest of the world. It combines the net income from foreign sources and     capital transfers, providing insights into a nation's financial interactions globally.
+  
+2) **Reserve Assets (with Fund Record, in USD):**
+  
+    Implication: Indicates the foreign currency reserves and gold held by a country's central bank. A critical metric, it signifies a       country's capability to stabilize its currency and manage external economic shocks.
+  
+3) **Reserve Position in the Fund (with Fund Record, in USD):**
+  
+    Implication: Reflects a country's quota in the IMF and its financial commitment to it. It's an indicator of a nation's position and     influence in global monetary matters.
+  
+4) **Portfolio Investment, Net Acquisition of Financial Assets (in USD):**
+  
+    Implication: Captures a country's net gains from financial investments. It offers a glimpse into the nation's investment success and     financial asset management strategies.
+  
+5) **Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares (in USD):**
+  
+    Implication: Focuses on the equity aspect of financial investments, revealing preferences towards stocks and shares and indicating      the risk appetite of a nation.
+
+6) **Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities (in USD):**
+  
+    Implication: Focuses on the debt aspect of financial investments. It's a measure of a country's inclination towards bonds and other     debt instruments, revealing its creditworthiness and financial stability. 
+  
+**Objectives:**
+
+1) To explore the distribution and trends in reserve assets and portfolio investments.
+2) To determine the impact of these factors on a country's financial stability.
+3) To test specific hypotheses related to the average values of key financial metrics.
+  
+**Methodology:**
+  We will embark on a journey of exploratory data analysis, employing visualizations and descriptive statistics. Additionally, hypothesis tests, including t-tests and correlation analysis, will be utilized to draw concrete conclusions.
+  
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE}
+bops_data <- read.csv("BalanceOfPayment.csv")
+```
+
+```{r, include=FALSE}
+
+# Convert the requisite columns into factor 
+cols_to_convert <- c("Country", "Code", "Indicator", "Icode")
+
+# Use lapply() function to apply the factor() function to each specified column in `bops_data` data frame.
+bops_data[cols_to_convert] <- lapply(bops_data[cols_to_convert], factor)
+
+# Check the structure of the data again to confirm the changes
+str(bops_data)
+```
+
+```{r, include=FALSE}
+
+# List of indicators to filter
+indicators_to_filter <- c("Supplementary Items, Reserve Assets (with Fund Record), US Dollars", 
+"Supplementary Items, Total Current + Capital Account, US Dollars",
+"Supplementary Items, Reserve Position in the Fund (with Fund Record), US Dollars",
+"Supplementary Items, Portfolio Investment, Net Incurrence of Liabilities (Excluding Exceptional Financing), US Dollars", 
+"Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars",
+"Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars",
+"Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars",
+"Financial Account, Other Investment, Loans, US Dollars",
+"Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, US Dollars")
+
+# Filter the data
+relevant_financial_metrics <- bops_data %>% 
+  filter(Indicator %in% indicators_to_filter)
+
+# Structure of the data
+str(relevant_financial_metrics)
+```
+
+
+### How have the global trends evolved for the "Total Current + Capital Account" from 2015 to 2020.
+  
+This question aims to understand how countries' financial summaries (both earnings and big investments/sales) have changed over time. It can reveal global economic patterns, periods of growth or recession, and general financial health trends among countries. If the `Total Current + Capital Account` is increasing over time, it suggests countries are improving their financial positions, either through trade, investments, or other financial activities. Conversely, a declining trend might indicate economic challenges.
+
+```{r, warning=FALSE}
+
+# Load the necessary libraries
+library(ggplot2)
+library(tidyr)
+
+# Filter the data set for the 'Total Current + Capital Account' indicator
+total_current_capital_account <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars", ]
+
+# Reshape the data to long format
+long_data <- total_current_capital_account %>% 
+  pivot_longer(cols = starts_with("X"), names_to = "Year", values_to = "Value")
+
+# Convert the "XYYYY" format to just "YYYY"
+long_data$Year <- as.numeric(sub("X", "", long_data$Year))
+
+# Time series plot
+ggplot(long_data, aes(x=Year, y=Value, group=Country)) + 
+  geom_line(aes(color=Country), alpha=0.5) + 
+  labs(title="Evolution of Total Current + Capital Account from 2015 to 2020", y="Total Current + Capital Account", x="Year") + 
+      theme(legend.position="none", 
+        plot.title=element_text(hjust=0.5))
+
+```
+  
+By plotting time series data for many countries on a single graph, the visualization became cluttered, making it difficult to discern patterns. Hence, a more effective strategy would be to segregate the countries into two categories: `Top 10 countries by economy` and `Top 10 emerging countries.`
+  
+```{r, warning=FALSE, fig.width=9, fig.height=6}
+
+# top 10 countires by economy
+top_10_Economic_Countries <- c("United States", "China, P.R.: Mainland", "Japan", "Germany", "India", "United Kingdom", 
+                               "France", "Russian Federation", "Canada", "Italy")
+
+# top 10 emerging countries
+top_10_emerging_countries <- c("Brazil", "Russian Federation", "India", "China, P.R.: Mainland", "South Africa",
+                               "Mexico", "Indonesia", "Türkiye, Rep. of", "Nigeria", "Philippines")
+
+# Load the necessary libraries
+
+
+# Filter data for the top 10 economies
+top_10_economies_data <- subset(long_data, Country %in% top_10_Economic_Countries)
+
+# Plot for top 10 economies
+plot_top_10_economies <- ggplot(top_10_economies_data, aes(x=Year, y=Value, group=Country, color=Country)) + 
+  geom_line(linewidth=1) + 
+  labs(title="Evolution of Total Current + Capital Account from 2015 to 2020\nfor Top 10 Economies", 
+       y="Total Current + Capital Account", 
+       x="Year") + 
+  theme(legend.position="right", 
+        plot.title=element_text(hjust=0.5))
+
+# Display the plots
+plot_top_10_economies
+```
+  
+**Key Findings from the Financial Analysis of Top 10 Economies (2015-2020):**
+
+1) **United States' Negative Trend:** The `United States`, despite being one of the world's top economies, has consistently shown a negative `Total Current + Capital Account` from `2015` to `2020`. This could be indicative of the country's trade deficits or other financial outflows exceeding inflows.
+
+2) **Consistent Players:** Countries like `Germany` and `France` exhibit stability in their trends throughout the period, suggesting consistent economic policies and limited exposure to volatile global economic shifts.
+
+3) **Year of Change - 2018:** Several countries, most notably `China`, exhibit a significant shift in `2018`. This could point to global economic events or country-specific policies that impacted their financial metrics.
+
+4) **China's Volatility:** `China`, one of the world's largest economies, shows significant volatility. The large dip around `2018` followed by a recovery suggests major economic transactions or policy shifts during this period.
+
+5) **Converging Trends Post-2018:** After `2018`, there's a noticeable convergence in the trends of several countries, suggesting a possible global economic stabilization or a shared response to common economic challenges.
+
+```{r, warning=FALSE, fig.width=9, fig.height=6}
+# Filter data for the top 10 emerging economies
+top_10_emerging_data <- subset(long_data, Country %in% top_10_emerging_countries)
+
+# Plot for top 10 emerging economies
+plot_top_10_emerging <- ggplot(top_10_emerging_data, aes(x=Year, y=Value, group=Country, color=Country)) + 
+  geom_line(linewidth=1) + 
+  labs(title="Evolution of Total Current + Capital Account from 2015 to 2020\nfor Top 10 Emerging Economies", 
+       y="Total Current + Capital Account", 
+       x="Year") + 
+  scale_color_brewer(palette="Set3", name="Emerging Economies") + 
+    theme(legend.position="right", 
+        plot.title=element_text(hjust=0.5))
+
+# Display the plots
+plot_top_10_emerging
+```
+  
+**Insights from the Financial Landscape of Top 10 Emerging Economies (2015-2020):**
+
+1) **Varied Economic Trajectories:** While some emerging countries, like `India` and `Indonesia`, show a consistent positive trend in their `Total Current + Capital Account`, others, notably `South Africa` and `Turkey`, have been in the negative range, indicating differences in trade balances, investments, and financial strategies.
+
+2) **Brazil's Sharp Decline:** `Brazil` experiences a significant drop around `2018`, suggesting potential economic challenges or significant financial outflows during that year.
+
+3) **China's Dominance:** `China`, despite being categorized as an emerging country, displays values much higher in magnitude than the others, reinforcing its unique position as both a leading global economy and an emerging market.
+  
+4) **India's Rising Debt:** India's `Debt Securities` shows a significant increase, hinting at increased borrowing or bond issuances, potentially to fund its developmental projects.
+
+5) **Yearly Fluctuations:** Countries like `Indonesia` and `Mexico` show year-to-year variations, suggesting the influence of short-term domestic policies or external economic factors.
+  
+  
+
+### How does the distribution of 'Net Acquisition of Financial Assets' look like for countries in 2020? Are there outliers?
+  
+**Real-world implications:**
+  
+1) **Understanding Economic Health:** The distribution of `Net Acquisition of Financial Assets` can provide insights into how countries are managing their finances, specifically in terms of acquiring assets in `2020`.
+  
+2) **Economic Strategies and Policies:** By identifying outliers, we can pinpoint countries that deviate significantly from the average. This could be due to unique economic strategies, policies, or circumstances faced by those nations.
+  
+3) **Financial Stability and Risk:** Countries with extremely high or low net acquisitions might be seen as more volatile or risky from an investment perspective. On the other hand, countries close to the median or mean might be perceived as more stable.
+
+(Log transformation was applied to handle vast data ranges and reduce outlier influence, ensuring clearer visualizations and robust analysis for both, the histogram, and the box plot.)
+  
+```{r, warning=FALSE, fig.width=9, fig.height=6}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Extract the data for the 'Net Acquisition of Financial Assets' in 2020
+data_2020 <- relevant_financial_metrics$X2020[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars"]
+
+# Calculate statistics for the original data
+mean_value <- mean(data_2020, na.rm = TRUE)
+median_value <- median(data_2020, na.rm = TRUE)
+max_value <- max(data_2020, na.rm = TRUE)
+
+# Calculate statistics for the original data
+Q1 <- quantile(data_2020, 0.25, na.rm = TRUE)
+Q3 <- quantile(data_2020, 0.75, na.rm = TRUE)
+IQR_value <- IQR(data_2020, na.rm = TRUE)
+lower_whisker <- Q1 - 1.5 * IQR_value
+upper_whisker <- Q3 + 1.5 * IQR_value
+range_value <- range(data_2020, na.rm = TRUE)
+outliers <- data_2020[data_2020 < lower_whisker | data_2020 > upper_whisker]
+
+# Apply a log transformation to the data; adding a small constant to handle zeros or negative values
+log_data_2020 <- log(data_2020 + max(abs(data_2020))*1.01) 
+
+# Calculate statistics for the transformed data
+mean_log_value <- mean(log_data_2020, na.rm = TRUE)
+median_log_value <- median(log_data_2020, na.rm = TRUE)
+
+# Plotting the histogram
+ggplot(data.frame(Value=log_data_2020), aes(x=Value)) +
+  geom_histogram(binwidth=0.05, fill="blue", alpha=0.7) +  
+  geom_vline(aes(xintercept=mean_log_value), color="red", linetype="dashed", size=1) +
+  geom_vline(aes(xintercept=median_log_value), color="green", linetype="dashed", size=1) +
+  annotate("text", x = mean_log_value + 1, y = 30, label = paste("Mean:", round(mean_log_value, 2))) +
+  annotate("text", x = median_log_value + 1, y = 20, label = paste("Median:", round(median_log_value, 2))) +
+  labs(title="Log-transformed Distribution of Net Acquisition of Financial Assets in 2020",
+       x="Log-transformed Net Acquisition of Financial Assets",
+       y="Number of Countries") + 
+  theme(legend.position="right", 
+        plot.title=element_text(hjust=0.5))
+```
+
+    
+**Summary of Net Acquisition of Financial Assets in 2020:**
+
+1) **Median Acquisition:** Most countries have a net acquisition of financial assets less than  `75.5 million` USD in `2020`.
+
+2) **Highest Acquisition:** The highest net acquisition of financial assets among all countries in `2020` was `795 billion` USD.
+
+3) **Average Acquisition:** On average, countries had a net acquisition of financial assets of about `21.74 billion` USD in `2020`
+
+4) **Distribution Shape:** The majority of countries display a concentrated, low net acquisition, suggesting a global trend or cautious financial behavior in `2020`.
+
+5) **Presence of Outliers:** The considerable gap between the highest acquisition (795 billion USD) and the median (75.5 million USD) indicates that there are countries with exceptionally high financial asset acquisitions, diverging from the norm. These could be global financial hubs or countries with unique financial activities in `2020`.
+
+6) **Right-Skewed Distribution:** Most countries have modest net acquisitions, but a few report significantly higher values, indicating varied financial strategies or conditions.
+  
+```{r}
+# Determine the 1st and 3rd quartiles and IQR
+Q1 <- quantile(log_data_2020, 0.25)
+Q3 <- quantile(log_data_2020, 0.75)
+IQR_value <- IQR(log_data_2020)
+
+# Using ggplot2 to create a boxplot with customized y-axis limits
+ggplot(data.frame(Value=log_data_2020), aes(x="", y=Value)) +
+  geom_boxplot(fill="lightblue", color="blue", outlier.shape=NA) +
+  geom_hline(yintercept = median(log_data_2020), linetype="dashed", color = "red", size=0.5) +  # Median line
+  labs(title="Boxplot of Log-transformed Net Acquisition of Financial Assets in 2020",
+       x = "Net Acquisition of Financial Assets",
+       y="Log-transformed Net Acquisition of Financial Assets") + 
+  theme_minimal() +
+    theme(plot.title=element_text(hjust=0.6)) +
+  coord_cartesian(ylim=c(Q1 - 0.5*IQR_value, Q3 + 0.5*IQR_value))  
+```
+  
+**Insights from the Net Acquisition of Financial Assets in 2020:**
+
+1) **Central Acquisition Trend:** Half of the countries had a net acquisition of financial assets less than `75.5 million` USD in `2020`, indicating a modest median value midst a large spread.
+
+2) **Variability in Acquisitions:** The middle `50%` of countries' net acquisitions ranged from virtually nothing (or even slight losses) up to `4.67 billion` USD, highlighting a vast disparity in financial asset acquisitions.
+
+3) **Overall Acquisition Extremes:** The overall range of net acquisitions spanned from a net loss of `6.42 billionr` USD to a remarkable gain of `795.47 billion` USD.
+
+4) **Identifying Anomalies:** There were `31` countries whose net acquisitions were notably higher or lower than the general trend, warranting further investigation into their unique financial contexts.
+
+5) **Typical Acquisition Ranges:** The whiskers extend from `-7 billion` to `11.67 billion`, encompassing the typical range of acquisitions, while outliers lie beyond this span.
+  
+These conclusions underscore the varied financial positions and strategies of countries in `2020`, with some nations demonstrating significant prowess or challenges in their net acquisitions of financial assets.
+
+
+### Do countries with higher average 'Equity and Investment Fund Shares' over the period 2015-2020 also possess higher average 'Debt Securities' during the same period?
+
+In the financial world, both `Equity and Investment Fund Shares` and `Debt Securities` are ways to raise capital. The former refers to ownership in a company or investment fund, while the latter represents borrowing, typically through issuing bonds.
+
+If countries with higher average equity and investment fund shares also tend to have higher debt securities, it could indicate several things:
+
+1) **Balanced Financial Instruments:** The country is leveraging both ownership (equity) and borrowing (debt) as means to finance its operations, projects, or investments.
+
+2) **Economic Growth and Infrastructure Development:** The country might be in a phase of rapid growth or infrastructure development, which requires significant capital. This capital is sourced both from equity investments and borrowings.
+
+```{r}
+# filter the data for the two indicators
+equity_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars", ]
+debt_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, US Dollars", ]
+
+# Calculate the mean for the years 2015-2020 for each country
+equity_data$mean_equity <- rowMeans(equity_data[,c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+debt_data$mean_debt <- rowMeans(debt_data[,c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+
+# Merge the datasets by country
+merged_data <- merge(equity_data[,c("Country", "mean_equity")], debt_data[,c("Country", "mean_debt")], by="Country")
+
+# Calculate the correlation
+correlation <- cor(merged_data$mean_equity, merged_data$mean_debt, use="complete.obs")
+
+```
+  
+**Correlation Analysis of Average 'Equity and Investment Fund Shares' and 'Debt Securities' (2015-2020):**
+
+The Pearson's correlation coefficient is  ``r correlation`` which is quite substantial, suggesting a strong positive linear relationship between the two variables.
+
+This positive correlation suggests several potential real-world scenarios:
+
+1) **Investment Attraction:** Countries that attract more equity investments might be perceived as economically stable or promising, leading to more investments in their debt securities as well.
+
+2) **Economic Policies:** Some countries might have policies that promote both `equity` and `debt` investments, leading to growth in both areas.
+
+However, it's essential to remember that **correlation does not imply causation**. While the two variables move together, it doesn't necessarily mean that an increase in one causes an increase in the other.
+  
+```{r, fig.width=9, fig.height=6}
+
+# filter the data for the two indicators
+equity_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares, US Dollars", ]
+debt_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, US Dollars", ]
+
+# Calculate the mean for the years 2015-2020 for each country
+equity_data$mean_equity <- rowMeans(equity_data[,c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+debt_data$mean_debt <- rowMeans(debt_data[,c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+
+# Merge the datasets by country
+merged_data <- merge(equity_data[,c("Country", "mean_equity")], debt_data[,c("Country", "mean_debt")], by="Country")
+
+# Create a new column to identify whether the country is a top economy or emerging
+merged_data$Type <- ifelse(merged_data$Country %in% top_10_Economic_Countries, "Top Economy", "Emerging Country")
+
+# Scatter plot differentiating between the top 10 economies and the top 10 emerging countries
+ggplot(merged_data, aes(x=mean_equity, y=mean_debt, color=Type)) + 
+  geom_point(aes(shape=Type), size=3) +  
+  labs(title="Average Equity vs. Average Debt Securities (2015-2020)",
+       x="Average Equity and Investment Fund Shares",
+       y="Average Debt Securities") +
+  theme(legend.position="right", plot.title=element_text(hjust=0.5)) +
+  scale_color_manual(values=c("Top Economy"="blue", "Emerging Country"="red")) +
+  scale_shape_manual(values=c("Top Economy"=19, "Emerging Country"=17))  
+
+```
+
+**Differentiation between Top Economies and Emerging Countries:**
+
+1) **Top Economies (Blue Circles):** These countries are generally positioned towards the top-right of the graph, indicating they have higher averages for both `equity & investment` fund shares and `debt securities`. This might suggest that their financial markets are more mature and active, leading to greater financial asset acquisitions.
+  
+2) **Emerging Countries (Red Triangles):** These countries are more spread out but generally occupy the mid to lower sections of the plot. While some emerging countries exhibit high levels of either `equity` or `debt`, they don't consistently rank high in both categories. This may suggest that their financial systems are still in the development phase or have certain constraints preventing them from acquiring as many assets as top economies.
+  
+From a real-world perspective, this scatter plot provides insights into the financial health and strategies of countries. `Top economies`, with their mature financial markets, are actively involved in both `equity investments` and acquiring `debt securities`. Emerging countries, while showing potential and growth, exhibit more variability, which could be due to multiple factors like economic policies, geopolitical issues, or developmental stages.
+  
+  
+  
+### Hypothesis: 
+  
+```{r, fig.width=9, fig.height=6}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Extracting data
+supplementary_accnts_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars", ]
+financial_accnts_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars", ]
+
+# Calculating averages for 2015-2020
+supplementary_accnts_data$average <- rowMeans(supplementary_accnts_data[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+financial_accnts_data$average <- rowMeans(financial_accnts_data[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+
+# Combine the data for boxplot
+boxplot_data <- data.frame(
+  Value = c(supplementary_accnts_data$average, financial_accnts_data$average),
+  Type = c(rep("Total Current + Capital Account", nrow(supplementary_accnts_data)), 
+           rep("Net Acquisition of Financial Assets", nrow(financial_accnts_data)))
+)
+
+# Determine the 1st and 3rd quartiles and IQR for the y-axis limits
+Q1_supplementary <- quantile(supplementary_accnts_data$average, 0.25, na.rm = TRUE)
+Q3_supplementary <- quantile(supplementary_accnts_data$average, 0.75, na.rm = TRUE)
+IQR_supplementary <- IQR(supplementary_accnts_data$average, na.rm = TRUE)
+
+Q1_financial <- quantile(financial_accnts_data$average, 0.25, na.rm = TRUE)
+Q3_financial <- quantile(financial_accnts_data$average, 0.75, na.rm = TRUE)
+IQR_financial <- IQR(financial_accnts_data$average, na.rm = TRUE)
+
+# Using ggplot2 to create a boxplot with customized y-axis limits
+ggplot(boxplot_data, aes(x=Type, y=Value)) +
+  geom_boxplot(fill="lightblue", color="blue", outlier.color="red", outlier.shape=16) +
+  labs(title="Comparison of Averages for 2015-2020",
+       y="Average Value", 
+       x="Attribute") + 
+  theme_minimal() +
+  theme(plot.title=element_text(hjust=0.6)) +
+  coord_cartesian(ylim=c(min(Q1_supplementary - 1.5*IQR_supplementary, Q1_financial - 1.5*IQR_financial), 
+                         max(Q3_supplementary + 1.5*IQR_supplementary, Q3_financial + 1.5*IQR_financial)))
+```
+  
+  
+**Combined Statistical Insights from T-Test Analysis and the Boxplot:**
+
+1) **Spread of Data:** While the interquartile range (IQR) for the `Net Acquisition of Financial Assets` is broader, indicating more variability in its values, it doesn't conclusively show that the averages of the two data sets are significantly different.
+
+2) **Presence of Outliers:** The `Net Acquisition of Financial Assets` has numerous outliers, but this doesn't necessarily imply a difference in averages. It does suggest diverse financial strategies or situations among countries.
+
+3) **Overall Distribution:** Both data sets display a concentration of values around their respective medians, further supporting the lack of evidence for a difference in their averages.
+
+4) **Conclusion Alignment:** The box plot visually aligns with the t-test result, suggesting that there's insufficient evidence to conclude a significant difference in the averages of the `Total Current + Capital Account` and the `Net Acquisition of Financial Assets` for the years 2015-2020.
+
+**Financial Balance Observed:** Over 2015-2020, countries generally balanced their trade and incomes with their foreign asset acquisitions. This shows consistent financial strategies and stability globally.
+
+
 ## CURRENT ACCOUNT BALANCE 
 
 
@@ -126,14 +736,6 @@ result_df$Current_Account_Balance <- result_df$Trade_Balance + result_df$income_
 
 ```
 
-
-
-
-
-
-
-# Exploratory Data Analysis
-
 ## CURRENT ACCOUNT BALANCE FOR VARIOUS COUNTRIES
 ```{r}
 library(ggplot2)
@@ -169,7 +771,7 @@ Most of the country's current account balance lies below -5.20 billion(median= -
 
 
 ```{r}
-library(dplyr)
+
 
 
 # Sort the original data frame by the "Total" column in descending order (highest to lowest)
@@ -177,11 +779,10 @@ df_sorted_descending <- result_df %>% arrange(desc(Trade_Balance_mean))
 
 # Select the top 20 "Total" values
 top_20 <- head(df_sorted_descending, 20)
-
-
 ```
+
 ```{r}
-library(ggplot2)
+
 ggplot(top_20, aes(x = `Trade_Balance_mean`, y = `transport_Balance_mean`, color = Country)) + 
   geom_point() + 
   labs(title = "Trade vs Transport Balance by Country ", x = "Mean Trade Balance", y = "Mean Transport Balance")
@@ -189,8 +790,197 @@ ggplot(top_20, aes(x = `Trade_Balance_mean`, y = `transport_Balance_mean`, color
 ```
 
 
+Introduction-
+
+The balance of payments is a critical component of a country's economic health, revealing the intricate web of financial transactions between the country and the rest of the world. One essential aspect of this analysis is calculating trade balances. Trade balances are a reflection of the disparity between the value of a country's exports and imports, providing insights into its economic performance.
+
+In this section, we focus on specific data related to trade balances, exploring the use of trade indicators , "Current Account, Goods and Services, Credit" and "Current Account, Goods and Services, Debit", Capital Account, Total, Net, US Dollars. Our goals: determine trade balances for countries and analyze changes in net capital accounts. Additionally, we examine shifts in net capital accounts from 2015 to 2020. This paper outlines our methodology, findings, and visual representations, providing insights into international financial transactions and economic dynamics.
+
+Trade balance: The trade balance is a measure of a country's economic transactions with the rest of the world, reflecting the difference between the value of a nation's exports (goods and services sold to other countries) and its imports (goods and services purchased from other countries) over a specific period. 
 
 
+Indicators :
+
+1. Current Account, Goods and Services, Credit, US Dollars- 
+   This indicator represents the financial transactions associated with a country's international trade in goods    and services. "Credit" in this context means income generated from exports of goods and services to other       countries.
+
+2. Current Account, Goods and Services, Debit, US Dollars-
+   This indicator represents the financial transactions related to a country's imports of goods and services       from other nations. "Debit" in this context signifies the expenditures made on imports.
+
+3.  Capital Account, Total, Net, US Dollars-
+    The capital account, in the context of the balance of payments, deals with the financial flows associated       with capital transactions between a country and the rest of the world.
+   "Net" in this indicator refers to the difference between capital inflows and capital outflows.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(readr)
+BOP <- read_csv("BalanceOfPayment.csv")
+str(BOP)
+```
+FINDINGS:-
+
+1] TRADE BALANCES:-
+
+Our analysis began with the extraction of data from the "Balance of Payments" dataset. To isolate trade balance-related information, we filtered the dataset based on specific indicators:
+
+1. "Current Account, Goods and Services, Credit, US Dollars."
+2. "Current Account, Goods and Services, Debit, US Dollars."
+
+METHODOLOGY:-
+
+Calculating Trade Balances:
+
+Initially, we calculated the trade balances of all the countries for the years 2015 to 2019. This process involved subtracting the debits (imports) from the credits (exports) for each year, yielding the net trade balance.
+
+
+
+
+```{r}
+library(dplyr)
+trade_balance_data <- BOP %>%
+  filter(Indicator == "Current Account, Goods and Services, Credit, US Dollars" |
+         Indicator == "Current Account, Goods and Services, Debit, US Dollars") %>%
+  mutate(Trade_Balance_2015 = `2015` - `2020`,
+         Trade_Balance_2016 = `2016` - `2020`,
+         Trade_Balance_2017 = `2017` - `2020`,
+         Trade_Balance_2018 = `2018` - `2020`,
+         Trade_Balance_2019 = `2019` - `2020`)
+print(trade_balance_data)
+
+```
+
+
+
+
+```{r}
+country_group <- trade_balance_data %>% 
+ group_by(Country) %>%
+  mutate(difference = Trade_Balance_2015 - lag(Trade_Balance_2015, default = Trade_Balance_2015[1]))
+print(country_group)
+```
+
+EXPLORATARY DATA ANALYSIS:
+
+Furthermore, we conducted a country-specific analysis, focusing our attention on Algeria. Our initial step involved a comprehensive evaluation of Algeria's credit and debit transactions, offering crucial insights into its trade patterns at a granular level. Subsequently, we computed the disparity between credits and debits, shedding light on the country's trade balance dynamics.
+
+
+```{r}
+Country_selecter <- trade_balance_data %>% 
+  filter(Country == 'Algeria')
+print(Country_selecter)
+```
+
+
+
+```{r}
+Algeria_selected <- country_group%>% 
+  filter(Country == 'Algeria')
+print(Algeria_selected )
+```
+
+
+
+```{r}
+Algeria_tradebalance <- trade_balance_data%>% 
+  filter(Country == 'Algeria') %>%
+  select(Country, Indicator,Trade_Balance_2015, Trade_Balance_2016, Trade_Balance_2017, Trade_Balance_2018, Trade_Balance_2019)
+print(Algeria_tradebalance)
+``` 
+
+Visual Representation:-
+
+Visualizing Trade Balances with Density Plots:
+We utilized density plots to visualize Algeria's trade balances from 2015 to 2019. These plots illustrate the distribution of trade balances in two aspects: positive trade balance (exports exceeding imports) on the x-axis and negative trade balance (imports surpassing exports) on the y-axis. This graphical representation allowed us to observe the dynamics of Algeria's trade balance over the years.
+
+How Did Algeria's Trade Balances Evolve Over the Period 2015-2019?
+
+```{r}
+library(ggplot2)
+
+Algeria_tradebalance_filtered <- Algeria_tradebalance %>%
+  select(Trade_Balance_2015, Trade_Balance_2016, Trade_Balance_2017, Trade_Balance_2018, Trade_Balance_2019)
+
+
+Algeria_tradebalance_filtered_long <- tidyr::gather(Algeria_tradebalance_filtered, Year, Trade_Balance, 1:5)
+
+ 
+ggplot(Algeria_tradebalance_filtered_long, aes(x = Trade_Balance, fill = Year)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Trade Balance", y = "Density") +
+  ggtitle("Density Plot of Trade Balance for Algeria (2015-2019)")+
+  facet_wrap(~Year, scales = "free_x", ncol = 2)
+
+
+```
+The density plot illustrating Algeria's trade balance from 2015 to 2019 portrays the distribution of trade balances in a dual perspective: positive trade balances (exports exceeding imports) on the x-axis and negative trade balances (imports surpassing exports) on the y-axis.
+
+The density plot analysis reveals that Algeria maintained a positive trade balance in 2015 and 2016. However, in 2017, there was a slight increase in negative trade balances, and this trend intensified in 2018. While 2019 saw a return to a pattern similar to 2018, some fluctuations occurred mid-year. This suggests that Algeria's trade balance underwent significant shifts during this period, warranting further investigation into the factors driving these changes.
+
+This comprehensive analysis of the density plot helps us understand the dynamics of Algeria's trade balances during this period, with variations that could be attributed to shifts in trade policies, market conditions, and economic factors. These insights enable us to make informed decisions and policies concerning trade.
+
+
+Findings:
+
+Our analysis revealed intriguing insights into trade balances. By segregating data based on countries, we explored the nuances of trade balances for specific nations. For instance, our investigation focused on Algeria. We noted the disparities between credit and debit transactions over the years, gaining a comprehensive understanding of trade balance dynamics.
+
+
+
+
+2] Changes in Net Capital Accounts:
+
+In our subsequent analysis, we delved into changes in net capital accounts. Initially, we filtered the Balance of Payments (BOP) dataset to include only these specific indicators- "Capital Account, Total, Net, US Dollars." Then, we selected the relevant columns, which included country names and data for the years 2015-2020, providing a comprehensive overview of net capital accounts for all countries.
+
+We then focused on a specific case: Australia. We examined how Australia's net capital accounts changed from 2015 to 2020, offering insights into their evolution over time. This detailed examination enriched our understanding of net capital accounts and provided valuable insights into economic trends.
+
+
+```{r}
+
+Net_countries <- BOP %>%
+  filter(Indicator == 'Capital Account, Total, Net, US Dollars') %>%
+  select(Country, '2015','2016','2017','2018','2019','2020')
+print(Net_countries)
+
+
+```
+
+EXPLORATORY DATA ANALAYSIS:
+
+
+
+```{r}
+library(tidyr)
+data_longer <- Net_countries %>%
+  filter(Country == 'Australia') %>%
+  gather(Country, Value)
+
+print(data_longer )
+```
+
+Furthermore, we employed line graphs to depict changes in net capital accounts,focusing on Australia for the years 2015 to 2020. These line graphs provided a clear and structured representation of how net capital accounts evolved over the selected time frame, offering insights into Australia's financial dynamics.
+
+```{r}
+library(ggplot2)
+
+line_graph <- ggplot(data_longer, aes(x = Country, y = Value, group = 1)) +
+  geom_line() + 
+  geom_point() + 
+  labs(x = "Years", y = "Net Capital Account in USD") +
+  ggtitle("Net Capital Account of Australia over the years 2015-2020")
+
+print(line_graph)
+
+```
+
+In our analysis of the net capital account of Australia from 2015 to 2020, we observed significant fluctuations. The initial years, particularly 2017 and 2018, showed notable increases, suggesting heightened capital movements. However, a pivotal moment occurred in 2019, with a substantial decrease in the net capital account, marking a turning point in the data. The lowest point was reached in 2020, indicating a need for closer scrutiny.
+
+This graph emphasized the importance of monitoring net capital accounts over time to assess a country's financial stability and identify potential economic trends and challenges. The fluctuations we observed in this period prompted further analysis to understand the underlying factors driving these changes and their implications for Australia's economic landscape.
+
+Findings: 
+Our research extended to net capital accounts, with a specific focus on Australia. We tracked changes in net capital accounts from 2015 to 2020. The findings unveiled fluctuations in the country's net capital account over this period, demonstrating the influence of various economic factors.
 
 
 
@@ -198,6 +988,60 @@ ggplot(top_20, aes(x = `Trade_Balance_mean`, y = `transport_Balance_mean`, color
 
 
 # Hypothesis Testing
+
+```{r}
+data_borrowers <- transition_to_borrowers
+data_lenders <- transition_to_lenders
+data_borrowers$Group <- "Borrower"
+data_lenders$Group <- "Lender"
+combined_data_2020 <- rbind(data_borrowers, data_lenders)
+model_2020 <- aov(X2020 ~ Group, data = combined_data_2020)
+summary(model_2020)
+```
+
+**The null hypothesis (H0) in ANOVA is that there is no significant difference between the groups (i.e., the means of X2020 are equal for Borrowers and Lenders).** 
+**The alternative hypothesis (Ha) is that there is a significant difference between the groups.**
+
+The average 'Total Current + Capital Account' is equal to the average 'Net Acquisition of Financial Assets' for countries in 2020.
+  
+This hypothesis aims to determine if the combined total of the current and capital accounts for countries (which includes trade balances and primary incomes) is equivalent to the net increase in a country's holdings of foreign financial assets. In simple terms, it's comparing the overall balance of payments with how much new foreign financial assets a country is acquiring.
+
+If the hypothesis is true, it might suggest that, on average, countries are maintaining a balance between their trade and income flows and their acquisition of foreign financial assets. If it's not true, then countries might be leaning more towards either maintaining their trade balances or acquiring foreign assets, which could have implications for their overall financial health and strategy.
+
+**Null Hypothesis (Ho):** The average `Total Current + Capital Account` is equal to the average `Net Acquisition of Financial Assets` for countries in 2020.
+
+**Alternative Hypothesis (Ha):** The average `Total Current + Capital Account` is not equal to the average `Net Acquisition of Financial Assets` for countries in 2020.  
+
+```{r, include = FALSE}
+
+# Extracting data
+supplementary_accnts_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars", ]
+financial_accnts_data <- relevant_financial_metrics[relevant_financial_metrics$Indicator == "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars", ]
+
+# Calculating averages for 2015-2020
+supplementary_accnts_data$average <- rowMeans(supplementary_accnts_data[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+financial_accnts_data$average <- rowMeans(financial_accnts_data[, c("X2015", "X2016", "X2017", "X2018", "X2019", "X2020")], na.rm = TRUE)
+
+# T-test
+t_test_result <- t.test(supplementary_accnts_data$average, financial_accnts_data$average)
+
+# Print the t-test result
+print(t_test_result)
+
+# Boxplot
+boxplot(supplementary_accnts_data$average, financial_accnts_data$average, names=c("Total Current + Capital Account", "Net Acquisition of Financial Assets"), main="Comparison of Averages", ylab="Value", xlab="Dataset")
+
+```
+  
+p-value: `0.05186`.
+  
+**Interpretations from the two sample t-test:**
+
+1) **Statistical Significance:** The p-value is slightly above 0.05, which means, at the `5%` significance level, we fail to reject the null hypothesis. This suggests that there isn't enough statistical evidence to say that the average `Total Current + Capital Account` is different from the average `Net Acquisition of Financial Assets` over the period `2015-2020`.
+
+2) **Real-World Implication:** Even though the sample means of the two indicators seem considerably different, when accounting for the variability within each group, this difference isn't statistically significant at the 5% level. In practical terms, this means that, on average, countries' total balance of payments (current + capital account) is not significantly different from their net acquisition of foreign financial assets over this period. This could suggest a certain level of financial equilibrium in global economies during this period, where the funds flowing in and out (including trade and primary incomes) balance out with the acquisition of foreign assets.
+
+3) **Confidence Interval Interpretation:** The `95% confidence interval` suggests that the true difference in means between the two indicators lies somewhere between -23.68 billion and 95.65 million. Given that this interval is very close to 0 and includes 0, it further supports the notion that there might not be a significant difference between the two means.
 
 # Conclusion
 
