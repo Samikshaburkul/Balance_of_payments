@@ -21,10 +21,6 @@ Following dquestion represents one of the SMART question, which is 'specfic'. he
 TRADE BALANCE: 1) What is the trade balance for a specific country over a particular time period?
 SOLUTION:
 
-# Following code is to form a dataset of all the credits and debits of current accounts and goods and services of all the countries from the particular time period 2015- 2020, on the basis of credits and debits we could find the trade balance of all the countries.
-#Here, we are using the following Indicators : "Current Account, Goods and services, Credit, US Dollars" and "Current Account, Goods and Services, Debit, US Dollars"
-
-
 ```{r}
 library(dplyr)
 
