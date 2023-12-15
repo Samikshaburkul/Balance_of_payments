@@ -157,7 +157,7 @@ library(dplyr)
 library(tidyr)
 
 
-# Define the mapping of old and new indicator names
+# Define the mapping of old and the new indicator names
 indicator_mapping <- setNames(
   c("Net_Lending_Borrowing_Balance", "Current_Account_Credit", 
     "Current_Account_Debit", "Financial_Loans_Net_Liabilities", 
