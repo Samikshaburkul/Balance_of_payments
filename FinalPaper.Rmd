@@ -1,0 +1,433 @@
+---
+title: "Modeling Phase"
+author: "Team 7"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    code_folding: hide
+    number_sections: false
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+
+```{r init, include=F}
+# The package "ezids" (EZ Intro to Data Science) includes some helper functions we developed for the course. 
+# Some of the frequently used functions are loadPkg(), xkabledply(), xkablesummary(), uzscale(), etc.
+# You will need to install it (once) from GitHub.
+# library(devtools)
+# devtools::install_github("physicsland/ezids")
+# Then load the package in your R session.
+library(ezids)
+```
+
+```{r setup, include=FALSE}
+# Some of common RMD options (and the defaults) are: 
+# include=T, eval=T, echo=T, results='hide'/'asis'/'markup',..., collapse=F, warning=T, message=T, error=T, cache=T, fig.width=6, fig.height=4, fig.dim=c(6,4) #inches, fig.align='left'/'center','right', 
+knitr::opts_chunk$set(warning = F, message = F)
+# Can globally set option for number display format.
+options(scientific=T, digits = 3) 
+# options(scipen=9, digits = 3) 
+```
+
+```{r}
+library(dplyr)
+library(rpart)
+library(rpart.plot)
+library(reshape2)
+library(ggplot2)
+library(reshape2)
+library(fastDummies)
+library(caret)
+```
+1 INTRODUCTION
+The Balance of Payments Statistics (BOPS) database remains a pivotal reservoir of information, offering profound insights into the intricate web of global economic transactions. This repository enlightens us on cross-border trade, delineating a country's earnings from exports, expenditures on imports, and the reciprocal investments between nations. Such information stands as a compass guiding governmental policies and commercial strategies, shaping decisions pertaining to trade dynamics and international investments. The BOPS database, a repository sourced from multifarious countries, sheds light on the methodologies and frameworks employed in curating and organizing this invaluable economic data.
+
+1.1 PROBLEM STATEMENTS
+Project 2 endeavors to conduct a comprehensive analysis of critical economic indicators, notably focusing on Capital Accounts, Net Lending/Borrowing, and Balance on Goods, Services, and Income. Leveraging a dataset spanning the timeline from 2015 to 2020, this study aims to discern trends, correlations, and the ramifications of these indicators on economic evolution. The focus remains on delineating temporal shifts, interrelations among diverse accounts, and the overall stability within the global economic landscape. The outcomes of this research are poised to furnish insights vital for policymakers, economists, and researchers navigating the labyrinth of global economic trends and their far-reaching implications.
+
+1.2 DATA
+The Balance of Payments (BOP) dataset, a cornerstone of this investigation, encompasses a voluminous archive comprising approximately 5000 rows, encapsulating myriad economic transactions among nations across the globe. This dataset stands as an indispensable repository, chronicling the nuances and intricacies of international financial relationships over the specified years. The dataset is meticulously categorized into salient components, encompassing the Current Account, Capital Account, and Financial Account. These components meticulously track the trade in goods and services, income derived from foreign investments, and the interplay of financial assets among nations, thereby elucidating each country's economic interconnections with the global community. With its rich repository of records on lending, borrowing, trade, and investments, this dataset serves as a treasury of insights into global financial dynamics, enabling profound analyses that illuminate trends, anomalies, and case studies shaping international economics.
+
+1.3 Data Overview:
+
+The dataset for Project 2 comprises essential fields, presenting a comprehensive view of international financial transactions:
+
+X: A unique index or row number assigned to each dataset entry.
+Country: A factor variable encompassing 171 levels, representing different nations involved in financial transactions.
+Code: Another factor variable with 171 levels signifying country or transaction codes associated with financial transactions.
+Indicator: A factor variable comprising 31 levels characterizing the nature or category of financial indicators.
+Icode: A factor variable, similar to "Indicator," with 31 levels providing additional code information associated with financial indicators.
+X2015 to X2020: Numerical columns representing financial data from 2015 to 2020, likely in US Dollars, delineating various financial indicators and transactions for each country.
+This dataset serves as a comprehensive repository, encapsulating intricate details of international financial interactions, facilitating nuanced analyses of trends, anomalies, and case studies that significantly impact global economics.
+
+
+
+
+```{r, eval= FALSE}
+df <- read.csv('BalanceOfPayment.csv', header = TRUE)
+
+indicator_country_count <- df %>%
+  group_by(Indicator) %>%
+  summarise(UniqueCountries = n_distinct(Country))
+
+total_countries <- n_distinct(df$Country)
+
+common_indicators <- filter(indicator_country_count, UniqueCountries == total_countries)
+
+filtered_data <- dplyr::filter(df, Indicator %in% common_indicators$Indicator)
+
+#write.csv(filtered_data, "filtered_data_1.csv", row.names = FALSE)
+
+data <- read.csv('filtered_data_1.csv', stringsAsFactors = FALSE)
+
+data <- data %>%
+  mutate(Indicator = case_when(
+    Indicator == "Net Lending (+) / Net Borrowing (-) (Balance from Current and Capital Account), US Dollars" ~ "Net_Lending_Borrowing_Balance",
+    Indicator == "Current Account, Goods and Services, Credit, US Dollars" ~ "Current_Account_Credit",
+    Indicator == "Current Account, Goods and Services, Debit, US Dollars" ~ "Current_Account_Debit",
+    Indicator == "Financial Account, Other Investment, Loans, Net Incurrence of Liabilities, US Dollars" ~ "Financial_Loans_Net_Liabilities",
+    Indicator == "Financial Account, Other Investment, Loans, US Dollars" ~ "Financial_Loans_Total",
+    Indicator == "Current Account, Goods and Services, Services, Transport, Credit, US Dollars" ~ "Transport_Services_Credit",
+    Indicator == "Current Account, Goods and Services, Services, Transport, Debit, US Dollars" ~ "Transport_Services_Debit",
+    Indicator == "Supplementary Items, Reserve Assets (with Fund Record), US Dollars" ~ "Supplementary_Reserve_Assets",
+    Indicator == "Supplementary Items, Total Current + Capital Account, US Dollars" ~ "Supplementary_Current_Capital",
+    TRUE ~ Indicator
+  ))
+
+#write.csv(data, 'filtered_data_2.csv', row.names = FALSE)
+
+df_BOP <-read.csv('filtered_data_2.csv',header = TRUE)
+
+
+columns_to_subtract <- c('X2015', 'X2016', 'X2017', 'X2018', 'X2019', 'X2020')
+column_to_replace <- 'Indicator'
+
+b <- which(df_BOP$Indicator == 'Current_Account_Credit')
+a <- which(df_BOP$Indicator == 'Current_Account_Debit')
+
+
+for (i in seq_along(a)) {
+  df_BOP[a[i], columns_to_subtract] <- df_BOP[a[i], columns_to_subtract] - df_BOP[b[i], columns_to_subtract]
+}
+
+df_BOP[a, column_to_replace] <- 'CURRENT_ACCOUNT_NET'
+df_BOP <- df_BOP[-b, ]
+
+d <- which(df_BOP$Indicator == 'Financial_Loans_Net_Liabilities')
+c <- which(df_BOP$Indicator == 'Financial_Loans_Total')
+
+for (i in seq_along(c)) {
+  df_BOP[c[i], columns_to_subtract] <- df_BOP[c[i], columns_to_subtract] + df_BOP[d[i], columns_to_subtract]
+}
+
+df_BOP[c, column_to_replace] <- 'FINANCIAL_LOANS'
+df_BOP <- df_BOP[-d, ]
+
+f <- which(df_BOP$Indicator == 'Transport_Services_Credit')
+e <- which(df_BOP$Indicator == 'Transport_Services_Debit')
+
+for (i in seq_along(e)) {
+  df_BOP[e[i], columns_to_subtract] <- df_BOP[e[i], columns_to_subtract] - df_BOP[f[i], columns_to_subtract]
+}
+
+df_BOP[e, column_to_replace] <- 'TRANSPORT_SERVICES_NET'
+
+rows_to_remove <- which(df_BOP$Indicator == 'Transport_Services_Credit')
+
+df_BOP <- df_BOP[-rows_to_remove, ]
+
+h <- which(df_BOP$Indicator == 'Supplementary_Reserve_Assets')
+g <- which(df_BOP$Indicator == 'Supplementary_Current_Capital')
+
+for (i in seq_along(g)) {
+  df_BOP[g[i], columns_to_subtract] <- df_BOP[g[i], columns_to_subtract] + df_BOP[h[i], columns_to_subtract]
+}
+
+df_BOP[g, column_to_replace] <- 'SUPPLEMENTARY_NET'
+rows_to_remove <- which(df_BOP$Indicator == 'Supplementary_Reserve_Assets')
+
+df_BOP <- df_BOP[-rows_to_remove, ]
+
+df1_BOP <- df_BOP
+df2_BOP <- df_BOP
+e
+columns_to_remove <- c('X.1', 'X', 'Code', 'Icode', 'X2015', 'X2016', 'X2017', 'X2018', 'X2019')
+
+df2_BOP <- df2_BOP[, !(names(df2_BOP) %in% columns_to_remove)]
+
+columns_to_remove <- c('X.1', 'X', 'Code', 'Icode', 'X2020')
+
+df1_BOP <- df1_BOP[, !(names(df1_BOP) %in% columns_to_remove)]
+
+df1_BOP$average <- rowMeans(df1_BOP[, (ncol(df1_BOP)-4):ncol(df1_BOP)], na.rm = TRUE)
+
+columns_to_remove <- c('X2015', 'X2016', 'X2017', 'X2018', 'X2019')
+
+df1_BOP <- df1_BOP[, !(names(df1_BOP) %in% columns_to_remove)]
+
+
+
+df1_new_BOP <- dcast(df1_BOP, Country ~ Indicator, value.var = "average")
+
+names(df1_new_BOP) <- gsub("^.*\\.", "", names(df1_new_BOP))
+
+
+
+df2_new_BOP <- dcast(df2_BOP, Country ~ Indicator, value.var = "X2020")
+
+names(df2_new_BOP) <- gsub("^.*\\.", "", names(df2_new_BOP))
+
+```
+
+
+### Feature Engineering
+
+In the development of a robust predictive model for financial indicators across various countries, our initial dataset encompassed a broad range of 20 to 31 indicators per country. Recognizing the need for a streamlined and uniform approach to analysis, we commenced by identifying a common set of indicators present across all nations, which culminated in a refined set of nine indicators per country.
+
+#### Data Preprocessing and Transformation:
+
+The preprocessing phase was meticulous and structured. Given the variation in the number of indicators across countries, we focused on homogenizing the dataset by retaining only those indicators that were common across all entities. This standardization step was pivotal to ensure that subsequent analyses were consistent and comparable.
+
+The transformation phase involved an astute categorization of the indicators into five distinct subcategories, reflecting key financial constructs:
+
+1) Capital Accounts Net
+2) Financial Loans
+3) Supplementary Net
+4) Transport Services Net
+5) Net Lending Borrowing Balance
+
+The aggregation process involved a methodical consolidation of related financial metrics. For instance, `Financial_Loans_Net_Liabilities` and `Financial_Loans_Total` were synthesized into a singular `Financial Accounts` category. Similarly, `Current_Account_Credit` and `Current_Account_Debit` coalesced into `Current Accounts Net`, with analogous processes for `Transport Services Net` and `Supplementary Net`.
+
+#### Temporal Data Consideration and Averaging:
+
+Our dataset spanned the years 2015 to 2020, providing a temporal depth to our financial indicators. To harness this data effectively, we calculated the average for all corresponding indicators from 2015 to 2019. This averaged data formed the backbone of our training set, while the data from 2020 was judiciously reserved for testing the model's predictive prowess.
+
+#### Correlation Analysis and Model Foundation:
+
+A comprehensive exploratory data analysis (EDA) and a detailed correlation plot revealed intrinsic relationships between the indicators. Notably, `Net Lending Borrowing Balance` emerged as a pivotal variable, exhibiting significant correlations with all other indicators. Armed with these insights, it was strategically determined to position `Net Lending Borrowing Balance` as the target variable, with the remaining four categories serving as predictors.
+
+This decision was not taken lightly but was the result of an iterative process of model building, leveraging various subsets of attributes and rigorous trial and error. This empirical approach ensured that our model was grounded in statistical significance rather than conjecture.
+
+#### Standardization of Variables:
+
+To neutralize the disparities in the scales of various financial metrics, we implemented a standardization procedure. This normalization of the variables ensured that the mean of each was zero and the standard deviation was one. Standardization is a crucial step as it not only facilitates a fair comparison between the magnitudes of different indicators but also enhances the numerical stability of the modeling algorithms. The impact of this process was evident in the improved performance and interpretability of the predictive models.
+
+The feature engineering phase was characterized by a series of methodical steps that set a strong foundation for the development of a predictive model that is both reliable and interpretable. Through careful selection and transformation of features, we have crafted a dataset that accurately reflects the financial landscape across countries, poised for the application of advanced predictive analytics. This preparation has not only facilitated a streamlined modeling process but also ensures that our findings can confidently inform strategic decisions and policy making.
+
+### Correlation Matrix
+
+```{r, eval= FALSE}
+
+selected_indicators <- c(
+  "Net_Lending_Borrowing_Balance",
+  "CURRENT_ACCOUNT_NET",
+  "FINANCIAL_LOANS",
+  "TRANSPORT_SERVICES_NET",
+  "SUPPLEMENTARY_NET"
+)
+
+selected_data <- df2_new_BOP %>%
+  select(selected_indicators)
+
+cor_matrix <- cor(selected_data, use = "pairwise.complete.obs")
+
+cor_matrix_melted <- melt(cor_matrix)
+
+ggplot(data = cor_matrix_melted, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile() +
+  scale_fill_gradient2(low = "blue", mid = "white", high = "red", midpoint = 0) +
+  theme_minimal() +
+  labs(title = "Correlation Heatmap", x = "Indicators", y = "Indicators") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+**Variables**
+
+These are likely economic or financial indicators, such as net lending/borrowing balance, current account net, financial loans, transport services net, and supplementary net.
+
+**Positive Correlation (Red Squares)**
+
+If two variables, say 'Financial Loans' and 'Current Account Net', show a red square between them, it suggests that as one increases, the other tends to increase as well.
+
+**Negative Correlation (Blue Squares)**
+
+Conversely, if the square is blue, it suggests that as one variable increases, the other tends to decrease.
+
+**No or Weak Correlation (White/Light Squares)**
+
+If the color is white or a very light shade of red or blue, it indicates that there is little or no linear relationship between the variables.
+
+### Modeling:
+
+#### Linear Regression:
+
+In our project, we employed a linear regression model to understand and predict the `Net Lending Borrowing Balance` of various countries. The model was specifically designed to forecast the 'Net Lending/Borrowing Balance' based on a set of key financial indicators: `Current Account Net`, `Financial Loans`, `Supplementary Net`, and `Transport Services Net`. These variables were carefully selected based on their relevance and potential impact on the target variable.
+
+**Suitability and Assumptions:**
+
+The linear regression model operates under several critical assumptions that were rigorously tested in our analysis. The assumption of linearity was validated by assessing the relationship patterns between independent variables and the target variable. We also examined the residuals to confirm their normal distribution and constant variance, ensuring the model’s accuracy and reliability. The absence of multicollinearity, verified through variance inflation factors (VIFs), reinforced the integrity of our predictors, ensuring that each provides unique and valuable information to the model.
+
+```{r}
+train_data <- read.csv('TrainDataBops.csv', stringsAsFactors = FALSE)
+
+test_data <- read.csv('TestDataBops.csv', stringsAsFactors = FALSE)
+
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+exclude_vars <- c('X', 'Country')
+
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_vars)), target_var)
+
+model <- lm(model_formula, data = train_data)
+
+summary_model <- summary(model)
+print(summary_model)
+
+test_data$Predictions <- predict(model, newdata = test_data)
+
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
+
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+r_squared <- cor(test_data[[target_var]], test_data$Predictions)^2
+print(paste("R-squared:", r_squared))
+
+```
+
+**Model Results:**
+
+The linear regression model demonstrated a strong fit with a high R-squared value of 0.935, suggesting that about 93.5% of the variability in the `Net Lending/Borrowing Balance` is explained by our model. The Adjusted R-squared of 0.935 supports the model's predictive power while adjusting for the number of predictors.
+
+**Key Findings:**
+
+1) **Current Account Net:** With a significant negative coefficient, this variable implies that increases in a country's current account net could potentially lead to a decrease in net lending/borrowing balance. This insight could guide countries in balancing trade and services to optimize their financial positions.
+
+2) **Supplementary Net and Transport Services Net:** These factors positively correlate with the target variable, indicating their potential as levers for improving a country's net lending/borrowing balance. These findings can inform fiscal strategies and highlight the importance of these sectors in economic health.
+
+3) **Financial Loans:** The non-significant relationship of this variable may indicate complexities in how financial loans impact the net lending/borrowing balance, warranting further investigation.
+
+**Significance and Actionable Insights:**
+
+The results of our model offer vital insights for business leaders and policymakers. Understanding the factors that significantly affect a country's net lending/borrowing balance can aid in better financial planning and policy-making. For instance, the negative influence of the current account net suggests a need for strategies to balance international trade and services.
+
+**Limitations and Recommendations:**
+
+While the model exhibits a high degree of fit, it's crucial to acknowledge potential limitations. The absence of certain economic indicators or latent variables might limit the model's scope. The model's reliance on historical data also means it might not fully capture future economic shifts or crises.
+
+**Pathways for Further Research:**
+
+Future research should aim to include a broader spectrum of economic indicators, such as political stability, foreign investment inflows, and global market trends. Incorporating data from recent global events, like the COVID-19 pandemic, could also offer fresh perspectives on the model’s variables and their interrelations. Continuous refinement and validation of the model with up-to-date data are imperative to maintain its relevance and accuracy.
+
+The linear regression model provides a robust framework for understanding the dynamics of a country's financial position. By leveraging these insights, policymakers and business leaders can make more informed decisions, ultimately contributing to better economic stability and growth. Further research and data enrichment will continue to refine these predictions, offering even more nuanced insights into the complexities of global finance.
+
+#### Decision Tree Model Analysis:
+
+In this project, a decision tree model was developed to predict the `Net Lending/Borrowing Balance` for various countries using key financial indicators: `Current Account Net`, `Financial Loans`, `Supplementary Net`, and `Transport Services Net`. This approach was chosen to explore non-linear relationships and interactions between predictors and the target variable.
+
+
+```{r}
+
+train_data <- read.csv('TrainDataBops.csv', stringsAsFactors = FALSE)
+test_data <- read.csv('TestDataBops.csv', stringsAsFactors = FALSE)
+
+target_var <- 'Net_Lending_Borrowing_Balance'
+
+continuous_vars <- c("CURRENT_ACCOUNT_NET", "FINANCIAL_LOANS", "SUPPLEMENTARY_NET", "TRANSPORT_SERVICES_NET")
+train_data[continuous_vars] <- scale(train_data[continuous_vars])
+test_data[continuous_vars] <- scale(test_data[continuous_vars])
+
+exclude_columns <- c("X", grep("Country", names(train_data), value = TRUE))
+model_formula <- reformulate(setdiff(names(train_data), c(target_var, exclude_columns)), target_var)
+
+tree_model <- rpart(model_formula, 
+                    data = train_data, 
+                    method = "anova", 
+                    control = rpart.control(cp = 0.01, minsplit = 20, maxcompete = 4, maxsurrogate = 5))
+
+test_data$Predictions <- predict(tree_model, newdata = test_data)
+
+test_data$Residuals <- test_data[[target_var]] - test_data$Predictions
+rmse <- sqrt(mean(test_data$Residuals^2))
+print(paste("RMSE:", rmse))
+
+#png(filename = "/Users/sai_avinash/Documents/GitHub/Team_ASAB/Group_7_Summary Paper/tree_plot.png", width = 1024, height = 768)
+#rpart.plot(tree_model, type = 4, extra = 1)  
+#dev.off()
+
+summary(tree_model)
+
+```
+
+**Model Summary and Interpretation:**
+
+1. **Tree Structure:** The tree starts with a root node encompassing all 171 observations, branching into nodes based on the splitting criteria of the predictors.
+
+2. **Variable Importance:** 'Current Account Net' and 'Supplementary Net' emerged as the most significant predictors, indicating their strong influence on the target variable.
+
+**Node Analysis:**
+
+1. **Node 1:** The root node, with an average value of 3.44e+09 and a high MSE, indicating initial variance in the data.
+
+2. **Subsequent Nodes:** Show specific splits based on predictor thresholds. For example, Node 2 has an average value of -2.93e+09, and Node 3 shows a high mean of 1.53e+11.
+
+3. **Complexity Parameters (CP):** The model uses CP values to control tree growth, ensuring a balance between model complexity and accuracy.
+
+**Model Insights and Interpretation:**
+
+Our decision tree model, with a controlled depth to prevent overfitting, revealed the following insights:
+
+1. **Key Splits and Variables:** The model identified `Current Account Net` and `Supplementary Net` as significant splits, indicating their primary influence on the target variable. This highlights the critical role these indicators play in determining a country's net lending/borrowing balance.
+
+2. **Tree Depth and Complexity:** By limiting the tree depth, the model achieved a balance between capturing essential patterns in the data and avoiding overfitting. This ensures that the model remains generalizable and relevant for unseen data.
+
+3. **Variable Importance:** The model quantified the importance of each variable, with `Current Account Net` and `Supplementary Net` emerging as the most influential predictors. This aligns with economic theory, affirming the model's practical relevance.
+
+**Model Performance and Evaluation:**
+
+The model's performance was evaluated using the Root Mean Square Error (RMSE), which stood at 45,202,971,812.65. This value, compared to the linear model's RMSE, indicates that the decision tree was less precise in predicting the net lending/borrowing balance.
+
+**Limitations and Future Directions:**
+
+The decision tree's simplified representation might not capture all complexities in financial data. Its performance might also be affected by outliers and noise in data. Future enhancements could include exploring more sophisticated tree-based models like Random Forests or Gradient Boosting Machines for improved accuracy.
+
+The decision tree model offers valuable insights into the financial indicators' impact on a country's net lending/borrowing balance, though it's less accurate than the linear regression model. Its straightforward structure and interpretability make it a useful tool for preliminary analysis and understanding complex relationships. For policymakers and business leaders, these insights can inform initial assessments and guide deeper analyses using more complex models.
+
+**Comparison with Linear Regression Model:**
+
+1. **Linear Regression Performance:** Exhibited a lower RMSE (15,409,000,372.17) and a high R-squared value of 0.935, suggesting a strong fit to the data.
+
+2. **Decision Tree Performance:** While offering a detailed, rule-based structure, the decision tree had a higher RMSE, indicating less accuracy compared to the linear regression model.
+
+3. **Insights:** The linear regression model's lower error metrics and higher R-squared value demonstrate its superior performance over the decision tree in this context.
+
+**Conclusion and Recommendations:**
+
+1. **Model Selection:** The linear regression model is recommended for predicting 'Net Lending/Borrowing Balance' due to its better accuracy and fitting.
+
+2. **Policy Implications:** Stakeholders should consider the linear regression model for strategic decision-making and policy formulation related to financial indicators.
+
+3. **Further Research:** Exploring ensemble methods, like random forests or boosting, could improve predictive accuracy. Additionally, incorporating more diverse data spanning different economic cycles could offer more robust insights.
+
+
+#### REFERENCES
+
+
+**Shlaymoon, N. S., Jassim, A. M., & Albairmani, A. M. A. (2022). Relationship between Exchange Rate and the Current Account of the Balance of Payments: A Study in Oil Countries Selected. Webology, 19(1), 5170-5180.**
+
+**Dluhosch, B., Freytag, A., & Krüger, M. (1996). International competitiveness and the balance of payments: Do current account deficits and surpluses matter? E. Elgar Pub.**
+
+**Shlaymoon, N. S., Jassim, A. M., & Albairmani, A. M. A. (2022). Relationship between exchange rate and the current account of the balance of payments: A study in oil countries selected. Webology, 19(1), 5170-5180.**
+
+**Sharma, J., Rai, A., Rathee, N., & Mehendale, M. S. (2018). Study on factors that affect the Indian balance of payments: A methodological overview and thematic review. Asian Journal of Management, 9(1), 847.**
+
+**Alencar, D. A., & Strachman, E. (2014). Balance-of-payments-constrained growth in Brazil: 1951-2008. Journal of Post Keynesian Economics, 36(4), 673-698.**
+
